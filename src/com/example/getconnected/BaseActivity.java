@@ -35,7 +35,7 @@ abstract class BaseActivity extends Activity {
 			
 			 @Override
 			 public void onClick(View v) {
-				 System.out.println("ok");
+				 
 			 }
 	   	 });
 	     
