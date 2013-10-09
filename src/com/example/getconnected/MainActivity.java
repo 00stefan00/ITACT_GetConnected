@@ -1,7 +1,6 @@
 package com.example.getconnected;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -47,8 +46,8 @@ public class MainActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-//				Intent intent = new Intent(MainActivity.this, TransportActivity.class);
-//				startActivityForResult(intent, 1);
+				Intent intent = new Intent(MainActivity.this, MarketplaceActivity.class);
+				startActivityForResult(intent, 1);
 			}
 		});
 		

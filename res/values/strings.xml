@@ -36,5 +36,12 @@
     <string name="footer_button_back">Back</string>
     <string name="footer_button_menu">Quick Menu</string>
     <string name="footer_button_ok">OK</string>
+    <string name="request_ride">Request a ride</string>
+    <string name="create_ride">Create new ride</string>
+    <string name="display_requests">Display requested rides</string>
+    <string name="empty_string"></string>
+    <string name="read_more_btn">Read more</string>
+    <string name="offered_ride_string">Offered ride by person</string>
+    <string name="ride_description">Ride description ..........................................................................................................................</string>
 
 </resources>

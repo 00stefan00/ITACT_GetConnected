@@ -1,7 +1,6 @@
 package com.example.getconnected;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 
 public class TransportResultActivity extends BaseActivity {
