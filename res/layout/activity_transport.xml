@@ -7,17 +7,107 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context=".TransportActivity" >
-    
-    <include layout="@layout/header" />
-    
-    <TextView
-        android:id="@+id/TextView05"
+
+    <include
+        android:id="@+id/include1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView04"
-        android:layout_below="@+id/TextView04"
-        android:layout_marginTop="34dp"
+        layout="@layout/header" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/footer" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/transport_input_from"
+        android:text="@string/transport_text_to" />
+
+    <AutoCompleteTextView
+        android:id="@+id/transport_input_to"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignLeft="@+id/transport_input_from"
+        android:ems="10"
+        android:hint="@string/transport_input_to"
+        android:inputType="textPostalAddress"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/home_button_transport"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignLeft="@+id/transport_input_to"
+        android:layout_below="@+id/transport_input_to"
+        android:text="@string/transport_button_departure"
+        android:textSize="7sp" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/home_button_transport"
+        android:layout_alignLeft="@+id/TextView01"
+        android:text="@string/transport_text_departure" />
+
+    <Button
+        android:id="@+id/home_button_map"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignBaseline="@+id/TextView03"
+        android:layout_alignBottom="@+id/TextView03"
+        android:layout_alignLeft="@+id/home_button_transport"
+        android:text="@string/transport_button_arrival"
+        android:textSize="7sp" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_below="@+id/TextView02"
+        android:text="@string/transport_text_arrival" />
+
+    <Button
+        android:id="@+id/home_button_date"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignLeft="@+id/home_button_map"
+        android:layout_below="@+id/home_button_map"
+        android:text="@string/transport_button_date"
+        android:textSize="7sp" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/home_button_date"
+        android:layout_alignBottom="@+id/home_button_date"
+        android:layout_alignLeft="@+id/TextView03"
+        android:text="@string/transport_text_date" />
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="@string/transport_text_possibilities" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView05"
+        android:layout_below="@+id/TextView05"
+        android:layout_marginTop="22dp"
+        android:text="@string/transport_text_possibilities_bus" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -35,112 +125,27 @@
         android:layout_below="@+id/checkBox2"
         android:text="@string/transport_text_possibilities_taxi_other" />
 
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView05"
-        android:layout_below="@+id/TextView05"
-        android:layout_marginTop="23dp"
-        android:text="@string/transport_text_possibilities_bus" />
-
-    
-
-    <EditText
-        android:id="@+id/EditText01"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignTop="@+id/textView1"
-        android:layout_toRightOf="@+id/checkBox3"
-        android:ems="10"
-        android:hint="@string/transport_input_to"
-        android:inputType="textPostalAddress"
-        android:textSize="10sp" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignTop="@+id/TextView01"
-        android:layout_toRightOf="@+id/checkBox3"
-        android:ems="10"
-        android:hint="@string/transport_input_from"
-        android:inputType="textPostalAddress"
-        android:textSize="10sp" />
-
-    <Button
-        android:id="@+id/home_button_transport"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:text="@string/transport_button_departure"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/home_button_transport"
-        android:text="@string/transport_text_arrival" />
-
-    <Button
-        android:id="@+id/home_button_map"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignLeft="@+id/home_button_transport"
-        android:layout_alignTop="@+id/TextView03"
-        android:text="@string/transport_button_arrival"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView03"
-        android:layout_below="@+id/home_button_map"
-        android:text="@string/transport_text_date" />
-
-    <Button
-        android:id="@+id/home_button_marketplace"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignLeft="@+id/home_button_map"
-        android:layout_below="@+id/home_button_map"
-        android:text="@string/transport_button_date"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/home_button_transport"
-        android:layout_alignBottom="@+id/home_button_transport"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
-        android:text="@string/transport_text_departure" />
-
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/EditText01"
-        android:text="@string/transport_text_to" />
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView01"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="42dp"
+        android:layout_alignLeft="@+id/TextView05"
+        android:layout_below="@+id/include1"
+        android:layout_marginTop="21dp"
         android:text="@string/transport_text_from" />
-    
-    <include layout="@layout/footer" />
+
+    <AutoCompleteTextView
+        android:id="@+id/transport_input_from"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/textView1"
+        android:layout_toRightOf="@+id/TextView03"
+        android:ems="10"
+        android:hint="@string/transport_input_from"
+        android:inputType="textPostalAddress"
+        android:textSize="10sp" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
 
 </RelativeLayout>
