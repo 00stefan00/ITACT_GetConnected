@@ -1,0 +1,203 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context=".TransportResultActivity" >
+    
+    <include layout="@layout/header" />
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" >
+        
+        <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" 
+        />
+        <TextView
+         android:text="@string/transport_result_text_departure"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        
+        <TextView
+         android:text="@string/transport_result_text_traveltime"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="@string/transport_result_text_switch"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="@string/transport_result_text_arrival"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"  
+        />
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" >
+        
+        <TextView
+         android:text="Bus"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="22:00"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="0:45"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="0 keer"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="22:45"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text=">"
+         android:layout_width="40dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+    </TableRow>    
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" >
+        
+        <TextView
+         android:text="Bus"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="22:00"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="0:45"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="0 keer"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="22:45"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text=">"
+         android:layout_width="40dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+    </TableRow> 
+            <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+        <TextView
+         android:text="Bus"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="22:00"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="0:45"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="0 keer"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text="22:45"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+        <TextView
+         android:text=""
+         android:layout_width="40dp"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:textSize="10sp"   
+        />
+    </TableRow> 
+
+</TableLayout>

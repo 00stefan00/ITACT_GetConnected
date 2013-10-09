@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp" >
+
+    <TextView
+        android:id="@+id/footer"
+        style="@style/FooterTheme"
+        android:layout_width="96dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="15dp"
+        android:paddingTop="3dp"
+    >
+
+	</TextView>
+
+    <Button
+        android:id="@+id/footer_button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#1F3137"
+        android:text="@string/footer_button_back"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/footer_button_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/footer"
+        android:text="@string/footer_button_ok"
+        android:background="#1F3137"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/footer_button_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/footer"
+        android:layout_centerHorizontal="true"
+        android:background="#1F3137"
+        android:text="@string/footer_button_menu"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
