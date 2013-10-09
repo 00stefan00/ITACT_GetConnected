@@ -2,6 +2,7 @@ package com.example.getconnected;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -35,7 +36,16 @@ abstract class BaseActivity extends Activity {
 			
 			 @Override
 			 public void onClick(View v) {
-				 
+				 goBack();
+			 }
+	   	 });
+		 
+		 buttonHome.setOnClickListener(new OnClickListener() {
+				
+			 @Override
+			 public void onClick(View v) {
+				 Intent intent = new Intent(BaseActivity.this, MainActivity.class);
+				 startActivityForResult(intent, 1);
 			 }
 	   	 });
 	     
@@ -45,6 +55,10 @@ abstract class BaseActivity extends Activity {
 	     this.buttonOk.setVisibility(okButton ? View.VISIBLE : View.INVISIBLE); 
 	}
 	
+	protected void goBack() {
+		super.onBackPressed();
+	}
+
 	protected void disableBackButton() {
 		
 	}

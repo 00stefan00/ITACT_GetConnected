@@ -24,7 +24,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/home_button_transport"
+        android:id="@+id/transport_button_departure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TextView1"
@@ -34,12 +34,12 @@
         android:text="@string/home_button_transport" />
 
     <Button
-        android:id="@+id/home_button_map"
+        android:id="@+id/transport_button_arrival"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/home_button_transport"
-        android:layout_alignRight="@+id/home_button_transport"
-        android:layout_below="@+id/home_button_transport"
+        android:layout_alignLeft="@+id/transport_button_departure"
+        android:layout_alignRight="@+id/transport_button_departure"
+        android:layout_below="@+id/transport_button_departure"
         android:text="@string/home_button_map" />
 
     <Button
@@ -62,7 +62,7 @@
         android:id="@+id/home_button_marketplace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/home_button_map"
+        android:layout_below="@+id/transport_button_arrival"
         android:layout_centerHorizontal="true"
         android:text="@string/home_button_marktetplace" />
     

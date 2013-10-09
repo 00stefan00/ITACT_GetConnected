@@ -1,7 +1,6 @@
 package com.example.getconnected;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -22,7 +21,7 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.activity_main);
 		initLayout(R.string.title_activity_main, false, false, false, false);
 		
-		buttonTransport = (Button) findViewById(R.id.home_button_transport);
+		buttonTransport = (Button) findViewById(R.id.transport_button_departure);
 		buttonTransport.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -32,7 +31,7 @@ public class MainActivity extends BaseActivity {
 			}
 		});
 		
-		buttonMap = (Button) findViewById(R.id.home_button_map);
+		buttonMap = (Button) findViewById(R.id.transport_button_arrival);
 		buttonMap.setOnClickListener(new OnClickListener() {
 			
 			@Override

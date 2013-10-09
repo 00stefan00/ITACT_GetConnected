@@ -39,8 +39,8 @@
         android:inputType="textPostalAddress"
         android:textSize="10sp" />
 
-    <Button
-        android:id="@+id/home_button_transport"
+    <EditText
+        android:id="@+id/transport_button_departure"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_alignLeft="@+id/transport_input_to"
@@ -52,17 +52,17 @@
         android:id="@+id/TextView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/home_button_transport"
+        android:layout_alignBottom="@+id/transport_button_departure"
         android:layout_alignLeft="@+id/TextView01"
         android:text="@string/transport_text_departure" />
 
-    <Button
-        android:id="@+id/home_button_map"
+    <EditText
+        android:id="@+id/transport_button_arrival"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_alignBaseline="@+id/TextView03"
         android:layout_alignBottom="@+id/TextView03"
-        android:layout_alignLeft="@+id/home_button_transport"
+        android:layout_alignLeft="@+id/transport_button_departure"
         android:text="@string/transport_button_arrival"
         android:textSize="7sp" />
 
@@ -74,12 +74,12 @@
         android:layout_below="@+id/TextView02"
         android:text="@string/transport_text_arrival" />
 
-    <Button
-        android:id="@+id/home_button_date"
+    <EditText
+        android:id="@+id/transport_button_date"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_alignLeft="@+id/home_button_map"
-        android:layout_below="@+id/home_button_map"
+        android:layout_alignLeft="@+id/transport_button_arrival"
+        android:layout_below="@+id/transport_button_arrival"
         android:text="@string/transport_button_date"
         android:textSize="7sp" />
 
@@ -87,8 +87,8 @@
         android:id="@+id/TextView04"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/home_button_date"
-        android:layout_alignBottom="@+id/home_button_date"
+        android:layout_alignBaseline="@+id/transport_button_date"
+        android:layout_alignBottom="@+id/transport_button_date"
         android:layout_alignLeft="@+id/TextView03"
         android:text="@string/transport_text_date" />
 
@@ -139,7 +139,7 @@
         android:layout_width="160dp"
         android:layout_height="25dp"
         android:layout_alignTop="@+id/textView1"
-        android:layout_toRightOf="@+id/TextView03"
+        android:layout_toRightOf="@+id/checkBox3"
         android:ems="10"
         android:hint="@string/transport_input_from"
         android:inputType="textPostalAddress"
