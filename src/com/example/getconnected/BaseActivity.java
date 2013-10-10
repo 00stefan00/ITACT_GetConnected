@@ -46,6 +46,7 @@ abstract class BaseActivity extends Activity {
 			 public void onClick(View v) {
 				 Intent intent = new Intent(BaseActivity.this, MainActivity.class);
 				 startActivityForResult(intent, 1);
+				 finish();
 			 }
 	   	 });
 	     

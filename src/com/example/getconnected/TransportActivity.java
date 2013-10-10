@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -32,22 +31,18 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	private Date timeArrival;
 	private Date date;
 	
-	private EditText buttonDeparture;
-	private EditText buttonArrival;
-	private EditText buttonDate;
+	private EditText inputDeparture;
+	private EditText inputArrival;
+	private EditText inputDate;
 	
-	private TimeZone timeZone = TimeZone.getTimeZone("CET");
-	
-	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.GERMAN);
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.GERMAN);
+	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transport);
 	    initLayout(R.string.title_activity_transport, true, true, true, true);
-	    
-	    setTimeZones();
 	    
 	    AutoCompleteTextView autoCompViewFrom = (AutoCompleteTextView) findViewById(R.id.transport_input_from);
 	    AutoCompleteTextView autoCompViewTo = (AutoCompleteTextView) findViewById(R.id.transport_input_to);
@@ -58,12 +53,12 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	    autoCompViewTo.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.places_list_item));
 	    autoCompViewTo.setOnItemClickListener(this);
 	    
-	    buttonDeparture = (EditText) findViewById(R.id.transport_button_departure);
-	    buttonDeparture.setText(timeFormat.format(new Date()));
-	    buttonArrival = (EditText) findViewById(R.id.transport_button_arrival);
-	    buttonArrival.setText(timeFormat.format(new Date()));
-	    buttonDate = (EditText) findViewById(R.id.transport_button_date);
-	    buttonDate.setText(dateFormat.format(new Date()));
+	    inputDeparture = (EditText) findViewById(R.id.transport_button_departure);
+	    inputDeparture.setText(timeFormat.format(new Date()));
+	    inputArrival = (EditText) findViewById(R.id.transport_button_arrival);
+	    inputArrival.setText(timeFormat.format(new Date()));
+	    inputDate = (EditText) findViewById(R.id.transport_button_date);
+	    inputDate.setText(dateFormat.format(new Date()));
 	    
 		buttonOk.setOnClickListener(new OnClickListener() {
 			
@@ -79,15 +74,6 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 	}
 	
-	private void setTimeZones() {
-		timeFormat.setTimeZone(timeZone);
-	    dateFormat.setTimeZone(timeZone);
-	    
-	    calendarDeparture.setTimeZone(timeZone);
-	    calendarArrival.setTimeZone(timeZone);
-	    calendarDate.setTimeZone(timeZone);
-	}
-	
 	private void setTimePickers() {
 		final TimePickerDialog.OnTimeSetListener timeDeparturePicker = new TimePickerDialog.OnTimeSetListener() {
 
@@ -98,11 +84,11 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		        calendarDeparture.set(Calendar.MINUTE, minute);
 		        timeDeparture = calendarDeparture.getTime();
 		        
-		        buttonDeparture.setText(timeFormat.format(timeDeparture));
+		        inputDeparture.setText(timeFormat.format(timeDeparture));
 		    }
 		    
 		};
-	    buttonDeparture.setOnClickListener(new OnClickListener() {
+	    inputDeparture.setOnClickListener(new OnClickListener() {
 
 	        @Override
 	        public void onClick(View v) {
@@ -121,11 +107,11 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		        calendarArrival.set(Calendar.MINUTE, minute);
 		        timeArrival = calendarArrival.getTime();
 		        
-		        buttonArrival.setText(timeFormat.format(timeArrival));
+		        inputArrival.setText(timeFormat.format(timeArrival));
 		    }
 		    
 		};
-		buttonArrival.setOnClickListener(new OnClickListener() {
+		inputArrival.setOnClickListener(new OnClickListener() {
 
 	        @Override
 	        public void onClick(View v) {
@@ -147,12 +133,12 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		        calendarDate.set(Calendar.MONTH, monthOfYear);
 		        calendarDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 		        date = calendarDate.getTime();
-		        buttonDate.setText(dateFormat.format(date));
+		        inputDate.setText(dateFormat.format(date));
 		    }
 
 
 		};
-	    buttonDate.setOnClickListener(new OnClickListener() {
+	    inputDate.setOnClickListener(new OnClickListener() {
 
 	        @Override
 	        public void onClick(View v) {

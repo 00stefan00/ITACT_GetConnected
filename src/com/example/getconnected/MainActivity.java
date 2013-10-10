@@ -36,8 +36,8 @@ public class MainActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-//				Intent intent = new Intent(MainActivity.this, TransportActivity.class);
-//				startActivityForResult(intent, 1);
+				Intent intent = new Intent(MainActivity.this, MapActivity.class);
+				startActivityForResult(intent, 1);
 			}
 		});
 		
@@ -69,7 +69,8 @@ public class MainActivity extends BaseActivity {
 //				Intent intent = new Intent(MainActivity.this, TransportActivity.class);
 //				startActivityForResult(intent, 1);
 			}
-		});			
+		});		
+		
 	}
 
 	@Override

@@ -23,7 +23,7 @@
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/map_text_location"
         android:layout_below="@+id/transport_input_from"
         android:text="@string/transport_text_to" />
 
@@ -126,7 +126,7 @@
         android:text="@string/transport_text_possibilities_taxi_other" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/map_text_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView05"
@@ -138,7 +138,7 @@
         android:id="@+id/transport_input_from"
         android:layout_width="160dp"
         android:layout_height="25dp"
-        android:layout_alignTop="@+id/textView1"
+        android:layout_alignTop="@+id/map_text_location"
         android:layout_toRightOf="@+id/checkBox3"
         android:ems="10"
         android:hint="@string/transport_input_from"
