@@ -31,13 +31,14 @@
     <string name="transport_result_text_traveltime">Travel Time</string>
     <string name="transport_result_text_switch">Switch</string>
     <string name="transport_result_text_arrival">Arrival</string>
-    
     <string name="header_button_home">Home</string>
     <string name="footer_button_back">Back</string>
     <string name="footer_button_menu">Quick Menu</string>
     <string name="footer_button_ok">OK</string>
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="hello_world">Hello world!</string>
     <string name="display_requests">Display requested rides</string>
     <string name="empty_string"></string>
     <string name="read_more_btn">Read more</string>

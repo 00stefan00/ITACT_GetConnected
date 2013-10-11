@@ -21,7 +21,7 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.activity_main);
 		initLayout(R.string.title_activity_main, false, false, false, false);
 		
-		buttonTransport = (Button) findViewById(R.id.home_button_transport);
+		buttonTransport = (Button) findViewById(R.id.transport_button_departure);
 		buttonTransport.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -31,13 +31,13 @@ public class MainActivity extends BaseActivity {
 			}
 		});
 		
-		buttonMap = (Button) findViewById(R.id.home_button_map);
+		buttonMap = (Button) findViewById(R.id.transport_button_arrival);
 		buttonMap.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-//				Intent intent = new Intent(MainActivity.this, TransportActivity.class);
-//				startActivityForResult(intent, 1);
+				Intent intent = new Intent(MainActivity.this, MapActivity.class);
+				startActivityForResult(intent, 1);
 			}
 		});
 		
@@ -69,7 +69,8 @@ public class MainActivity extends BaseActivity {
 //				Intent intent = new Intent(MainActivity.this, TransportActivity.class);
 //				startActivityForResult(intent, 1);
 			}
-		});			
+		});		
+		
 	}
 
 	@Override
