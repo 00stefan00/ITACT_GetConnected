@@ -14,7 +14,7 @@ abstract class BaseActivity extends Activity {
 	protected Button buttonMenu;
 	protected Button buttonOk;
 	protected Button buttonHome;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,9 +44,9 @@ abstract class BaseActivity extends Activity {
 	     this.buttonMenu.setVisibility(menuButton ? View.VISIBLE : View.INVISIBLE); 
 	     this.buttonOk.setVisibility(okButton ? View.VISIBLE : View.INVISIBLE); 
 	}
-	
+
 	protected void disableBackButton() {
-		
+
 	}
 
 }
