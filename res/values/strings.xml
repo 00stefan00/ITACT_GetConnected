@@ -39,8 +39,6 @@
     <string name="create_ride">Create new ride</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_map">MapActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="display_requests">Display requested rides</string>
     <string name="empty_string"></string>
     <string name="read_more_btn">Read more</string>
