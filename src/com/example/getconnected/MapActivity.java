@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MapActivity extends Activity {
+public class MapActivity extends BaseActivity {
 
 	private Button buttonGetLocation;
 	private TextView textLocation;
@@ -18,6 +18,7 @@ public class MapActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
+		initLayout(R.string.title_activity_main, true, true, true, false);
 		
 		locator = new GPSLocator(getApplicationContext());
 		
