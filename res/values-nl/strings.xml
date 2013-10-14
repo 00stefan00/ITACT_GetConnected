@@ -31,10 +31,11 @@
     <string name="transport_result_text_traveltime">Reistijd</string>
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
-    
     <string name="header_button_home">Home</string>
     <string name="footer_button_back">Terug</string>
     <string name="footer_button_menu">Snel menu</string>
     <string name="footer_button_ok">Ok</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

@@ -53,9 +53,9 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	    autoCompViewTo.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.places_list_item));
 	    autoCompViewTo.setOnItemClickListener(this);
 	    
-	    inputDeparture = (EditText) findViewById(R.id.transport_button_departure);
+	    inputDeparture = (EditText) findViewById(R.id.home_button_transport);
 	    inputDeparture.setText(timeFormat.format(new Date()));
-	    inputArrival = (EditText) findViewById(R.id.transport_button_arrival);
+	    inputArrival = (EditText) findViewById(R.id.home_button_map);
 	    inputArrival.setText(timeFormat.format(new Date()));
 	    inputDate = (EditText) findViewById(R.id.transport_button_date);
 	    inputDate.setText(dateFormat.format(new Date()));
