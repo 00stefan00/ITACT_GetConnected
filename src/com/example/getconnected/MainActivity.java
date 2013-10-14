@@ -46,8 +46,8 @@ public class MainActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-//				Intent intent = new Intent(MainActivity.this, TransportActivity.class);
-//				startActivityForResult(intent, 1);
+				Intent intent = new Intent(MainActivity.this, MarketplaceActivity.class);
+				startActivityForResult(intent, 1);
 			}
 		});
 		
