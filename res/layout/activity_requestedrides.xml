@@ -19,105 +19,204 @@
         android:layout_height="wrap_content"
         layout="@layout/footer" />
 
-    <TextView
-        android:id="@+id/TextView01"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/map_text_location"
-        android:layout_below="@+id/transport_input_from"
-        android:text="@string/transport_text_to" />
-
-    <AutoCompleteTextView
-        android:id="@+id/transport_input_to"
-        android:layout_width="160dp"
-        android:layout_height="25dp"
-        android:layout_alignBaseline="@+id/TextView01"
-        android:layout_alignBottom="@+id/TextView01"
-        android:layout_alignLeft="@+id/transport_input_from"
-        android:ems="10"
-        android:hint="@string/transport_input_to"
-        android:inputType="textPostalAddress"
-        android:textSize="10sp" />
-
-    <EditText
-        android:id="@+id/transport_button_departure"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignLeft="@+id/transport_input_to"
-        android:layout_below="@+id/transport_input_to"
-        android:text="@string/transport_button_departure"
-        android:textSize="7sp" />
-
-    <EditText
-        android:id="@+id/transport_button_arrival"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignBaseline="@+id/TextView03"
-        android:layout_alignBottom="@+id/TextView03"
-        android:layout_alignLeft="@+id/transport_button_departure"
-        android:text="@string/transport_button_arrival"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/TextView02"
-        android:text="@string/transport_text_arrival" />
-
-    <EditText
-        android:id="@+id/transport_button_date"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignLeft="@+id/transport_button_arrival"
-        android:layout_below="@+id/transport_button_arrival"
-        android:text="@string/transport_button_date"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/transport_button_date"
-        android:layout_alignBottom="@+id/transport_button_date"
-        android:layout_alignLeft="@+id/TextView03"
-        android:text="@string/transport_text_date" />
-
-    <TextView
-        android:id="@+id/TextView05"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/orderride_expl" />
-
-    <TextView
-        android:id="@+id/map_text_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView05"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/include1"
-        android:layout_marginTop="21dp"
-        android:text="@string/transport_text_from" />
+        android:orientation="vertical" >
 
-    <AutoCompleteTextView
-        android:id="@+id/transport_input_from"
-        android:layout_width="160dp"
-        android:layout_height="25dp"
-        android:layout_alignRight="@+id/TextView05"
-        android:layout_alignTop="@+id/map_text_location"
-        android:ems="10"
-        android:hint="@string/transport_input_from"
-        android:inputType="textPostalAddress"
-        android:textSize="10sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/TextView02"
+            <TextView
+                android:id="@+id/TextView08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
+            <android.support.v7.widget.Space
+                android:id="@+id/space1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.Space
+                android:id="@+id/space2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/TextView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Groningen / Zwolle" />
+
+            <android.support.v7.widget.Space
+                android:id="@+id/space3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:30 : -" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/TextView06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <TextView
+                android:id="@+id/TextView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zwolle / Groningen" />
+
+            <TextView
+                android:id="@+id/TextView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20:00 : -" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/TextView04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3" />
+
+            <TextView
+                android:id="@+id/TextView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Groningen / Assen" />
+
+            <TextView
+                android:id="@+id/TextView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:30 : -" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4" />
+
+            <TextView
+                android:id="@+id/TextView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assen / Groningen" />
+
+            <TextView
+                android:id="@+id/TextView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TextSpacer"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- : 12:00" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView01"
-        android:layout_below="@+id/transport_input_to"
-        android:text="@string/transport_text_departure" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:text="Previous" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button1"
+        android:text="Next" />
 
 </RelativeLayout>
