@@ -1,4 +1,4 @@
-package com.example.getconnected.REST;
+package com.example.getconnected.rest;
 
 import java.util.EventObject;
 
@@ -12,6 +12,15 @@ public class RESTRequestEvent extends EventObject
 	
 	/** The result of the RESTRequest */
 	protected String result;
+	
+	/**
+	 * @param source
+	 * @param ID
+	 */
+	public RESTRequestEvent(Object source, String ID)
+	{
+		this(source, "", ID);
+	}
 	
 	/**
 	 * @param source
