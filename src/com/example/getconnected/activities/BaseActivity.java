@@ -1,7 +1,6 @@
 package com.example.getconnected.activities;
 
 import com.example.getconnected.R;
-import com.example.getconnected.R.id;
 
 import android.os.Bundle;
 import android.app.Activity;
