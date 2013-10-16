@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,15 +8,7 @@
     android:paddingTop="0dp"
     tools:context=".MapActivity" >
     
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        layout="@layout/header" />
     
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        layout="@layout/footer" />
 
     <Button
         android:id="@+id/map_button_getLocation"
@@ -36,4 +28,34 @@
         android:layout_marginTop="204dp"
         android:text="Latitude: 0, Longitude: 0" />
 
-</RelativeLayout>
+</RelativeLayout> -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        layout="@layout/header"
+        android:layout_weight="1" />
+    
+   
+    
+	<org.osmdroid.views.MapView
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:id="@+id/mapview"
+    	android:layout_width="fill_parent"
+    	android:layout_height="0px"
+    	android:clickable="false"
+    	android:layout_weight="6"
+
+	/>
+ 	<include
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        layout="@layout/footer"
+        android:layout_weight="1" />
+</LinearLayout>
