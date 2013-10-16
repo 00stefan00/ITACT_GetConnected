@@ -79,7 +79,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
-                    android:text="@string/arrivel_time"
+                    android:text="@string/arrival_time"
                     android:textStyle="bold" />
 
                 <TextView

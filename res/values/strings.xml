@@ -52,7 +52,7 @@
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="departure_time">Departure Time</string>
-    <string name="arrivel_time">Arrivel Time</string>
+    <string name="arrival_time">Arrival Time</string>
     <string name="locations">Locations</string>
     <string name="TextSpacer">"        "</string>
     <string name="request_ride_button">Request this ride</string>
