@@ -35,6 +35,8 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
    		android:layout_marginLeft="10dp"
+   		android:drawableLeft="@drawable/arrow_left"
+   		android:drawablePadding="5dip"
         android:textSize="15sp" />
 
     <Button
@@ -48,6 +50,8 @@
         android:background="@drawable/footer_buttons"
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
+   		android:drawableRight="@drawable/arrow_up"
+   		android:drawablePadding="5dip"
         android:textColor="#FFFFFF" />
 
     <Button
@@ -62,6 +66,8 @@
         android:paddingRight="15dp"
         android:text="@string/footer_button_ok"
         android:textColor="#FFFFFF"
+        android:drawableRight="@drawable/arrow_right"
+   		android:drawablePadding="5dip"
         android:textSize="15sp" />
 
 </RelativeLayout>
