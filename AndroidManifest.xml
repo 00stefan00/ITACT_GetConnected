@@ -69,12 +69,12 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.getconnected.RequestedRidesActivity"
+            android:name="com.example.getconnected.activities.RequestedRidesActivity"
             android:label="@string/title_activity_map" 
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.getconnected.RequestRideActivity"
+            android:name="com.example.getconnected.activities.RequestRideActivity"
             android:label="@string/title_activity_map" 
             android:screenOrientation="portrait" >
         </activity>
