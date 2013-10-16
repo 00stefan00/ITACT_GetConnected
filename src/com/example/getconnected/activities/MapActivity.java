@@ -15,7 +15,8 @@ import org.osmdroid.views.MapView;
 
 import android.app.Activity;
 import android.os.Bundle;
-public class MapActivity extends Activity {//BaseActivity {
+import android.view.Menu;
+public class MapActivity extends BaseActivity {
 /*
 	private Button buttonGetLocation;
 	private TextView textLocation;
@@ -48,21 +49,36 @@ public class MapActivity extends Activity {//BaseActivity {
 */
 	private MapController mapController;
     private MapView mapView;
+    protected GPSLocator locator;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+        initLayout(R.string.title_activity_main, true, true, true, false);
+        
         mapView = (MapView) findViewById(R.id.mapview);
         mapView.setTileSource(TileSourceFactory.MAPNIK);
         mapView.setBuiltInZoomControls(true);
         mapController = mapView.getController();
         mapController.setZoom(15);
-        GeoPoint point2 = new GeoPoint(51496994, -134733);
+        locator = new GPSLocator(getApplicationContext());
+        GeoPoint point2 = new GeoPoint(locator.getLatitude(), locator.getLongitude());
         mapController.setCenter(point2);
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
     }
     protected boolean isRouteDisplayed() {
         // TODO Auto-generated method stub
         return false;
     }
+    
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.map, menu);
+		return true;
+	}
 }
