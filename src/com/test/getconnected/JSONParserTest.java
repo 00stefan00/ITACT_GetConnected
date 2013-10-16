@@ -1,17 +1,19 @@
 package com.test.getconnected;
 
 import android.test.AndroidTestCase;
+import android.util.Log;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
  * User: johan_000
  * Date: 10/15/13
  * Time: 3:31 PM
- * To change this template use File | Settings | File Templates.
  */
 public class JSONParserTest extends AndroidTestCase{
 
@@ -53,5 +55,34 @@ public class JSONParserTest extends AndroidTestCase{
 
 		JSONObject json = jsonParser.parseList(list, "list");
 		assertNotNull(json.getJSONArray("list"));
+	}
+
+	public void testParseMapAsObject() throws Exception {
+		JSONParser jsonParser = JSONParser.getInstance();
+
+		Map<String, String> map = this.createMap();
+		JSONObject json = jsonParser.parseMapAsObject(map);
+
+		Log.d("parseMap object", json.toString());
+
+		assertNotNull(json.get("key"));
+	}
+
+	public void testParseMapAsArray() throws Exception {
+		JSONParser jsonParser = JSONParser.getInstance();
+
+		Map<String, String> map = this.createMap();
+		JSONObject json = jsonParser.parseMapAsArray(map, "identifier");
+
+		Log.d("parseMap array", json.toString());
+
+		assertNotNull(json.getJSONArray("identifier"));
+	}
+
+	private Map<String, String> createMap() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("key", "value");
+		map.put("key1", "value1");
+		return map;
 	}
 }
