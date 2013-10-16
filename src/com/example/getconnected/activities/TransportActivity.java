@@ -7,10 +7,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.example.getconnected.R;
-import com.example.getconnected.R.id;
-import com.example.getconnected.R.layout;
-import com.example.getconnected.R.menu;
-import com.example.getconnected.R.string;
 import com.example.getconnected.network.PlacesAutoCompleteAdapter;
 
 import android.app.DatePickerDialog;
