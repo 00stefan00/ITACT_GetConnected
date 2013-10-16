@@ -339,9 +339,4 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			eventListener.RESTRequestOnPostExecute(new RESTRequestEvent(this, result, ID));
 		}
 	}
-	
-	/**
-	 * 
-	 */
-	public class RESTRequestException extends Exception { private static final long serialVersionUID = -1259225635751254377L; }
 }
