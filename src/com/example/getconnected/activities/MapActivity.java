@@ -7,6 +7,7 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.MyLocationOverlay;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -45,13 +46,13 @@ public class MapActivity extends BaseActivity {
 	private MapController mapController;
     private MapView mapView;
     protected GPSLocator locator;
+    private MyLocationOverlay myLocationoverlay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        initLayout(R.string.title_activity_main, true, true, true, false);
+        initLayout(R.string.title_activity_map, true, true, true, false);
         
         mapView = (MapView) findViewById(R.id.mapview);
         mapView.setTileSource(TileSourceFactory.MAPNIK);
@@ -61,9 +62,21 @@ public class MapActivity extends BaseActivity {
         locator = new GPSLocator(getApplicationContext());
         GeoPoint point2 = new GeoPoint(locator.getLatitude(), locator.getLongitude());
         mapController.setCenter(point2);
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
+        
+        myLocationoverlay = new MyLocationOverlay(this, mapView);
+        //myLocationoverlay.disableMyLocation(); // not on by default
+        myLocationoverlay.disableCompass();
+        myLocationoverlay.disableFollowLocation();
+        myLocationoverlay.setDrawAccuracyEnabled(true);
+        myLocationoverlay.runOnFirstFix(new Runnable() {
+        public void run() {
+                mapController.animateTo(myLocationoverlay
+                        .getMyLocation());
+            }
+        });
+        myLocationoverlay.enableMyLocation();
+        
+        mapView.getOverlays().add(myLocationoverlay);
     }
     protected boolean isRouteDisplayed() {
         // TODO Auto-generated method stub
