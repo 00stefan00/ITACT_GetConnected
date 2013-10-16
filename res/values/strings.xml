@@ -37,5 +37,6 @@
     <string name="footer_button_ok">OK</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_transport_details">TransportDetailsActivity</string>
 
 </resources>

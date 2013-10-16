@@ -43,6 +43,10 @@
             android:name="com.example.getconnected.MapActivity"
             android:label="@string/title_activity_map" >
         </activity>
+        <activity
+            android:name="com.example.getconnected.TransportDetailsActivity"
+            android:label="@string/title_activity_transport_details" >
+        </activity>
     </application>
 
 </manifest>
