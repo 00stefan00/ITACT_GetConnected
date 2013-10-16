@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -35,40 +35,44 @@
         <activity
             android:name="com.example.getconnected.TransportActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" 
-            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >            
         </activity>
         <activity
             android:name="com.example.getconnected.OfferRideActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" 
-            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >            
         </activity>
         <activity
             android:name="com.example.getconnected.TransportResultActivity"
             android:label="@string/app_name" 
-            android:screenOrientation="portrait" 
-            android:configChanges="orientation|keyboardHidden" >>
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.example.getconnected.BaseActivity"
             android:label="@string/app_name" 
-            android:screenOrientation="portrait" 
-            android:configChanges="orientation|keyboardHidden" >>
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.example.getconnected.MarketplaceActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" 
-            android:configChanges="orientation|keyboardHidden" >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.example.getconnected.MapActivity"
             android:label="@string/title_activity_map" 
-            android:screenOrientation="portrait" 
-            android:configChanges="orientation|keyboardHidden" >
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.getconnected.RequestedRidesActivity"
+            android:label="@string/title_activity_map" 
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.getconnected.RequestRideActivity"
+            android:label="@string/title_activity_map" 
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

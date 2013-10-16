@@ -55,5 +55,6 @@
     <string name="TextSpacer">"        "</string>
     <string name="request_ride_button">Request this ride</string>
     <string name="create_ride_button">Create this ride</string>
+    <string name="change_date">Change date</string>
 
 </resources>
