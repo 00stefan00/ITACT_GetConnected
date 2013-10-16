@@ -8,7 +8,6 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 public class MapActivity extends BaseActivity {

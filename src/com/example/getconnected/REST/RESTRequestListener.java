@@ -1,8 +1,12 @@
-package com.example.getconnected.REST;
+package com.example.getconnected.rest;
 
-import com.example.getconnected.REST.RESTRequestEvent;
+import com.example.getconnected.rest.RESTRequestEvent;
 
 public interface RESTRequestListener
 {
-	public void handleRESTRequestEvent(RESTRequestEvent event);
+	void RESTRequestOnPreExecute(RESTRequestEvent event);
+	
+	void RESTRequestOnProgressUpdate(RESTRequestEvent event);
+	
+	void RESTRequestOnPostExecute(RESTRequestEvent event);
 }
