@@ -1,6 +1,7 @@
 package com.example.getconnected.activities;
 
 import com.example.getconnected.R;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ public class MarketplaceActivity extends BaseActivity{
 
 	private Button request_ride_btn;
 	private Button display_requests_btn;
+	private Button create_ride_btn;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,17 @@ public class MarketplaceActivity extends BaseActivity{
 		
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(MarketplaceActivity.this, OfferRideActivity.class);
+			Intent intent = new Intent(MarketplaceActivity.this, RequestRideActivity.class);
+			startActivityForResult(intent, 1);
+		}
+	});
+	
+	create_ride_btn = (Button) findViewById(R.id.create_ride_btn);
+	create_ride_btn.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(MarketplaceActivity.this, CreateRideActivity.class);
 			startActivityForResult(intent, 1);
 		}
 	});
