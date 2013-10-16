@@ -34,7 +34,7 @@ public class JSONParser {
 		return this.JSONArrayToArrayList(jsonObject.getJSONArray(keyword));
 	}
 
-	public JSONObject parseList(List<Object> list, String identifier) throws JSONException{
+	public JSONObject parseList(List list, String identifier) throws JSONException{
 		String json = "{\"" + identifier + "\": [";
 		for (int i=0; i<list.size(); i++) {
 			json += "\"" + list.get(i).toString() + "\",";
