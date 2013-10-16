@@ -3,6 +3,7 @@ package com.example.getconnected.activities;
 import com.example.getconnected.R;
 import com.example.getconnected.sqllite.DatabaseHandler;
 
+
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.Menu;
