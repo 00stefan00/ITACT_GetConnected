@@ -240,7 +240,7 @@
 
         <Button
             android:id="@+id/transport_results_next"
-            style="?android:attr/buttonStyleSmall"
+            style="@style/HeaderTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -248,7 +248,7 @@
 
         <Button
             android:id="@+id/transport_results_pref"
-            style="?android:attr/buttonStyleSmall"
+            style="@style/HeaderTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
