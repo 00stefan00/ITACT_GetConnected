@@ -254,12 +254,16 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 					return "-1";
 			}
 		}
-		catch (IllegalArgumentException | UnsupportedEncodingException e)
+		catch (IllegalArgumentException e)
+		{
+			return "-1";
+		}
+		catch (UnsupportedEncodingException e)
 		{
 			return "-1";
 		}
 		
-		
+		// httpGet.setHeader("Accept", "application/json");
 		
 		
 //		// Making HTTP request
