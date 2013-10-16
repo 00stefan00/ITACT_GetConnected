@@ -9,7 +9,6 @@ import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 public class MapActivity extends BaseActivity {
