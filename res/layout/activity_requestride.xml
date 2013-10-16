@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context=".TransportActivity" >
+
+    <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/footer" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/map_text_location"
+        android:layout_below="@+id/transport_input_from"
+        android:text="@string/transport_text_to" />
+
+    <AutoCompleteTextView
+        android:id="@+id/transport_input_to"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignLeft="@+id/transport_input_from"
+        android:ems="10"
+        android:hint="@string/transport_input_to"
+        android:inputType="textPostalAddress"
+        android:textSize="10sp" />
+
+    <EditText
+        android:id="@+id/transport_button_departure"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignLeft="@+id/transport_input_to"
+        android:layout_below="@+id/transport_input_to"
+        android:text="@string/transport_button_departure"
+        android:textSize="7sp" />
+
+    <EditText
+        android:id="@+id/transport_button_arrival"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignBaseline="@+id/TextView03"
+        android:layout_alignBottom="@+id/TextView03"
+        android:layout_alignLeft="@+id/transport_button_departure"
+        android:text="@string/transport_button_arrival"
+        android:textSize="7sp" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_below="@+id/TextView02"
+        android:text="@string/transport_text_arrival" />
+
+    <EditText
+        android:id="@+id/transport_button_date"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignLeft="@+id/transport_button_arrival"
+        android:layout_below="@+id/transport_button_arrival"
+        android:text="@string/transport_button_date"
+        android:textSize="7sp" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/transport_button_date"
+        android:layout_alignBottom="@+id/transport_button_date"
+        android:layout_alignLeft="@+id/TextView03"
+        android:text="@string/transport_text_date" />
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/orderride_expl" />
+
+    <TextView
+        android:id="@+id/map_text_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView05"
+        android:layout_below="@+id/include1"
+        android:layout_marginTop="21dp"
+        android:text="@string/transport_text_from" />
+
+    <AutoCompleteTextView
+        android:id="@+id/transport_input_from"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_alignRight="@+id/TextView05"
+        android:layout_alignTop="@+id/map_text_location"
+        android:ems="10"
+        android:hint="@string/transport_input_from"
+        android:inputType="textPostalAddress"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView01"
+        android:layout_below="@+id/transport_input_to"
+        android:text="@string/transport_text_departure" />
+
+</RelativeLayout>
