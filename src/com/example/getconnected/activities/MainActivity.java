@@ -1,4 +1,10 @@
-package com.example.getconnected;
+package com.example.getconnected.activities;
+
+import com.example.getconnected.R;
+import com.example.getconnected.R.id;
+import com.example.getconnected.R.layout;
+import com.example.getconnected.R.menu;
+import com.example.getconnected.R.string;
 
 import android.os.Bundle;
 import android.content.Intent;
@@ -46,8 +52,8 @@ public class MainActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-//				Intent intent = new Intent(MainActivity.this, TransportActivity.class);
-//				startActivityForResult(intent, 1);
+				Intent intent = new Intent(MainActivity.this, MarketplaceActivity.class);
+				startActivityForResult(intent, 1);
 			}
 		});
 		

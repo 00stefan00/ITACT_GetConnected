@@ -1,4 +1,4 @@
-package com.example.getconnected;
+package com.example.getconnected.network;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
