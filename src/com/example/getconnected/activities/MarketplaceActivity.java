@@ -1,4 +1,8 @@
-package com.example.getconnected;
+package com.example.getconnected.activities;
+
+import com.example.getconnected.R;
+import com.example.getconnected.R.id;
+import com.example.getconnected.R.layout;
 
 import android.content.Intent;
 import android.os.Bundle;

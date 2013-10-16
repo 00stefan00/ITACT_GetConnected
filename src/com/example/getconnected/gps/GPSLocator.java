@@ -1,4 +1,4 @@
-package com.example.getconnected;
+package com.example.getconnected.gps;
 
 import android.content.Context;
 import android.location.Criteria;

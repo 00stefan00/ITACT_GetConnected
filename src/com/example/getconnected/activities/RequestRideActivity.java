@@ -1,4 +1,7 @@
-package com.example.getconnected;
+package com.example.getconnected.activities;
+
+import com.example.getconnected.R;
+import com.example.getconnected.R.layout;
 
 import android.os.Bundle;
 
