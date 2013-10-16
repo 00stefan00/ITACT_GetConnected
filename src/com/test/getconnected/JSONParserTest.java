@@ -63,9 +63,7 @@ public class JSONParserTest extends AndroidTestCase{
 		Map<String, String> map = this.createMap();
 		JSONObject json = jsonParser.parseMapAsObject(map);
 
-		Log.d("parseMap object", json.toString());
-
-		assertNotNull(json.get("key"));
+		assertEquals("value", json.get("key"));
 	}
 
 	public void testParseMapAsArray() throws Exception {
@@ -73,8 +71,6 @@ public class JSONParserTest extends AndroidTestCase{
 
 		Map<String, String> map = this.createMap();
 		JSONObject json = jsonParser.parseMapAsArray(map, "identifier");
-
-		Log.d("parseMap array", json.toString());
 
 		assertNotNull(json.getJSONArray("identifier"));
 	}

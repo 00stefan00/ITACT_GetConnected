@@ -37,7 +37,7 @@ public class JSONParser {
 	 *
 	 * @param list
 	 * @param identifier
-	 * @return String, example: {"identifier" : ["value1", "value2"]}
+	 * @return {["value", "value2"]}
 	 * @throws JSONException
 	 */
 	public JSONObject parseList(List list, String identifier) throws JSONException {
@@ -49,17 +49,31 @@ public class JSONParser {
 		return this.getObjectFromRequest(json + "]}");
 	}
 
+	/**
+	 *
+	 * @param map
+	 * @param identifier
+	 * @return {"identifier" : [{"key" : "value"},{"key1" : "value1"}]}
+	 * @throws JSONException
+	 */
 	public JSONObject parseMapAsArray(Map<?, ?> map, String identifier) throws JSONException {
 		String json = "{\"" + identifier + "\" : [";
 		for (Map.Entry<?,?> entry : map.entrySet()) {
 			Object key = entry.getKey();
 			Object value = entry.getValue();
-			json += "[{\"" + key.toString() + "\" : \"" + value.toString() + "\"}],";
+			json += "{\"" + key.toString() + "\" : \"" + value.toString() + "\"},";
 		}
 		json = json.substring(0, json.length() - 1);
 		return this.getObjectFromRequest(json + "]}");
 	}
 
+
+	/**
+	 *
+	 * @param map
+	 * @return String, example: {"identifier" : ["value1", "value2"]}
+	 * @throws JSONException
+	 */
 	public JSONObject parseMapAsObject(Map<?, ?> map) throws JSONException {
 		String json = "{";
 		for (Map.Entry<?,?> entry : map.entrySet()) {
