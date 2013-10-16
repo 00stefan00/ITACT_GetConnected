@@ -45,7 +45,7 @@
         android:layout_below="@+id/editText4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
-        android:text="@string/arrivel_time" />
+        android:text="@string/arrival_time" />
 
     <EditText
         android:id="@+id/editText2"
