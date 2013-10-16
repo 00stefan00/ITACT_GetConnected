@@ -44,5 +44,6 @@
     <string name="read_more_btn">Read more</string>
     <string name="offered_ride_string">Offered ride by person</string>
     <string name="ride_description">Ride description ..........................................................................................................................</string>
+    <string name="title_activity_map_tets">MapTets</string>
 
 </resources>
