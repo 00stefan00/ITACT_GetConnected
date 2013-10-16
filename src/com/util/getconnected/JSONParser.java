@@ -1,7 +1,9 @@
 package com.util.getconnected;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +32,16 @@ public class JSONParser {
 			throws JSONException {
 		JSONObject jsonObject = this.getObjectFromRequest(json);
 		return this.JSONArrayToArrayList(jsonObject.getJSONArray(keyword));
+	}
+
+	public JSONObject parseList(List list, String identifier) throws JSONException{
+		String json = "{\"" + identifier + "\": [";
+		for (int i=0; i<list.size(); i++) {
+			json += "\"" + list.get(i).toString() + "\",";
+		}
+		json = json.substring(0, json.length()-1);
+		Log.d("tag", json);
+		return this.getObjectFromRequest(json + "]}");
 	}
 
 	private ArrayList<JSONObject> JSONArrayToArrayList(JSONArray array)
