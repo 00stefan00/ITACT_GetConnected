@@ -1,21 +1,17 @@
-package com.example.getconnected.rest;
+package com.example.getconnected.REST;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-import org.apache.http.HttpResponse;
+import org.apache.http.HttpRequest;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.impl.client.DefaultHttpClient;
+//import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.os.AsyncTask;
@@ -28,38 +24,11 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	/** The enumeration of available HTTP request methods. */
 	public enum Method { GET, POST, PUT };
 	
-	/** The enumeration of request's default accepted data types. */
-	public enum HeaderAcceptedData
-	{
-		TEXT ("text/plain"), HTML ("text/html"), JSON ("application/json"), XML ("application/xml");
-		
-		private String headerAcceptedData;
-		
-		/**
-		 * @param headerAcceptedData
-		 */
-		private HeaderAcceptedData(String headerAcceptedData)
-		{
-			this.headerAcceptedData = headerAcceptedData;
-		}
-		
-		/**
-		 * @return headerAcceptedData
-		 */
-		public String getHeaderAcceptedData()
-		{
-			return headerAcceptedData;
-		}
-	};
-	
 	/** The address an HTTP request will be sent to. */
 	protected String address;
 	
 	/** The method with which the HTTP request is sent. */
 	protected Method method;
-	
-	/** The accepted data type to set in the request's Accept header. */
-	protected String headerAcceptedData;
 	
 	/** The ID to pass along with the event. This helps recognizing an event fired by a class that needs to handle multiple REST requests. */
 	protected String ID;
@@ -71,7 +40,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	protected ArrayList<RESTRequestListener> eventListeners;
 	
 	/**
-	 * Overloads the RESTRequest(String address, String ID) constructor.
+	 * Overloads the RESTRequest(String address, String ID) constructor to work without the ID and method variables.
 	 * 
 	 * @param address
 	 */
@@ -81,7 +50,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	}
 	
 	/**
-	 * Overloads the RESTRequest(String address, Method method, String ID) constructor.
+	 * Overloads the RESTRequest(String address, Method method, String ID) constructor to work without the ID variable.
 	 * 
 	 * @param address,
 	 * @param ID
@@ -92,7 +61,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	}
 	
 	/**
-	 * Overloads the RESTRequest(String address, Method method, String headerAcceptedData, String ID) constructor.
+	 * Constructs a new RESTRequest with the address to issue the request on,
+	 * and the ID that will be sent along with the fired event to be able to recognize your event.
 	 * 
 	 * @param address
 	 * @param method
@@ -100,31 +70,52 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	 */
 	public RESTRequest(String address, Method method, String ID)
 	{
-		this(address, method, HeaderAcceptedData.TEXT.getHeaderAcceptedData(), ID);
-	}
-	
-	/**
-	 * Constructs a new RESTRequest with the address, method, and accepted data type.
-	 * 
-	 * The passed ID will be sent along with the fired event to be able to recognize the specific
-	 * event in a class that handles multiple REST requests.
-	 * 
-	 * @param address
-	 * @param method
-	 * @param headerAcceptedData
-	 * @param ID
-	 */
-	public RESTRequest(String address, Method method, String headerAcceptedData, String ID)
-	{
-		this.address            = address;
-		this.method             = method;
-		this.headerAcceptedData = headerAcceptedData;
-		this.ID                 = ID;
+		this.address = address;
+		this.method  = method;
+		this.ID      = ID;
 		
 		parameters = new ArrayList<NameValuePair>();
 		
 		eventListeners = new ArrayList<RESTRequestListener>();
 	}
+	
+//	/**
+//	 * The send method is an asynchronous method. After finishing, this method does not return any data.
+//	 * 
+//	 * When the RESTRequest has finished, a RESTRequestEvent is fired. This event contains the result data
+//	 * of the RESTful request.
+//	 * 
+//	 * @throws RESTRequestException
+//	 */
+//	public void send()
+//	{
+//		String url = address;
+//		
+//		if (!values.isEmpty())
+//		{
+//			url += "?";
+//			
+//			Iterator<HashMap.Entry<String, Object>> iterator = values.entrySet().iterator();
+//			
+//			while (iterator.hasNext())
+//			{
+//				HashMap.Entry<String, Object> entry = (HashMap.Entry<String, Object>) iterator.next();
+//				
+//				url += entry.getKey() + "=" + entry.getValue().toString();
+//				
+//				if (iterator.hasNext())
+//				{
+//					url += "&";
+//				}
+//			}
+//		}
+//		
+//		try
+//		{
+//			new RESTRequestIssuer().execute(new URL(url));
+//		}
+//		catch (MalformedURLException e) { }
+//	}
 	
 	/**
 	 * @return address
@@ -159,22 +150,6 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	}
 	
 	/**
-	 * @return headerAcceptedData
-	 */
-	public String getHeaderAcceptedData()
-	{
-		return headerAcceptedData;
-	}
-	
-	/**
-	 * @param headerAcceptedData
-	 */
-	public void setHeaderAcceptedData(String headerAcceptedData)
-	{
-		this.headerAcceptedData = headerAcceptedData;
-	}
-	
-	/**
 	 * @return ID
 	 */
 	public String getID()
@@ -206,13 +181,51 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	{
 		this.eventListeners.add(eventListener);
 	}
+
+//	@Override
+//	protected String doInBackground(Void... voids)
+//	{
+//		if (urls.length <= 0)
+//		{
+//			return "";
+//		}
+//		
+//		try
+//		{				
+//			// Open http connection
+//			HttpURLConnection urlConnection = (HttpURLConnection) urls[0].openConnection();
+//			
+//			InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
+//
+//			// Trick to read all data from a stream in one line: https://weblogs.java.net/blog/pat/archive/2004/10/stupid_scanner_1.html
+//			Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
+//			
+//			String result = "";
+//			
+//			while (scanner.hasNext())
+//			{
+//				result += scanner.next();
+//			}
+//			
+//			scanner.close();
+//			
+//			inputStream.close();
+//			
+//			urlConnection.disconnect();
+//
+//			return result;
+//		}
+//		catch (IOException e) { }
+//		
+//		return "";
+//	}
 	
 	@Override
 	protected String doInBackground(Void... voids)
 	{
-		DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
+		//DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
 
-		HttpUriRequest httpRequest = null; 
+		HttpRequest httpRequest = null; 
 		
 		// Get the correct request method
 		try
@@ -251,83 +264,47 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			return "-1";
 		}
 		
-		// Indicate what data needs to be received
-		httpRequest.setHeader("Accept", headerAcceptedData);
+		httpRequest.setHeader("Accept", "application/json");
+		
+		// httpGet.setHeader("Accept", "application/json");
+		
+		
+//		// Making HTTP request
+//		try
+//		{
+//			// check for request method
+//			if(method == "POST"){
+//				// request method is POST
+//				// defaultHttpClient
+//				DefaultHttpClient httpClient = new DefaultHttpClient();
+//				HttpPost httpPost = new HttpPost(url);
+//				httpPost.setEntity(new UrlEncodedFormEntity(params));
+//
+//				HttpResponse httpResponse = httpClient.execute(httpPost);
+//				HttpEntity httpEntity = httpResponse.getEntity();
+//				is = httpEntity.getContent();
+//
+//			}else if(method == "GET"){
+//				// request method is GET
+//				DefaultHttpClient httpClient = new DefaultHttpClient();
+//				String paramString = URLEncodedUtils.format(params, "utf-8");
+//				url += "?" + paramString;
+//				HttpGet httpGet = new HttpGet(url);
+//
+//				HttpResponse httpResponse = httpClient.execute(httpGet);
+//				HttpEntity httpEntity = httpResponse.getEntity();
+//				is = httpEntity.getContent();
+//			}
+//
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		} catch (ClientProtocolException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
-		InputStream inputStream = null;
-		
-		Scanner scanner = null;
-		
-		try
-		{
-			// Run request
-			HttpResponse httpResponse = defaultHttpClient.execute(httpRequest);
-			
-			// Get content of response
-			inputStream = httpResponse.getEntity().getContent();
-			
-			// Trick to read all data from a stream in one line: https://weblogs.java.net/blog/pat/archive/2004/10/stupid_scanner_1.html
-			scanner = new Scanner(inputStream).useDelimiter("\\A");
-
-			String result = "";
-			
-			// Read lines into result
-			while (scanner.hasNext())
-			{
-				result += scanner.next();
-			}
-			
-			if (result.length() > 0)
-			{
-				return result;
-			}
-		}
-		catch (IOException e)
-		{
-			return "-1";
-		}
-		finally // Close opened utilities
-		{
-			if (scanner != null)
-			{
-				scanner.close();
-			}
-			
-			if (inputStream != null)
-			{
-				try
-				{
-					inputStream.close();
-				}
-				catch (IOException e) { }
-			}
-		}
-		
-		return "-1";
-	}
-	
-	@Override
-	protected void onPreExecute()
-	{
-		super.onPreExecute();
-		
-		for (RESTRequestListener eventListener : eventListeners)
-		{
-			// Create new RESTRequestEvent to be handled by the event listener
-			eventListener.RESTRequestOnPreExecute(new RESTRequestEvent(this, ID));
-		}
-	}
-	
-	@Override
-	protected void onProgressUpdate(Void... voids)
-	{
-		super.onProgressUpdate(voids);
-		
-		for (RESTRequestListener eventListener : eventListeners)
-		{
-			// Create new RESTRequestEvent to be handled by the event listener
-			eventListener.RESTRequestOnProgressUpdate(new RESTRequestEvent(this, ID));
-		}
+		return "";
 	}
 	
 	@Override
@@ -336,7 +313,12 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		for (RESTRequestListener eventListener : eventListeners)
 		{
 			// Create new RESTRequestEvent to be handled by the event listener
-			eventListener.RESTRequestOnPostExecute(new RESTRequestEvent(this, result, ID));
+			eventListener.handleRESTRequestEvent(new RESTRequestEvent(this, result, ID));
 		}
 	}
+	
+	/**
+	 * 
+	 */
+	public class RESTRequestException extends Exception { private static final long serialVersionUID = -1259225635751254377L; }
 }

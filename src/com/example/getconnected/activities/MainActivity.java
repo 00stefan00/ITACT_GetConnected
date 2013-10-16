@@ -1,6 +1,7 @@
 package com.example.getconnected.activities;
 
 import com.example.getconnected.R;
+import com.example.getconnected.sqllite.DatabaseHandler;
 
 import android.os.Bundle;
 import android.content.Intent;
@@ -72,6 +73,8 @@ public class MainActivity extends BaseActivity {
 //				startActivityForResult(intent, 1);
 			}
 		});		
+		
+		DatabaseHandler databaseHandler = new DatabaseHandler(this);
 		
 	}
 
