@@ -11,6 +11,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.utils.URLEncodedUtils;
+//import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.os.AsyncTask;
@@ -222,7 +223,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	@Override
 	protected String doInBackground(Void... voids)
 	{
-//		DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
+		//DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
 
 		HttpRequest httpRequest = null; 
 		
@@ -262,6 +263,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		{
 			return "-1";
 		}
+		
+		httpRequest.setHeader("Accept", "application/json");
 		
 		// httpGet.setHeader("Accept", "application/json");
 		
