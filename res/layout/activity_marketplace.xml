@@ -31,7 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/request_ride_btn"
         android:layout_centerHorizontal="true"
-        android:text="@string/create_ride" />
+        android:text="@string/create_ride"
+		android:onClick="startIntentByButton"
+		android:tag="CreateRideActivity" />
 
     <Button
         android:id="@+id/display_requests_btn"
@@ -39,7 +41,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/create_ride_btn"
         android:layout_centerHorizontal="true"
-        android:text="@string/display_requests" />
+        android:text="@string/display_requests"
+		android:onClick="startIntentByButton"
+		android:tag="RequestedRidesActivity" />
 
     <Button
         android:id="@+id/request_ride_btn"
@@ -48,7 +52,9 @@
         android:layout_below="@+id/TextView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
-        android:text="@string/request_ride" />
+        android:text="@string/request_ride"
+		android:onClick="startIntentByButton"
+		android:tag="RequestRideActivity" />
 
     <ScrollView
         android:id="@+id/scrollView1"

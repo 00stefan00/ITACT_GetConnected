@@ -3,8 +3,8 @@ package com.test.getconnected;
 import android.test.AndroidTestCase;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,5 +42,16 @@ public class JSONParserTest extends AndroidTestCase{
 	public void testGetInstance() throws Exception {
 		JSONParser jsonParser = JSONParser.getInstance();
 		assertEquals(jsonParser, JSONParser.getInstance());
+	}
+
+	public void testParseList() throws Exception {
+		JSONParser jsonParser = JSONParser.getInstance();
+
+		List<String> list = new ArrayList<String>();
+		list.add("test");
+		list.add("test2");
+
+		JSONObject json = jsonParser.parseList(list, "list");
+		assertNotNull(json.getJSONArray("list"));
 	}
 }

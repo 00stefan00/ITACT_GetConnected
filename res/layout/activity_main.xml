@@ -26,7 +26,7 @@
         android:text="@string/main_text"
         android:textStyle="bold" />
     
-       <Button
+	<Button
         android:id="@+id/home_button_transport"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,9 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
         android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_transport" />
+        android:text="@string/home_button_transport"
+		android:onClick="startIntentByButton"
+		android:tag="TransportActivity" />
 
     <Button
         android:id="@+id/home_button_map"
@@ -57,8 +59,10 @@
         android:drawablePadding="10dip"
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
-        android:gravity="left|center_vertical|right"
-        android:text="@string/home_button_map" />
+        android:gravity="left|center_vertical|right" 
+        android:text="@string/home_button_map"
+		android:onClick="startIntentByButton"
+		android:tag="MapActivity" />
 
     <Button
         android:id="@+id/home_button_marketplace"
@@ -75,7 +79,9 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
         android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_marktetplace" />
+        android:text="@string/home_button_marktetplace"
+		android:onClick="startIntentByButton"
+		android:tag="MarketplaceActivity" />
 
     <Button
         android:id="@+id/home_button_service"
@@ -92,7 +98,9 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
         android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_support" />
+        android:text="@string/home_button_support"
+		android:onClick="startIntentByButton"
+		android:tag="" />
 
     <Button
         android:id="@+id/home_button_help"
@@ -109,7 +117,9 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
         android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_help" />
+        android:text="@string/home_button_help"
+		android:onClick="startIntentByButton"
+		android:tag="" />
     
     <include
         android:layout_width="wrap_content"
