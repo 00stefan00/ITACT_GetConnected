@@ -1,4 +1,4 @@
-package com.example.getconnected.REST;
+package com.example.getconnected.rest;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
