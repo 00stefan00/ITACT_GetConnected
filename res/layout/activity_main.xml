@@ -27,23 +27,24 @@
         android:textStyle="bold" />
     
 	<Button
-        android:id="@+id/home_button_transport"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TextView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="29dp"
-        android:background="@drawable/smooth_top_edges"
-        android:drawableLeft="@drawable/car_icon_40x40"
-        android:drawableRight="@drawable/arrow_icon_20x20"
-        android:drawablePadding="5dip"
-        android:paddingRight="15dp"
-   		android:paddingLeft="15dp"
-        android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_transport"
-		android:onClick="startIntentByButton"
-		android:tag="TransportActivity" />
+	    android:id="@+id/home_button_transport"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/TextView1"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginLeft="40dp"
+	    android:layout_marginStart="@dimen/activity_horizontal_margin"
+	    android:layout_marginTop="29dp"
+	    android:background="@drawable/smooth_top_edges"
+	    android:drawableLeft="@drawable/car_icon_40x40"
+	    android:drawablePadding="5dip"
+	    android:drawableRight="@drawable/arrow_icon_20x20"
+	    android:gravity="left|center_vertical|right"
+	    android:onClick="startIntentByButton"
+	    android:paddingLeft="15dp"
+	    android:paddingRight="15dp"
+	    android:tag="TransportActivity"
+	    android:text="@string/home_button_transport" />
 
     <Button
         android:id="@+id/home_button_map"
@@ -82,7 +83,7 @@
         android:text="@string/home_button_marktetplace"
 		android:onClick="startIntentByButton"
 		android:tag="MarketplaceActivity" />
-
+    
     <Button
         android:id="@+id/home_button_service"
         android:layout_width="match_parent"
