@@ -22,8 +22,11 @@ public class LoginActivity extends BaseActivity {
 		startActivityForResult(intent, 1);
 	}
 	
-	public void login(View view)
+	public void attemptLogin(View view)
 	{
+		loggedIn=true;
 		Log.d("DEBUG", "loginButton has been pressed");
+		Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+		startActivityForResult(intent, 1);
 	}
 }
