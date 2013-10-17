@@ -1,6 +1,6 @@
 package com.util.getconnected;
 
-import com.example.getconnected.R;
+import com.app.getconnected.R;
 import com.exception.getconnected.FieldValidationException;
 
 /**

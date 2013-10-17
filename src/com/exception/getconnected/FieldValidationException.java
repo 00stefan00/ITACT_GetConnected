@@ -1,7 +1,7 @@
 package com.exception.getconnected;
 
 import android.content.res.Resources;
-import com.example.getconnected.R;
+import com.app.getconnected.R;
 
 /**
  * Created with IntelliJ IDEA.
