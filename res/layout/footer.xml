@@ -39,7 +39,7 @@
          android:background="@drawable/footer_buttons"
          android:drawableLeft="@drawable/arrow_left"
          android:drawablePadding="5dip"
-         android:paddingLeft="15dp"
+         android:paddingLeft="10dp"
          android:paddingRight="15dp"
          android:text="@string/footer_button_back"
          android:textColor="#FFFFFF"
@@ -70,7 +70,7 @@
         android:drawablePadding="5dip"
         android:drawableRight="@drawable/arrow_right"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingRight="10dp"
         android:text="@string/footer_button_ok"
         android:textColor="#FFFFFF"
         android:textSize="15sp" />
