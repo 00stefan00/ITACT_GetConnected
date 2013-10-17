@@ -1,10 +1,10 @@
-package com.example.getconnected.activities;
+package com.app.getconnected.activities;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.getconnected.R;
-import com.example.getconnected.gps.GPSLocator;
+import com.app.getconnected.R;
+import com.app.getconnected.gps.GPSLocator;
 
 
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;

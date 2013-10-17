@@ -13,18 +13,18 @@
     <string name="title_activity_transport">Vervoer</string>
     <string name="transport_text_from">Van</string>
     <string name="transport_text_to">Naar</string>
-    <string name="transport_text_departure">Vertrektijd</string>
-    <string name="transport_text_arrival">Aankomsttijd</string>
+    <string name="transport_text_departure">Vertrek</string>
+    <string name="transport_text_arrival">Aankomst</string>
     <string name="transport_text_date">Datum</string>
+    <string name="transport_text_time">Tijd</string>
     <string name="transport_text_possibilities">Van de volgende vervoersmogelijkheden wil ik gebruik maken:</string>
     <string name="transport_text_possibilities_bus">Bus</string>
     <string name="transport_text_possibilities_train">Trein</string>
     <string name="transport_text_possibilities_taxi_other">Taxi / anders</string>
     <string name="transport_input_from">Plaatsnaam..</string>
     <string name="transport_input_to">Plaatsnaam..</string>
-    <string name="transport_button_departure">Kies vertrektijd</string>
-    <string name="transport_button_arrival">Kies aankomsttijd</string>
-    <string name="transport_button_date">Kies datum</string>
+    <string name="transport_input_time">Kies tijd</string>
+    <string name="transport_input_date">Kies datum</string>
     <string name="transport_button_ok">Ok</string>
     <string name="title_activity_transport_result">Reisinformatie</string>
     <string name="transport_result_text_departure">Vertrek</string>
@@ -48,5 +48,16 @@
     <string name="male">Man</string>
     <string name="female">Vrouw</string>
     <string name="login">Log in</string>
-
+    <string name="title_activity_marketplace">Marktplaats</string>
+    <string name="title_activity_createride">Maak rit aan</string>
+    <string name="title_activity_requestride">Vraag rit aan</string>
+    <string name="title_activity_requestrides">Aangeboden ritten</string>
+    <string name="error_field_required">Dit veld is verplicht</string>
+    <string name="error_invalid_password">Dit wachtwoord is te kort</string>
+    <string name="error_invalid_email">Dit e-mailadres is ongeldig</string>
+		<string name="validation_no_input">Het veld mag niet leeg zijn</string>
+		<string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
+		<string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
+		<string name="field_validation_number">Het veld mag geen letters bevatten</string>
+		<string name="field_validation_string">Het veld mag geen nummers bevatten</string>
 </resources>

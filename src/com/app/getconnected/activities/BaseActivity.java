@@ -1,6 +1,6 @@
-package com.example.getconnected.activities;
+package com.app.getconnected.activities;
 
-import com.example.getconnected.R;
+import com.app.getconnected.R;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -18,7 +18,7 @@ abstract class BaseActivity extends Activity {
 	protected Button buttonOk;
 	protected Button buttonHome;
 
-	protected static final String activityPackage = "com.example.getconnected.activities";
+	protected static final String activityPackage = "com.app.getconnected.activities";
 	protected static Boolean loggedIn=false;
 	
 	@Override

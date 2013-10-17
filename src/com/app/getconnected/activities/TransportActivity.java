@@ -1,4 +1,4 @@
-package com.example.getconnected.activities;
+package com.app.getconnected.activities;
 
 
 import java.text.SimpleDateFormat;
@@ -7,12 +7,12 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
-import com.example.getconnected.R;
-import com.example.getconnected.network.GeoLocation;
-import com.example.getconnected.network.PlacesAutoCompleteAdapter;
-import com.example.getconnected.rest.RESTRequest;
-import com.example.getconnected.rest.RESTRequestEvent;
-import com.example.getconnected.rest.RESTRequestListener;
+import com.app.getconnected.R;
+import com.app.getconnected.network.GeoLocation;
+import com.app.getconnected.network.PlacesAutoCompleteAdapter;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;

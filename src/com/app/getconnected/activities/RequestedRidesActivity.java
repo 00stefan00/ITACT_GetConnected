@@ -1,6 +1,6 @@
-package com.example.getconnected.activities;
+package com.app.getconnected.activities;
 
-import com.example.getconnected.R;
+import com.app.getconnected.R;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
