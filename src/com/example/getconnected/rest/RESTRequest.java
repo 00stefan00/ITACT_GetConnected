@@ -221,8 +221,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			{
 				case GET:
 					// Set URL and encode parameters
-					System.out.println(URLEncodedUtils.format(parameters, "utf-8"));
-					httpRequest = new HttpGet(address + URLEncodedUtils.format(parameters, "utf-8"));
+					httpRequest = new HttpGet(address + "?" + URLEncodedUtils.format(parameters, "utf-8"));
 					break;
 	
 				case POST:
