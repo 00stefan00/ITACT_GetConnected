@@ -73,5 +73,9 @@
     <string name="title_activity_createride">Create ride</string>
     <string name="title_activity_requestride">Request ride</string>
     <string name="title_activity_requestrides">Offered rides</string>
+    
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_email">This email address is invalid</string>
 
 </resources>
