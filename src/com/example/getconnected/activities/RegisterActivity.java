@@ -1,5 +1,6 @@
 package com.example.getconnected.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,8 @@ public class RegisterActivity extends BaseActivity {
 	
 	public void register(View view)
 	{
-		Log.d("DEBUG", "loginButton has been pressed");
+		Log.d("DEBUG", "register button has been pressed");
+		Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+		startActivityForResult(intent, 1);
 	}
 }

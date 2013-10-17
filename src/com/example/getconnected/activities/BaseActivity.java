@@ -19,7 +19,8 @@ abstract class BaseActivity extends Activity {
 	protected Button buttonHome;
 
 	protected static final String activityPackage = "com.example.getconnected.activities";
-
+	protected static Boolean loggedIn=false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
