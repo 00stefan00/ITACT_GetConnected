@@ -1,8 +1,11 @@
 package com.example.getconnected.activities;
 
-import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import com.example.getconnected.R;
+import com.example.getconnected.sqllite.DatabaseHandler;
 
 
 import android.os.Bundle;
@@ -15,6 +18,12 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initLayout(R.string.title_activity_main, false, false, false, false);
+		
+		DatabaseHandler db = new DatabaseHandler(this);
+		//db.deleteAll();
+		//db.addBusstops();
+		
+		
 	}
 
 	@Override

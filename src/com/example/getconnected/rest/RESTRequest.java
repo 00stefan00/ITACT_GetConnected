@@ -100,7 +100,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	 */
 	public RESTRequest(String address, Method method, String ID)
 	{
-		this(address, method, HeaderAcceptedData.TEXT.getHeaderAcceptedData(), ID);
+		this(address, method, HeaderAcceptedData.JSON.getHeaderAcceptedData(), ID);
 	}
 	
 	/**
@@ -245,11 +245,12 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 		catch (IllegalArgumentException e)
 		{
-			return "-1";
+			e.printStackTrace();
+			return "-2";
 		}
 		catch (UnsupportedEncodingException e)
 		{
-			return "-1";
+			return "-3";
 		}
 		
 		// Indicate what data needs to be received
@@ -285,7 +286,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 		catch (IOException e)
 		{
-			return "-1";
+			return "-4";
 		}
 		finally // Close opened utilities
 		{
@@ -304,7 +305,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			}
 		}
 		
-		return "-1";
+		return "-5";
 	}
 	
 	@Override

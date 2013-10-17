@@ -5,9 +5,18 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.example.getconnected.R;
+import com.example.getconnected.network.GeoLocation;
 import com.example.getconnected.network.PlacesAutoCompleteAdapter;
+import com.example.getconnected.rest.RESTRequest;
+import com.example.getconnected.rest.RESTRequestEvent;
+import com.example.getconnected.rest.RESTRequestListener;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -21,25 +30,29 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class TransportActivity extends BaseActivity implements OnItemClickListener {
+public class TransportActivity extends BaseActivity implements OnItemClickListener, RESTRequestListener {
 
-	private final Calendar calendarDeparture = Calendar.getInstance();
-	private final Calendar calendarArrival = Calendar.getInstance();
+	private final Calendar calendarTime = Calendar.getInstance();
 	private final Calendar calendarDate = Calendar.getInstance();
 	
-	private Date timeDeparture;
-	private Date timeArrival;
+	private Date time;
 	private Date date;
 	
-	private EditText inputDeparture;
-	private EditText inputArrival;
+	private EditText inputTime;
 	private EditText inputDate;
 	
 	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+	private AutoCompleteTextView autoCompViewFrom;
+	private AutoCompleteTextView autoCompViewTo;
+	
+	private RadioGroup radioGroup;
+	private RadioButton radioArrival;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +60,8 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		setContentView(R.layout.activity_transport);
 	    initLayout(R.string.title_activity_transport, true, true, true, true);
 	    
-	    AutoCompleteTextView autoCompViewFrom = (AutoCompleteTextView) findViewById(R.id.transport_input_from);
-	    AutoCompleteTextView autoCompViewTo = (AutoCompleteTextView) findViewById(R.id.transport_input_to);
+	    autoCompViewFrom = (AutoCompleteTextView) findViewById(R.id.transport_input_from);
+	    autoCompViewTo = (AutoCompleteTextView) findViewById(R.id.transport_input_to);
 	    
 	    autoCompViewFrom.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.places_list_item));
 	    autoCompViewFrom.setOnItemClickListener(this);
@@ -56,73 +69,77 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	    autoCompViewTo.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.places_list_item));
 	    autoCompViewTo.setOnItemClickListener(this);
 	    
-	    inputDeparture = (EditText) findViewById(R.id.home_button_transport);
-	    inputDeparture.setText(timeFormat.format(new Date()));
-	    inputArrival = (EditText) findViewById(R.id.home_button_map);
-	    inputArrival.setText(timeFormat.format(new Date()));
-	    inputDate = (EditText) findViewById(R.id.transport_button_date);
+	    inputTime = (EditText) findViewById(R.id.transport_input_time);
+	    inputTime.setText(timeFormat.format(new Date()));
+	    inputDate = (EditText) findViewById(R.id.transport_input_date);
 	    inputDate.setText(dateFormat.format(new Date()));
+	    
+	    radioGroup = (RadioGroup) findViewById(R.id.transport_radio_departure_arrival);
+	    radioArrival = (RadioButton) findViewById(R.id.transport_radio_arrival);
 	    
 		buttonOk.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(TransportActivity.this, TransportResultActivity.class);
-				startActivityForResult(intent, 1);
+				plan();
 			}
 		});
 		
-		setTimePickers();
+		setTimePicker();
 		setDatePicker();
 		
 	}
 	
-	private void setTimePickers() {
-		final TimePickerDialog.OnTimeSetListener timeDeparturePicker = new TimePickerDialog.OnTimeSetListener() {
+	protected void plan() {
+		
+		//String geocodingURL = "https://maps.googleapis.com/maps/api/geocode/json?address=Southeast+Water+Avenue,+Portland,+OR,+United+States&sensor=true";
+		//System.out.println(geocodingURL);
+		//RESTRequest request = new RESTRequest("http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=false&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude);
+		
+		GeoLocation fromLocation = new GeoLocation("Southeast+Water+Avenue,+Portland,+OR,+United+States");
+		double fromLatitude = fromLocation.getLatitude();
+		double fromLongitude = fromLocation.getLongitude();
+		
+		GeoLocation toLocation = new GeoLocation("Southeast+Water+Avenue,+Portland,+OR,+United+States");
+		double toLatitude = toLocation.getLatitude();
+		double toLongitude = toLocation.getLongitude();		
+		
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+		String time = timeFormat.format(calendarTime.getTime());
+		String date = dateFormat.format(calendarDate.getTime());
+		
+		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
+		
+		//RESTRequest request = new RESTRequest("http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=false&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude);
+		System.out.println("http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=" + arriveBy + "&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude);
+	}
+
+	private void setTimePicker() {
+		final TimePickerDialog.OnTimeSetListener timePicker = new TimePickerDialog.OnTimeSetListener() {
 
 		    @Override
 		    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
-		        calendarDeparture.set(Calendar.HOUR_OF_DAY, hourOfDay);
-		        calendarDeparture.set(Calendar.MINUTE, minute);
-		        timeDeparture = calendarDeparture.getTime();
+		        calendarTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		        calendarTime.set(Calendar.MINUTE, minute);
+		        time = calendarTime.getTime();
 		        
-		        inputDeparture.setText(timeFormat.format(timeDeparture));
+		        inputTime.setText(timeFormat.format(time));
 		    }
 		    
 		};
-	    inputDeparture.setOnClickListener(new OnClickListener() {
+		inputTime.setOnClickListener(new OnClickListener() {
 
 	        @Override
 	        public void onClick(View v) {
-	            new TimePickerDialog(TransportActivity.this, timeDeparturePicker, calendarDeparture
-	                    .get(Calendar.HOUR_OF_DAY), calendarDeparture.get(Calendar.MINUTE), true).show();
+	            new TimePickerDialog(TransportActivity.this, timePicker, calendarTime
+	                    .get(Calendar.HOUR_OF_DAY), calendarTime.get(Calendar.MINUTE), true).show();
 	        }
 
 	    });	
 	    
-	    final TimePickerDialog.OnTimeSetListener timeArrivalPicker = new TimePickerDialog.OnTimeSetListener() {
-
-		    @Override
-		    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
-		        calendarArrival.set(Calendar.HOUR_OF_DAY, hourOfDay);
-		        calendarArrival.set(Calendar.MINUTE, minute);
-		        timeArrival = calendarArrival.getTime();
-		        
-		        inputArrival.setText(timeFormat.format(timeArrival));
-		    }
-		    
-		};
-		inputArrival.setOnClickListener(new OnClickListener() {
-
-	        @Override
-	        public void onClick(View v) {
-	            new TimePickerDialog(TransportActivity.this, timeArrivalPicker, calendarArrival
-	                    .get(Calendar.HOUR_OF_DAY), calendarArrival.get(Calendar.MINUTE), true).show();
-	        }
-
-	    });	
+	   
 	}
 	
 	private void setDatePicker() {
@@ -165,4 +182,22 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
         String str = (String) adapterView.getItemAtPosition(position);
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
+
+	@Override
+	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void RESTRequestOnProgressUpdate(RESTRequestEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
 }
