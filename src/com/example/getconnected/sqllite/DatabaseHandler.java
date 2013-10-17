@@ -91,6 +91,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			System.out.println("Cannot find file: " + fileName);
 			e1.printStackTrace();
 		}
+		System.out.println("jeej");
     	BufferedReader buffer = new BufferedReader(file);
     	String line = "";
     	String tableName = TABLE_BUSSTOPS;
@@ -103,7 +104,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			    StringBuilder sb = new StringBuilder(str1);
 			    String[] str = line.split(",");
 			    for ( int i = 0; i < str.length; i ++ ) {
-			    	sb.append(str[i] + ",");
+			    	sb.append(str[i]);
+			    	if (i < (str.length-1)) sb.append(",");
 			    }
 			    sb.append(str2);
 			    db.execSQL(sb.toString());
@@ -123,7 +125,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
  
     // Getting single contact
-    HashMap<String, String> getBusStop(int id) {
+    public HashMap<String, String> getBusStop(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
  
         Cursor cursor = db.query(TABLE_BUSSTOPS, null, "id=?",
@@ -137,6 +139,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         // return contact
         return busStops;
+    }
+    
+    public void deleteAll() {
+    	SQLiteDatabase db = this.getWritableDatabase();
+    	db.delete(TABLE_BUSSTOPS, null,
+                null);
+        db.close();
     }
      
     // Getting All Contacts
