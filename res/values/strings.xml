@@ -74,4 +74,12 @@
     <string name="title_activity_requestride">Request ride</string>
     <string name="title_activity_requestrides">Offered rides</string>
 
+
+	<!-- Field Validation error messages -->
+    <string name="validation_no_input">The field can't be empty</string>
+    <string name="field_validation_too_short">The number of characters are too few</string>
+    <string name="field_validation_too_long">The number of characters are too many</string>
+    <string name="field_validation_number">The field can't contain letters</string>
+    <string name="field_validation_string">The field can't contain numbers</string>
+
 </resources>
