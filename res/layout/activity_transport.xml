@@ -39,59 +39,6 @@
         android:inputType="textPostalAddress"
         android:textSize="10sp" />
 
-    <EditText
-        android:id="@+id/home_button_transport"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignLeft="@+id/transport_input_to"
-        android:layout_below="@+id/transport_input_to"
-        android:text="@string/transport_button_departure"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/home_button_transport"
-        android:layout_alignLeft="@+id/TextView01"
-        android:text="@string/transport_text_departure" />
-
-    <EditText
-        android:id="@+id/home_button_map"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignBaseline="@+id/TextView03"
-        android:layout_alignBottom="@+id/TextView03"
-        android:layout_alignLeft="@+id/home_button_transport"
-        android:text="@string/transport_button_arrival"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/TextView02"
-        android:text="@string/transport_text_arrival" />
-
-    <EditText
-        android:id="@+id/transport_button_date"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignLeft="@+id/home_button_map"
-        android:layout_below="@+id/home_button_map"
-        android:text="@string/transport_button_date"
-        android:textSize="7sp" />
-
-    <TextView
-        android:id="@+id/TextView04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/transport_button_date"
-        android:layout_alignBottom="@+id/transport_button_date"
-        android:layout_alignLeft="@+id/TextView03"
-        android:text="@string/transport_text_date" />
-
     <TextView
         android:id="@+id/TextView05"
         android:layout_width="250dp"
@@ -147,5 +94,72 @@
 
         <requestFocus />
     </AutoCompleteTextView>
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/transport_input_date"
+        android:layout_alignLeft="@+id/TextView01"
+        android:text="@string/transport_text_date" />
+
+    <EditText
+        android:id="@+id/transport_input_date"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/transport_input_to"
+        android:layout_toRightOf="@+id/checkBox3"
+        android:ems="10"
+        android:text="@string/transport_input_date"
+        android:textSize="7sp" />
+
+    <EditText
+        android:id="@+id/transport_input_time"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/transport_input_date"
+        android:layout_toRightOf="@+id/checkBox3"
+        android:ems="10"
+        android:text="@string/transport_input_time"
+        android:textSize="7sp" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/transport_input_time"
+        android:layout_alignLeft="@+id/TextView04"
+        android:text="@string/transport_text_time" />
+
+    <RadioGroup
+        android:id="@+id/transport_radio_departure_arrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_below="@+id/transport_input_time"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/transport_radio_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView02"
+            android:layout_below="@+id/TextView02"
+            android:checked="true"
+            android:text="@string/transport_text_departure"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/transport_radio_arrival"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/transport_radio_departure"
+            android:layout_alignBottom="@+id/transport_radio_departure"
+            android:layout_alignLeft="@+id/transport_input_time"
+            android:layout_marginLeft="34dp"
+            android:text="@string/transport_text_arrival"
+            android:textSize="10sp" />
+
+    </RadioGroup>
 
 </RelativeLayout>
