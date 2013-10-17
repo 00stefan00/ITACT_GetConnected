@@ -23,10 +23,15 @@
 
     <Button
         android:id="@+id/header_button_home"
+        style="@style/HeaderTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="@string/header_button_home" />
+        android:paddingRight="5dp"
+        android:text="@string/header_button_home" 
+        android:drawableLeft="@drawable/house_60x60"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="5dip" />
 
 </RelativeLayout>

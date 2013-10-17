@@ -3,6 +3,7 @@ package com.example.getconnected.activities;
 import com.example.getconnected.R;
 import com.example.getconnected.gps.GPSLocator;
 
+
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
