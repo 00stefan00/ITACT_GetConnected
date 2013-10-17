@@ -55,5 +55,9 @@
     <string name="error_field_required">Dit veld is verplicht</string>
     <string name="error_invalid_password">Dit wachtwoord is te kort</string>
     <string name="error_invalid_email">Dit e-mailadres is ongeldig</string>
-	
+		<string name="validation_no_input">Het veld mag niet leeg zijn</string>
+		<string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
+		<string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
+		<string name="field_validation_number">Het veld mag geen letters bevatten</string>
+		<string name="field_validation_string">Het veld mag geen nummers bevatten</string>
 </resources>
