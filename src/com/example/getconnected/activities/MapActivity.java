@@ -1,5 +1,8 @@
 package com.example.getconnected.activities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.getconnected.R;
 import com.example.getconnected.gps.GPSLocator;
 
@@ -8,41 +11,16 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.MyLocationOverlay;
+import org.osmdroid.views.overlay.OverlayItem;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 public class MapActivity extends BaseActivity {
-/*
-	private Button buttonGetLocation;
-	private TextView textLocation;
-	protected GPSLocator locator;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_map);
-		
-		locator = new GPSLocator(getApplicationContext());
-		
-		buttonGetLocation = (Button) findViewById(R.id.map_button_getLocation);
-		textLocation = (TextView) findViewById(R.id.map_text_location);
-		buttonGetLocation.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				textLocation.setText("Latitude: " + locator.getLatitude() + ", Longitude: " + locator.getLongitude());
-			}
-		});
-	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.map, menu);
-		return true;
-	}
-*/
 	private MapController mapController;
     private MapView mapView;
     protected GPSLocator locator;
@@ -62,9 +40,8 @@ public class MapActivity extends BaseActivity {
         locator = new GPSLocator(getApplicationContext());
         GeoPoint point2 = new GeoPoint(locator.getLatitude(), locator.getLongitude());
         mapController.setCenter(point2);
-        
+        /*
         myLocationoverlay = new MyLocationOverlay(this, mapView);
-        //myLocationoverlay.disableMyLocation(); // not on by default
         myLocationoverlay.disableCompass();
         myLocationoverlay.disableFollowLocation();
         myLocationoverlay.setDrawAccuracyEnabled(true);
@@ -74,19 +51,50 @@ public class MapActivity extends BaseActivity {
                         .getMyLocation());
             }
         });
-        myLocationoverlay.enableMyLocation();
         
-        mapView.getOverlays().add(myLocationoverlay);
-    }
-    protected boolean isRouteDisplayed() {
-        // TODO Auto-generated method stub
-        return false;
+        myLocationoverlay.enableMyLocation();
+        */
+        ArrayList<OverlayItem> overlayItemArray = new ArrayList<OverlayItem>();
+        OverlayItem olItem = new OverlayItem("Here", "SampleDescription", point2);
+        overlayItemArray.add(olItem);
+        MyOwnItemizedOverlay overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
+        mapView.getOverlays().add(overlay);
+        //mapView.getOverlays().add(myLocationoverlay);
+    	
     }
     
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.map, menu);
 		return true;
 	}
+    
+    public class MyOwnItemizedOverlay extends ItemizedIconOverlay<OverlayItem> {
+        protected Context mContext;
+
+        public MyOwnItemizedOverlay(final Context context, final List<OverlayItem> aList) {
+             
+        	super(context, aList, new OnItemGestureListener<OverlayItem>() {
+                    @Override public boolean onItemSingleTapUp(final int index, final OverlayItem item) {
+                            return false;
+                    }
+                    @Override public boolean onItemLongPress(final int index, final OverlayItem item) {
+                            return false;
+                    }
+                  } );
+            // TODO Auto-generated constructor stub
+             mContext = context;
+        }
+/*
+        @Override 
+        protected boolean onSingleTapUpHelper(final int index, final OverlayItem item, final MapView mapView) {
+            //Toast.makeText(mContext, "Item " + index + " has been tapped!", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+            dialog.setTitle(item.getTitle());
+            dialog.setMessage(item.getSnippet());
+            dialog.show();
+            return true;
+        }
+        */
+    }
 }
