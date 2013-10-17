@@ -1,7 +1,6 @@
 package com.util.getconnected;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import android.util.Log;
 import org.json.JSONArray;
@@ -34,14 +33,56 @@ public class JSONParser {
 		return this.JSONArrayToArrayList(jsonObject.getJSONArray(keyword));
 	}
 
-	public JSONObject parseList(List list, String identifier) throws JSONException{
+	/**
+	 *
+	 * @param list
+	 * @param identifier
+	 * @return {["value", "value2"]}
+	 * @throws JSONException
+	 */
+	public JSONObject parseList(List list, String identifier) throws JSONException {
 		String json = "{\"" + identifier + "\": [";
 		for (int i=0; i<list.size(); i++) {
 			json += "\"" + list.get(i).toString() + "\",";
 		}
 		json = json.substring(0, json.length()-1);
-		Log.d("tag", json);
 		return this.getObjectFromRequest(json + "]}");
+	}
+
+	/**
+	 *
+	 * @param map
+	 * @param identifier
+	 * @return {"identifier" : [{"key" : "value"},{"key1" : "value1"}]}
+	 * @throws JSONException
+	 */
+	public JSONObject parseMapAsArray(Map<?, ?> map, String identifier) throws JSONException {
+		String json = "{\"" + identifier + "\" : [";
+		for (Map.Entry<?,?> entry : map.entrySet()) {
+			Object key = entry.getKey();
+			Object value = entry.getValue();
+			json += "{\"" + key.toString() + "\" : \"" + value.toString() + "\"},";
+		}
+		json = json.substring(0, json.length() - 1);
+		return this.getObjectFromRequest(json + "]}");
+	}
+
+
+	/**
+	 *
+	 * @param map
+	 * @return String, example: {"identifier" : ["value1", "value2"]}
+	 * @throws JSONException
+	 */
+	public JSONObject parseMapAsObject(Map<?, ?> map) throws JSONException {
+		String json = "{";
+		for (Map.Entry<?,?> entry : map.entrySet()) {
+			Object key = entry.getKey();
+			Object value = entry.getValue();
+			json += "\"" + key.toString() + "\" : \"" + value.toString() + "\",";
+		}
+		json = json.substring(0, json.length() - 1);
+		return this.getObjectFromRequest(json + "}");
 	}
 
 	private ArrayList<JSONObject> JSONArrayToArrayList(JSONArray array)
