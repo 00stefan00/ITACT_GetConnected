@@ -40,7 +40,7 @@ public class MapActivity extends BaseActivity {
         locator = new GPSLocator(getApplicationContext());
         GeoPoint point2 = new GeoPoint(locator.getLatitude(), locator.getLongitude());
         mapController.setCenter(point2);
-        /*
+        
         myLocationoverlay = new MyLocationOverlay(this, mapView);
         myLocationoverlay.disableCompass();
         myLocationoverlay.disableFollowLocation();
@@ -53,13 +53,16 @@ public class MapActivity extends BaseActivity {
         });
         
         myLocationoverlay.enableMyLocation();
-        */
+        
         ArrayList<OverlayItem> overlayItemArray = new ArrayList<OverlayItem>();
-        OverlayItem olItem = new OverlayItem("Here", "SampleDescription", point2);
+        OverlayItem olItem = new OverlayItem("Bus Stop", "Groningen, Zernike", new GeoPoint(53.241, 6.534));
+        OverlayItem olItem2 = new OverlayItem("niet Bus Stop", "iets anders", new GeoPoint(53.240, 6.534));
+        
         overlayItemArray.add(olItem);
+        overlayItemArray.add(olItem2);
         MyOwnItemizedOverlay overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
         mapView.getOverlays().add(overlay);
-        //mapView.getOverlays().add(myLocationoverlay);
+        mapView.getOverlays().add(myLocationoverlay);
     	
     }
     
@@ -82,19 +85,18 @@ public class MapActivity extends BaseActivity {
                             return false;
                     }
                   } );
-            // TODO Auto-generated constructor stub
              mContext = context;
         }
-/*
+        
         @Override 
         protected boolean onSingleTapUpHelper(final int index, final OverlayItem item, final MapView mapView) {
-            //Toast.makeText(mContext, "Item " + index + " has been tapped!", Toast.LENGTH_SHORT).show();
             AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
             dialog.setTitle(item.getTitle());
             dialog.setMessage(item.getSnippet());
             dialog.show();
             return true;
+            //TODO Start new activity with bus stop details
         }
-        */
+        
     }
 }
