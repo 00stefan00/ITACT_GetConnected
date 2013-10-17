@@ -37,7 +37,7 @@ public class JSONParser {
 	 *
 	 * @param list
 	 * @param identifier
-	 * @return {["value", "value2"]}
+	 * @return {"identifier" : ["value", "value2"]}
 	 * @throws JSONException
 	 */
 	public JSONObject parseList(List list, String identifier) throws JSONException {
@@ -71,7 +71,7 @@ public class JSONParser {
 	/**
 	 *
 	 * @param map
-	 * @return String, example: {"identifier" : ["value1", "value2"]}
+	 * @return String, example: {key : value, key1 : value1}
 	 * @throws JSONException
 	 */
 	public JSONObject parseMapAsObject(Map<?, ?> map) throws JSONException {
