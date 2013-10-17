@@ -1,5 +1,7 @@
 package com.example.getconnected.activities;
 
+import java.io.FileNotFoundException;
+
 import com.example.getconnected.R;
 import com.example.getconnected.sqllite.DatabaseHandler;
 
@@ -76,6 +78,8 @@ public class MainActivity extends BaseActivity {
 		});		
 		
 		DatabaseHandler databaseHandler = new DatabaseHandler(this);
+		
+		databaseHandler.addBusstops();
 		
 	}
 

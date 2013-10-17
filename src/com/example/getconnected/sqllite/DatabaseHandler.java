@@ -1,5 +1,9 @@
 package com.example.getconnected.sqllite;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,8 +11,10 @@ import java.util.List;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
  
 public class DatabaseHandler extends SQLiteOpenHelper {
  
@@ -75,6 +81,42 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
         // Create tables again
         onCreate(db);
+    }
+    
+    public void addBusstops() {
+    	String fileName = Environment.getExternalStorageDirectory() + "/bushaltes_csv.csv";
+    	FileReader file = null;
+		try {
+			file = new FileReader(fileName);
+		} catch (FileNotFoundException e1) {
+			System.out.println("Cannot find file: " + fileName);
+			e1.printStackTrace();
+		}
+    	BufferedReader buffer = new BufferedReader(file);
+    	String line = "";
+    	String tableName = TABLE_BUSSTOPS;
+    	String str1 = "INSERT INTO " + tableName + " values(";
+    	String str2 = ");";
+    	SQLiteDatabase db = this.getWritableDatabase();
+    	db.beginTransaction();
+    	try {
+			while ((line = buffer.readLine()) != null) {
+			    StringBuilder sb = new StringBuilder(str1);
+			    String[] str = line.split(",");
+			    for ( int i = 0; i < str.length; i ++ ) {
+			    	sb.append(str[i] + ",");
+			    }
+			    sb.append(str2);
+			    db.execSQL(sb.toString());
+			    System.out.println(line);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	db.setTransactionSuccessful();
+    	db.endTransaction();
     }
  
     /**

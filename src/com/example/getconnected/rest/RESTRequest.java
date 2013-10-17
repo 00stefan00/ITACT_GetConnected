@@ -313,7 +313,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		for (RESTRequestListener eventListener : eventListeners)
 		{
 			// Create new RESTRequestEvent to be handled by the event listener
-			eventListener.handleRESTRequestEvent(new RESTRequestEvent(this, result, ID));
+			//eventListener.handleRESTRequestEvent(new RESTRequestEvent(this, result, ID));
 		}
 	}
 	
