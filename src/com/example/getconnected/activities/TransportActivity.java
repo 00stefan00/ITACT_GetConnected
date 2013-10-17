@@ -7,10 +7,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.example.getconnected.R;
 import com.example.getconnected.network.GeoLocation;
 import com.example.getconnected.network.PlacesAutoCompleteAdapter;
@@ -18,6 +14,7 @@ import com.example.getconnected.rest.RESTRequest;
 import com.example.getconnected.rest.RESTRequestEvent;
 import com.example.getconnected.rest.RESTRequestListener;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -35,6 +32,7 @@ import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+@SuppressLint("SimpleDateFormat")
 public class TransportActivity extends BaseActivity implements OnItemClickListener, RESTRequestListener {
 
 	private final Calendar calendarTime = Calendar.getInstance();
@@ -90,17 +88,14 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 	}
 	
+	@SuppressLint("SimpleDateFormat")
 	protected void plan() {
 		
-		//String geocodingURL = "https://maps.googleapis.com/maps/api/geocode/json?address=Southeast+Water+Avenue,+Portland,+OR,+United+States&sensor=true";
-		//System.out.println(geocodingURL);
-		//RESTRequest request = new RESTRequest("http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=false&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude);
-		
-		GeoLocation fromLocation = new GeoLocation("Southeast+Water+Avenue,+Portland,+OR,+United+States");
+		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
 		double fromLatitude = fromLocation.getLatitude();
 		double fromLongitude = fromLocation.getLongitude();
 		
-		GeoLocation toLocation = new GeoLocation("Southeast+Water+Avenue,+Portland,+OR,+United+States");
+		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());
 		double toLatitude = toLocation.getLatitude();
 		double toLongitude = toLocation.getLongitude();		
 		
@@ -111,8 +106,22 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
 		
-		//RESTRequest request = new RESTRequest("http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=false&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude);
-		System.out.println("http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=" + arriveBy + "&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude);
+		String url = "http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=" + arriveBy + "&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude;
+		
+		RESTRequest request = new RESTRequest(url);
+		try {
+			String result = request.execute().get();
+			
+			Intent intent = new Intent(this, TransportResultActivity.class);
+			intent.putExtra("json", result);
+			startActivity(intent);
+			
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	private void setTimePicker() {

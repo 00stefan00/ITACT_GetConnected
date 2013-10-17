@@ -11,15 +11,10 @@ import com.example.getconnected.rest.RESTRequest;
 
 public class GeoLocation {
 
-	private String address;
 	private HashMap<String, Double> location = new HashMap<String, Double>();
 	private String url; 
 	
 	public GeoLocation(String address) {
-		this.address = address;
-		
-		
-		
 		this.url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&sensor=true";
 				
 		RESTRequest request = new RESTRequest(url);
