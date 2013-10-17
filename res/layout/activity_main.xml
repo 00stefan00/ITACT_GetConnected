@@ -26,22 +26,25 @@
         android:text="@string/main_text"
         android:textStyle="bold" />
     
-       <Button
-        android:id="@+id/home_button_transport"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TextView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="29dp"
-        android:background="@drawable/smooth_top_edges"
-        android:drawableLeft="@drawable/car_icon_40x40"
-        android:drawableRight="@drawable/arrow_icon_20x20"
-        android:drawablePadding="5dip"
-        android:paddingRight="15dp"
-   		android:paddingLeft="15dp"
-        android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_transport" />
+	<Button
+	    android:id="@+id/home_button_transport"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/TextView1"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginLeft="40dp"
+	    android:layout_marginStart="@dimen/activity_horizontal_margin"
+	    android:layout_marginTop="29dp"
+	    android:background="@drawable/smooth_top_edges"
+	    android:drawableLeft="@drawable/car_icon_40x40"
+	    android:drawablePadding="5dip"
+	    android:drawableRight="@drawable/arrow_icon_20x20"
+	    android:gravity="left|center_vertical|right"
+	    android:onClick="startIntentByButton"
+	    android:paddingLeft="15dp"
+	    android:paddingRight="15dp"
+	    android:tag="TransportActivity"
+	    android:text="@string/home_button_transport" />
 
     <Button
         android:id="@+id/home_button_map"
@@ -50,15 +53,17 @@
         android:layout_alignLeft="@+id/home_button_transport"
         android:layout_alignRight="@+id/home_button_transport"
         android:layout_below="@+id/home_button_transport"
-        android:layout_marginTop="-9dp"
+        android:layout_marginTop="-2dp"
         android:background="@drawable/smooth_button"
         android:drawableLeft="@drawable/map_icon_40x40"
         android:drawableRight="@drawable/arrow_icon_20x20"
         android:drawablePadding="10dip"
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
-        android:gravity="left|center_vertical|right"
-        android:text="@string/home_button_map" />
+        android:gravity="left|center_vertical|right" 
+        android:text="@string/home_button_map"
+		android:onClick="startIntentByButton"
+		android:tag="MapActivity" />
 
     <Button
         android:id="@+id/home_button_marketplace"
@@ -67,7 +72,7 @@
         android:layout_alignLeft="@+id/home_button_map"
         android:layout_alignRight="@+id/home_button_map"
         android:layout_below="@+id/home_button_map"
-        android:layout_marginTop="-9dp"
+        android:layout_marginTop="-2dp"
         android:background="@drawable/smooth_button"
         android:drawableLeft="@drawable/marketplace_icon_40x40"
         android:drawableRight="@drawable/arrow_icon_20x20"
@@ -75,8 +80,10 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
         android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_marktetplace" />
-
+        android:text="@string/home_button_marktetplace"
+		android:onClick="startIntentByButton"
+		android:tag="MarketplaceActivity" />
+    
     <Button
         android:id="@+id/home_button_service"
         android:layout_width="match_parent"
@@ -84,7 +91,7 @@
         android:layout_alignLeft="@+id/home_button_marketplace"
         android:layout_alignRight="@+id/home_button_marketplace"
         android:layout_below="@+id/home_button_marketplace"
-        android:layout_marginTop="-9dp"
+        android:layout_marginTop="-2dp"
         android:background="@drawable/smooth_button"
         android:drawableLeft="@drawable/service_desk_icon_40x40"
         android:drawableRight="@drawable/arrow_icon_20x20"
@@ -92,7 +99,9 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
         android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_support" />
+        android:text="@string/home_button_support"
+		android:onClick="startIntentByButton"
+		android:tag="" />
 
     <Button
         android:id="@+id/home_button_help"
@@ -101,7 +110,7 @@
         android:layout_alignLeft="@+id/home_button_service"
         android:layout_alignRight="@+id/home_button_service"
         android:layout_below="@+id/home_button_service"
-        android:layout_marginTop="-9dp"
+        android:layout_marginTop="-6dp"
         android:background="@drawable/smooth_bot_edges"
         android:drawableLeft="@drawable/help_icon_40x40"
         android:drawableRight="@drawable/arrow_icon_20x20"
@@ -109,7 +118,9 @@
         android:paddingRight="15dp"
    		android:paddingLeft="15dp"
         android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_help" />
+        android:text="@string/home_button_help"
+		android:onClick="startIntentByButton"
+		android:tag="" />
     
     <include
         android:layout_width="wrap_content"

@@ -18,6 +18,8 @@ abstract class BaseActivity extends Activity {
 	protected Button buttonOk;
 	protected Button buttonHome;
 
+	protected static final String activityPackage = "com.example.getconnected.activities";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,6 +72,22 @@ abstract class BaseActivity extends Activity {
 
 	protected void disableBackButton() {
 
+	}
+
+	/**
+	 *
+	 * @param view
+	 */
+	public void startIntentByButton(View view) {
+		Button button = (Button) view;
+		if(!button.getTag().equals("")) {
+			try {
+				Intent intent = new Intent(getApplicationContext(), Class.forName(BaseActivity.activityPackage + "." + button.getTag().toString()));
+				startActivityForResult(intent, 1);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }
