@@ -10,5 +10,6 @@ public class MarketplaceActivity extends BaseActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_marketplace);
+		initLayout(R.string.title_activity_marketplace, true, true, true, false);
 	}
 }

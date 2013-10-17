@@ -11,5 +11,6 @@ public class RequestRideActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_requestride);
+		initLayout(R.string.title_activity_requestride, true, true, true, true);
 	}
 }

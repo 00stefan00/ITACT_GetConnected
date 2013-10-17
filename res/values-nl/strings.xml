@@ -48,5 +48,8 @@
     <string name="male">Man</string>
     <string name="female">Vrouw</string>
     <string name="login">Log in</string>
-
+	<string name="title_activity_marketplace">Marktplaats</string>
+	<string name="title_activity_createride">Maak rit aan</string>
+	<string name="title_activity_requestride">Vraag rit aan</string>
+	<string name="title_activity_requestrides">Aangeboden ritten</string>
 </resources>

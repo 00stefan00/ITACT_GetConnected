@@ -69,5 +69,9 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="login">Log in</string>
-    
+    <string name="title_activity_marketplace">Marketplace</string>
+    <string name="title_activity_createride">Create ride</string>
+    <string name="title_activity_requestride">Request ride</string>
+    <string name="title_activity_requestrides">Offered rides</string>
+
 </resources>
