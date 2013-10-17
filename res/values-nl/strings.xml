@@ -60,4 +60,26 @@
 		<string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
 		<string name="field_validation_number">Het veld mag geen letters bevatten</string>
 		<string name="field_validation_string">Het veld mag geen nummers bevatten</string>
+		
+		    <string name="title_activity_transport_details">TransportDetailsActivity</string>
+    <string name="display_requests">Display requested rides</string>
+    <string name="empty_string"></string>
+    <string name="read_more_btn">Read more</string>
+    <string name="offered_ride_string">Offered ride by person</string>
+    <string name="ride_description">Ride description ..........................................................................................................................</string>
+    <string name="title_activity_map_tets">MapTets</string>
+    <string name="orderride_expl">Explaining text (.......................)</string>
+    <string name="location_from">From</string>
+    <string name="location_destination">Destination</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="departure_time">Departure Time</string>
+    <string name="arrival_time">Arrival Time</string>
+    <string name="locations">Locations</string>
+    <string name="TextSpacer">"        "</string>
+    <string name="request_ride_button">Request this ride</string>
+    <string name="create_ride_button">Create this ride</string>
+    <string name="change_date">Change date</string>
+        <string name="request_ride">Request a ride</string>
+    <string name="create_ride">Create new ride</string>
 </resources>
