@@ -44,6 +44,12 @@ public class BusStopDetailsActivity extends Activity {
 	private TextView nameView;
 	private TextView cityView;
 	private boolean trunk;
+	private TextView shelterView;
+	private TextView trunkView;
+	private TextView seatingsView;
+	
+	private String confirmYes = getApplicationContext().getResources().getString(R.string.confirm);
+	private String confirmNo = getApplicationContext().getResources().getString(R.string.deny);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,9 @@ public class BusStopDetailsActivity extends Activity {
 		numberView = (TextView) findViewById(R.id.busstop_number);
 		nameView = (TextView) findViewById(R.id.busstop_name);
 		cityView = (TextView) findViewById(R.id.busstop_city);
+		shelterView = (TextView) findViewById(R.id.busstop_shelter);
+		seatingsView = (TextView) findViewById(R.id.busstop_seatings);
+		trunkView = (TextView) findViewById(R.id.busstop_trunk);
 		
 		getBusStopDetails(id);
 		
@@ -68,6 +77,9 @@ public class BusStopDetailsActivity extends Activity {
 		numberView.setText(number + "");
 		nameView.setText(name);
 		cityView.setText(city);
+		shelterView.setText(shelter ? confirmYes : confirmNo);
+		seatingsView.setText(shelter ? confirmYes : confirmNo);
+		trunkView.setText(shelter ? confirmYes : confirmNo);
 	}
 
 	private void getBusStopDetails(int id) {
