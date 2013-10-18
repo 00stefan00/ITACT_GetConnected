@@ -92,7 +92,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.app.getconnected.BusStopDetailsActivity"
+            android:name="com.app.getconnected.activities.BusStopDetailsActivity"
             android:label="@string/title_activity_bus_stop_details" >
         </activity>
     </application>
