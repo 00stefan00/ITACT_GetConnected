@@ -19,6 +19,7 @@ public class LoginActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		initLayout(R.string.title_activity_loginactivity, true, true, true, false);
 		
 		fieldUsername = (EditText) findViewById(R.id.username);
 		fieldPassword = (EditText) findViewById(R.id.password);
