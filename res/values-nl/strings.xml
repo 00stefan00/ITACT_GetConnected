@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- App Name -->
     <string name="app_name">GetConnected</string>
+
+    <!-- General -->
+    <string name="confirm">Ja</string>
+    <string name="deny">Nee</string>
+    
+    <!-- Main Menu -->
     <string name="action_settings">Settings</string>
     <string name="main_text">Navigeer hieronder naar één van de pagina\'s door erop te drukken.</string>
     <string name="title_activity_main">Home</string>
@@ -10,6 +17,8 @@
     <string name="home_button_marktetplace">Marktplaats</string>
     <string name="home_button_support">Klantenservice</string>
     <string name="home_button_help">Hulp en uitleg</string>
+
+    <!-- Transport Activity -->
     <string name="title_activity_transport">Vervoer</string>
     <string name="transport_text_from">Van</string>
     <string name="transport_text_to">Naar</string>
@@ -31,12 +40,78 @@
     <string name="transport_result_text_traveltime">Reistijd</string>
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
+
+    <!-- Base Activity -->
     <string name="header_button_home">Home</string>
     <string name="footer_button_back">Terug</string>
     <string name="footer_button_menu">Snel menu</string>
     <string name="footer_button_ok">Ok</string>
+
+    <!-- Field Bus Stop Details -->
+    <string name="busstop_text_name">Naam</string>
+    <string name="busstop_text_number">Nummer</string>
+    <string name="busstop_text_shelter">Wachthuisje:</string>
+    <string name="busstop_text_trunk">Prullenbak:</string>
+    <string name="busstop_text_lights">Verlichting:</string>
+    <string name="busstop_text_seating">Zittingen:</string>
+    <string name="busstop_text_facilities">Faciliteiten:</string>
+
+    <!-- Transportation Result Activity -->
+    <string name="transportation_result_departure_header">Vertrek</string>
+    <string name="transportation_result_duration_header">Duur</string>
+    <string name="transportation_result_arrival_header">Aankomst</string>
+    <string name="transportation_result_transfers_header">Overstap</string>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Get connected 2  -->
+    <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="title_activity_map">MapActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="username">Gebruikersnaam</string>
     <string name="password">Wachtwoord</string>
     <string name="first_name">Voornaam</string>
@@ -81,11 +156,5 @@
     <string name="change_date">Change date</string>
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
-
-    <!-- Transportation Result Activity -->
-    <string name="transportation_result_departure_header">Vertrek</string>
-    <string name="transportation_result_duration_header">Duur</string>
-    <string name="transportation_result_arrival_header">Aankomst</string>
-    <string name="transportation_result_transfers_header">Overstap</string>
 
 </resources>
