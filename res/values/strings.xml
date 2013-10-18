@@ -38,7 +38,6 @@
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
     <string name="title_activity_map">MapActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_transport_details">TransportDetailsActivity</string>
     <string name="display_requests">Display requested rides</string>
     <string name="empty_string"></string>
@@ -69,5 +68,21 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="login">Log in</string>
+    <string name="title_activity_marketplace">Marketplace</string>
+    <string name="title_activity_createride">Create ride</string>
+    <string name="title_activity_requestride">Request ride</string>
+    <string name="title_activity_requestrides">Offered rides</string>
     
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+
+
+	<!-- Field Validation error messages -->
+    <string name="validation_no_input">The field can not be empty</string>
+    <string name="field_validation_too_short">The number of characters are too few</string>
+    <string name="field_validation_too_long">The number of characters are too many</string>
+    <string name="field_validation_number">The field can not contain letters</string>
+    <string name="field_validation_string">The field can not contain numbers</string>
+
 </resources>

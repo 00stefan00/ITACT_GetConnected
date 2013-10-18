@@ -1,4 +1,4 @@
-package com.example.getconnected.rest;
+package com.app.getconnected.rest;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -200,6 +200,42 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	}
 	
 	/**
+	 * @param key
+	 * @param value
+	 */
+	public void putInt(String key, int value)
+	{
+		parameters.add(new BasicNameValuePair(key, Integer.toString(value)));
+	}
+	
+	/**
+	 * @param key
+	 * @param value
+	 */
+	public void putDouble(String key, double value)
+	{
+		parameters.add(new BasicNameValuePair(key, Double.toString(value)));
+	}
+
+	/**
+	 * @param key
+	 * @param value
+	 */
+	public void putFloat(String key, float value)
+	{
+		parameters.add(new BasicNameValuePair(key, Float.toString(value)));
+	}
+	
+	/**
+	 * @param key
+	 * @param value
+	 */
+	public void putBoolean(String key, boolean value)
+	{
+		parameters.add(new BasicNameValuePair(key, Boolean.toString(value)));
+	}
+	
+	/**
 	 * @param eventListener
 	 */
 	public void addEventListener(RESTRequestListener eventListener)
@@ -221,7 +257,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			{
 				case GET:
 					// Set URL and encode parameters
-					httpRequest = new HttpGet(address + URLEncodedUtils.format(parameters, "utf-8"));
+					httpRequest = new HttpGet(address + "?" + URLEncodedUtils.format(parameters, "utf-8"));
 					break;
 	
 				case POST:

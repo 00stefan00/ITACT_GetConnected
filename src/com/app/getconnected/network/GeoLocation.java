@@ -1,4 +1,4 @@
-package com.example.getconnected.network;
+package com.app.getconnected.network;
 
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequest;
 
 public class GeoLocation {
 

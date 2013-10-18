@@ -1,4 +1,4 @@
-package com.example.getconnected.gps;
+package com.app.getconnected.gps;
 
 import android.content.Context;
 import android.content.Intent;

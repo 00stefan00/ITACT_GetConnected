@@ -1,4 +1,4 @@
-package com.example.getconnected.rest;
+package com.app.getconnected.rest;
 
 import java.util.EventObject;
 

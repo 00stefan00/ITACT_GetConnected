@@ -1,4 +1,4 @@
-package com.example.getconnected.sqllite;
+package com.app.getconnected.sqllite;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
