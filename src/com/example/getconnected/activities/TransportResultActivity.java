@@ -20,6 +20,8 @@ public class TransportResultActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transport_result);
 		initLayout(R.string.title_activity_transport_result, true, true, true, false);
+		
+		System.out.println(getIntent().getExtras().getString("json"));
 	}
 
 	@Override

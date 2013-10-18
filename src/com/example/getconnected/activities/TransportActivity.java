@@ -25,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -52,6 +53,10 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	private RadioGroup radioGroup;
 	private RadioButton radioArrival;
 	
+	private CheckBox checkBoxBus;
+	private CheckBox checkBoxTrain;
+	private CheckBox checkBoxTaxiOther;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -75,7 +80,11 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	    radioGroup = (RadioGroup) findViewById(R.id.transport_radio_departure_arrival);
 	    radioArrival = (RadioButton) findViewById(R.id.transport_radio_arrival);
 	    
-		buttonOk.setOnClickListener(new OnClickListener() {
+	    checkBoxBus = (CheckBox) findViewById(R.id.transport_checkbox_bus);
+	    checkBoxTrain = (CheckBox) findViewById(R.id.transport_checkbox_train);
+	    checkBoxTaxiOther = (CheckBox) findViewById(R.id.transport_checkbox_taxi_other);
+		
+	    buttonOk.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -106,9 +115,27 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
 		
-		String url = "http://maps5.trimet.org/opentripplanner-api-webapp/ws/plan?_dc=1382005620562&arriveBy=" + arriveBy + "&time=" + time + "&ui_date=" + date + "&mode=TRANSIT%2CWALK&optimize=QUICK&maxWalkDistance=840&walkSpeed=1.341&date=2013-10-17&toPlace=" + fromLatitude + "," + fromLongitude + "&fromPlace=" + toLatitude + "," + toLongitude;
+		String url = "http://145.37.92.128:8081/opentripplanner-api-webapp/ws/plan";
 		
+		String mode;
+		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
+		mode = "TRANSIT%2CWALK"; 
+		// BUS: BUSISH
+		// TREIN: TRAINISH
+		// 
+				
 		RESTRequest request = new RESTRequest(url);
+		request.putString("_dc", "1382083769026");
+		request.putString("arriveBy", "" + arriveBy);
+		request.putString("time", time);
+		request.putString("ui_date", date);
+		request.putString("date", date);
+		request.putString("mode", "TRANSIT%2CWALK");
+		request.putString("optimize", "QUICK");
+		request.putString("maxWalkDistance", mode);
+		request.putString("walkSpeed", "1.341");
+		request.putString("toPlace", fromLatitude + "," + fromLongitude);
+		request.putString("fromPlace", fromLatitude + "," + fromLongitude);
 		try {
 			String result = request.execute().get();
 			

@@ -48,7 +48,7 @@
         android:text="@string/transport_text_possibilities" />
 
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/transport_checkbox_bus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView05"
@@ -57,19 +57,19 @@
         android:text="@string/transport_text_possibilities_bus" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/transport_checkbox_train"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBox1"
-        android:layout_below="@+id/checkBox1"
+        android:layout_alignLeft="@+id/transport_checkbox_bus"
+        android:layout_below="@+id/transport_checkbox_bus"
         android:text="@string/transport_text_possibilities_train" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/transport_checkbox_taxi_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBox2"
-        android:layout_below="@+id/checkBox2"
+        android:layout_alignLeft="@+id/transport_checkbox_train"
+        android:layout_below="@+id/transport_checkbox_train"
         android:text="@string/transport_text_possibilities_taxi_other" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_width="160dp"
         android:layout_height="25dp"
         android:layout_alignTop="@+id/map_text_location"
-        android:layout_toRightOf="@+id/checkBox3"
+        android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
         android:ems="10"
         android:hint="@string/transport_input_from"
         android:inputType="textPostalAddress"
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_below="@+id/transport_input_to"
-        android:layout_toRightOf="@+id/checkBox3"
+        android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
         android:ems="10"
         android:text="@string/transport_input_date"
         android:textSize="7sp" />
@@ -118,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_below="@+id/transport_input_date"
-        android:layout_toRightOf="@+id/checkBox3"
+        android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
         android:ems="10"
         android:text="@string/transport_input_time"
         android:textSize="7sp" />

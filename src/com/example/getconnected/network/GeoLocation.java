@@ -15,9 +15,11 @@ public class GeoLocation {
 	private String url; 
 	
 	public GeoLocation(String address) {
-		this.url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&sensor=true";
+		this.url = "https://maps.googleapis.com/maps/api/geocode/json";
 				
 		RESTRequest request = new RESTRequest(url);
+		request.putString("address", address);
+		request.putString("sensor", "true");
 		try {
 			String result = request.execute().get();
 			
