@@ -48,8 +48,8 @@ public class BusStopDetailsActivity extends Activity {
 	private TextView trunkView;
 	private TextView seatingsView;
 	
-	private String confirmYes = getApplicationContext().getResources().getString(R.string.confirm);
-	private String confirmNo = getApplicationContext().getResources().getString(R.string.deny);
+	//private String confirmYes = getResources().getString(R.string.confirm);
+	//private String confirmNo = getResources().getString(R.string.deny);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +77,9 @@ public class BusStopDetailsActivity extends Activity {
 		numberView.setText(number + "");
 		nameView.setText(name);
 		cityView.setText(city);
-		shelterView.setText(shelter ? confirmYes : confirmNo);
-		seatingsView.setText(shelter ? confirmYes : confirmNo);
-		trunkView.setText(shelter ? confirmYes : confirmNo);
+		shelterView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
+		seatingsView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
+		trunkView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
 	}
 
 	private void getBusStopDetails(int id) {
