@@ -15,11 +15,13 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TransportResultActivity extends BaseActivity {
 
 	private int page = 0;
-	private ArrayList<String> list;
+	private JSONArray itineraries;
+	TableLayout table = (TableLayout)findViewById(R.id.transport_result_table);	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,27 +30,29 @@ public class TransportResultActivity extends BaseActivity {
 		initLayout(R.string.title_activity_transport_result, true, true, true,
 				false);
 		String json = getIntent().getExtras().getString("json");
-		initTable(json);
-
-	}
-
-	private void initTable(String json) {
-		JSONObject jObject = null;
-		JSONArray itineraries = null;
-		JSONObject itinerariy = null;
+		JSONObject jObject;
 		try {
 			jObject = new JSONObject(json);
 			itineraries = jObject.getJSONArray("itineraries");
-			TableLayout table = (TableLayout)findViewById(R.id.transport_result_table);
-			for (int i = 0; i < itineraries.length(); i++) {
+		} catch (JSONException e) {
+			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG).show();
+			return;
+		}
+		
+	}
+
+	private void initTable() {
+		JSONObject itinerariy = null;
+		try {	
+			for (int i = (page * 5); i < itineraries.length() && i < (page * 5 + 5); i++) {
 				itinerariy = itineraries.getJSONObject(i);
 				TableRow row = (TableRow)findViewById(R.id.transport_result_row);
 				setTextViews(row, itinerariy);
 				table.addView(row);
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG).show();
+			return;
 		}
 	}
 	
@@ -71,11 +75,23 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	private void nextPage() {
+		page++;
+		table.removeAllViews();
+		this.initTable();
+		
+		
+		if((page * 5) >= itineraries.length()){
+			Button nextButton = (Button) findViewById(R.id.transport_results_next);
+			nextButton.setVisibility(View.INVISIBLE);
+		}
+		
+		
 		// set next page
 	}
 
 	private void prefPage() {
-		if (page == 0) {
+		page--;
+		if (page <= 0) {
 			Button prefButton = (Button) findViewById(R.id.transport_results_pref);
 			prefButton.setVisibility(View.INVISIBLE);
 			return;
