@@ -55,13 +55,12 @@
     <string name="error_field_required">Dit veld is verplicht</string>
     <string name="error_invalid_password">Dit wachtwoord is te kort</string>
     <string name="error_invalid_email">Dit e-mailadres is ongeldig</string>
-		<string name="validation_no_input">Het veld mag niet leeg zijn</string>
-		<string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
-		<string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
-		<string name="field_validation_number">Het veld mag geen letters bevatten</string>
-		<string name="field_validation_string">Het veld mag geen nummers bevatten</string>
-		
-		    <string name="title_activity_transport_details">TransportDetailsActivity</string>
+    <string name="validation_no_input">Het veld mag niet leeg zijn</string>
+    <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
+    <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
+    <string name="field_validation_number">Het veld mag geen letters bevatten</string>
+    <string name="field_validation_string">Het veld mag geen nummers bevatten</string>
+    <string name="title_activity_transport_details">TransportDetailsActivity</string>
     <string name="display_requests">Display requested rides</string>
     <string name="empty_string"></string>
     <string name="read_more_btn">Read more</string>
@@ -80,6 +79,13 @@
     <string name="request_ride_button">Request this ride</string>
     <string name="create_ride_button">Create this ride</string>
     <string name="change_date">Change date</string>
-        <string name="request_ride">Request a ride</string>
+    <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
+
+    <!-- Transportation Result Activity -->
+    <string name="transportation_result_departure_header">Vertrek</string>
+    <string name="transportation_result_duration_header">Duur</string>
+    <string name="transportation_result_arrival_header">Aankomst</string>
+    <string name="transportation_result_transfers_header">Overstap</string>
+
 </resources>

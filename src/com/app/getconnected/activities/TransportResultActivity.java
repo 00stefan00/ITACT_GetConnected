@@ -1,6 +1,8 @@
 package com.app.getconnected.activities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,6 +11,7 @@ import org.json.JSONObject;
 import com.app.getconnected.R;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +23,10 @@ import android.widget.Toast;
 public class TransportResultActivity extends BaseActivity {
 
 	private int page = 0;
+	private int pageSize = 5;
 	private JSONArray itineraries;
-	TableLayout table = (TableLayout)findViewById(R.id.transport_result_table);	
+	private TableLayout table;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,39 +38,58 @@ public class TransportResultActivity extends BaseActivity {
 		System.out.println(json);
 		try {
 			JSONObject jObject;
-			jObject = new JSONObject(json);
+			jObject = (new JSONObject(json)).getJSONObject("plan");
 			itineraries = jObject.getJSONArray("itineraries");
-		} catch (JSONException e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+					.show();
 			return;
 		}
-		
+		table = (TableLayout) findViewById(R.id.transport_result_table);
+		initTable();
+		this.setVisibilities();
+
 	}
 
 	private void initTable() {
 		JSONObject itinerariy = null;
-		try {	
-			for (int i = (page * 5); i < itineraries.length() && i < (page * 5 + 5); i++) {
+		try {
+			for (int i = (page * pageSize); i < itineraries.length() && i < (page * pageSize + pageSize); i++) {
 				itinerariy = itineraries.getJSONObject(i);
-				TableRow row = (TableRow)findViewById(R.id.transport_result_row);
+				TableRow row = (TableRow) getLayoutInflater().inflate(
+						R.layout.transport_result_row, table, false);
 				setTextViews(row, itinerariy);
 				table.addView(row);
 			}
-		} catch (JSONException e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+					.show();
 			return;
 		}
 	}
-	
-	private void setTextViews(TableRow row, JSONObject itinerariy) throws JSONException {
-		TextView departure = (TextView)row.findViewById(R.id.transport_result_text_departure);
-		TextView duration = (TextView)row.findViewById(R.id.transport_result_text_duration);
-		TextView arival = (TextView)row.findViewById(R.id.transport_result_text_arival);
-		TextView transfers = (TextView)row.findViewById(R.id.transport_result_text_transfers);
-		departure.setText(itinerariy.getString("duration"));
-		duration.setText(itinerariy.getString("startTime"));
-		arival.setText(itinerariy.getString("endTime"));
-		transfers.setText(itinerariy.getInt("transfers"));
+
+	private void setTextViews(TableRow row, JSONObject itinerariy)
+			throws Exception {
+		TextView departure = (TextView) row
+				.findViewById(R.id.transport_result_text_departure);
+		TextView duration = (TextView) row
+				.findViewById(R.id.transport_result_text_duration);
+		TextView arival = (TextView) row
+				.findViewById(R.id.transport_result_text_arival);
+		TextView transfers = (TextView) row
+				.findViewById(R.id.transport_result_text_transfers);
+		departure.setText("" + (itinerariy.getInt("duration") / 1000 / 60)
+				+ " ");
+		duration.setText("" + getDate(itinerariy.getLong("startTime"), "H:m")
+				+ " ");
+		arival.setText("" + getDate(itinerariy.getLong("endTime"), "H:m") + " ");
+		transfers.setText("" + itinerariy.getInt("transfers"));
+	}
+
+	private String getDate(Long time, String format) {
+		Date date = new Date(time);
+		SimpleDateFormat SDF = new SimpleDateFormat(format);
+		return SDF.format(date);
 	}
 
 	@Override
@@ -75,30 +99,44 @@ public class TransportResultActivity extends BaseActivity {
 		return true;
 	}
 
-	private void nextPage() {
-		page++;
+	// removes all views except the header.
+	private void removeTableRows() {
+		// for (int i = 1; 1 < table.getChildCount(); i++) {
+		// table.removeViewAt(i);
+		// }
 		table.removeAllViews();
-		this.initTable();
-		
-		
-		if((page * 5) >= itineraries.length()){
-			Button nextButton = (Button) findViewById(R.id.transport_results_next);
-			nextButton.setVisibility(View.INVISIBLE);
-		}
-		
-		
-		// set next page
 	}
 
-	private void prefPage() {
-		page--;
-		if (page <= 0) {
-			Button prefButton = (Button) findViewById(R.id.transport_results_pref);
-			prefButton.setVisibility(View.INVISIBLE);
-			return;
-		}
+	private void setVisibilities() {
+		Button prefButton = (Button) findViewById(R.id.transport_results_pref);
+		Button nextButton = (Button) findViewById(R.id.transport_results_next);
+		if ((page * pageSize + pageSize) >= itineraries.length()) {
 
-		// set previous page
+			nextButton.setVisibility(View.INVISIBLE);
+		} else {
+			nextButton.setVisibility(View.VISIBLE);
+		}
+		if (page <= 0) {
+			prefButton.setVisibility(View.INVISIBLE);
+		} else {
+			prefButton.setVisibility(View.VISIBLE);
+		}
+	}
+
+	public void nextPage(View v) {
+		page++;
+		this.removeTableRows();
+		this.initTable();
+		this.setVisibilities();
+
+	}
+
+	public void prefPage(View v) {
+		page--;
+		this.removeTableRows();
+		this.initTable();
+		this.setVisibilities();
+
 	}
 
 }
