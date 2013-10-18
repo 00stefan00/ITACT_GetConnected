@@ -20,7 +20,7 @@
         layout="@layout/footer" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/busstop_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText2"
@@ -33,13 +33,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/busstop_name"
         android:ems="10"
         android:hint="@string/date"
         android:inputType="date" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/busstop_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText4"
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText4"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/busstop_number"
         android:ems="10"
         android:hint="@string/date"
         android:inputType="date" />

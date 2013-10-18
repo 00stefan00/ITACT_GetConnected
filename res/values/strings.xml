@@ -74,6 +74,15 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_email">This email address is invalid</string>
+    
+    <!-- Field Bus Stop Details -->
+    <string name="busstop_text_name">Name</string>
+    <string name="busstop_text_number">Number</string>
+    <string name="busstop_text_shelter">Shelter:</string>
+    <string name="busstop_text_trunk">Trunk:</string>
+    <string name="busstop_text_lights">Lights:</string>
+    <string name="busstop_text_seating">Seating:</string>
+    <string name="busstop_text_facilities">Facilities:</string>
 
     <!-- Field Validation error messages -->
     <string name="validation_no_input">The field can not be empty</string>
@@ -81,6 +90,8 @@
     <string name="field_validation_too_long">The number of characters are too many</string>
     <string name="field_validation_number">The field can not contain letters</string>
     <string name="field_validation_string">The field can not contain numbers</string>
+    <string name="title_activity_bus_stop_details">BusStopDetailsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
     <!-- Transportation Result Activity -->
     <string name="transportation_result_departure_header">Departure</string>
