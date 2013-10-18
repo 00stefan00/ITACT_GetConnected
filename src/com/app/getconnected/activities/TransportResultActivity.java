@@ -30,8 +30,9 @@ public class TransportResultActivity extends BaseActivity {
 		initLayout(R.string.title_activity_transport_result, true, true, true,
 				false);
 		String json = getIntent().getExtras().getString("json");
-		JSONObject jObject;
+		System.out.println(json);
 		try {
+			JSONObject jObject;
 			jObject = new JSONObject(json);
 			itineraries = jObject.getJSONArray("itineraries");
 		} catch (JSONException e) {
