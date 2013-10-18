@@ -376,4 +376,9 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			eventListener.RESTRequestOnPostExecute(new RESTRequestEvent(this, result, ID));
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return address + "?" + URLEncodedUtils.format(parameters, "utf-8");
+	}
 }

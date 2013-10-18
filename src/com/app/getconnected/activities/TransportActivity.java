@@ -119,7 +119,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		String mode;
 		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
-		mode = "TRANSIT%2CWALK"; 
+		mode = "TRANSIT,WALK"; 
 		// BUS: BUSISH
 		// TREIN: TRAINISH
 		// 
@@ -130,12 +130,13 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		request.putString("time", time);
 		request.putString("ui_date", date);
 		request.putString("date", date);
-		request.putString("mode", "TRANSIT%2CWALK");
+		request.putString("mode", mode);
 		request.putString("optimize", "QUICK");
-		request.putString("maxWalkDistance", mode);
+		request.putString("maxWalkDistance", "1609");
 		request.putString("walkSpeed", "1.341");
-		request.putString("toPlace", fromLatitude + "," + fromLongitude);
+		request.putString("toPlace", toLatitude + "," + toLongitude);
 		request.putString("fromPlace", fromLatitude + "," + fromLongitude);
+		
 		try {
 			String result = request.execute().get();
 			
