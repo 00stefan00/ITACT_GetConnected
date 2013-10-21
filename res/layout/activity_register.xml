@@ -13,7 +13,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/username" />
+        android:text="@string/field_username" />
 
     <EditText
         android:id="@+id/username"
@@ -29,7 +29,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/password" />
+        android:text="@string/field_password" />
 
     <EditText
         android:id="@+id/password"
@@ -43,7 +43,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/first_name" />
+        android:text="@string/field_first_name" />
 
     <EditText
         android:id="@+id/first_name"
@@ -57,7 +57,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/last_name" />
+        android:text="@string/field_last_name" />
 
     <EditText
         android:id="@+id/last_name"
@@ -71,7 +71,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gender" />
+        android:text="@string/field_gender" />
 
     <RadioGroup
         android:id="@+id/gender"
@@ -84,13 +84,13 @@
             android:id="@+id/gender_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/male" />
+            android:text="@string/field_gender_male" />
 
         <RadioButton
             android:id="@+id/gender_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/female" />
+            android:text="@string/field_gender_female" />
       
 	</RadioGroup>
     
@@ -98,7 +98,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tel_number" />
+        android:text="@string/field_telephone_number" />
 
     <EditText
         android:id="@+id/telephone_number"
@@ -113,7 +113,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/email" />
+        android:text="@string/field_email" />
 
     <EditText
         android:id="@+id/email"
