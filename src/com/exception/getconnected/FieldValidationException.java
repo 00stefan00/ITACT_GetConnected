@@ -1,8 +1,5 @@
 package com.exception.getconnected;
 
-import android.content.res.Resources;
-import com.app.getconnected.R;
-
 /**
  * Created with IntelliJ IDEA.
  * User: EnquiringStone
@@ -12,6 +9,7 @@ import com.app.getconnected.R;
  */
 public class FieldValidationException extends Exception {
 
+	private static final long serialVersionUID = 1L;
 	private int index;
 
 	public FieldValidationException(int i) {
@@ -19,6 +17,10 @@ public class FieldValidationException extends Exception {
 	}
 
 	public String getMessage() {
-		return Resources.getSystem().getString(this.index);
+		return "invalid input";
+	}
+	
+	public int getIndex() {
+		return index;
 	}
 }

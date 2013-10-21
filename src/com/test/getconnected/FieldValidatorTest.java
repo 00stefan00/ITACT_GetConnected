@@ -1,6 +1,9 @@
 package com.test.getconnected;
 
 import android.test.AndroidTestCase;
+import android.widget.EditText;
+
+import com.app.getconnected.R;
 import com.exception.getconnected.FieldValidationException;
 import com.util.getconnected.FieldValidator;
 
@@ -12,53 +15,70 @@ import com.util.getconnected.FieldValidator;
  */
 public class FieldValidatorTest extends AndroidTestCase {
 
-	private static final String INPUT = "password";
+	private static final String INPUT = "teststring";
+	private EditText textField;
 
+	@Override
+	protected void setUp()
+	{
+		textField=new EditText(getContext());
+		textField.setText("non-alphanumeric text!");
+		textField.setTag("required,alphanumeric");
+	}
+	
 	public void testValidateTextField() throws Exception {
 		boolean error = false;
 		try {
-			FieldValidator.validateTextField(INPUT, false);
+			FieldValidator.validateTextField(textField);
+		} catch (FieldValidationException e) {
+			error = true;
+			assertTrue(R.string.field_validation_not_alphanumeric==e.getIndex());
+		} finally {
+			assertFalse(error);
+		}
+	}
+
+	public void testCheckEmpty() throws Exception {
+		boolean error = false;
+		try {
+			FieldValidator.checkEmpty(INPUT);
 		} catch (FieldValidationException e) {
 			error = true;
 		} finally {
 			assertFalse(error);
 		}
 	}
-
-	public void testValidateTextFieldHardCheck() throws Exception {
+	
+	public void testCheckNumeric() throws Exception {
 		boolean error = false;
 		try {
-			FieldValidator.validateTextField(INPUT, true);
-		} catch (FieldValidationException e) {
-			error = true;
-		} finally {
-			assertFalse(error);
-		}
-	}
-
-	public void testValidateNumberField() throws Exception {
-		boolean error = false;
-		try {
-			FieldValidator.validateNumberField(INPUT);
+			FieldValidator.checkNumeric(INPUT);
 		} catch (FieldValidationException e) {
 			error = true;
 		} finally {
 			assertTrue(error);
 		}
 	}
-
-	public void testValidateStringField() throws Exception {
+	
+	public void testCheckMinLength() throws Exception {
 		boolean error = false;
 		try {
-			FieldValidator.validateStringField(INPUT);
+			FieldValidator.checkMinLength(INPUT);
 		} catch (FieldValidationException e) {
 			error = true;
 		} finally {
 			assertFalse(error);
 		}
 	}
-
-	public void testIsEmpty() throws Exception {
-		assertFalse(FieldValidator.isEmpty(INPUT));
+	
+	public void testCheckEmail() throws Exception {
+		boolean error = false;
+		try {
+			FieldValidator.checkEmail(INPUT);
+		} catch (FieldValidationException e) {
+			error = true;
+		} finally {
+			assertTrue(error);
+		}
 	}
 }
