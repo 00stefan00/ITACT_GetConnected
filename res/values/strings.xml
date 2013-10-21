@@ -58,16 +58,16 @@
     <string name="request_ride_button">Request this ride</string>
     <string name="create_ride_button">Create this ride</string>
     <string name="change_date">Change date</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="gender">Gender</string>
-    <string name="tel_number">Telephone number</string>
-    <string name="email">E-mail</string>
+    <string name="field_username">Username</string>
+    <string name="field_password">Password</string>
+    <string name="field_first_name">First Name</string>
+    <string name="field_last_name">Last Name</string>
+    <string name="field_gender">Gender</string>
+    <string name="field_tel_number">Telephone number</string>
+    <string name="field_email">E-mail</string>
     <string name="register">Register</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
+    <string name="field_gender_male">Male</string>
+    <string name="field_gender_female">Female</string>
     <string name="login">Log in</string>
     <string name="title_activity_marketplace">Marketplace</string>
     <string name="title_activity_createride">Create ride</string>
@@ -78,10 +78,10 @@
     
 	<!-- Field Validation error messages -->
     <string name="field_validation_no_input">The field can not be empty</string>
-    <string name="field_validation_too_short">The number of characters are too few</string>
-    <string name="field_validation_too_long">The number of characters are too many</string>
-    <string name="field_validation_number">The field can not contain letters</string>
-    <string name="field_validation_string">The field can not contain numbers</string>
+    <string name="field_validation_too_short">The field contains too few characters</string>
+    <string name="field_validation_too_long">The field contains too many characters</string>
+    <string name="field_validation_number">The field can not contain any letters</string>
+    <string name="field_validation_string">The field can not contain any numbers</string>
     
     <string name="field_validation_not_numeric">The field can only contain numbers</string>
     <string name="field_validation_not_alphanumeric">The field can only contain letters and numbers</string>
