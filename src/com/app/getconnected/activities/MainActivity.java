@@ -13,10 +13,6 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initLayout(R.string.title_activity_main, false, false, false, false);
-		
-		Intent intent = new Intent(this, BusStopDetailsActivity.class);
-		intent.putExtra("id", 114787);
-		startActivity(intent);
 	}
 
 	@Override
