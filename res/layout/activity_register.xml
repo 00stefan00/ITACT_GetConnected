@@ -75,24 +75,25 @@
 
     <RadioGroup
         android:id="@+id/gender"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical"
-				>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/gender_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/field_gender_male" />
+            android:text="@string/field_gender_male"
+            android:tag="M" />
 
         <RadioButton
             android:id="@+id/gender_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/field_gender_female" />
+            android:text="@string/field_gender_female"
+            android:tag="F" />
       
-	</RadioGroup>
+    </RadioGroup>
     
     <TextView
         android:id="@+id/textView6"
