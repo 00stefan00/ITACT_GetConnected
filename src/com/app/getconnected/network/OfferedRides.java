@@ -44,7 +44,7 @@ public class OfferedRides {
 		return jsonObjects;
 	}
 
-	private static String getUrl() {
+	public static String getUrl() {
 		String updatedUrl = "";
 		for (String url : OfferedRides.url) {
 			updatedUrl += url + username;
