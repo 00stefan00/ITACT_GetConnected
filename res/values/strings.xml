@@ -39,6 +39,7 @@
     <string name="transport_result_text_traveltime">Travel Time</string>
     <string name="transport_result_text_switch">Switch</string>
     <string name="transport_result_text_arrival">Arrival</string>
+    <string name="transport_text_empty">Some field are empty..</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">To Home</string>
