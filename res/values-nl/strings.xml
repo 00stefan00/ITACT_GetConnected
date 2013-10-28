@@ -64,6 +64,10 @@
     <string name="transportation_result_arrival_header">Aankomst</string>
     <string name="transportation_result_transfers_header">Overstap</string>
     
+        <!-- Transportation Details Activity -->
+    <string name="transport_details_pref">Vorige</string>
+    <string name="transport_details_next">Volgende</string>
+    
     
     
     

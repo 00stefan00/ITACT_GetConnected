@@ -2,7 +2,7 @@
 
     <!-- App Name -->
     <string name="app_name">GetConnected</string>
-    
+
     <!-- General -->
     <string name="confirm">Yes</string>
     <string name="deny">No</string>
@@ -70,77 +70,10 @@
     <string name="transportation_result_arrival_header">Arrival</string>
     <string name="transportation_result_transfers_header">Transfers</string>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <!-- Transportation Details Activity -->
+    <string name="transport_details_pref">Previous</string>
+    <string name="transport_details_next">Next</string>
+
     <!-- Getconnected 2 -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="request_ride">Request a ride</string>
@@ -184,15 +117,15 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_email">This email address is invalid</string>
-    <color name="blue">#25383C</color>
 
+    <color name="blue">#25383C</color>
 
     <string name="title_activity_registeractivity">Register</string>
     <string name="field_validation_no_input">The field can not be empty</string>
     <string name="field_validation_not_numeric">The field can only contain numbers</string>
     <string name="field_validation_not_alphanumeric">The field can only contain letters and numbers</string>
     <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
-
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
+
 </resources>
