@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Assen"
+            android:text="Drachten"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </RelativeLayout>
 
@@ -143,7 +143,10 @@
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_alignParentTop="true"
+=======
+>>>>>>> a0b564ce1e3268a2aa8bfe187de3dcdaedd466aa
         layout="@layout/footer" />
 
 
