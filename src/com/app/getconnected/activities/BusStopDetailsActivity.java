@@ -12,6 +12,7 @@ import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
+import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
 
 import android.os.Bundle;
@@ -79,7 +80,7 @@ public class BusStopDetailsActivity extends BaseActivity {
 	}
 
 	private void getBusStopDetails(int id) {
-		String url = "http://145.37.86.205/yii/sites/BusStops/api/busstop/" + id;
+		String url = "http://145.37.90.70/yii/sites/BusStops/api/busstop/" + id;
 		RESTRequest request = new RESTRequest(url);
 		
 		try {

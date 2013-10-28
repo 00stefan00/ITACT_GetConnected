@@ -1,7 +1,6 @@
 package com.test.getconnected;
 
 import android.test.AndroidTestCase;
-import android.util.Log;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
 import java.util.ArrayList;

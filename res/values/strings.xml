@@ -63,7 +63,6 @@
     <string name="field_validation_too_long">The number of characters are too many</string>
     <string name="field_validation_number">The field can not contain letters</string>
     <string name="field_validation_string">The field can not contain numbers</string>
-    <string name="hello_world">Hello world!</string>
 
     <!-- Transportation Result Activity -->
     <string name="transportation_result_departure_header">Departure</string>
@@ -166,24 +165,34 @@
     <string name="request_ride_button">Request this ride</string>
     <string name="create_ride_button">Create this ride</string>
     <string name="change_date">Change date</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="gender">Gender</string>
-    <string name="tel_number">Telephone number</string>
-    <string name="email">E-mail</string>
+    <string name="field_username">Username</string>
+    <string name="field_password">Password</string>
+    <string name="field_first_name">First Name</string>
+    <string name="field_last_name">Last Name</string>
+    <string name="field_gender">Gender</string>
+    <string name="field_telephone_number">Telephone number</string>
+    <string name="field_email">E-mail</string>
     <string name="register">Register</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
+    <string name="field_gender_male">Male</string>
+    <string name="field_gender_female">Female</string>
     <string name="login">Log in</string>
     <string name="title_activity_marketplace">Marketplace</string>
     <string name="title_activity_createride">Create ride</string>
     <string name="title_activity_requestride">Request ride</string>
     <string name="title_activity_requestrides">Offered rides</string>
+    <string name="title_activity_loginactivity">Login</string>
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <color name="blue">#25383C</color>
 
+
+    <string name="title_activity_registeractivity">Register</string>
+    <string name="field_validation_no_input">The field can not be empty</string>
+    <string name="field_validation_not_numeric">The field can only contain numbers</string>
+    <string name="field_validation_not_alphanumeric">The field can only contain letters and numbers</string>
+    <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
+
+    <string name="login_incorrect_credentials">Username or password is incorrect</string>
+    <string name="registration_failed">The registration failed</string>
 </resources>

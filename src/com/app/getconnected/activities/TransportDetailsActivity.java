@@ -12,6 +12,8 @@ public class TransportDetailsActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transport_details);
 		initLayout(R.string.title_activity_transport_result, true, true, true, false); //todo doe eens string maken
+		String json = getIntent().getExtras().getString("json");
+		System.out.println(json);
 	}
 
 	@Override

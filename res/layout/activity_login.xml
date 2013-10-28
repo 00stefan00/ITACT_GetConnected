@@ -3,18 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
     
     <TextView
         android:id="@+id/busstop_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/username" />
+        android:text="@string/field_username" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
+        android:ems="10" 
+        android:tag="required,alphanumeric"
+        android:inputType="text">
         <requestFocus />
     </EditText>
 
@@ -22,13 +29,14 @@
         android:id="@+id/busstop_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/password" />
+        android:text="@string/field_password" />
 
     <EditText
         android:inputType="textPassword"
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:tag="required,minlength"
         android:ems="10" />
     
     <Button
@@ -44,5 +52,10 @@
         android:layout_height="wrap_content"
         android:text="@string/register"
         android:onClick="register" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/footer" />
     
 </LinearLayout>
