@@ -1,22 +1,30 @@
 package com.app.getconnected.activities;
 
 import com.app.getconnected.R;
+import com.app.getconnected.animations.CollapseAnimation;
+import com.app.getconnected.animations.ExpandAnimation;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 abstract class BaseActivity extends Activity {
 
 	protected TextView txtHeading;
 	protected Button buttonBack;
-	protected Button buttonMenu;
+	private Button buttonMenu;
 	protected Button buttonOk;
 	protected Button buttonHome;
+		
+	private LinearLayout MenuList;
+	private int screenHeight;
+	private boolean isExpanded = false;
 
 	protected static final String activityPackage = "com.app.getconnected.activities";
 	protected static Boolean loggedIn=false;
@@ -24,8 +32,11 @@ abstract class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.footer);
+		
 	}
 
+	
 	protected void initLayout(int resId, boolean homeButton,
 			boolean backButton, boolean menuButton, boolean okButton) {
 
@@ -38,7 +49,11 @@ abstract class BaseActivity extends Activity {
 		buttonBack = (Button) findViewById(R.id.footer_button_back);
 		buttonMenu = (Button) findViewById(R.id.footer_button_menu);
 		buttonOk = (Button) findViewById(R.id.footer_button_ok);
-
+		MenuList = (LinearLayout) findViewById(R.id.linearLayout3);
+		
+		
+        
+        
 		buttonBack.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -46,6 +61,15 @@ abstract class BaseActivity extends Activity {
 				goBack();
 			}
 		});
+		
+		buttonMenu.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				handleMenu();
+			}
+		});
+
 
 		buttonHome.setOnClickListener(new OnClickListener() {
 
@@ -70,6 +94,24 @@ abstract class BaseActivity extends Activity {
 	protected void goBack() {
 		super.onBackPressed();
 	}
+	
+	private void handleMenu() {
+		DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        screenHeight = metrics.heightPixels;
+        
+      
+        			
+        			if (isExpanded) {
+            			isExpanded = false;
+            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
+            		}else {
+                		isExpanded = true;
+                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
+            		}
+        		
+	}
+
 
 	protected void disableBackButton() {
 

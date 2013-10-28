@@ -22,10 +22,10 @@
 		 <solid android:color="#25383C"/> 
 		  <stroke android:width="2dp" android:color="#2C3539" />
 		   <corners android:radius="2dp"
-				android:bottomRightRadius="2dp"
-				android:bottomLeftRadius="2dp"
-				android:topLeftRadius="2dp"
-				android:topRightRadius="2dp"/>
+				android:bottomRightRadius="0dp"
+				android:bottomLeftRadius="0dp"
+				android:topLeftRadius="0dp"
+				android:topRightRadius="0dp"/>
 		</shape>
    	</item>
 </selector> 

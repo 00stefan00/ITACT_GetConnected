@@ -183,5 +183,6 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_email">This email address is invalid</string>
+    <color name="blue">#25383C</color>
 
 </resources>
