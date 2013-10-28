@@ -7,13 +7,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
-import com.app.getconnected.R;
-import com.app.getconnected.network.GeoLocation;
-import com.app.getconnected.network.PlacesAutoCompleteAdapter;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -32,6 +25,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.app.getconnected.R;
+import com.app.getconnected.network.GeoLocation;
+import com.app.getconnected.network.PlacesAutoCompleteAdapter;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 
 @SuppressLint("SimpleDateFormat")
 public class TransportActivity extends BaseActivity implements OnItemClickListener, RESTRequestListener {

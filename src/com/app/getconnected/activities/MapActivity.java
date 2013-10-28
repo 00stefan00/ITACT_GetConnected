@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import com.app.getconnected.R;
-import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.rest.RESTRequest;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,12 +14,15 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
-import android.app.AlertDialog;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
+
+import com.app.getconnected.R;
+import com.app.getconnected.gps.GPSLocator;
+import com.app.getconnected.rest.RESTRequest;
 
 /**
  * 
