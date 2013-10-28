@@ -6,9 +6,7 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.app.getconnected.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;

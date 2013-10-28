@@ -11,22 +11,18 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
+import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
-import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
-
-import com.app.getconnected.R;
-import com.app.getconnected.R.layout;
-import com.app.getconnected.R.menu;
-import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.rest.RESTRequest;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class BusStopDetailsActivity extends Activity {
+import com.app.getconnected.R;
+import com.app.getconnected.rest.RESTRequest;
+
+public class BusStopDetailsActivity extends BaseActivity {
 
 	private MapView mapView;
 	private MapController mapController;
@@ -55,6 +51,7 @@ public class BusStopDetailsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bus_stop_details);
+		initLayout(R.string.title_activity_bus_stop_details, true, true, true, false);
 		
 		id = getIntent().getExtras().getInt("id");
 		numberView = (TextView) findViewById(R.id.busstop_number);
@@ -83,7 +80,7 @@ public class BusStopDetailsActivity extends Activity {
 	}
 
 	private void getBusStopDetails(int id) {
-		String url = "http://145.37.86.205/yii/sites/BusStops/api/busstop/" + id;
+		String url = "http://145.37.90.70/yii/sites/BusStops/api/busstop/" + id;
 		RESTRequest request = new RESTRequest(url);
 		
 		try {
