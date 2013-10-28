@@ -11,39 +11,34 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
-import org.osmdroid.views.overlay.MyLocationOverlay;
-import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
-
-import com.app.getconnected.R;
-import com.app.getconnected.R.layout;
-import com.app.getconnected.R.menu;
-import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.rest.RESTRequest;
+import org.osmdroid.views.overlay.OverlayItem;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
+
+import com.app.getconnected.R;
+import com.app.getconnected.rest.RESTRequest;
 
 public class BusStopDetailsActivity extends BaseActivity {
 
 	private MapView mapView;
 	private MapController mapController;
-	private MyLocationOverlay myLocationoverlay;
 	private double latitude;
 	private double longitude;
 	private int id;
 	private String name;
 	private String city;
 	private boolean shelter;
+	private boolean trunk;
 	private boolean seatings;
 	private int number;
 	
 	private TextView numberView;
 	private TextView nameView;
 	private TextView cityView;
-	private boolean trunk;
+	
 	private TextView shelterView;
 	private TextView trunkView;
 	private TextView seatingsView;
@@ -79,8 +74,8 @@ public class BusStopDetailsActivity extends BaseActivity {
 		nameView.setText(name);
 		cityView.setText(city);
 		shelterView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
-		seatingsView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
-		trunkView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
+		seatingsView.setText(seatings ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
+		trunkView.setText(trunk ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
 	}
 
 	private void getBusStopDetails(int id) {

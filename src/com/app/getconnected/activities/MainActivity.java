@@ -2,7 +2,6 @@ package com.app.getconnected.activities;
 
 import com.app.getconnected.R;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
