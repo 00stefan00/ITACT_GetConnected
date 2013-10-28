@@ -80,7 +80,11 @@ public class BusStopDetailsActivity extends BaseActivity {
 	}
 
 	private void getBusStopDetails(int id) {
+<<<<<<< HEAD
 		String url = "http://145.37.88.226/yii/sites/BusStops/api/busstop/" + id;
+=======
+		String url = "http://145.37.92.124/yii/sites/BusStops/api/busstop/" + id;
+>>>>>>> 654f202615a51a460a633fa58c6df89c8e41bce4
 		RESTRequest request = new RESTRequest(url);
 		
 		try {

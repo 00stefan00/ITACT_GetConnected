@@ -43,6 +43,10 @@ public class GeoLocation {
 		this.location.put("lng", location.getDouble("lng"));
 	}
 	
+	public boolean isValidLocation() {
+		return location.get("lat") != null && location.get("lng") != null;
+	}
+	
 	public double getLatitude() {
 		return location.get("lat");
 	}
