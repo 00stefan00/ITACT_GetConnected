@@ -112,6 +112,15 @@
     <!-- Get connected 2  -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="title_activity_map">MapActivity</string>
+<<<<<<< HEAD
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wachtwoord</string>
+    <string name="first_name">Voornaam</string>
+    <string name="last_name">Achternaam</string>
+    <string name="gender">geslacht</string>
+    <string name="tel_number">Telefoonnummer</string>
+    <string name="email">E-mail</string>
+=======
     <string name="hello_world">Hello world!</string>
     <string name="field_username">Gebruikersnaam</string>
     <string name="field_password">Wachtwoord</string>
@@ -120,6 +129,7 @@
     <string name="field_gender">geslacht</string>
     <string name="field_telephone_number">Telefoonnummer</string>
     <string name="field_email">E-mail</string>
+>>>>>>> marketplace
     <string name="register">Registreer</string>
     <string name="field_gender_male">Man</string>
     <string name="field_gender_female">Vrouw</string>
@@ -128,20 +138,21 @@
     <string name="title_activity_createride">Maak rit aan</string>
     <string name="title_activity_requestride">Vraag rit aan</string>
     <string name="title_activity_requestrides">Aangeboden ritten</string>
-    <string name="title_activity_loginactivity">Login</string>
-    <string name="title_activity_registeractivity">Registreer</string>
-
-		<string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
+<<<<<<< HEAD
+    <string name="error_field_required">Dit veld is verplicht</string>
+    <string name="error_invalid_password">Dit wachtwoord is te kort</string>
+    <string name="error_invalid_email">Dit e-mailadres is ongeldig</string>
+    <string name="validation_no_input">Het veld mag niet leeg zijn</string>
     <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
     <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
     <string name="field_validation_number">Het veld mag geen letters bevatten</string>
-		<string name="field_validation_string">Het veld mag geen getallen bevatten</string>
-    <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
-    <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
-    <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
-    
-    <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
-    <string name="registration_failed">Het registreren is mislukt</string>
+    <string name="field_validation_string">Het veld mag geen nummers bevatten</string>
+    <string name="title_activity_transport_details">TransportDetailsActivity</string>
+    <string name="display_requests">Display requested rides</string>
+    <string name="empty_string"></string>
+    <string name="read_more_btn">Read more</string>
+    <string name="offered_ride_string">Offered ride by person</string>
+    <string name="ride_description">Ride description ..........................................................................................................................</string>
     <string name="title_activity_map_tets">MapTets</string>
     <string name="orderride_expl">Explaining text (.......................)</string>
     <string name="location_from">From</string>
@@ -158,4 +169,20 @@
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
 
+=======
+    <string name="title_activity_loginactivity">Login</string>
+    <string name="title_activity_registeractivity">Registreer</string>
+
+		<string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
+		<string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
+		<string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
+		<string name="field_validation_number">Het veld mag geen letters bevatten</string>
+		<string name="field_validation_string">Het veld mag geen getallen bevatten</string>
+    <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
+    <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
+    <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
+    
+    <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
+    <string name="registration_failed">Het registreren is mislukt</string>
+>>>>>>> marketplace
 </resources>
