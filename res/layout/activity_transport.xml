@@ -8,16 +8,7 @@
     android:paddingTop="0dp"
     tools:context=".TransportActivity" >
 
-    <include
-        android:id="@+id/include1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/header" />
-
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/footer" />
+    
 
     <TextView
         android:id="@+id/TextView01"
@@ -161,5 +152,16 @@
             android:textSize="10sp" />
 
     </RadioGroup>
+    
+    <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/footer" />
 
 </RelativeLayout>

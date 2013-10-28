@@ -7,6 +7,10 @@ import java.util.concurrent.ExecutionException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.osmdroid.events.DelayedMapListener;
+import org.osmdroid.events.MapListener;
+import org.osmdroid.events.ScrollEvent;
+import org.osmdroid.events.ZoomEvent;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
@@ -36,6 +40,7 @@ public class MapActivity extends BaseActivity {
     private MapView mapView;
     protected GPSLocator locator;
     private MyLocationOverlay myLocationoverlay;
+    private MyOwnItemizedOverlay overlay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,16 +50,28 @@ public class MapActivity extends BaseActivity {
         
         createMap();
         addLocationOverlay();
-        /*
-        ArrayList<OverlayItem> overlayItemArray = new ArrayList<OverlayItem>();
-        OverlayItem olItem = new OverlayItem("Bus Stop", "Groningen, Zernike", new GeoPoint(53.241, 6.534));
-        OverlayItem olItem2 = new OverlayItem("niet Bus Stop", "iets anders", new GeoPoint(53.240, 6.534));
-        overlayItemArray.add(olItem);
-        overlayItemArray.add(olItem2);
-        MyOwnItemizedOverlay overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
-        */
-        MyOwnItemizedOverlay overlay = getBusStops();
+        overlay = getBusStops();
         mapView.getOverlays().add(overlay);
+		mapView.getOverlays().remove(overlay);
+        mapView.setMapListener(new DelayedMapListener(new MapListener(){
+
+			@Override
+			public boolean onScroll(ScrollEvent arg0) {
+				try{
+				mapView.getOverlays().remove(1);
+				overlay = getBusStops();
+				mapView.getOverlays().add(overlay);
+				return true;
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				return false;
+			}
+
+			@Override
+			public boolean onZoom(ZoomEvent arg0) {return false;}
+        	
+        },500));
     }
     
     @Override
@@ -91,7 +108,7 @@ public class MapActivity extends BaseActivity {
     }
     
     private MyOwnItemizedOverlay getBusStops(){
-    	RESTRequest rR = new RESTRequest("http://145.37.86.205/yii/sites/BusStops/api/busstop");
+    	RESTRequest rR = new RESTRequest("http://145.37.90.70/yii/sites/BusStops/api/busstop");
     	rR.putDouble("gps_longitude", locator.getLongitude());
     	rR.putDouble("gps_latitude", locator.getLatitude());
     	rR.putDouble("range", 1000);

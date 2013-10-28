@@ -40,6 +40,7 @@
     <string name="transport_result_text_traveltime">Reistijd</string>
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
+    <string name="transport_text_empty">Vul alles in..</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>

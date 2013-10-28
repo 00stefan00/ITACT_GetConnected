@@ -1,14 +1,21 @@
 package com.app.getconnected.activities;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
+import com.app.getconnected.R;
+import com.app.getconnected.network.GeoLocation;
+import com.app.getconnected.network.PlacesAutoCompleteAdapter;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
+
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,13 +32,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import com.app.getconnected.R;
-import com.app.getconnected.network.GeoLocation;
-import com.app.getconnected.network.PlacesAutoCompleteAdapter;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
 
 @SuppressLint("SimpleDateFormat")
 public class TransportActivity extends BaseActivity implements OnItemClickListener, RESTRequestListener {
@@ -56,6 +56,8 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	private CheckBox checkBoxBus;
 	private CheckBox checkBoxTrain;
 	private CheckBox checkBoxTaxiOther;
+	
+	private ProgressDialog dialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +101,12 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	
 	@SuppressLint("SimpleDateFormat")
 	protected void plan() {
+		//System.out.println("text--" + autoCompViewFrom.getText() + "-");
+		if (autoCompViewFrom.getText().toString().isEmpty() || autoCompViewTo.getText().toString().isEmpty()) {
+			Toast.makeText(this, this.getResources().getString(R.string.validation_no_input), Toast.LENGTH_SHORT).show();
+			//System.out.println(this.getResources().getString(R.string.validation_no_input));
+			return;
+		}
 		
 		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
 		double fromLatitude = fromLocation.getLatitude();
@@ -115,7 +123,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
 		
-		String url = "http://145.37.92.128:8081/opentripplanner-api-webapp/ws/plan";
+		String url = "http://145.37.92.162:8081/opentripplanner-api-webapp/ws/plan";
 		
 		String mode;
 		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
@@ -164,7 +172,6 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		        
 		        inputTime.setText(timeFormat.format(time));
 		    }
-		    
 		};
 		inputTime.setOnClickListener(new OnClickListener() {
 
@@ -173,7 +180,6 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	            new TimePickerDialog(TransportActivity.this, timePicker, calendarTime
 	                    .get(Calendar.HOUR_OF_DAY), calendarTime.get(Calendar.MINUTE), true).show();
 	        }
-
 	    });	
 	    
 	   
@@ -185,25 +191,20 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		    @Override
 		    public void onDateSet(DatePicker view, int year, int monthOfYear,
 		            int dayOfMonth) {
-
 		        calendarDate.set(Calendar.YEAR, year);
 		        calendarDate.set(Calendar.MONTH, monthOfYear);
 		        calendarDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 		        date = calendarDate.getTime();
 		        inputDate.setText(dateFormat.format(date));
 		    }
-
-
 		};
 	    inputDate.setOnClickListener(new OnClickListener() {
-
 	        @Override
 	        public void onClick(View v) {
 	            new DatePickerDialog(TransportActivity.this, datePicker, calendarDate
 	                    .get(Calendar.YEAR), calendarDate.get(Calendar.MONTH),
 	                    calendarDate.get(Calendar.DAY_OF_MONTH)).show();
 	        }
-
 	    });	
 	}
 
@@ -219,22 +220,21 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
         String str = (String) adapterView.getItemAtPosition(position);
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
-
+	
 	@Override
 	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
-		// TODO Auto-generated method stub
-		
+		dialog = new ProgressDialog(getApplicationContext());
 	}
 
 	@Override
 	public void RESTRequestOnProgressUpdate(RESTRequestEvent event) {
-		// TODO Auto-generated method stub
-		
+		dialog.setTitle("Loading...");
+        dialog.show();
 	}
 
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
-		// TODO Auto-generated method stub
-		
+		dialog.dismiss();
 	}
+
 }
