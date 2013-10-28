@@ -106,7 +106,7 @@ public class MapActivity extends BaseActivity {
     }
     
     private MyOwnItemizedOverlay getBusStops(){
-    	RESTRequest rR = new RESTRequest("http://145.37.88.226/yii/sites/BusStops/api/busstop");
+    	RESTRequest rR = new RESTRequest("http://145.37.92.124//yii/sites/BusStops/api/busstop");
     	//IGeoPoint point = mapView.getMapCenter();
     	rR.putDouble("gps_longitude", locator.getLongitude());
     	rR.putDouble("gps_latitude", locator.getLatitude());
