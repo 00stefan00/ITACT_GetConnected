@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.app.getconnected.R;
+import com.app.getconnected.network.Config;
 import com.app.getconnected.rest.RESTRequest;
 
 public class BusStopDetailsActivity extends BaseActivity {
@@ -80,7 +81,7 @@ public class BusStopDetailsActivity extends BaseActivity {
 	}
 
 	private void getBusStopDetails(int id) {
-		String url = "http://145.37.92.124/yii/sites/BusStops/api/busstop/" + id;
+		String url = Config.busStopAddress + id;
 		RESTRequest request = new RESTRequest(url);
 		
 		try {

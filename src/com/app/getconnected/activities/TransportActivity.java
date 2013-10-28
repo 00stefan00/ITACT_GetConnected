@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 import com.app.getconnected.R;
+import com.app.getconnected.network.Config;
 import com.app.getconnected.network.GeoLocation;
 import com.app.getconnected.network.PlacesAutoCompleteAdapter;
 import com.app.getconnected.rest.RESTRequest;
@@ -127,7 +128,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
 		
-		String url = "http://145.37.92.124:8081/opentripplanner-api-webapp/ws/plan";
+		String url = Config.tripPlannerAddress;
 		
 		String mode;
 		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
