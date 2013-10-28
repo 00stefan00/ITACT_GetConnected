@@ -34,7 +34,7 @@ public class FieldValidatorTest extends AndroidTestCase {
 			error = true;
 			assertTrue(R.string.field_validation_not_alphanumeric==e.getIndex());
 		} finally {
-			assertFalse(error);
+			assertTrue(error);
 		}
 	}
 
