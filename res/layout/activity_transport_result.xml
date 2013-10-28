@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Assen"
+            android:text="Drachten"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </RelativeLayout>
 
@@ -125,7 +125,7 @@
 
     <include
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         layout="@layout/footer" />
 
 </TableLayout>

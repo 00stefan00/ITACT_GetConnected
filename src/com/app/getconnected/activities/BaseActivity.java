@@ -104,10 +104,10 @@ abstract class BaseActivity extends Activity {
         			
         			if (isExpanded) {
             			isExpanded = false;
-            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
+            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.9), 20));
             		}else {
                 		isExpanded = true;
-                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
+                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.9), 20));
             		}
         		
 	}

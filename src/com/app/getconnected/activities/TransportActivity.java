@@ -115,7 +115,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
 		
-		String url = "http://145.37.92.128:8081/opentripplanner-api-webapp/ws/plan";
+		String url = "http://145.37.92.162:8081/opentripplanner-api-webapp/ws/plan";
 		
 		String mode;
 		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
