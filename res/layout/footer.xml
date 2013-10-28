@@ -10,25 +10,22 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp" >
     
-     <TextView
-        android:id="@+id/footer"
-        style="@style/FooterTheme"
-        android:layout_width="96dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:paddingLeft="15dp"
-        android:paddingTop="3dp"
-    >
-
-	</TextView>
+    
 	
 <LinearLayout 
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/footer"
+        style="@style/FooterTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:paddingLeft="15dp"
+        android:paddingTop="3dp" />
         
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -182,5 +179,7 @@
     </LinearLayout>
 
  </LinearLayout>
+ 
+
 
 </RelativeLayout>

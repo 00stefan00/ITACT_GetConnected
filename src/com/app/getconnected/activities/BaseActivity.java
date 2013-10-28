@@ -7,6 +7,7 @@ import com.app.getconnected.animations.ExpandAnimation;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -100,22 +101,21 @@ abstract class BaseActivity extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenHeight = metrics.heightPixels;
         
-      
+        Drawable arrowUp = getBaseContext().getResources().getDrawable(R.drawable.arrow_up);
+        Drawable arrowDown = getBaseContext().getResources().getDrawable(R.drawable.arrow_down);
         			
         			if (isExpanded) {
             			isExpanded = false;
+            			buttonMenu.setCompoundDrawablesWithIntrinsicBounds( null, null, arrowUp, null );
             			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
             		}else {
-                		isExpanded = true;
+                		isExpanded = true;             		
+                		buttonMenu.setCompoundDrawablesWithIntrinsicBounds( null, null, arrowDown, null );
                 		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
             		}
         		
 	}
 
-
-	protected void disableBackButton() {
-
-	}
 
 	/**
 	 *
