@@ -51,7 +51,7 @@ abstract class BaseActivity extends Activity {
 		buttonOk = (Button) findViewById(R.id.footer_button_ok);
 		MenuList = (LinearLayout) findViewById(R.id.linearLayout3);
 		
-		
+		MenuList.bringToFront();
         
         
 		buttonBack.setOnClickListener(new OnClickListener() {
