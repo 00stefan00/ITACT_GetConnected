@@ -12,7 +12,7 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 	private int ToHeight;
 	private int LastHeight;
 	
-	public CollapseAnimation(View v, int FromWidth, int ToWidth, int Duration) {
+	public CollapseAnimation(View v, int FromHeighth, int ToHeight, int Duration) {
 		
 		this.view = v;
 		LayoutParams lyp =  view.getLayoutParams();

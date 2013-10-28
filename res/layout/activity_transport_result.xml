@@ -1,15 +1,28 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp" 
+	tools:context=".TransportResultActivity">
+
+<TableLayout 
+   
     android:id="@+id/TableLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    tools:context=".TransportResultActivity" >
+    android:paddingTop="0dp">
 
-    <include
+   <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         layout="@layout/header" />
@@ -122,10 +135,17 @@
             android:layout_alignParentLeft="true"
             android:text="Vorige" />
     </RelativeLayout>
+    
+    </TableLayout>
 
+   
+    
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         layout="@layout/footer" />
 
-</TableLayout>
+
+
+</RelativeLayout>

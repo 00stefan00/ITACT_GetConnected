@@ -102,7 +102,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	@SuppressLint("SimpleDateFormat")
 	protected void plan() {
 		//System.out.println("text--" + autoCompViewFrom.getText() + "-");
-		if (autoCompViewFrom.getText().toString().isEmpty() || autoCompViewTo.getText().toString().isEmpty()) {
+		if (autoCompViewFrom.getText().toString().equals("") || autoCompViewTo.getText().toString().equals("")) {
 			Toast.makeText(this, this.getResources().getString(R.string.validation_no_input), Toast.LENGTH_SHORT).show();
 			//System.out.println(this.getResources().getString(R.string.validation_no_input));
 			return;

@@ -49,6 +49,7 @@
     <string name="footer_button_ok">Ok</string>
 
     <!-- Field Bus Stop Details -->
+    <string name="title_activity_bus_stop_details">Bushalte</string>
     <string name="busstop_text_name">Naam</string>
     <string name="busstop_text_number">Nummer</string>
     <string name="busstop_text_shelter">Wachthuisje:</string>
@@ -56,7 +57,6 @@
     <string name="busstop_text_lights">Verlichting:</string>
     <string name="busstop_text_seating">Zittingen:</string>
     <string name="busstop_text_facilities">Faciliteiten:</string>
-    <string name="title_activity_bus_stop_details">BusStopDetailsActivity</string>
 
     <!-- Transportation Result Activity -->
     <string name="transportation_result_departure_header">Vertrek</string>

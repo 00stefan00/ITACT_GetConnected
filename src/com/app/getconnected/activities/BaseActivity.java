@@ -51,7 +51,7 @@ abstract class BaseActivity extends Activity {
 		buttonOk = (Button) findViewById(R.id.footer_button_ok);
 		MenuList = (LinearLayout) findViewById(R.id.linearLayout3);
 		
-		
+		MenuList.bringToFront();
         
         
 		buttonBack.setOnClickListener(new OnClickListener() {
@@ -104,10 +104,10 @@ abstract class BaseActivity extends Activity {
         			
         			if (isExpanded) {
             			isExpanded = false;
-            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.9), 20));
+            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
             		}else {
                 		isExpanded = true;
-                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.9), 20));
+                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
             		}
         		
 	}
