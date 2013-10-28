@@ -141,7 +141,7 @@
     <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
     <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
     <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
-    
+    <string name="field_validation_unknown_location">Onbekende locatie(s)</string> 
     <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
     <string name="registration_failed">Het registreren is mislukt</string>
     <string name="title_activity_map_tets">MapTets</string>

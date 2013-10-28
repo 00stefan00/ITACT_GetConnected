@@ -101,18 +101,22 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	
 	@SuppressLint("SimpleDateFormat")
 	protected void plan() {
-		//System.out.println("text--" + autoCompViewFrom.getText() + "-");
 		if (autoCompViewFrom.getText().toString().equals("") || autoCompViewTo.getText().toString().equals("")) {
-			Toast.makeText(this, this.getResources().getString(R.string.validation_no_input), Toast.LENGTH_SHORT).show();
-			//System.out.println(this.getResources().getString(R.string.validation_no_input));
+			Toast.makeText(this, this.getResources().getString(R.string.field_validation_no_input), Toast.LENGTH_SHORT).show();
 			return;
 		}
 		
 		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
+		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());
+		
+		if (!fromLocation.isValidLocation() || !toLocation.isValidLocation()) {
+			Toast.makeText(this, this.getResources().getString(R.string.field_validation_unknown_location), Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
 		double fromLatitude = fromLocation.getLatitude();
 		double fromLongitude = fromLocation.getLongitude();
 		
-		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());
 		double toLatitude = toLocation.getLatitude();
 		double toLongitude = toLocation.getLongitude();		
 		
