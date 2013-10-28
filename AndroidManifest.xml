@@ -57,6 +57,11 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.app.getconnected.activities.TransportDetailsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.app.getconnected.activities.BaseActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >

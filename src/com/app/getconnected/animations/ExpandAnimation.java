@@ -10,16 +10,16 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 	
 	private View view;
 	private static int ANIMATION_DURATION;
-	private int LastWidth;
-	private int ToWidth;
+	private int LastHeight;
+	private int ToHeight;
 	
 	
 	
-	public ExpandAnimation(View v, int FromWidth, int ToWidth, int Duration) {
+	public ExpandAnimation(View v, int FromHeight, int ToHeight, int Duration) {
 		
 		this.view = v;
 		ANIMATION_DURATION = 1;
-		this.ToWidth = ToWidth;
+		this.ToHeight = ToHeight;
 		setDuration(ANIMATION_DURATION);
 		setRepeatCount(20);
 		setFillAfter(false);
@@ -37,7 +37,7 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 	public void onAnimationRepeat(Animation animation) {
 		// TODO Auto-generated method stub
 		LayoutParams lyp =  view.getLayoutParams();
-		lyp.height = LastWidth += ToWidth/20;
+		lyp.height = LastHeight += ToHeight/20;
 		view.setLayoutParams(lyp);
 		view.requestFocus();
 	}
@@ -48,7 +48,7 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 		LayoutParams lyp =  view.getLayoutParams();
 		lyp.height = 0;
 		view.setLayoutParams(lyp);
-		LastWidth = 0;
+		LastHeight = 0;
 		
 	}
 }

@@ -11,20 +11,16 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
+import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
-import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
-
-import com.app.getconnected.R;
-import com.app.getconnected.R.layout;
-import com.app.getconnected.R.menu;
-import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.rest.RESTRequest;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
+
+import com.app.getconnected.R;
+import com.app.getconnected.rest.RESTRequest;
 
 public class BusStopDetailsActivity extends BaseActivity {
 

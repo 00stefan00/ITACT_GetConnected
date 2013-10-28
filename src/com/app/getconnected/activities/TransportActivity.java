@@ -1,14 +1,10 @@
 package com.app.getconnected.activities;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.app.getconnected.R;
 import com.app.getconnected.network.GeoLocation;
@@ -21,13 +17,8 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
