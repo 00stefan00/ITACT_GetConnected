@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.osmdroid.api.IGeoPoint;
 import org.osmdroid.events.DelayedMapListener;
 import org.osmdroid.events.MapListener;
 import org.osmdroid.events.ScrollEvent;
@@ -52,26 +53,24 @@ public class MapActivity extends BaseActivity {
         addLocationOverlay();
         overlay = getBusStops();
         mapView.getOverlays().add(overlay);
-		mapView.getOverlays().remove(overlay);
+        /*
         mapView.setMapListener(new DelayedMapListener(new MapListener(){
 
 			@Override
 			public boolean onScroll(ScrollEvent arg0) {
-				try{
-				mapView.getOverlays().remove(1);
+				
+				mapView.getOverlays().remove(overlay);
 				overlay = getBusStops();
 				mapView.getOverlays().add(overlay);
 				return true;
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-				return false;
 			}
 
 			@Override
 			public boolean onZoom(ZoomEvent arg0) {return false;}
         	
-        },500));
+        },500));*/
+        
+        
     }
     
     @Override
@@ -109,6 +108,7 @@ public class MapActivity extends BaseActivity {
     
     private MyOwnItemizedOverlay getBusStops(){
     	RESTRequest rR = new RESTRequest("http://145.37.90.70/yii/sites/BusStops/api/busstop");
+    	//IGeoPoint point = mapView.getMapCenter();
     	rR.putDouble("gps_longitude", locator.getLongitude());
     	rR.putDouble("gps_latitude", locator.getLatitude());
     	rR.putDouble("range", 1000);
@@ -116,6 +116,7 @@ public class MapActivity extends BaseActivity {
     	try {
 			JSONObject json = new JSONObject(rR.execute().get());
 			JSONArray array = json.getJSONArray("busstops");
+			System.out.println(array.length());
 			for(int i=0;i<array.length();i++){
 				JSONObject busstop = array.getJSONObject(i);
 				GeoPoint location = new GeoPoint(busstop.getDouble("GPS_Latitude"),busstop.getDouble("GPS_Longitude"));
