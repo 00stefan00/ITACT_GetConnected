@@ -26,7 +26,7 @@ import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class BusStopDetailsActivity extends Activity {
+public class BusStopDetailsActivity extends BaseActivity {
 
 	private MapView mapView;
 	private MapController mapController;
@@ -55,6 +55,7 @@ public class BusStopDetailsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bus_stop_details);
+		initLayout(R.string.title_activity_bus_stop_details, true, true, true, false);
 		
 		id = getIntent().getExtras().getInt("id");
 		numberView = (TextView) findViewById(R.id.busstop_number);
