@@ -106,14 +106,16 @@ public class MapActivity extends BaseActivity {
     }
     
     private MyOwnItemizedOverlay getBusStops(){
-    	RESTRequest rR = new RESTRequest("http://145.37.90.70/yii/sites/BusStops/api/busstop");
+    	RESTRequest rR = new RESTRequest("http://145.37.92.124//yii/sites/BusStops/api/busstop");
     	//IGeoPoint point = mapView.getMapCenter();
     	rR.putDouble("gps_longitude", locator.getLongitude());
     	rR.putDouble("gps_latitude", locator.getLatitude());
     	rR.putDouble("range", 1000);
     	ArrayList<OverlayItem> overlayItemArray = new ArrayList<OverlayItem>();
     	try {
-			JSONObject json = new JSONObject(rR.execute().get());
+    		String result = rR.execute().get();
+    		
+			JSONObject json = new JSONObject(result);
 			JSONArray array = json.getJSONArray("busstops");
 			System.out.println(array.length());
 			for(int i=0;i<array.length();i++){
