@@ -107,11 +107,11 @@ abstract class BaseActivity extends Activity {
         			if (isExpanded) {
             			isExpanded = false;
             			buttonMenu.setCompoundDrawablesWithIntrinsicBounds( null, null, arrowUp, null );
-            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
+            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.5), 10));
             		}else {
                 		isExpanded = true;             		
                 		buttonMenu.setCompoundDrawablesWithIntrinsicBounds( null, null, arrowDown, null );
-                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.5), 20));
+                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.5), 10));
             		}
         		
 	}

@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.app.getconnected.R;
+import com.app.getconnected.factories.details.Detailfactory;
 
 import android.graphics.Color;
 import android.opengl.Visibility;
@@ -44,6 +45,8 @@ public class TransportDetailsActivity extends BaseActivity {
 			legs = jObject.getJSONArray("legs");
 			initViews();
 		} catch (Exception e) {
+			
+			e.printStackTrace();
 			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
 					.show();
 			return;
@@ -61,10 +64,12 @@ public class TransportDetailsActivity extends BaseActivity {
 	private void initViews() throws JSONException {
 		for (int i = (page * pageSize); i < legs.length()
 				&& i < (page * pageSize + pageSize); i++) {
+			/*
 			LinearLayout view = (LinearLayout) getLayoutInflater().inflate(
 					R.layout.transport_detail_view, wrapper, false);
 			initView(legs.getJSONObject(i), view);
-			wrapper.addView(view);
+			*/
+			wrapper.addView(Detailfactory.getView(legs.getJSONObject(i), TransportDetailsActivity.this));
 		}
 	}
 
@@ -101,8 +106,7 @@ public class TransportDetailsActivity extends BaseActivity {
 	private void setVisibilities() {
 		Button prefButton = (Button) findViewById(R.id.transport_details_pref);
 		Button nextButton = (Button) findViewById(R.id.transport_details_next);
-		if ((page * pageSize + pageSize) >= legs.length()) {
-
+		if (legs != null && (page * pageSize + pageSize) >= legs.length()) {
 			nextButton.setVisibility(View.INVISIBLE);
 		} else {
 			nextButton.setVisibility(View.VISIBLE);
@@ -115,9 +119,6 @@ public class TransportDetailsActivity extends BaseActivity {
 	}
 
 	private void removeTableRows() {
-		// for (int i = 1; 1 < table.getChildCount(); i++) {
-		// table.removeViewAt(i);
-		// }
 		wrapper.removeAllViews();
 	}
 

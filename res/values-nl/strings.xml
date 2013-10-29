@@ -7,7 +7,7 @@
     <!-- General -->
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
-    
+
     <!-- Main Menu -->
     <string name="action_settings">Settings</string>
     <string name="main_text">Navigeer hieronder naar één van de pagina\'s door erop te drukken.</string>
@@ -63,59 +63,15 @@
     <string name="transportation_result_duration_header">Duur</string>
     <string name="transportation_result_arrival_header">Aankomst</string>
     <string name="transportation_result_transfers_header">Overstap</string>
-    
-        <!-- Transportation Details Activity -->
+
+    <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Vorige</string>
     <string name="transport_details_next">Volgende</string>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <!-- Get connected 2  -->
+    <string name="transport_details_walk_title">Walk</string>
+    <string name="transport_details_bus_title">Bus</string>
+    <string name="transport_details_train_title">Train</string>
+
+    <!-- Get connected 2 -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="title_activity_map">MapActivity</string>
     <string name="hello_world">Hello world!</string>
@@ -136,16 +92,15 @@
     <string name="title_activity_requestrides">Aangeboden ritten</string>
     <string name="title_activity_loginactivity">Login</string>
     <string name="title_activity_registeractivity">Registreer</string>
-
-		<string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
+    <string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
     <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
     <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
     <string name="field_validation_number">Het veld mag geen letters bevatten</string>
-		<string name="field_validation_string">Het veld mag geen getallen bevatten</string>
+    <string name="field_validation_string">Het veld mag geen getallen bevatten</string>
     <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
     <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
     <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
-    <string name="field_validation_unknown_location">Onbekende locatie(s)</string> 
+    <string name="field_validation_unknown_location">Onbekende locatie(s)</string>
     <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
     <string name="registration_failed">Het registreren is mislukt</string>
     <string name="title_activity_map_tets">MapTets</string>
