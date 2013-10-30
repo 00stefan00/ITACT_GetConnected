@@ -243,6 +243,14 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		this.eventListeners.add(eventListener);
 	}
 	
+	/**
+	 * Abort the RESTRequest
+	 */
+	public void abort()
+	{
+		
+	}
+	
 	@Override
 	protected String doInBackground(Void... voids)
 	{

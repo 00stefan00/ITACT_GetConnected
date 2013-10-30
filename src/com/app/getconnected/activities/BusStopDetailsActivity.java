@@ -12,12 +12,12 @@ import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
-import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.getconnected.R;
 import com.app.getconnected.network.Config;
@@ -29,21 +29,28 @@ public class BusStopDetailsActivity extends BaseActivity {
 	private MapController mapController;
 	private double latitude;
 	private double longitude;
+	
 	private int id;
+	private int number;
 	private String name;
 	private String city;
+	
+	// Facilities (Yes/No)
 	private boolean shelter;
 	private boolean trunk;
 	private boolean seatings;
-	private int number;
+	private boolean bicycleParking;
 	
+	// Info views
 	private TextView numberView;
 	private TextView nameView;
 	private TextView cityView;
 	
+	// Facility views
 	private TextView shelterView;
 	private TextView trunkView;
 	private TextView seatingsView;
+	private TextView bicycleParkingView;
 	
 	//private String confirmYes = getResources().getString(R.string.confirm);
 	//private String confirmNo = getResources().getString(R.string.deny);
@@ -61,6 +68,7 @@ public class BusStopDetailsActivity extends BaseActivity {
 		shelterView = (TextView) findViewById(R.id.busstop_shelter);
 		seatingsView = (TextView) findViewById(R.id.busstop_seatings);
 		trunkView = (TextView) findViewById(R.id.busstop_trunk);
+		bicycleParkingView = (TextView) findViewById(R.id.busstop_bicycle_parking);
 		
 		getBusStopDetails(id);
 		
@@ -78,6 +86,7 @@ public class BusStopDetailsActivity extends BaseActivity {
 		shelterView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
 		seatingsView.setText(seatings ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
 		trunkView.setText(trunk ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
+		bicycleParkingView.setText(bicycleParking ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
 	}
 
 	private void getBusStopDetails(int id) {
@@ -97,16 +106,10 @@ public class BusStopDetailsActivity extends BaseActivity {
 			shelter = json.getInt("opt_aanwezigheidabri") == 1 ? true : false;
 			seatings = json.getInt("opt_zitgelegenheid") == 1 ? true : false;
 			trunk = json.getInt("opt_afvalbak") == 1 ? true : false;
+			bicycleParking = json.getInt("opt_fietsparkeervoorziening") == 1 ? true : false;
 			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
 		}
 	}
 

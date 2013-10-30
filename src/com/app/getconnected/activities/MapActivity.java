@@ -2,13 +2,10 @@ package com.app.getconnected.activities;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.osmdroid.api.IGeoPoint;
-import org.osmdroid.events.DelayedMapListener;
 import org.osmdroid.events.MapListener;
 import org.osmdroid.events.ScrollEvent;
 import org.osmdroid.events.ZoomEvent;
@@ -19,15 +16,19 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.app.getconnected.R;
 import com.app.getconnected.gps.GPSLocator;
 import com.app.getconnected.network.Config;
 import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 
 /**
  * 
@@ -35,14 +36,15 @@ import com.app.getconnected.rest.RESTRequest;
  * 
  * 
  */
-public class MapActivity extends BaseActivity {
+public class MapActivity extends BaseActivity implements RESTRequestListener {
 
 	private MapController mapController;
     private MapView mapView;
     protected GPSLocator locator;
     private MyLocationOverlay myLocationoverlay;
     private MyOwnItemizedOverlay overlay;
-
+    private RESTRequest rR;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,26 +53,20 @@ public class MapActivity extends BaseActivity {
         
         createMap();
         addLocationOverlay();
-        overlay = getBusStops();
-        mapView.getOverlays().add(overlay);
-        /*
-        mapView.setMapListener(new DelayedMapListener(new MapListener(){
+        loadBusStops();
+        
+        mapView.setMapListener(new MapListener(){
 
 			@Override
 			public boolean onScroll(ScrollEvent arg0) {
-				
-				mapView.getOverlays().remove(overlay);
-				overlay = getBusStops();
-				mapView.getOverlays().add(overlay);
+				loadBusStops();
 				return true;
 			}
 
 			@Override
 			public boolean onZoom(ZoomEvent arg0) {return false;}
         	
-        },500));*/
-        
-        
+        });
     }
     
     @Override
@@ -106,35 +102,19 @@ public class MapActivity extends BaseActivity {
         mapView.getOverlays().add(myLocationoverlay);
     }
     
-    private MyOwnItemizedOverlay getBusStops(){
-    	RESTRequest rR = new RESTRequest(Config.busStopAddress);
-    	//IGeoPoint point = mapView.getMapCenter();
-    	rR.putDouble("gps_longitude", locator.getLongitude());
-    	rR.putDouble("gps_latitude", locator.getLatitude());
+    private void loadBusStops(){
+    	if (rR != null) rR.abort();
+    	rR = new RESTRequest(Config.busStopAddress + "1");
+    	IGeoPoint point = mapView.getMapCenter();
+    	System.out.println("Latitude according to getCenter: "+(double)point.getLatitudeE6()/1000000);
+    	System.out.println("Actual latitude: "+locator.getLatitude());
+    	System.out.println("Longitude according to getCenter: "+(double)point.getLongitudeE6()/1000000);
+    	System.out.println("Actual Longitude: "+locator.getLongitude());
+    	rR.putDouble("gps_longitude", (double)point.getLongitudeE6()/1000000);
+    	rR.putDouble("gps_latitude", (double)point.getLatitudeE6()/1000000);
     	rR.putDouble("range", 1000);
-    	ArrayList<OverlayItem> overlayItemArray = new ArrayList<OverlayItem>();
-    	try {
-    		String result = rR.execute().get();
-    		
-			JSONObject json = new JSONObject(result);
-			JSONArray array = json.getJSONArray("busstops");
-			System.out.println(array.length());
-			for(int i=0;i<array.length();i++){
-				JSONObject busstop = array.getJSONObject(i);
-				GeoPoint location = new GeoPoint(busstop.getDouble("GPS_Latitude"),busstop.getDouble("GPS_Longitude"));
-				OverlayItem olItem = new OverlayItem("Bus Stop", ""+busstop.getInt("id"), location);
-				overlayItemArray.add(olItem);
-			}
-			MyOwnItemizedOverlay overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
-			return overlay;
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-    	return null;
+    	rR.addEventListener(this);
+    	rR.execute();
     }
     
     public class MyOwnItemizedOverlay extends ItemizedIconOverlay<OverlayItem> {
@@ -162,4 +142,46 @@ public class MapActivity extends BaseActivity {
         }
         
     }
+
+	@Override
+	public void RESTRequestOnPreExecute(RESTRequestEvent event)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void RESTRequestOnProgressUpdate(RESTRequestEvent event)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void RESTRequestOnPostExecute(RESTRequestEvent event)
+	{	
+		mapView.getOverlays().remove(overlay);
+		String result = event.getResult();
+		ArrayList<OverlayItem> overlayItemArray = new ArrayList<OverlayItem>();
+		try
+		{
+			JSONObject json = new JSONObject(result);
+			JSONArray array = json.getJSONArray("busstops");
+			System.out.println(array.length());
+			for(int i=0;i<array.length();i++){
+				JSONObject busstop = array.getJSONObject(i);
+				GeoPoint location = new GeoPoint(busstop.getDouble("GPS_Latitude"),busstop.getDouble("GPS_Longitude"));
+				OverlayItem olItem = new OverlayItem("Bus Stop", ""+busstop.getInt("id"), location);
+				overlayItemArray.add(olItem);
+			}
+			overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
+			
+			mapView.getOverlays().add(overlay);
+		} catch (Exception e)
+		{
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
+		}
+		
+        
+	}
 }

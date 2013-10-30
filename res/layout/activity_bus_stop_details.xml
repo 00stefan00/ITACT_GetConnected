@@ -43,33 +43,6 @@
         android:text="@string/busstop_text_trunk" />
 
     <TextView
-        android:id="@+id/busstop_shelter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView4"
-        android:layout_below="@+id/textView1"
-        android:layout_toRightOf="@+id/busstop_name"
-        android:text="Yes" />
-
-    <TextView
-        android:id="@+id/busstop_seatings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_toRightOf="@+id/busstop_name"
-        android:text="Yes" />
-
-    <TextView
-        android:id="@+id/busstop_trunk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_alignLeft="@+id/busstop_seatings"
-        android:text="Yes" />
-
-    <TextView
         android:id="@+id/busstop_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,5 +90,46 @@
         android:layout_weight="6"
         android:clickable="true" >
     </org.osmdroid.views.MapView>
+
+    <TextView
+        android:id="@+id/TextView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/busstop_number"
+        android:layout_below="@+id/textView5"
+        android:text="@string/busstop_text_bicycle_parking" />
+
+    <TextView
+        android:id="@+id/busstop_trunk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/busstop_bicycle_parking"
+        android:layout_alignLeft="@+id/mapview"
+        android:text="Yes" />
+
+    <TextView
+        android:id="@+id/busstop_bicycle_parking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView0"
+        android:layout_alignBottom="@+id/TextView0"
+        android:layout_alignLeft="@+id/busstop_trunk"
+        android:text="Yes" />
+
+    <TextView
+        android:id="@+id/busstop_seatings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/busstop_trunk"
+        android:layout_alignLeft="@+id/busstop_trunk"
+        android:text="Yes" />
+
+    <TextView
+        android:id="@+id/busstop_shelter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/busstop_seatings"
+        android:layout_alignLeft="@+id/busstop_seatings"
+        android:text="Yes" />
 
 </RelativeLayout>

@@ -11,10 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BusDetailFactory extends BaseDetailFactory implements
-		IDetailFactory {
+public class BusDetailGenerator extends BaseDetailGenerator {
 
-	public BusDetailFactory(View view, Context context, JSONObject data)
+	public BusDetailGenerator(View view, Context context, JSONObject data)
 			throws JSONException {
 		super(view,context,data);
 	}

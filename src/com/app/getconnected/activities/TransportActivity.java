@@ -13,7 +13,6 @@ import com.app.getconnected.network.PlacesAutoCompleteAdapter;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;
 import com.app.getconnected.rest.RESTRequestListener;
-import com.util.getconnected.FieldValidator;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -101,8 +100,10 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 	}
 	
+	
+	
 	@SuppressLint("SimpleDateFormat")
-	protected void planTrip() {
+	public void planTrip() {
 		
 		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
 		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());
@@ -128,12 +129,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
 
-		String mode;
-		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
-		mode = "TRANSIT,WALK"; 
-		// BUS: BUSISH
-		// TREIN: TRAINISH
-		// 
+		String mode = getTransportMode(checkBoxBus.isChecked(), checkBoxTrain.isChecked(), checkBoxTaxiOther.isChecked());
 				
 		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
 		request.putString("_dc", "1382083769026");
@@ -153,20 +149,32 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 			Intent intent = new Intent(this, TransportResultActivity.class);
 			intent.putExtra("json", result);
 			startActivity(intent);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
 		}
 
 	}
 
+	private String getTransportMode(boolean bus, boolean train, boolean taxiOther) {
+		String mode;
+		
+		if (!bus && !train && taxiOther) {
+			mode = "WALK";
+		}else {
+			mode = "TRANSIT, WALK";
+		}
+		
+		return mode;
+	}
+
+
+
 	public boolean validateLocation(String address, GeoLocation location) {
 		if (address.equals("")) {
-			//Toast.makeText(this, this.getResources().getString(R.string.field_validation_no_input), Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, this.getResources().getString(R.string.field_validation_no_input), Toast.LENGTH_SHORT).show();
 			return false;
 		}else if (!location.isValidLocation()) {
-			//Toast.makeText(this, this.getResources().getString(R.string.field_validation_unknown_location), Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, this.getResources().getString(R.string.field_validation_unknown_location), Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		return true;

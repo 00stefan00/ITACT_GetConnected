@@ -7,6 +7,9 @@
     <!-- General -->
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
+    
+    <!-- Error messages -->
+    <string name="error_connection_failed">Kan geen verbinding maken met de server</string>
 
     <!-- Main Menu -->
     <string name="action_settings">Settings</string>
@@ -41,6 +44,14 @@
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
+    
+    <!--  Help Activity -->
+	<string name="help_intro">Klik op één van de onderwerpen hieronder voor extra uitleg.</string>
+	<string name="help_button_basic">Basis instructies</string>
+	<string name="help_button_map">Uitleg over kaart gebruik</string>
+	<string name="help_button_plan">Uw eigen route plan</string>
+	<string name="help_button_marketplace">De marktplaats gebruiken</string>
+	<string name="help_button_contact">Contact opnemen</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -56,6 +67,7 @@
     <string name="busstop_text_trunk">Prullenbak:</string>
     <string name="busstop_text_lights">Verlichting:</string>
     <string name="busstop_text_seating">Zittingen:</string>
+    <string name="busstop_text_bicycle_parking">Fiets parkeerplaats:</string>
     <string name="busstop_text_facilities">Faciliteiten:</string>
 
     <!-- Transportation Result Activity -->
@@ -74,7 +86,6 @@
     <!-- Get connected 2 -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="title_activity_map">MapActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="field_username">Gebruikersnaam</string>
     <string name="field_password">Wachtwoord</string>
     <string name="field_first_name">Voornaam</string>
@@ -118,5 +129,14 @@
     <string name="change_date">Change date</string>
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
+    <string name="title_activity_transport_details">TransportDetailsActivity</string>
+    <string name="display_requests">Display requested rides</string>
+    <string name="empty_string"></string>
+    <string name="read_more_btn">Read more</string>
+    <string name="offered_ride_string">Offered ride by person</string>
+    <string name="ride_description">Ride description ..........................................................................................................................</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_email">This email address is invalid</string>
 
 </resources>
