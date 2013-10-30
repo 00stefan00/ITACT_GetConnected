@@ -1,4 +1,4 @@
-package com.app.getconnected.network;
+package com.app.getconnected.rides;
 
 import com.app.getconnected.rest.RESTRequest;
 import org.json.JSONObject;
@@ -22,12 +22,7 @@ public class SaveRides extends Rides {
 		if(isEmpty() || argument.isEmpty() || key.isEmpty()) throw new Exception("Not all arguments have been filled");
 		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.POST, "1");
 		restRequest.putString(key, argument);
-		String json = null;
-		try {
-			json = restRequest.execute().get();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		String json = restRequest.execute().get();
 		return parseJSON(json);
 	}
 

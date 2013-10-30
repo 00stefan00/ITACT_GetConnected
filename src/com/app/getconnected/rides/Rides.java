@@ -1,4 +1,4 @@
-package com.app.getconnected.network;
+package com.app.getconnected.rides;
 
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
