@@ -1,5 +1,8 @@
 package com.app.getconnected.activities;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import com.app.getconnected.R;
 import com.app.getconnected.animations.CollapseAnimation;
 import com.app.getconnected.animations.ExpandAnimation;
@@ -29,6 +32,8 @@ abstract class BaseActivity extends Activity {
 
 	protected static final String activityPackage = "com.app.getconnected.activities";
 	protected static Boolean loggedIn=false;
+
+	private static int notificationId = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -133,4 +138,24 @@ abstract class BaseActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Creates a notification. Use the intent for what happens when the person selects the notification
+	 * @param intent
+	 * @param title
+	 * @param message
+	 */
+	public void createNotification(Intent intent, int title, int message) {
+		PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+		Notification noti = new Notification
+				.Builder(this)
+				.setContentTitle(getString(title))
+				.setContentText(getString(message)).setSmallIcon(R.drawable.gc_icon)
+				.setContentIntent(pIntent)
+				.build();
+		NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		// hide the notification after its selected
+		noti.flags |= Notification.FLAG_AUTO_CANCEL;
+		notificationManager.notify(notificationId ++, noti);
+	}
 }
