@@ -182,7 +182,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 			mapView.getOverlays().add(overlay);
 		} catch (Exception e)
 		{
-			Toast.makeText(getApplicationContext(), getResources().getString(R.string.connection_failed), Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
 		}
 		
         

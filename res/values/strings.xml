@@ -7,7 +7,9 @@
     <!-- General -->
     <string name="confirm">Yes</string>
     <string name="deny">No</string>
-    <string name="connection_failed">Could not connect to the server</string>
+    
+    <!-- Error messages -->
+    <string name="error_connection_failed">Could not connect to the server</string>
 
     <!-- Main Menu -->
     <string name="main_text">Navigate to one of the following pages by pressing the button.</string>
