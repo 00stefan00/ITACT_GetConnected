@@ -41,6 +41,14 @@
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
+    
+    <!--  Help Activity -->
+	<string name="help_intro">Klik op één van de onderwerpen hieronder voor extra uitleg.</string>
+	<string name="help_button_basic">Basis instructies</string>
+	<string name="help_button_map">Uitleg over kaart gebruik</string>
+	<string name="help_button_plan">Uw eigen route plan</string>
+	<string name="help_button_marketplace">De marktplaats gebruiken</string>
+	<string name="help_button_contact">Contact opnemen</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -56,6 +64,7 @@
     <string name="busstop_text_trunk">Prullenbak:</string>
     <string name="busstop_text_lights">Verlichting:</string>
     <string name="busstop_text_seating">Zittingen:</string>
+    <string name="busstop_text_bicycle_parking">Fiets parkeerplaats:</string>
     <string name="busstop_text_facilities">Faciliteiten:</string>
 
     <!-- Transportation Result Activity -->
