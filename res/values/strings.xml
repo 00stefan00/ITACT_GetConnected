@@ -7,6 +7,9 @@
     <!-- General -->
     <string name="confirm">Yes</string>
     <string name="deny">No</string>
+    
+    <!-- Error messages -->
+    <string name="error_connection_failed">Could not connect to the server</string>
 
     <!-- Main Menu -->
     <string name="main_text">Navigate to one of the following pages by pressing the button.</string>
@@ -131,9 +134,7 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_email">This email address is invalid</string>
-
     <color name="blue">#25383C</color>
-
     <string name="title_activity_registeractivity">Register</string>
     <string name="field_validation_not_numeric">The field can only contain numbers</string>
     <string name="field_validation_not_alphanumeric">The field can only contain letters and numbers</string>

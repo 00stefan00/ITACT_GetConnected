@@ -149,10 +149,8 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 			Intent intent = new Intent(this, TransportResultActivity.class);
 			intent.putExtra("json", result);
 			startActivity(intent);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
 		}
 
 	}

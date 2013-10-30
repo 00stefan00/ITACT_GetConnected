@@ -8,34 +8,39 @@
     android:paddingTop="0dp"
     tools:context=".TransportActivity" >
 
-    
-
     <TextView
-        android:id="@+id/busstop_bicycle_parking"
+        android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/map_text_location"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/transport_input_from"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
         android:text="@string/transport_text_to" />
 
     <AutoCompleteTextView
         android:id="@+id/transport_input_to"
         android:layout_width="160dp"
-        android:layout_height="25dp"
-        android:layout_alignBaseline="@+id/busstop_bicycle_parking"
-        android:layout_alignBottom="@+id/busstop_bicycle_parking"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
         android:layout_alignLeft="@+id/transport_input_from"
         android:ems="10"
         android:hint="@string/transport_input_to"
         android:inputType="textPostalAddress"
-        android:textSize="10sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/TextView05"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
         android:text="@string/transport_text_possibilities" />
 
     <CheckBox
@@ -45,7 +50,6 @@
         android:layout_alignLeft="@+id/TextView05"
         android:layout_below="@+id/TextView05"
         android:layout_marginTop="22dp"
-        android:checked="true"
         android:text="@string/transport_text_possibilities_bus" />
 
     <CheckBox
@@ -54,7 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/transport_checkbox_bus"
         android:layout_below="@+id/transport_checkbox_bus"
-        android:checked="true"
         android:text="@string/transport_text_possibilities_train" />
 
     <CheckBox
@@ -63,28 +66,30 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/transport_checkbox_train"
         android:layout_below="@+id/transport_checkbox_train"
-        android:checked="true"
         android:text="@string/transport_text_possibilities_taxi_other" />
 
     <TextView
         android:id="@+id/map_text_location"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView05"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/include1"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="21dp"
         android:text="@string/transport_text_from" />
 
     <AutoCompleteTextView
         android:id="@+id/transport_input_from"
         android:layout_width="160dp"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:layout_alignTop="@+id/map_text_location"
         android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
         android:ems="10"
         android:hint="@string/transport_input_from"
         android:inputType="textPostalAddress"
-        android:textSize="10sp" >
+        android:textSize="12sp" >
 
         <requestFocus />
     </AutoCompleteTextView>
@@ -93,68 +98,39 @@
         android:id="@+id/TextView04"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_alignBottom="@+id/transport_input_date"
-        android:layout_alignLeft="@+id/busstop_bicycle_parking"
+        android:layout_alignLeft="@+id/TextView01"
         android:text="@string/transport_text_date" />
 
     <EditText
         android:id="@+id/transport_input_date"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/transport_input_to"
         android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
         android:ems="10"
         android:text="@string/transport_input_date"
-        android:textSize="7sp" />
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/transport_input_time"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/transport_input_date"
         android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
         android:ems="10"
         android:text="@string/transport_input_time"
-        android:textSize="7sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/TextView02"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/transport_input_time"
         android:layout_alignLeft="@+id/TextView04"
         android:text="@string/transport_text_time" />
-
-    <RadioGroup
-        android:id="@+id/transport_radio_departure_arrival"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/transport_input_time"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/transport_radio_departure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/TextView02"
-            android:layout_below="@+id/TextView02"
-            android:checked="true"
-            android:text="@string/transport_text_departure"
-            android:textSize="10sp" />
-
-        <RadioButton
-            android:id="@+id/transport_radio_arrival"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/transport_radio_departure"
-            android:layout_alignBottom="@+id/transport_radio_departure"
-            android:layout_alignLeft="@+id/transport_input_time"
-            android:layout_marginLeft="34dp"
-            android:text="@string/transport_text_arrival"
-            android:textSize="10sp" />
-
-    </RadioGroup>
     
     <include
         android:id="@+id/include1"
@@ -167,5 +143,30 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         layout="@layout/footer" />
+
+    <RadioGroup
+        android:id="@+id/transport_radio_departure_arrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView05"
+        android:layout_alignLeft="@+id/TextView05"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/transport_radio_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/transport_text_departure"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/transport_radio_arrival"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:text="@string/transport_text_arrival"
+            android:textSize="12sp" />
+    </RadioGroup>
 
 </RelativeLayout>

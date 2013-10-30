@@ -17,6 +17,7 @@ import org.osmdroid.views.overlay.OverlayItem;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.getconnected.R;
 import com.app.getconnected.network.Config;
@@ -107,15 +108,8 @@ public class BusStopDetailsActivity extends BaseActivity {
 			trunk = json.getInt("opt_afvalbak") == 1 ? true : false;
 			bicycleParking = json.getInt("opt_fietsparkeervoorziening") == 1 ? true : false;
 			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
 		}
 	}
 
