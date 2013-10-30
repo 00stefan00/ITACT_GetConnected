@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Date: 10/28/13
  * Time: 1:56 PM
  */
-public class SaveRides extends Rides {
+public class SaveRides extends Rides implements Argumentable {
 
 	private String argument;
 
@@ -19,7 +19,7 @@ public class SaveRides extends Rides {
 
 	@Override
 	public ArrayList<JSONObject> createRequest() throws Exception {
-		if(isEmpty() || argument.isEmpty() || key.isEmpty()) throw new Exception("Not all arguments have been filled");
+		if(isEmpty()) throw new Exception("Not all arguments have been filled");
 		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.POST, "1");
 		restRequest.putString(key, argument);
 		String json = restRequest.execute().get();
@@ -32,5 +32,9 @@ public class SaveRides extends Rides {
 
 	public void setKey(String key) {
 		this.key = key;
+	}
+
+	public boolean isEmpty() {
+		return super.isEmpty() || argument.isEmpty() || key.isEmpty();
 	}
 }
