@@ -11,7 +11,7 @@
     
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/busstop_bicycle_parking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/map_text_location"
@@ -22,8 +22,8 @@
         android:id="@+id/transport_input_to"
         android:layout_width="160dp"
         android:layout_height="25dp"
-        android:layout_alignBaseline="@+id/TextView01"
-        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignBaseline="@+id/busstop_bicycle_parking"
+        android:layout_alignBottom="@+id/busstop_bicycle_parking"
         android:layout_alignLeft="@+id/transport_input_from"
         android:ems="10"
         android:hint="@string/transport_input_to"
@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/transport_input_date"
-        android:layout_alignLeft="@+id/TextView01"
+        android:layout_alignLeft="@+id/busstop_bicycle_parking"
         android:text="@string/transport_text_date" />
 
     <EditText

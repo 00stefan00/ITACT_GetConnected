@@ -12,8 +12,8 @@ import android.provider.Settings;
 
 public class GPSLocator implements LocationListener {
 	
-	private double latitude;
-	private double longitude;
+	private double latitude = 0;
+	private double longitude = 0;
 	private Context context;
 
 	public GPSLocator(Context context) {

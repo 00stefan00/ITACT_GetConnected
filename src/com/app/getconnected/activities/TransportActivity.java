@@ -101,8 +101,10 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 	}
 	
+	
+	
 	@SuppressLint("SimpleDateFormat")
-	protected void planTrip() {
+	public void planTrip() {
 		
 		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
 		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());

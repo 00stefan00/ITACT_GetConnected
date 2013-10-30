@@ -55,6 +55,7 @@
     <string name="busstop_text_trunk">Trunk:</string>
     <string name="busstop_text_lights">Lights:</string>
     <string name="busstop_text_seating">Seating:</string>
+    <string name="busstop_text_bicycle_parking">Seating:</string>
     <string name="busstop_text_facilities">Facilities:</string>
 
     <!-- Field Validation error messages -->
