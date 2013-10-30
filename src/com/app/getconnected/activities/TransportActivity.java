@@ -163,7 +163,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		if (!bus && !train && taxiOther) {
 			mode = "WALK";
 		}else {
-			mode = "TRANSIT, WALK";
+			mode = "TRANSIT,WALK";
 		}
 		
 		return mode;
