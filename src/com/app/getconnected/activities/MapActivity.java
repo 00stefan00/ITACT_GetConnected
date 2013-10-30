@@ -19,6 +19,7 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ import com.app.getconnected.R;
 import com.app.getconnected.gps.GPSLocator;
 import com.app.getconnected.network.Config;
 import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 
 /**
  * 
@@ -35,7 +38,7 @@ import com.app.getconnected.rest.RESTRequest;
  * 
  * 
  */
-public class MapActivity extends BaseActivity {
+public class MapActivity extends BaseActivity implements RESTRequestListener {
 
 	private MapController mapController;
     private MapView mapView;
@@ -53,7 +56,7 @@ public class MapActivity extends BaseActivity {
         addLocationOverlay();
         overlay = getBusStops();
         mapView.getOverlays().add(overlay);
-        /*
+        
         mapView.setMapListener(new DelayedMapListener(new MapListener(){
 
 			@Override
@@ -68,9 +71,7 @@ public class MapActivity extends BaseActivity {
 			@Override
 			public boolean onZoom(ZoomEvent arg0) {return false;}
         	
-        },500));*/
-        
-        
+        },500));
     }
     
     @Override
@@ -166,4 +167,38 @@ public class MapActivity extends BaseActivity {
         }
         
     }
+
+	@Override
+	public void RESTRequestOnPreExecute(RESTRequestEvent event)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void RESTRequestOnProgressUpdate(RESTRequestEvent event)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void RESTRequestOnPostExecute(RESTRequestEvent event)
+	{
+		// TODO Auto-generated method stub
+		
+//		String result = event.getResult();
+//		
+//		try
+//		{
+//			JSONObject jsonObject = new JSONObject(result);
+//		} catch (JSONException e)
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		overlay = getBusStops();
+//        mapView.getOverlays().add(overlay);
+	}
 }
