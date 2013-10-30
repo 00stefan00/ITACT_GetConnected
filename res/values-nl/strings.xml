@@ -74,7 +74,6 @@
     <!-- Get connected 2 -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="title_activity_map">MapActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="field_username">Gebruikersnaam</string>
     <string name="field_password">Wachtwoord</string>
     <string name="field_first_name">Voornaam</string>
@@ -118,5 +117,14 @@
     <string name="change_date">Change date</string>
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
+    <string name="title_activity_transport_details">TransportDetailsActivity</string>
+    <string name="display_requests">Display requested rides</string>
+    <string name="empty_string"></string>
+    <string name="read_more_btn">Read more</string>
+    <string name="offered_ride_string">Offered ride by person</string>
+    <string name="ride_description">Ride description ..........................................................................................................................</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_email">This email address is invalid</string>
 
 </resources>
