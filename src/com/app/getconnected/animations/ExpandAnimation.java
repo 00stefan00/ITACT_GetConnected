@@ -18,8 +18,8 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 	public ExpandAnimation(View v, int FromHeight, int ToHeight, int Duration) {
 		
 		this.view = v;
-		ANIMATION_DURATION = 1;
 		this.ToHeight = ToHeight;
+		ANIMATION_DURATION = 1;
 		setDuration(ANIMATION_DURATION);
 		setRepeatCount(20);
 		setFillAfter(false);
