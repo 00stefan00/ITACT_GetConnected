@@ -7,6 +7,7 @@
     <!-- General -->
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
+    <string name="connection_failed">Kan geen verbinding maken met de server</string>
 
     <!-- Main Menu -->
     <string name="action_settings">Settings</string>

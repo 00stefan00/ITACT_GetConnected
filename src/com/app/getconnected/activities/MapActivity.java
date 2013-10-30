@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.app.getconnected.R;
 import com.app.getconnected.gps.GPSLocator;
@@ -105,8 +106,8 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
     }
     
     private void loadBusStops(){
-    	rR.abort();
-    	rR = new RESTRequest(Config.busStopAddress);
+    	if (rR != null) rR.abort();
+    	rR = new RESTRequest(Config.busStopAddress + "1");
     	IGeoPoint point = mapView.getMapCenter();
     	System.out.println("Latitude according to getCenter: "+(double)point.getLatitudeE6()/1000000);
     	System.out.println("Actual latitude: "+locator.getLatitude());
@@ -177,11 +178,13 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 				overlayItemArray.add(olItem);
 			}
 			overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
-		} catch (JSONException e)
+			
+			mapView.getOverlays().add(overlay);
+		} catch (Exception e)
 		{
-			e.printStackTrace();
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.connection_failed), Toast.LENGTH_SHORT).show();
 		}
 		
-        mapView.getOverlays().add(overlay);
+        
 	}
 }
