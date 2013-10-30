@@ -70,6 +70,9 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	/** The listener classes that need to be notified of a finished request. */
 	protected ArrayList<RESTRequestListener> eventListeners;
 	
+	/** The HttpUriRequest is stored as class variable so it can be cancelled. */
+	protected HttpUriRequest httpRequest;
+	
 	/**
 	 * Overloads the RESTRequest(String address, String ID) constructor.
 	 * 
@@ -248,7 +251,10 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	 */
 	public void abort()
 	{
-		
+		if (httpRequest instanceof HttpUriRequest)
+		{
+			httpRequest.abort();
+		}
 	}
 	
 	@Override
@@ -256,8 +262,6 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	{
 		DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
 
-		HttpUriRequest httpRequest = null; 
-		
 		// Get the correct request method
 		try
 		{
