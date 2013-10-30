@@ -14,21 +14,15 @@
         android:layout_height="wrap_content"
         layout="@layout/header" />
 
-    <TableLayout
-        android:id="@+id/transport_details_content_wrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/include1" >
-    </TableLayout>
-
-    <TextView
-        android:id="@+id/dingvoordemo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/transport_details_wrapper"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/transport_details_content_wrapper" />
+        android:layout_below="@+id/include1"
+        android:orientation="vertical" >  
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -43,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:onClick="prefPage"
             android:text="@string/transport_details_pref" />
 
         <Button
@@ -51,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:onClick="nextPage"
             android:text="@string/transport_details_next" />
     </RelativeLayout>
 
