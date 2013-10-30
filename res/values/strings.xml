@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- App Name -->
@@ -40,6 +41,14 @@
     <string name="transport_result_text_switch">Switch</string>
     <string name="transport_result_text_arrival">Arrival</string>
     <string name="transport_text_empty">Some field are empty..</string>
+    
+    <!--  Help Activity -->
+	<string name="help_intro">Click on on of the subjects below for additional explanation.</string>
+	<string name="help_button_basic">Basic instructions</string>
+	<string name="help_button_map">Explanation of map use</string>
+	<string name="help_button_plan">Plan your ride</string>
+	<string name="help_button_marketplace">Use the marketplace</string>
+	<string name="help_button_contact">Contact</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -55,6 +64,7 @@
     <string name="busstop_text_trunk">Trunk:</string>
     <string name="busstop_text_lights">Lights:</string>
     <string name="busstop_text_seating">Seating:</string>
+    <string name="busstop_text_bicycle_parking">Bicycle parking:</string>
     <string name="busstop_text_facilities">Facilities:</string>
 
     <!-- Field Validation error messages -->
@@ -130,5 +140,7 @@
     <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
+    <string name="title_activity_help">Help</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

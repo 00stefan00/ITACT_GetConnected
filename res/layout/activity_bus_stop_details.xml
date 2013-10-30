@@ -118,4 +118,21 @@
         android:clickable="true" >
     </org.osmdroid.views.MapView>
 
+    <TextView
+        android:id="@+id/TextView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/busstop_number"
+        android:layout_below="@+id/textView5"
+        android:text="@string/busstop_text_bicycle_parking" />
+
+    <TextView
+        android:id="@+id/busstop_bicycle_parking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView0"
+        android:layout_alignBottom="@+id/TextView0"
+        android:layout_alignLeft="@+id/busstop_trunk"
+        android:text="Yes" />
+
 </RelativeLayout>

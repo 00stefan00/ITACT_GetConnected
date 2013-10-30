@@ -113,14 +113,14 @@
         android:layout_marginTop="-6dp"
         android:background="@drawable/smooth_bot_edges"
         android:drawableLeft="@drawable/help_icon_40x40"
-        android:drawableRight="@drawable/arrow_icon_20x20"
         android:drawablePadding="10dip"
+        android:drawableRight="@drawable/arrow_icon_20x20"
+        android:gravity="left|center_vertical|right"
+        android:onClick="startIntentByButton"
+        android:paddingLeft="15dp"
         android:paddingRight="15dp"
-   		android:paddingLeft="15dp"
-        android:gravity="left|center_vertical|right" 
-        android:text="@string/home_button_help"
-		android:onClick="startIntentByButton"
-		android:tag="" />
+        android:tag="HelpActivity"
+        android:text="@string/home_button_help" />
     
     <include
         android:layout_width="wrap_content"
