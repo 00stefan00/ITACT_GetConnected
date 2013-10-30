@@ -45,6 +45,7 @@
         android:layout_alignLeft="@+id/TextView05"
         android:layout_below="@+id/TextView05"
         android:layout_marginTop="22dp"
+        android:checked="true"
         android:text="@string/transport_text_possibilities_bus" />
 
     <CheckBox
@@ -53,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/transport_checkbox_bus"
         android:layout_below="@+id/transport_checkbox_bus"
+        android:checked="true"
         android:text="@string/transport_text_possibilities_train" />
 
     <CheckBox
@@ -61,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/transport_checkbox_train"
         android:layout_below="@+id/transport_checkbox_train"
+        android:checked="true"
         android:text="@string/transport_text_possibilities_taxi_other" />
 
     <TextView

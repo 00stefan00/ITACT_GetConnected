@@ -1,11 +1,8 @@
 package com.app.getconnected.activities;
 
 import com.app.getconnected.R;
-import com.app.getconnected.R.layout;
-import com.app.getconnected.R.menu;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 
 public class HelpActivity extends BaseActivity {
