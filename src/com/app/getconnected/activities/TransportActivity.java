@@ -13,6 +13,7 @@ import com.app.getconnected.network.PlacesAutoCompleteAdapter;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;
 import com.app.getconnected.rest.RESTRequestListener;
+import com.util.getconnected.FieldValidator;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -91,7 +92,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 			
 			@Override
 			public void onClick(View v) {
-				plan();
+				planTrip();
 			}
 		});
 		
@@ -101,19 +102,18 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	}
 	
 	@SuppressLint("SimpleDateFormat")
-	protected void plan() {
-		if (autoCompViewFrom.getText().toString().equals("") || autoCompViewTo.getText().toString().equals("")) {
-			Toast.makeText(this, this.getResources().getString(R.string.field_validation_no_input), Toast.LENGTH_SHORT).show();
-			return;
-		}
+	protected void planTrip() {
 		
 		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
 		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());
 		
-		if (!fromLocation.isValidLocation() || !toLocation.isValidLocation()) {
-			Toast.makeText(this, this.getResources().getString(R.string.field_validation_unknown_location), Toast.LENGTH_SHORT).show();
+		if (!validateLocation(autoCompViewFrom.getText().toString(), fromLocation)) {
 			return;
 		}
+		
+		if (!validateLocation(autoCompViewTo.getText().toString(), toLocation)) {
+			return;
+		}		
 		
 		double fromLatitude = fromLocation.getLatitude();
 		double fromLongitude = fromLocation.getLongitude();
@@ -127,9 +127,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		String date = dateFormat.format(calendarDate.getTime());
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
-		
-		String url = Config.tripPlannerAddress;
-		
+
 		String mode;
 		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
 		mode = "TRANSIT,WALK"; 
@@ -137,7 +135,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		// TREIN: TRAINISH
 		// 
 				
-		RESTRequest request = new RESTRequest(url);
+		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
 		request.putString("_dc", "1382083769026");
 		request.putString("arriveBy", "" + arriveBy);
 		request.putString("time", time);
@@ -152,11 +150,9 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		try {
 			String result = request.execute().get();
-			
 			Intent intent = new Intent(this, TransportResultActivity.class);
 			intent.putExtra("json", result);
 			startActivity(intent);
-			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
@@ -165,9 +161,19 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 
 	}
 
+	public boolean validateLocation(String address, GeoLocation location) {
+		if (address.equals("")) {
+			//Toast.makeText(this, this.getResources().getString(R.string.field_validation_no_input), Toast.LENGTH_SHORT).show();
+			return false;
+		}else if (!location.isValidLocation()) {
+			//Toast.makeText(this, this.getResources().getString(R.string.field_validation_unknown_location), Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		return true;
+	}
+
 	private void setTimePicker() {
 		final TimePickerDialog.OnTimeSetListener timePicker = new TimePickerDialog.OnTimeSetListener() {
-
 		    @Override
 		    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
@@ -179,7 +185,6 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		    }
 		};
 		inputTime.setOnClickListener(new OnClickListener() {
-
 	        @Override
 	        public void onClick(View v) {
 	            new TimePickerDialog(TransportActivity.this, timePicker, calendarTime
