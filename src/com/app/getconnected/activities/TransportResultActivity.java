@@ -4,18 +4,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-
+import com.app.getconnected.R;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.app.getconnected.R;
 
 public class TransportResultActivity extends BaseActivity {
 
@@ -23,7 +24,6 @@ public class TransportResultActivity extends BaseActivity {
 	private int pageSize = 5;
 	private JSONArray itineraries;
 	private TableLayout table;
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,6 @@ public class TransportResultActivity extends BaseActivity {
 		initLayout(R.string.title_activity_transport_result, true, true, true,
 				false);
 		String json = getIntent().getExtras().getString("json");
-		System.out.println(json);
 		try {
 			JSONObject jObject;
 			jObject = (new JSONObject(json)).getJSONObject("plan");
@@ -51,11 +50,14 @@ public class TransportResultActivity extends BaseActivity {
 	private void initTable() {
 		JSONObject itinerariy = null;
 		try {
-			for (int i = (page * pageSize); i < itineraries.length() && i < (page * pageSize + pageSize); i++) {
+			for (int i = (page * pageSize); i < itineraries.length()
+					&& i < (page * pageSize + pageSize); i++) {
 				itinerariy = itineraries.getJSONObject(i);
 				TableRow row = (TableRow) getLayoutInflater().inflate(
 						R.layout.transport_result_row, table, false);
 				setTextViews(row, itinerariy);
+				row.setTag(i);
+				setClickEvents(row);
 				table.addView(row);
 			}
 		} catch (Exception e) {
@@ -75,12 +77,34 @@ public class TransportResultActivity extends BaseActivity {
 				.findViewById(R.id.transport_result_text_arival);
 		TextView transfers = (TextView) row
 				.findViewById(R.id.transport_result_text_transfers);
-		departure.setText("" + (itinerariy.getInt("duration") / 1000 / 60)
-				+ " ");
-		duration.setText("" + getDate(itinerariy.getLong("startTime"), "H:m")
+		duration.setText("" + (itinerariy.getInt("duration") / 1000 / 60) + " ");
+		departure.setText("" + getDate(itinerariy.getLong("startTime"), "H:m")
 				+ " ");
 		arival.setText("" + getDate(itinerariy.getLong("endTime"), "H:m") + " ");
 		transfers.setText("" + itinerariy.getInt("transfers"));
+	}
+
+	private void setClickEvents(TableRow row) {
+		row.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View row) {
+				int index = (Integer) row.getTag();
+				Intent intent = new Intent(TransportResultActivity.this,
+						TransportDetailsActivity.class);
+				try {
+					intent.putExtra("json", itineraries.getJSONObject(index)
+							.toString());
+				} catch (JSONException e) {
+					Toast.makeText(TransportResultActivity.this,
+							"Something went wrong =(", Toast.LENGTH_LONG)
+							.show();
+					return;
+				}
+				startActivity(intent);
+			}
+		});
+
 	}
 
 	private String getDate(Long time, String format) {

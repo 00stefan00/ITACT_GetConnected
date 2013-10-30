@@ -378,7 +378,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	}
 	
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return address + "?" + URLEncodedUtils.format(parameters, "utf-8");
 	}
 }

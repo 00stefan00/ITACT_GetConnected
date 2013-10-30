@@ -20,26 +20,27 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.app.getconnected.R;
+import com.app.getconnected.network.Config;
 import com.app.getconnected.rest.RESTRequest;
 
 public class BusStopDetailsActivity extends BaseActivity {
 
 	private MapView mapView;
 	private MapController mapController;
-	private MyLocationOverlay myLocationoverlay;
 	private double latitude;
 	private double longitude;
 	private int id;
 	private String name;
 	private String city;
 	private boolean shelter;
+	private boolean trunk;
 	private boolean seatings;
 	private int number;
 	
 	private TextView numberView;
 	private TextView nameView;
 	private TextView cityView;
-	private boolean trunk;
+	
 	private TextView shelterView;
 	private TextView trunkView;
 	private TextView seatingsView;
@@ -75,12 +76,12 @@ public class BusStopDetailsActivity extends BaseActivity {
 		nameView.setText(name);
 		cityView.setText(city);
 		shelterView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
-		seatingsView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
-		trunkView.setText(shelter ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
+		seatingsView.setText(seatings ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
+		trunkView.setText(trunk ? getResources().getString(R.string.confirm) : getResources().getString(R.string.deny));
 	}
 
 	private void getBusStopDetails(int id) {
-		String url = "http://145.37.90.70/yii/sites/BusStops/api/busstop/" + id;
+		String url = Config.busStopAddress + id;
 		RESTRequest request = new RESTRequest(url);
 		
 		try {

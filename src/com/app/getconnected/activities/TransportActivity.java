@@ -7,11 +7,13 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 import com.app.getconnected.R;
+import com.app.getconnected.network.Config;
 import com.app.getconnected.network.GeoLocation;
 import com.app.getconnected.network.PlacesAutoCompleteAdapter;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;
 import com.app.getconnected.rest.RESTRequestListener;
+import com.util.getconnected.FieldValidator;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -90,7 +92,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 			
 			@Override
 			public void onClick(View v) {
-				plan();
+				planTrip();
 			}
 		});
 		
@@ -100,19 +102,22 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	}
 	
 	@SuppressLint("SimpleDateFormat")
-	protected void plan() {
-		//System.out.println("text--" + autoCompViewFrom.getText() + "-");
-		if (autoCompViewFrom.getText().toString().isEmpty() || autoCompViewTo.getText().toString().isEmpty()) {
-			Toast.makeText(this, this.getResources().getString(R.string.validation_no_input), Toast.LENGTH_SHORT).show();
-			//System.out.println(this.getResources().getString(R.string.validation_no_input));
+	protected void planTrip() {
+		
+		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
+		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());
+		
+		if (!validateLocation(autoCompViewFrom.getText().toString(), fromLocation)) {
 			return;
 		}
 		
-		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText().toString());
+		if (!validateLocation(autoCompViewTo.getText().toString(), toLocation)) {
+			return;
+		}		
+		
 		double fromLatitude = fromLocation.getLatitude();
 		double fromLongitude = fromLocation.getLongitude();
 		
-		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText().toString());
 		double toLatitude = toLocation.getLatitude();
 		double toLongitude = toLocation.getLongitude();		
 		
@@ -122,9 +127,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		String date = dateFormat.format(calendarDate.getTime());
 		
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival.getId() ? true : false;
-		
-		String url = "http://145.37.92.162:8081/opentripplanner-api-webapp/ws/plan";
-		
+
 		String mode;
 		//if (checkBoxBus.isChecked()) mode = "TRANSIT, WALK"; 
 		mode = "TRANSIT,WALK"; 
@@ -132,7 +135,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		// TREIN: TRAINISH
 		// 
 				
-		RESTRequest request = new RESTRequest(url);
+		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
 		request.putString("_dc", "1382083769026");
 		request.putString("arriveBy", "" + arriveBy);
 		request.putString("time", time);
@@ -147,11 +150,9 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		try {
 			String result = request.execute().get();
-			
 			Intent intent = new Intent(this, TransportResultActivity.class);
 			intent.putExtra("json", result);
 			startActivity(intent);
-			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
@@ -160,9 +161,19 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 
 	}
 
+	public boolean validateLocation(String address, GeoLocation location) {
+		if (address.equals("")) {
+			//Toast.makeText(this, this.getResources().getString(R.string.field_validation_no_input), Toast.LENGTH_SHORT).show();
+			return false;
+		}else if (!location.isValidLocation()) {
+			//Toast.makeText(this, this.getResources().getString(R.string.field_validation_unknown_location), Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		return true;
+	}
+
 	private void setTimePicker() {
 		final TimePickerDialog.OnTimeSetListener timePicker = new TimePickerDialog.OnTimeSetListener() {
-
 		    @Override
 		    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
@@ -174,7 +185,6 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		    }
 		};
 		inputTime.setOnClickListener(new OnClickListener() {
-
 	        @Override
 	        public void onClick(View v) {
 	            new TimePickerDialog(TransportActivity.this, timePicker, calendarTime
