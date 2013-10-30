@@ -132,17 +132,7 @@
         android:layout_alignLeft="@+id/TextView04"
         android:text="@string/transport_text_time" />
     
-    <include
-        android:id="@+id/include1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/header" />
-
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        layout="@layout/footer" />
+   
 
     <RadioGroup
         android:id="@+id/transport_radio_departure_arrival"
@@ -168,5 +158,17 @@
             android:text="@string/transport_text_arrival"
             android:textSize="12sp" />
     </RadioGroup>
+    
+     <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/footer" />
 
 </RelativeLayout>
