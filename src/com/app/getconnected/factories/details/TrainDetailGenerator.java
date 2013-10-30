@@ -6,19 +6,19 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.view.View;
 
-public class WalkDetailFactory extends BaseDetailFactory implements IDetailFactory{
+public class TrainDetailGenerator extends BaseDetailGenerator {
 
-	public WalkDetailFactory(View view, Context context, JSONObject data)
+	
+	
+	public TrainDetailGenerator(View view, Context context, JSONObject data)
 			throws JSONException {
 		super(view, context, data);
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public View getView() {
 		return this.view;
 	}
-	
-	
-	
+
 }

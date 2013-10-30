@@ -9,7 +9,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-public class BaseDetailFactory implements IDetailFactory {
+public abstract class BaseDetailGenerator {
 
 	protected View view;
 	protected JSONObject data;
@@ -38,7 +38,7 @@ public class BaseDetailFactory implements IDetailFactory {
 	 * @param data
 	 * @throws JSONException
 	 */
-	public BaseDetailFactory(View view, Context context,JSONObject data) throws JSONException{
+	public BaseDetailGenerator(View view, Context context,JSONObject data) throws JSONException{
 		this.view = view;
 		this.context =context;
 		this.data = data;
@@ -54,11 +54,7 @@ public class BaseDetailFactory implements IDetailFactory {
 		this.setTextViews();
 	}
 
-	@Override
-	public View getView() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	abstract public View getView();
 
 	/**
 	 * @throws JSONException
@@ -93,7 +89,7 @@ public class BaseDetailFactory implements IDetailFactory {
 	 */
 	private void setDepartureTime() throws JSONException {
 		long departureTimeStr = data.getLong(DEPARTURE_TIME_TAG);
-		this.departureTime.setText(this.getDate(departureTimeStr, "H:m"));
+		this.departureTime.setText(this.getDate(departureTimeStr, "HH:mm"));
 	}
 
 	/**
@@ -109,7 +105,7 @@ public class BaseDetailFactory implements IDetailFactory {
 	 */
 	private void setArivalTime() throws JSONException {
 		long arivalTimeStr = data.getLong(ARIVAL_TIME_TAG);
-		this.arivalTime.setText(this.getDate(arivalTimeStr, "H:m"));
+		this.arivalTime.setText(this.getDate(arivalTimeStr, "HH:mm"));
 	}
 
 	/**
@@ -128,8 +124,7 @@ public class BaseDetailFactory implements IDetailFactory {
 	 * @param format
 	 * @return
 	 */
-	protected String getDate(Long time, String format) { // todo to the current
-														// device format.
+	protected String getDate(Long time, String format) { // todo to the current											// device format.
 		Date date = new Date(time);
 		SimpleDateFormat SDF = new SimpleDateFormat(format);
 		return SDF.format(date);
