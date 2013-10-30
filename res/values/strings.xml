@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- App Name -->
@@ -118,6 +119,7 @@
     <string name="title_activity_requestride">Request ride</string>
     <string name="title_activity_requestrides">Offered rides</string>
     <string name="title_activity_loginactivity">Login</string>
+    <string name="title_activity_customer_support">Customer Support</string>
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_email">This email address is invalid</string>
@@ -130,5 +132,10 @@
     <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">E-Mail adres</string> 
+    <string name="transport_company">Select a transport company</string> 
+    <string name="complaint">Complaint or question</string> 
+    <string name="send">Send</string> 
 
 </resources>

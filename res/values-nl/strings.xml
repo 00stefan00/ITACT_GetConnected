@@ -92,6 +92,7 @@
     <string name="title_activity_requestrides">Aangeboden ritten</string>
     <string name="title_activity_loginactivity">Login</string>
     <string name="title_activity_registeractivity">Registreer</string>
+    <string name="title_activity_customer_support">Klantenservice</string>
     <string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
     <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
     <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
@@ -118,5 +119,10 @@
     <string name="change_date">Change date</string>
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
+    <string name="full_name">Volledige naam</string>
+    <string name="email">E-Mail adres</string> 
+    <string name="transport_company">Selecteer een vervoerder</string> 
+    <string name="complaint">Klacht of vraag</string> 
+    <string name="send">Verstuur</string> 
 
 </resources>

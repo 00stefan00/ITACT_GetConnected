@@ -101,7 +101,7 @@
         android:gravity="left|center_vertical|right" 
         android:text="@string/home_button_support"
 		android:onClick="startIntentByButton"
-		android:tag="" />
+		android:tag="CustomerSupportActivity" />
 
     <Button
         android:id="@+id/home_button_help"
