@@ -1,32 +1,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
-    
-    
-    
-   
-    
-	<org.osmdroid.views.MapView
-    	xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:id="@+id/mapview"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
-    	android:clickable="false"
-    
+    android:orientation="vertical" >
 
-	/>
-	
-	<include
+    <org.osmdroid.views.MapView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/header"
+        android:clickable="false" />
+
+    <include
+        android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        layout="@layout/header"
-         />
-	
- 	<include
+        layout="@layout/header" />
+
+    <include
+        android:id="@+id/footer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/footer"
-       />
+        android:layout_height="fill_parent"
+        layout="@layout/footer" />
+
 </RelativeLayout>

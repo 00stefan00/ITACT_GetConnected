@@ -52,7 +52,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
         createMap();
         addLocationOverlay();
         loadBusStops();
-        
+        mapView.setMultiTouchControls(true);
         mapView.setMapListener(new DelayedMapListener(new MapListener(){
         	
         	@Override
