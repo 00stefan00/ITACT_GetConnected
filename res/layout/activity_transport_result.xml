@@ -96,7 +96,8 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="25dp"
             android:onClick="nextPage"
-            android:text="@string/transportation_result_next" />
+            android:text="@string/transportation_result_next"
+            android:background="@drawable/standard_button" />
 
         <Button
             android:id="@+id/transport_results_pref"
@@ -106,7 +107,9 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="25dp"
             android:onClick="prefPage"
-            android:text="@string/transportation_result_pref" />
+            android:text="@string/transportation_result_pref"
+            android:background="@drawable/standard_button" />
+        
     </RelativeLayout>
 
     <include
