@@ -59,35 +59,35 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
         addLocationOverlay();
         loadBusStops();
         
-        mapView.setMapListener(new DelayedMapListener(new MapListener(){
-        //mapView.setMapListener(new MapListener(){
-
-			@Override
-			public boolean onScroll(ScrollEvent arg0) {
-				
-				locator = new GPSLocator(getApplicationContext());
-				
-				double currentLatitude  = locator.getLatitude();
-				double currentLongitude = locator.getLongitude();
-				
-				if (currentLatitude  != ((double) previousGeoPoint.getLatitudeE6()  / 1e6) ||
-					currentLongitude != ((double) previousGeoPoint.getLongitudeE6() / 1e6))
-				{
-					previousGeoPoint = new GeoPoint(currentLatitude, currentLongitude);
-					
-					return false;
-				}
-				
-				scrollAmount++;
-				System.out.println("SCROLL - " + scrollAmount); //loadBusStops();
-				return true;
-			}
-
-			@Override
-			public boolean onZoom(ZoomEvent arg0) {return false;}
-        	
-        }, 500));
-        //});
+//        mapView.setMapListener(new DelayedMapListener(new MapListener(){
+//        //mapView.setMapListener(new MapListener(){
+//
+//			@Override
+//			public boolean onScroll(ScrollEvent arg0) {
+//				
+//				locator = new GPSLocator(getApplicationContext());
+//				
+//				double currentLatitude  = locator.getLatitude();
+//				double currentLongitude = locator.getLongitude();
+//				
+//				if (currentLatitude  != ((double) previousGeoPoint.getLatitudeE6()  / 1e6) ||
+//					currentLongitude != ((double) previousGeoPoint.getLongitudeE6() / 1e6))
+//				{
+//					previousGeoPoint = new GeoPoint(currentLatitude, currentLongitude);
+//					
+//					return false;
+//				}
+//				
+//				scrollAmount++;
+//				System.out.println("SCROLL - " + scrollAmount); //loadBusStops();
+//				return true;
+//			}
+//
+//			@Override
+//			public boolean onZoom(ZoomEvent arg0) {return false;}
+//        	
+//        }, 500));
+//        //});
     }
     
     @Override
