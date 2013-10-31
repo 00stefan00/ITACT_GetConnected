@@ -78,6 +78,11 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.app.getconnected.activities.UnratedRidesActivity"
+            android:label="@string/title_activity_unrated_rides"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.app.getconnected.activities.RequestRideActivity"
             android:label="@string/title_activity_map"
             android:screenOrientation="portrait" >
