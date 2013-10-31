@@ -7,7 +7,7 @@
     <!-- General -->
     <string name="confirm">Yes</string>
     <string name="deny">No</string>
-    
+
     <!-- Settings -->
     <string name="title_activity_settings">Settings</string>
     <string name="change_language">Change language</string>
@@ -90,6 +90,7 @@
     <string name="title_activity_map">MapActivity</string>
     <string name="title_activity_transport_details">TransportDetailsActivity</string>
     <string name="display_requests">Display requested rides</string>
+    <string name="display_unrated_rides">Display unrated rides</string>
     <string name="empty_string"></string>
     <string name="read_more_btn">Read more</string>
     <string name="offered_ride_string">Offered ride by person</string>
@@ -137,9 +138,11 @@
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
     <string name="full_name">Full Name</string>
-    <string name="email">E-Mail adres</string> 
-    <string name="transport_company">Select a transport company</string> 
-    <string name="complaint">Complaint or question</string> 
-    <string name="send">Send</string> 
+    <string name="email">E-Mail adres</string>
+    <string name="transport_company">Select a transport company</string>
+    <string name="complaint">Complaint or question</string>
+    <string name="send">Send</string>
+    <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
