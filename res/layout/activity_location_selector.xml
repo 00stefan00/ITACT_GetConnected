@@ -18,7 +18,9 @@
         android:ems="10"
         android:hint="@string/transport_input_from"
         android:inputType="textPostalAddress"
-        android:textSize="19sp" />
+        android:textSize="19sp" >
+    <requestFocus />
+    </AutoCompleteTextView>
     
     <include
         android:id="@+id/include1"

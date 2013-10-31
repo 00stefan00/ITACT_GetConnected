@@ -114,7 +114,8 @@
         </activity>
         <activity
             android:name="com.app.getconnected.activities.LocationSelectorActivity"
-            android:label="@string/title_activity_location_selector" >
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateVisible|adjustPan" >
         </activity>
     </application>
 

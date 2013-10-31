@@ -23,8 +23,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -207,6 +205,17 @@ public class TransportActivity extends BaseActivity implements
 								.get(Calendar.MINUTE), true).show();
 			}
 		});
+		inputTime.setOnFocusChangeListener(new OnFocusChangeListener() {
+			
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus) {
+					new TimePickerDialog(TransportActivity.this, timePicker,
+							calendarTime.get(Calendar.HOUR_OF_DAY), calendarTime
+									.get(Calendar.MINUTE), true).show();
+				}
+			}
+		});
 
 	}
 
@@ -232,6 +241,18 @@ public class TransportActivity extends BaseActivity implements
 								.get(Calendar.DAY_OF_MONTH)).show();
 			}
 		});
+		inputDate.setOnFocusChangeListener(new OnFocusChangeListener() {
+			
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus) {
+					new DatePickerDialog(TransportActivity.this, datePicker,
+							calendarDate.get(Calendar.YEAR), calendarDate
+									.get(Calendar.MONTH), calendarDate
+									.get(Calendar.DAY_OF_MONTH)).show();
+				}
+			}
+		});		
 	}
 
 	@Override
@@ -267,24 +288,21 @@ public class TransportActivity extends BaseActivity implements
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
-			case (2): {
-				System.out.println("onActivityResult");
-				if (resultCode == Activity.RESULT_OK) {
-					String location = data.getStringExtra("location");
-					String type = data.getStringExtra("type");
-	
-					if (type.equals(getResources().getString(
-							R.string.transport_text_from))) {
-						inputFrom.setText(location);
-//						inputFrom.clearFocus();
-//						inputTo.clearFocus();
-					} else {
-						inputTo.setText(location);
-						//inputTo.clearFocus();
-					}
+		case (2): {
+			System.out.println("onActivityResult");
+			if (resultCode == Activity.RESULT_OK) {
+				String location = data.getStringExtra("location");
+				String type = data.getStringExtra("type");
+
+				if (type.equals(getResources().getString(
+						R.string.transport_text_from))) {
+					inputFrom.setText(location);
+				} else {
+					inputTo.setText(location);
 				}
-				break;
 			}
+			break;
+		}
 		}
 	}
 
