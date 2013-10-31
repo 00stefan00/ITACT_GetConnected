@@ -132,6 +132,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		String mode = getTransportMode(checkBoxBus.isChecked(), checkBoxTrain.isChecked(), checkBoxTaxiOther.isChecked());
 				
 		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
+		request.addEventListener(this);
 		request.putString("_dc", "1382083769026");
 		request.putString("arriveBy", "" + arriveBy);
 		request.putString("time", time);
@@ -233,7 +234,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	
 	@Override
 	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
-		dialog = new ProgressDialog(getApplicationContext());
+		dialog = new ProgressDialog(this);
 		dialog.setTitle(getResources().getString(R.string.loading));
         dialog.show();
 	}
@@ -250,6 +251,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
 		startActivity(intent);
+		System.out.println(event.getResult());
 	}
 
 }
