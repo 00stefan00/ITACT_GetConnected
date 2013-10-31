@@ -21,28 +21,12 @@
         android:layout_alignParentTop="true"
         layout="@layout/footer" />
 
-    <Button
-        android:id="@+id/change_language_button_nl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/include1"
-        android:text="@string/change_language" />
-
-    <Button
-        android:id="@+id/change_language_button_en"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/include1"
-        android:text="@string/change_language" />
-
     <RadioGroup
         android:id="@+id/languagePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/change_language_button_nl" >
+        android:layout_below="@+id/include1" >
     </RadioGroup>
 
 </RelativeLayout>
