@@ -23,9 +23,18 @@
 
         <TextView
             android:id="@+id/transport_details_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startIntentByButton"
+            android:tag="TaxiListActivity"
+            android:gravity="right"
+            android:text="Taxi" />
+
     </LinearLayout>
 
     <TableLayout
