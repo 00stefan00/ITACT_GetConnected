@@ -62,6 +62,7 @@ public class TransportResultActivity extends BaseActivity {
 				row.setTag(i);
 				setClickEvents(row);
 				table.addView(row);
+				row.setBackgroundResource(R.drawable.table_style);
 			}
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)

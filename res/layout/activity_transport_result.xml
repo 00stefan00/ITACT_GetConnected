@@ -41,29 +41,19 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_departure_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:background="@drawable/table_style" />
                 
-                <View
-					android:layout_width="match_parent"
-                    android:layout_height="2dp" />
-                
-                <View android:layout_width="2dp"
-             		  android:layout_height="match_parent"/>
-
+               
                 <TextView
                     android:id="@+id/transportation_result_duration_header"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_duration_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-                
-                 <View
-					android:layout_width="match_parent"
-                    android:layout_height="2dp" />
-                
-                <View android:layout_width="2dp"
-             		  android:layout_height="match_parent"/>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:background="@drawable/table_style" />
+                                
 
                 <TextView
                     android:id="@+id/transportation_result_arival_header"
@@ -71,14 +61,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_arrival_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" 
+                     android:background="@drawable/table_style"/>
                 
-                 <View
-					android:layout_width="match_parent"
-                    android:layout_height="2dp" />
-                
-                <View android:layout_width="2dp"
-             		  android:layout_height="match_parent"/>
 
                 <TextView
                     android:id="@+id/transportation_result_transfers_header"
@@ -86,14 +71,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_transfers_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" 
+                     android:background="@drawable/table_style"/>
                 
-                 <View
-					android:layout_width="match_parent"
-                    android:layout_height="2dp" />
                 
-                <View android:layout_width="2dp"
-             		  android:layout_height="match_parent"/>
+                
             </TableRow>
         </TableLayout>
     </LinearLayout>
