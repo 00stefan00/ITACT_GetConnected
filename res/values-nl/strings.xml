@@ -5,6 +5,7 @@
     <string name="app_name">GetConnected</string>
 
     <!-- General -->
+    <string name="loading">Laden...</string>
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
     
