@@ -41,8 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_departure_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:background="@drawable/table_style" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                
                 <TextView
@@ -51,8 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_duration_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:background="@drawable/table_style" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
                                 
 
                 <TextView
@@ -61,8 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_arrival_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium" 
-                     android:background="@drawable/table_style"/>
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
                 
 
                 <TextView
@@ -71,8 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_transfers_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium" 
-                     android:background="@drawable/table_style"/>
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                 
                 
