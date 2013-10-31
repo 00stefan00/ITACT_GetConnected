@@ -163,7 +163,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	 * 
 	 * @return isExceptionType
 	 */
-	public static boolean isException(String string)
+	public static boolean isExceptionCode(String string)
 	{
 		for (ExceptionCode exceptionType : ExceptionCode.values())
 		{
