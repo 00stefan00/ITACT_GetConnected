@@ -153,19 +153,28 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 	public void RESTRequestOnPostExecute(RESTRequestEvent event)
 	{	
 		mapView.getOverlays().remove(overlay);
+		
 		String result = event.getResult();
+		
+		if (RESTRequest.isExceptionCode(result))
+		{
+			return;
+		}
+		
 		ArrayList<OverlayItem> overlayItemArray = new ArrayList<OverlayItem>();
+		
 		try
 		{
 			JSONObject json = new JSONObject(result);
 			JSONArray array = json.getJSONArray("busstops");
-			System.out.println(array.length());
+			
 			for(int i=0;i<array.length();i++){
 				JSONObject busstop = array.getJSONObject(i);
 				GeoPoint location = new GeoPoint(busstop.getDouble("GPS_Latitude"),busstop.getDouble("GPS_Longitude"));
 				OverlayItem olItem = new OverlayItem("Bus Stop", ""+busstop.getInt("id"), location);
 				overlayItemArray.add(olItem);
 			}
+			
 			overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
 			
 			mapView.getOverlays().add(overlay);

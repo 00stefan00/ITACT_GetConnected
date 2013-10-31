@@ -53,18 +53,18 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	};
 	
 	/** The enumeration of errors that can be thrown by the RESTRequest. */
-	public enum ExceptionType
+	public enum ExceptionCode
 	{
-		UNKNOWN_METHOD (-1), INVALID_URL (-2), INVALID_PARAMETERS (-3), REQUEST_FAILED (-4), REQUEST_ABORTED (-5), NO_RESULT (-6);
+		UNKNOWN_METHOD (1), INVALID_URL (2), INVALID_PARAMETERS (3), REQUEST_FAILED (4), REQUEST_ABORTED (5), NO_RESULT (6);
 		
-		private int exceptionType;
+		private int exceptionCode;
 		
 		/**
-		 * @param exceptionType
+		 * @param exceptionCode
 		 */
-		private ExceptionType(int exceptionType)
+		private ExceptionCode(int exceptionCode)
 		{
-			this.exceptionType = exceptionType;
+			this.exceptionCode = exceptionCode;
 		}
 
 		/**
@@ -72,7 +72,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		 */
 		public String toString()
 		{
-			return Integer.toString(exceptionType);
+			return "RESTRequest error: " + Integer.toString(exceptionCode);
 		}
 	}
 	
@@ -156,6 +156,24 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		parameters = new ArrayList<NameValuePair>();
 		
 		eventListeners = new ArrayList<RESTRequestListener>();
+	}
+	
+	/**
+	 * Tests if the passed string matches any of the ExceptionType's values
+	 * 
+	 * @return isExceptionType
+	 */
+	public static boolean isExceptionCode(String string)
+	{
+		for (ExceptionCode exceptionType : ExceptionCode.values())
+		{
+			if (exceptionType.toString().equals(string))
+			{
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	/**
@@ -320,17 +338,17 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 					break;
 					
 				default:
-					return ExceptionType.UNKNOWN_METHOD.toString();
+					return ExceptionCode.UNKNOWN_METHOD.toString();
 			}
 		}
 		catch (IllegalArgumentException e)
 		{
 			e.printStackTrace();
-			return ExceptionType.INVALID_URL.toString();
+			return ExceptionCode.INVALID_URL.toString();
 		}
 		catch (UnsupportedEncodingException e)
 		{
-			return ExceptionType.INVALID_PARAMETERS.toString();
+			return ExceptionCode.INVALID_PARAMETERS.toString();
 		}
 		
 		// Indicate what data needs to be received
@@ -368,10 +386,10 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		{
 			if (!manuallyAborted)
 			{
-				return ExceptionType.REQUEST_FAILED.toString();
+				return ExceptionCode.REQUEST_FAILED.toString();
 			}
 			
-			return ExceptionType.REQUEST_ABORTED.toString();
+			return ExceptionCode.REQUEST_ABORTED.toString();
 		}
 		finally // Close opened utilities
 		{
@@ -390,7 +408,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			}
 		}
 		
-		return ExceptionType.NO_RESULT.toString();
+		return ExceptionCode.NO_RESULT.toString();
 	}
 	
 	@Override
