@@ -21,6 +21,7 @@
     <string name="home_button_marktetplace">Marketplace</string>
     <string name="home_button_support">Customer Support</string>
     <string name="home_button_help">Help</string>
+    <string name="home_button_settings">Settings</string>
 
     <!-- Transport Activity -->
     <string name="title_activity_transport">Transport</string>

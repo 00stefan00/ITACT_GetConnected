@@ -3,6 +3,7 @@ package com.app.getconnected.activities;
 import com.app.getconnected.R;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
 public class MainActivity extends BaseActivity {
@@ -21,4 +22,10 @@ public class MainActivity extends BaseActivity {
 		return true;
 	}
 
+	protected void onResume(){
+	//	Need to write a fancy check here (if language changed)
+		super.onResume();
+		this.setContentView(R.layout.activity_main);
+		Log.i("DEBUG", "resume");
+	}
 }
