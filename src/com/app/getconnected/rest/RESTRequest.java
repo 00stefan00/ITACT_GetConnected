@@ -52,6 +52,29 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 	};
 	
+	/** The enumeration of errors that can be thrown by the RESTRequest. */
+	public enum ExceptionType
+	{
+		UNKNOWN_METHOD(-1);
+		
+		private int exceptionType;
+		
+		private ExceptionType(int exceptionType)
+		{
+			this.exceptionType = exceptionType;
+		}
+		
+		public int getInt()
+		{
+			return exceptionType;
+		}
+		
+//		public ExceptionType getExceptionType(int exceptionType)
+//		{
+//			return 
+//		}
+	}
+	
 	/** The address an HTTP request will be sent to. */
 	protected String address;
 	
@@ -287,7 +310,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 					break;
 					
 				default:
-					return "-1";
+					return ExceptionType.UNKNOWN_METHOD.toString();
 			}
 		}
 		catch (IllegalArgumentException e)
