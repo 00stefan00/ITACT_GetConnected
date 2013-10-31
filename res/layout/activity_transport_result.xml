@@ -97,7 +97,8 @@
             android:layout_marginRight="25dp"
             android:onClick="nextPage"
             android:text="@string/transportation_result_next"
-            android:background="@drawable/standard_button" />
+            android:background="@drawable/standard_button"
+            android:drawableRight="@drawable/arrow_right" />
 
         <Button
             android:id="@+id/transport_results_pref"
@@ -108,7 +109,8 @@
             android:layout_marginLeft="25dp"
             android:onClick="prefPage"
             android:text="@string/transportation_result_pref"
-            android:background="@drawable/standard_button" />
+            android:background="@drawable/standard_button"
+            android:drawableLeft="@drawable/arrow_left" />
         
     </RelativeLayout>
 

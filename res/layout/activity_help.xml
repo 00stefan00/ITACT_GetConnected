@@ -33,9 +33,11 @@
         android:layout_alignLeft="@+id/Button01"
         android:layout_alignRight="@+id/Button01"
         android:layout_below="@+id/Button01"
-        android:text="@string/help_button_plan"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/standard_button"
+        android:onClick="startIntentByButton"
         android:tag="help.HelpPlanActivity"
-        android:onClick="startIntentByButton" />
+        android:text="@string/help_button_plan" />
 
     <Button
         android:id="@+id/Button01"
@@ -44,9 +46,11 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button1"
-        android:text="@string/help_button_map"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/standard_button"
+        android:onClick="startIntentByButton"
         android:tag="help.HelpMapActivity"
-        android:onClick="startIntentByButton" />
+        android:text="@string/help_button_map" />
 
     <Button
         android:id="@+id/Button03"
@@ -55,6 +59,8 @@
         android:layout_alignLeft="@+id/Button02"
         android:layout_alignRight="@+id/Button02"
         android:layout_below="@+id/Button02"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/standard_button"
         android:text="@string/help_button_marketplace" />
 
     <Button
@@ -67,7 +73,8 @@
         android:layout_marginTop="18dp"
         android:text="@string/help_button_basic"
         android:tag="help.HelpBasicActivity"
-        android:onClick="startIntentByButton" />
+        android:onClick="startIntentByButton"
+         android:background="@drawable/standard_button" />
 
     <Button
         android:id="@+id/Button04"
@@ -76,6 +83,8 @@
         android:layout_alignLeft="@+id/Button03"
         android:layout_alignRight="@+id/Button03"
         android:layout_below="@+id/Button03"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/standard_button"
         android:text="@string/help_button_contact" />
     
     <include
