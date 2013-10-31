@@ -132,6 +132,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		String mode = getTransportMode(checkBoxBus.isChecked(), checkBoxTrain.isChecked(), checkBoxTaxiOther.isChecked());
 				
 		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
+		request.addEventListener(this);
 		request.putString("_dc", "1382083769026");
 		request.putString("arriveBy", "" + arriveBy);
 		request.putString("time", time);
@@ -143,15 +144,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		request.putString("walkSpeed", "1.341");
 		request.putString("toPlace", toLatitude + "," + toLongitude);
 		request.putString("fromPlace", fromLatitude + "," + fromLongitude);
-		
-		try {
-			String result = request.execute().get();
-			Intent intent = new Intent(this, TransportResultActivity.class);
-			intent.putExtra("json", result);
-			startActivity(intent);
-		} catch (Exception e) {
-			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
-		}
+		request.execute();
 
 	}
 
@@ -241,18 +234,24 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	
 	@Override
 	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
-		dialog = new ProgressDialog(getApplicationContext());
+		dialog = new ProgressDialog(this);
+		dialog.setTitle(getResources().getString(R.string.loading));
+        dialog.show();
 	}
 
 	@Override
 	public void RESTRequestOnProgressUpdate(RESTRequestEvent event) {
-		dialog.setTitle("Loading...");
-        dialog.show();
+		
 	}
 
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
 		dialog.dismiss();
+		
+		Intent intent = new Intent(this, TransportResultActivity.class);
+		intent.putExtra("json", event.getResult());
+		startActivity(intent);
+		System.out.println(event.getResult());
 	}
 
 }

@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends Activity {
 
 	protected TextView txtHeading;
 	protected Button buttonBack;

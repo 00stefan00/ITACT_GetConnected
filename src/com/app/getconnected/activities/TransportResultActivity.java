@@ -28,6 +28,9 @@ public class TransportResultActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		System.out.println("height = " + this.findViewById(R.id.activity_transport_result_content).getHeight());
+		
 		setContentView(R.layout.activity_transport_result);
 		initLayout(R.string.title_activity_transport_result, true, true, true,
 				false);

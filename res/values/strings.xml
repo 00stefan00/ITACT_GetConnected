@@ -5,9 +5,10 @@
     <string name="app_name">GetConnected</string>
 
     <!-- General -->
+    <string name="loading">Loading...</string>
     <string name="confirm">Yes</string>
     <string name="deny">No</string>
-    
+
     <!-- Error messages -->
     <string name="error_connection_failed">Could not connect to the server</string>
 
@@ -44,14 +45,18 @@
     <string name="transport_result_text_switch">Switch</string>
     <string name="transport_result_text_arrival">Arrival</string>
     <string name="transport_text_empty">Some field are empty..</string>
-    
-    <!--  Help Activity -->
-	<string name="help_intro">Click on on of the subjects below for additional explanation.</string>
-	<string name="help_button_basic">Basic instructions</string>
-	<string name="help_button_map">Explanation of map use</string>
-	<string name="help_button_plan">Plan your ride</string>
-	<string name="help_button_marketplace">Use the marketplace</string>
-	<string name="help_button_contact">Contact</string>
+
+    <!-- Help Activity -->
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_help_basic">Basic instructions</string>
+    <string name="title_activity_help_map">Use of map</string>
+    <string name="title_activity_help_plan">Plan your ride</string>
+    <string name="help_intro">Click on on of the subjects below for additional explanation.</string>
+    <string name="help_button_basic">Basic instructions</string>
+    <string name="help_button_map">Explanation of map use</string>
+    <string name="help_button_plan">Plan your ride</string>
+    <string name="help_button_marketplace">Use the marketplace</string>
+    <string name="help_button_contact">Contact</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -134,14 +139,16 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_email">This email address is invalid</string>
+
     <color name="blue">#25383C</color>
+
     <string name="title_activity_registeractivity">Register</string>
     <string name="field_validation_not_numeric">The field can only contain numbers</string>
     <string name="field_validation_not_alphanumeric">The field can only contain letters and numbers</string>
     <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
-    <string name="title_activity_help">Help</string>
     <string name="hello_world">Hello world!</string>
+    
 
 </resources>
