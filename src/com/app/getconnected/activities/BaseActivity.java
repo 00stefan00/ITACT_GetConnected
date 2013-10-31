@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -157,5 +158,19 @@ abstract class BaseActivity extends Activity {
 		// hide the notification after its selected
 		noti.flags |= Notification.FLAG_AUTO_CANCEL;
 		notificationManager.notify(notificationId ++, noti);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch(item.getItemId()) {
+	    case R.id.action_settings:
+	        Intent intent = new Intent(this, SettingsActivity.class);
+	        this.startActivity(intent);
+	        break;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
+
+	    return true;
 	}
 }
