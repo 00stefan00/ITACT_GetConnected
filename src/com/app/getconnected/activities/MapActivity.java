@@ -6,6 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.osmdroid.api.IGeoPoint;
+import org.osmdroid.events.DelayedMapListener;
 import org.osmdroid.events.MapListener;
 import org.osmdroid.events.ScrollEvent;
 import org.osmdroid.events.ZoomEvent;
@@ -45,6 +46,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
     private MyOwnItemizedOverlay overlay;
     private RESTRequest rR;
     
+    private int scrollAmount = 0;
+    protected GeoPoint previousGeoPoint;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,18 +59,35 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
         addLocationOverlay();
         loadBusStops();
         
-        mapView.setMapListener(new MapListener(){
+        mapView.setMapListener(new DelayedMapListener(new MapListener(){
+        //mapView.setMapListener(new MapListener(){
 
 			@Override
 			public boolean onScroll(ScrollEvent arg0) {
-				loadBusStops();
+				
+				locator = new GPSLocator(getApplicationContext());
+				
+				double currentLatitude  = locator.getLatitude();
+				double currentLongitude = locator.getLongitude();
+				
+				if (currentLatitude  != ((double) previousGeoPoint.getLatitudeE6()  / 1e6) ||
+					currentLongitude != ((double) previousGeoPoint.getLongitudeE6() / 1e6))
+				{
+					previousGeoPoint = new GeoPoint(currentLatitude, currentLongitude);
+					
+					return false;
+				}
+				
+				scrollAmount++;
+				System.out.println("SCROLL - " + scrollAmount); //loadBusStops();
 				return true;
 			}
 
 			@Override
 			public boolean onZoom(ZoomEvent arg0) {return false;}
         	
-        });
+        }, 500));
+        //});
     }
     
     @Override
