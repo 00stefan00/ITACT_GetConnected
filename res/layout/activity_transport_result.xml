@@ -17,10 +17,10 @@
         layout="@layout/header" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="45dp"
         android:orientation="vertical" >
 
         <TableLayout
@@ -42,6 +42,13 @@
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_departure_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                <View
+					android:layout_width="match_parent"
+                    android:layout_height="2dp" />
+                
+                <View android:layout_width="2dp"
+             		  android:layout_height="match_parent"/>
 
                 <TextView
                     android:id="@+id/transportation_result_duration_header"
@@ -50,6 +57,13 @@
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_duration_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                 <View
+					android:layout_width="match_parent"
+                    android:layout_height="2dp" />
+                
+                <View android:layout_width="2dp"
+             		  android:layout_height="match_parent"/>
 
                 <TextView
                     android:id="@+id/transportation_result_arival_header"
@@ -58,6 +72,13 @@
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_arrival_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                 <View
+					android:layout_width="match_parent"
+                    android:layout_height="2dp" />
+                
+                <View android:layout_width="2dp"
+             		  android:layout_height="match_parent"/>
 
                 <TextView
                     android:id="@+id/transportation_result_transfers_header"
@@ -66,16 +87,23 @@
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_transfers_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                 <View
+					android:layout_width="match_parent"
+                    android:layout_height="2dp" />
+                
+                <View android:layout_width="2dp"
+             		  android:layout_height="match_parent"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="72dp"
         android:orientation="horizontal" >
 
         <Button
@@ -84,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
             android:onClick="nextPage"
             android:text="Volgende" />
 
@@ -93,6 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
             android:onClick="prefPage"
             android:text="Vorige" />
     </RelativeLayout>
@@ -100,7 +130,6 @@
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         layout="@layout/footer" />
 
 </RelativeLayout>
