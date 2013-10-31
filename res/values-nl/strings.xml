@@ -95,6 +95,7 @@
     <string name="title_activity_createride">Maak rit aan</string>
     <string name="title_activity_requestride">Vraag rit aan</string>
     <string name="title_activity_requestrides">Aangeboden ritten</string>
+    <string name="title_activity_unrated_rides">\'Unrated\' ritten</string>
     <string name="title_activity_loginactivity">Login</string>
     <string name="title_activity_registeractivity">Registreer</string>
     <string name="title_activity_customer_support">Klantenservice</string>
@@ -130,5 +131,10 @@
     <string name="transport_company">Selecteer een vervoerder</string> 
     <string name="complaint">Klacht of vraag</string> 
     <string name="send">Verstuur</string> 
+    
+    <string name="marketplace_unrated_ride_person_name">Bijnaam</string>
+    <string name="marketplace_unrated_ride_person_gender">Geslacht</string>
+    <string name="marketplace_unrated_ride_person_role">Rol</string>
+    <string name="marketplace_unrated_ride_time_realized">Eindtijd</string>
 
 </resources>
