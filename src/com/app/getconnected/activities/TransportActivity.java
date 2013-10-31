@@ -234,7 +234,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 	@Override
 	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
 		dialog = new ProgressDialog(getApplicationContext());
-		dialog.setTitle("Loading...");
+		dialog.setTitle(getResources().getString(R.string.loading));
         dialog.show();
 	}
 
