@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.ExecutionException;
 
 import com.app.getconnected.R;
 import com.app.getconnected.config.Config;
@@ -250,7 +249,6 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
-		System.out.println(event.getResult());
 		startActivity(intent);
 
 	}

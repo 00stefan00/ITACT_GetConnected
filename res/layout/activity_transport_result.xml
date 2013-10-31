@@ -96,7 +96,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="25dp"
             android:onClick="nextPage"
-            android:text="Volgende" />
+            android:text="@string/transportation_result_next" />
 
         <Button
             android:id="@+id/transport_results_pref"
@@ -106,7 +106,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="25dp"
             android:onClick="prefPage"
-            android:text="Vorige" />
+            android:text="@string/transportation_result_pref" />
     </RelativeLayout>
 
     <include

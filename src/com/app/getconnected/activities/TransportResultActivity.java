@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.app.getconnected.R;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,16 +22,13 @@ import android.widget.Toast;
 public class TransportResultActivity extends BaseActivity {
 
 	private int page = 0;
-	private int pageSize = 5;
+	private int pageSize = 10;
 	private JSONArray itineraries;
 	private TableLayout table;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		
-		
+		super.onCreate(savedInstanceState);	
 		setContentView(R.layout.activity_transport_result);
 		initLayout(R.string.title_activity_transport_result, true, true, true,
 				false);
@@ -81,11 +79,18 @@ public class TransportResultActivity extends BaseActivity {
 				.findViewById(R.id.transport_result_text_arival);
 		TextView transfers = (TextView) row
 				.findViewById(R.id.transport_result_text_transfers);
-		duration.setText("" + (itinerariy.getInt("duration") / 1000 / 60) + " ");
-		departure.setText("" + getDate(itinerariy.getLong("startTime"), "H:m")
+
+		duration.setText("" + minutesToHourString(itinerariy.getInt("duration") / 1000 / 60) + " ");
+		departure.setText("" + getDate(itinerariy.getLong("startTime"), "HH:mm")
 				+ " ");
-		arival.setText("" + getDate(itinerariy.getLong("endTime"), "H:m") + " ");
+		arival.setText("" + getDate(itinerariy.getLong("endTime"), "HH:mm") + " ");
 		transfers.setText("" + itinerariy.getInt("transfers"));
+	}
+	
+	private String minutesToHourString(int t){
+		int hours = t / 60; //since both are ints, you get an int
+		int minutes = t % 60;
+		return String.format("%d:%02d" , hours, minutes);
 	}
 
 	private void setClickEvents(TableRow row) {
@@ -111,6 +116,7 @@ public class TransportResultActivity extends BaseActivity {
 
 	}
 
+	@SuppressLint("SimpleDateFormat")
 	private String getDate(Long time, String format) {
 		Date date = new Date(time);
 		SimpleDateFormat SDF = new SimpleDateFormat(format);

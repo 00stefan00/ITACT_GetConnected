@@ -89,6 +89,9 @@
     <string name="transportation_result_duration_header">Duration</string>
     <string name="transportation_result_arrival_header">Arrival</string>
     <string name="transportation_result_transfers_header">Transfers</string>
+    <string name="transportation_result_pref">Previous</string>
+    <string name="transportation_result_next">Next</string>
+    
 
     <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Previous</string>

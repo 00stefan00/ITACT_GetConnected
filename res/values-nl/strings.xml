@@ -8,7 +8,7 @@
     <string name="loading">Laden...</string>
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
-    
+
     <!-- Error messages -->
     <string name="error_connection_failed">Kan geen verbinding maken met de server</string>
     <string name="error_unknown_exception">Een onbekende uitzondering is opgetreden</string>
@@ -46,18 +46,18 @@
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
-    
-    <!--  Help Activity -->
+
+    <!-- Help Activity -->
     <string name="title_activity_help">Hulp en uitleg</string>
     <string name="title_activity_help_basic">Basic instructies</string>
     <string name="title_activity_help_map">Kaart gebruik</string>
     <string name="title_activity_help_plan">Route plannen</string>
-	<string name="help_intro">Klik op één van de onderwerpen hieronder voor extra uitleg.</string>
-	<string name="help_button_basic">Basis instructies</string>
-	<string name="help_button_map">Uitleg over kaart gebruik</string>
-	<string name="help_button_plan">Uw eigen route plannen</string>
-	<string name="help_button_marketplace">De marktplaats gebruiken</string>
-	<string name="help_button_contact">Contact opnemen</string>
+    <string name="help_intro">Klik op één van de onderwerpen hieronder voor extra uitleg.</string>
+    <string name="help_button_basic">Basis instructies</string>
+    <string name="help_button_map">Uitleg over kaart gebruik</string>
+    <string name="help_button_plan">Uw eigen route plannen</string>
+    <string name="help_button_marketplace">De marktplaats gebruiken</string>
+    <string name="help_button_contact">Contact opnemen</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -81,6 +81,8 @@
     <string name="transportation_result_duration_header">Duur</string>
     <string name="transportation_result_arrival_header">Aankomst</string>
     <string name="transportation_result_transfers_header">Overstap</string>
+    <string name="transportation_result_pref">Vorige</string>
+    <string name="transportation_result_next">Volgende</string>
 
     <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Vorige</string>
