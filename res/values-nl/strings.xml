@@ -11,6 +11,7 @@
 
     <!-- Error messages -->
     <string name="error_connection_failed">Kan geen verbinding maken met de server</string>
+    <string name="error_unknown_exception">Een onbekende uitzondering is opgetreden</string>
 
     <!-- Main Menu -->
     <string name="action_settings">Settings</string>

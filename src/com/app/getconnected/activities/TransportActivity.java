@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 import com.app.getconnected.R;
-import com.app.getconnected.network.Config;
+import com.app.getconnected.config.Config;
 import com.app.getconnected.network.GeoLocation;
 import com.app.getconnected.network.PlacesAutoCompleteAdapter;
 import com.app.getconnected.rest.RESTRequest;
