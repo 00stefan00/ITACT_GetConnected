@@ -2,12 +2,9 @@ package com.app.getconnected.factories.details;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.app.getconnected.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;

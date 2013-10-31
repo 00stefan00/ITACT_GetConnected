@@ -65,11 +65,6 @@ public class TransportDetailsActivity extends BaseActivity {
 	private void initViews() throws JSONException {
 		for (int i = (page * pageSize); i < legs.length()
 				&& i < (page * pageSize + pageSize); i++) {
-			/*
-			LinearLayout view = (LinearLayout) getLayoutInflater().inflate(
-					R.layout.transport_detail_view, wrapper, false);
-			initView(legs.getJSONObject(i), view);
-			*/
 			try {
 				wrapper.addView(Detailfactory.getView(legs.getJSONObject(i), TransportDetailsActivity.this));
 			} catch (IllegalArgumentException e) {
