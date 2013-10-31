@@ -80,7 +80,7 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
 	    try {
 	        StringBuilder sb = new StringBuilder(PLACES_API_BASE + TYPE_AUTOCOMPLETE + OUT_JSON);
 	        sb.append("?sensor=false&key=" + API_KEY);
-	        //sb.append("&components=country:nl");
+	        sb.append("&components=country:nl");
 	        sb.append("&input=" + URLEncoder.encode(input, "utf8"));
 	        
 	        URL url = new URL(sb.toString());

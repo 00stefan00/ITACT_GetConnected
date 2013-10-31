@@ -149,6 +149,6 @@
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
     <string name="hello_world">Hello world!</string>
-    
+    <string name="title_activity_location_selector">Select location</string>
 
 </resources>
