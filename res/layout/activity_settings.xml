@@ -21,30 +21,6 @@
         android:layout_alignParentTop="true"
         layout="@layout/footer" />
 
-    <RadioGroup
-        android:id="@+id/languagePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/include1" >
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/change_language_button_nl"
-        android:layout_marginTop="20dp"
-        android:text="@string/font_scaling" />
-
-    <Spinner
-        android:id="@+id/font_scale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1" />
-
     <Button
         android:id="@+id/apply"
         android:layout_width="wrap_content"
@@ -53,5 +29,29 @@
         android:layout_centerVertical="true"
         android:onClick="applySettings"
         android:text="@string/apply" />
+
+    <Spinner
+        android:id="@+id/font_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/apply"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/font_scale"
+        android:layout_alignParentLeft="true"
+        android:text="@string/font_scaling" />
+
+    <RadioGroup
+        android:id="@+id/languagePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/include1"
+        android:layout_marginTop="22dp" >
+    </RadioGroup>
 
 </RelativeLayout>

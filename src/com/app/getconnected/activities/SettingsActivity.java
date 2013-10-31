@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
-import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 import com.app.getconnected.R;
 
@@ -58,7 +59,10 @@ public class SettingsActivity extends BaseActivity {
 		Spinner s = (Spinner) findViewById(R.id.font_scale);
 		String scale_choice = s.getSelectedItem().toString();
 		int choice = s.getSelectedItemPosition();
-
+		
+		if (scale_choice.equals("Small")){
+			changeScale(choice, 0.7);
+		}
 		else if(scale_choice.equals("Medium")){
 			changeScale(choice, 1);
 		}
