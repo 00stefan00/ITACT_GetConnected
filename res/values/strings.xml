@@ -149,7 +149,6 @@
     <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
-    <string name="hello_world">Hello world!</string>
     
 
 </resources>

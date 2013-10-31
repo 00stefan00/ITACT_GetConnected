@@ -76,12 +76,8 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		bicycleParkingView = (TextView) findViewById(R.id.busstop_bicycle_parking);
 
 		getBusStopDetails(id);
+		
 
-		createMap();
-
-		addItem();
-
-		setInformation();
 	}
 
 	private void setInformation() {
@@ -102,6 +98,7 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	private void getBusStopDetails(int id) {
 		String url = Config.busStopAddress + id;
 		RESTRequest request = new RESTRequest(url);
+		request.addEventListener(this);
 		request.execute();
 	}
 
@@ -120,6 +117,11 @@ public class BusStopDetailsActivity extends BaseActivity implements
 			trunk = json.getInt("opt_afvalbak") == 1 ? true : false;
 			bicycleParking = json.getInt("opt_fietsparkeervoorziening") == 1 ? true
 					: false;
+			
+			setInformation();
+			createMap();
+			addItem();
+			
 		} catch (JSONException e) {
 			Toast.makeText(getApplicationContext(),
 					getResources().getString(R.string.error_connection_failed),
@@ -170,7 +172,7 @@ public class BusStopDetailsActivity extends BaseActivity implements
 
 	@Override
 	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
-		dialog = new ProgressDialog(getApplicationContext());
+		dialog = new ProgressDialog(this);
 		dialog.setTitle(getResources().getString(R.string.loading));
 		dialog.show();
 	}
