@@ -7,6 +7,10 @@
     <!-- General -->
     <string name="confirm">Yes</string>
     <string name="deny">No</string>
+    
+    <!-- Settings -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="change_language">Change language</string>
 
     <!-- Main Menu -->
     <string name="main_text">Navigate to one of the following pages by pressing the button.</string>

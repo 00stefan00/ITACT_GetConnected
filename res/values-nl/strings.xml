@@ -7,6 +7,11 @@
     <!-- General -->
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
+    
+    <!-- Settings -->
+    <string name="title_activity_settings">Instellingen</string>
+    <string name="change_language">Wijzig taal</string>
+    
 
     <!-- Main Menu -->
     <string name="action_settings">Settings</string>
