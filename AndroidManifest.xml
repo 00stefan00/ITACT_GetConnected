@@ -116,6 +116,14 @@
             android:name="com.app.getconnected.activities.LocationSelectorActivity"
             android:label="@string/title_activity_location_selector" >
         </activity>
+        <activity
+            android:name="com.app.getconnected.activities.TaxiList"
+            android:label="@string/title_activity_taxi_list" >
+        </activity>
+        <activity
+            android:name="com.app.getconnected.activities.TaxiListActivity"
+            android:label="@string/title_activity_taxi_list" >
+        </activity>
     </application>
 
 </manifest>

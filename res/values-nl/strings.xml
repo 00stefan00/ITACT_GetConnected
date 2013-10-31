@@ -91,6 +91,15 @@
     <string name="transport_details_bus_title">Bus</string>
     <string name="transport_details_train_title">Train</string>
 
+    <!-- Taxi List Activity -->
+    <string name="region_taxi_north_groningen">Regio noord Groningen</string>
+    <string name="region_taxi_east_groningen">Regio oost Groningen</string>
+    <string name="region_taxi_southwest_groningen">Regio zuid-west Groningen</string>
+    <string name="region_taxi_north_drenthe">Regio noord Drenthe</string>
+    <string name="region_taxi_southeast_drenthe">Regio zuid-oost Drenthe</string>
+    <string name="region_taxi_southwest_drenthe">Regio zuid-west Drenthe</string>
+    <string name="region_taxi_call">Bell</string>
+
     <!-- Get connected 2 -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="title_activity_map">MapActivity</string>

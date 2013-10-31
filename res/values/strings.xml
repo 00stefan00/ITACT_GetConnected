@@ -91,7 +91,6 @@
     <string name="transportation_result_transfers_header">Transfers</string>
     <string name="transportation_result_pref">Previous</string>
     <string name="transportation_result_next">Next</string>
-    
 
     <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Previous</string>
@@ -99,6 +98,14 @@
     <string name="transport_details_walk_title">Walk</string>
     <string name="transport_details_bus_title">Bus</string>
     <string name="transport_details_train_title">Train</string>
+    <!-- Taxi List Activity -->
+    <string name="region_taxi_north_groningen">Region North Groningen</string>
+    <string name="region_taxi_east_groningen">Region East Groningen</string>
+    <string name="region_taxi_southwest_groningen">Region Southwest Groningen</string>
+    <string name="region_taxi_north_drenthe">Region North Drenthe</string>
+    <string name="region_taxi_southeast_drenthe">Region Southeast Drenthe</string>
+    <string name="region_taxi_southwest_drenthe">Region Southwest Drenthe</string>
+    <string name="region_taxi_call">Call</string>
 
     <!-- Getconnected 2 -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
@@ -154,6 +161,6 @@
     <string name="registration_failed">The registration failed</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_location_selector">Select location</string>
-
+    <string name="title_activity_taxi_list">TaxiList</string>
 
 </resources>
