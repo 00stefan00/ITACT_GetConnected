@@ -19,7 +19,7 @@ import com.app.getconnected.factories.details.Detailfactory;
 public class TransportDetailsActivity extends BaseActivity {
 
 	private int page = 0;
-	private int pageSize = 4;
+	private int pageSize = 3;
 	private JSONArray legs;
 	LinearLayout wrapper;
 
