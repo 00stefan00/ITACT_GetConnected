@@ -2,13 +2,10 @@ package com.app.getconnected.activities;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.osmdroid.api.IGeoPoint;
-import org.osmdroid.events.DelayedMapListener;
 import org.osmdroid.events.MapListener;
 import org.osmdroid.events.ScrollEvent;
 import org.osmdroid.events.ZoomEvent;
@@ -107,7 +104,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
     
     private void loadBusStops(){
     	if (rR != null) rR.abort();
-    	rR = new RESTRequest(Config.busStopAddress + "1");
+    	rR = new RESTRequest(Config.busStopAddress);
     	IGeoPoint point = mapView.getMapCenter();
     	System.out.println("Latitude according to getCenter: "+(double)point.getLatitudeE6()/1000000);
     	System.out.println("Actual latitude: "+locator.getLatitude());
@@ -147,18 +144,10 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
     }
 
 	@Override
-	public void RESTRequestOnPreExecute(RESTRequestEvent event)
-	{
-		// TODO Auto-generated method stub
-		
-	}
+	public void RESTRequestOnPreExecute(RESTRequestEvent event) { }
 
 	@Override
-	public void RESTRequestOnProgressUpdate(RESTRequestEvent event)
-	{
-		// TODO Auto-generated method stub
-		
-	}
+	public void RESTRequestOnProgressUpdate(RESTRequestEvent event) { }
 
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event)
@@ -180,8 +169,11 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 			overlay = new MyOwnItemizedOverlay(this, overlayItemArray);
 			
 			mapView.getOverlays().add(overlay);
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
+			e.printStackTrace();
+			
 			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
 		}
 		
