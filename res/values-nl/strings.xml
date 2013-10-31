@@ -24,6 +24,7 @@
     <string name="home_button_marktetplace">Marktplaats</string>
     <string name="home_button_support">Klantenservice</string>
     <string name="home_button_help">Hulp en uitleg</string>
+    <string name="home_button_settings">Instellingen</string>
 
     <!-- Transport Activity -->
     <string name="title_activity_transport">Vervoer</string>
