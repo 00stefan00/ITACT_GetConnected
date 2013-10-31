@@ -11,6 +11,7 @@
 
     <!-- Error messages -->
     <string name="error_connection_failed">Could not connect to the server</string>
+    <string name="error_unknown_exception">An unknown exception occurred</string>
 
     <!-- Main Menu -->
     <string name="main_text">Navigate to one of the following pages by pressing the button.</string>
@@ -88,6 +89,9 @@
     <string name="transportation_result_duration_header">Duration</string>
     <string name="transportation_result_arrival_header">Arrival</string>
     <string name="transportation_result_transfers_header">Transfers</string>
+    <string name="transportation_result_pref">Previous</string>
+    <string name="transportation_result_next">Next</string>
+    
 
     <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Previous</string>
@@ -150,5 +154,6 @@
     <string name="registration_failed">The registration failed</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_location_selector">Select location</string>
+
 
 </resources>

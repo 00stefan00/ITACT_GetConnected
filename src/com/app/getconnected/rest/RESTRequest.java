@@ -52,6 +52,33 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 	};
 	
+	/** The enumeration of errors that can be thrown by the RESTRequest. */
+	public enum ExceptionType
+	{
+		UNKNOWN_METHOD (-1), INVALID_URL (-2), INVALID_PARAMETERS (-3), REQUEST_FAILED (-4), REQUEST_ABORTED (-5), NO_RESULT (-6);
+		
+		private int exceptionType;
+		
+		/**
+		 * @param exceptionType
+		 */
+		private ExceptionType(int exceptionType)
+		{
+			this.exceptionType = exceptionType;
+		}
+
+		/**
+		 * @return exceptionType
+		 */
+		public String toString()
+		{
+			return Integer.toString(exceptionType);
+		}
+	}
+	
+	/** This variable indicates whether or not the httpRequest was manually aborted using the abort() method. */
+	protected boolean manuallyAborted;
+	
 	/** The address an HTTP request will be sent to. */
 	protected String address;
 	
@@ -119,6 +146,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	 */
 	public RESTRequest(String address, Method method, String headerAcceptedData, String ID)
 	{
+		manuallyAborted = false;
+		
 		this.address            = address;
 		this.method             = method;
 		this.headerAcceptedData = headerAcceptedData;
@@ -253,6 +282,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	{
 		if (httpRequest instanceof HttpUriRequest)
 		{
+			manuallyAborted = true;
+			
 			httpRequest.abort();
 		}
 	}
@@ -260,6 +291,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	@Override
 	protected String doInBackground(Void... voids)
 	{
+		manuallyAborted = false;
+		
 		DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
 
 		// Get the correct request method
@@ -287,17 +320,17 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 					break;
 					
 				default:
-					return "-1";
+					return ExceptionType.UNKNOWN_METHOD.toString();
 			}
 		}
 		catch (IllegalArgumentException e)
 		{
 			e.printStackTrace();
-			return "-2";
+			return ExceptionType.INVALID_URL.toString();
 		}
 		catch (UnsupportedEncodingException e)
 		{
-			return "-3";
+			return ExceptionType.INVALID_PARAMETERS.toString();
 		}
 		
 		// Indicate what data needs to be received
@@ -333,7 +366,12 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 		catch (IOException e)
 		{
-			return "-4";
+			if (!manuallyAborted)
+			{
+				return ExceptionType.REQUEST_FAILED.toString();
+			}
+			
+			return ExceptionType.REQUEST_ABORTED.toString();
 		}
 		finally // Close opened utilities
 		{
@@ -352,7 +390,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			}
 		}
 		
-		return "-5";
+		return ExceptionType.NO_RESULT.toString();
 	}
 	
 	@Override

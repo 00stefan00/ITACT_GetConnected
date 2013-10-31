@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.app.getconnected.R;
-import com.app.getconnected.network.Config;
+import com.app.getconnected.config.Config;
 import com.app.getconnected.network.GeoLocation;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;

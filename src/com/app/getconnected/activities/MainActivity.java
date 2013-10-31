@@ -1,6 +1,7 @@
 package com.app.getconnected.activities;
 
 import com.app.getconnected.R;
+import com.exception.getconnected.UncaughtExceptionHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,10 @@ public class MainActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		initLayout(R.string.title_activity_main, false, false, false, false);
+
+		Thread.setDefaultUncaughtExceptionHandler(UncaughtExceptionHandler.getUncaughtExceptionHandler(this, getResources().getString(R.string.error_unknown_exception)));
 	}
 
 	@Override

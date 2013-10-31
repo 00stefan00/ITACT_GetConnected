@@ -1,28 +1,20 @@
 package com.app.getconnected.activities;
 
 import java.lang.reflect.InvocationTargetException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.app.getconnected.R;
-import com.app.getconnected.factories.details.Detailfactory;
-
-import android.graphics.Color;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.app.getconnected.R;
+import com.app.getconnected.factories.details.Detailfactory;
 
 public class TransportDetailsActivity extends BaseActivity {
 
@@ -87,36 +79,6 @@ public class TransportDetailsActivity extends BaseActivity {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	private String getDate(Long time, String format) {
-		Date date = new Date(time);
-		SimpleDateFormat SDF = new SimpleDateFormat(format);
-		return SDF.format(date);
-	}
-
-	private void initView(JSONObject leg, LinearLayout view)
-			throws JSONException {
-		String mode = leg.getString("mode");
-		String from = leg.getJSONObject("from").getString("name");
-		Long departureTime = leg.getLong("startTime");
-		Long arivalTime = leg.getLong("endTime");
-		String to = leg.getJSONObject("to").getString("name");
-
-		((TextView) view.findViewById(R.id.transport_details_title))
-				.setText(mode);
-		((TextView) view
-				.findViewById(R.id.transport_details_text_departure_time))
-				.setText("" + getDate(departureTime, "H:m"));
-		((TextView) view
-				.findViewById(R.id.transport_details_text_departure_location))
-				.setText(from);
-		((TextView) view.findViewById(R.id.transport_details_text_arival_time))
-				.setText(("" + getDate(arivalTime, "H:m")));
-		((TextView) view
-				.findViewById(R.id.transport_details_text_arival_location))
-				.setText(to);
-
 	}
 
 	private void setVisibilities() {

@@ -26,16 +26,13 @@ import android.widget.Toast;
 
 import com.app.getconnected.R;
 import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.network.Config;
+import com.app.getconnected.config.Config;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;
 import com.app.getconnected.rest.RESTRequestListener;
 
 /**
- * 
  * @author Nico
- * 
- * 
  */
 public class MapActivity extends BaseActivity implements RESTRequestListener {
 
@@ -45,9 +42,6 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
     private MyLocationOverlay myLocationoverlay;
     private MyOwnItemizedOverlay overlay;
     private RESTRequest rR;
-    
-    private int scrollAmount = 0;
-    protected GeoPoint previousGeoPoint;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,35 +53,20 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
         addLocationOverlay();
         loadBusStops();
         
-//        mapView.setMapListener(new DelayedMapListener(new MapListener(){
-//        //mapView.setMapListener(new MapListener(){
-//
-//			@Override
-//			public boolean onScroll(ScrollEvent arg0) {
-//				
-//				locator = new GPSLocator(getApplicationContext());
-//				
-//				double currentLatitude  = locator.getLatitude();
-//				double currentLongitude = locator.getLongitude();
-//				
-//				if (currentLatitude  != ((double) previousGeoPoint.getLatitudeE6()  / 1e6) ||
-//					currentLongitude != ((double) previousGeoPoint.getLongitudeE6() / 1e6))
-//				{
-//					previousGeoPoint = new GeoPoint(currentLatitude, currentLongitude);
-//					
-//					return false;
-//				}
-//				
-//				scrollAmount++;
-//				System.out.println("SCROLL - " + scrollAmount); //loadBusStops();
-//				return true;
-//			}
-//
-//			@Override
-//			public boolean onZoom(ZoomEvent arg0) {return false;}
-//        	
-//        }, 500));
-//        //});
+        mapView.setMapListener(new DelayedMapListener(new MapListener(){
+        	
+        	@Override
+        	public boolean onScroll(ScrollEvent arg0) {
+
+        		loadBusStops();
+        		
+        		return true;
+        	}
+
+        	@Override
+        	public boolean onZoom(ZoomEvent arg0) {return false;}
+
+        }, 500));
     }
     
     @Override
@@ -197,7 +176,5 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 			
 			Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_connection_failed), Toast.LENGTH_SHORT).show();
 		}
-		
-        
 	}
 }
