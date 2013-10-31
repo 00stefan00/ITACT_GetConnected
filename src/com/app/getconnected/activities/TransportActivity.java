@@ -250,6 +250,7 @@ public class TransportActivity extends BaseActivity implements OnItemClickListen
 		
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
+		System.out.println(event.getResult());
 		startActivity(intent);
 
 	}
