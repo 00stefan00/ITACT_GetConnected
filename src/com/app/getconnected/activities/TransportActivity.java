@@ -23,7 +23,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
-import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -49,8 +48,6 @@ public class TransportActivity extends BaseActivity implements
 			Locale.getDefault());
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",
 			Locale.getDefault());
-	private AutoCompleteTextView autoCompViewFrom;
-	private AutoCompleteTextView autoCompViewTo;
 
 	private EditText inputFrom;
 	private EditText inputTo;
@@ -105,17 +102,17 @@ public class TransportActivity extends BaseActivity implements
 	@SuppressLint("SimpleDateFormat")
 	public void planTrip() {
 
-		GeoLocation fromLocation = new GeoLocation(autoCompViewFrom.getText()
+		GeoLocation fromLocation = new GeoLocation(inputFrom.getText()
 				.toString());
-		GeoLocation toLocation = new GeoLocation(autoCompViewTo.getText()
+		GeoLocation toLocation = new GeoLocation(inputTo.getText()
 				.toString());
 
-		if (!validateLocation(autoCompViewFrom.getText().toString(),
+		if (!validateLocation(inputFrom.getText().toString(),
 				fromLocation)) {
 			return;
 		}
 
-		if (!validateLocation(autoCompViewTo.getText().toString(), toLocation)) {
+		if (!validateLocation(inputTo.getText().toString(), toLocation)) {
 			return;
 		}
 
@@ -277,7 +274,7 @@ public class TransportActivity extends BaseActivity implements
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
 		dialog.dismiss();
-
+		
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
 		startActivity(intent);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -25,7 +26,7 @@ public class LocationSelectorActivity extends BaseActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_location_selector);
 		initLayout(R.string.title_activity_location_selector, true, true, true,
-				false);
+				true);
 
 		type = getIntent().getExtras().getString("type");
 
@@ -38,6 +39,22 @@ public class LocationSelectorActivity extends BaseActivity implements
 
 		InputMethodManager keyboard = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		keyboard.showSoftInput(autoCompView, 0);
+		
+		buttonOk.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				selectLocation(v, autoCompView.getText().toString());
+			}
+		});		
+	}
+
+	protected void selectLocation(View v, String location) {
+		Intent resultIntent = new Intent();
+		resultIntent.putExtra("location", location);
+		resultIntent.putExtra("type", type);
+		setResult(Activity.RESULT_OK, resultIntent);
+		finish();
 	}
 
 	@Override
@@ -50,12 +67,9 @@ public class LocationSelectorActivity extends BaseActivity implements
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view,
 			int position, long id) {
-		String str = (String) adapterView.getItemAtPosition(position);
-		Intent resultIntent = new Intent();
-		resultIntent.putExtra("location", str);
-		resultIntent.putExtra("type", type);
-		setResult(Activity.RESULT_OK, resultIntent);
-		finish();
+		String location = (String) adapterView.getItemAtPosition(position);
+		
+		selectLocation(view, location);
 	}
 
 }
