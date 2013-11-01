@@ -51,9 +51,6 @@ public class LocationSelectorActivity extends BaseActivity implements
 		        return false;
 			}
 		});
-
-		InputMethodManager keyboard = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		keyboard.showSoftInput(autoCompView, 0);
 		
 		buttonOk.setOnClickListener(new OnClickListener() {
 
@@ -61,7 +58,9 @@ public class LocationSelectorActivity extends BaseActivity implements
 			public void onClick(View v) {
 				selectLocation(v, autoCompView.getText().toString());
 			}
-		});		
+		});
+		
+		autoCompView.requestFocus();
 	}
 
 	protected void selectLocation(View v, String location) {

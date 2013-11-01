@@ -31,9 +31,7 @@ import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;
 import com.app.getconnected.rest.RESTRequestListener;
 
-/**
- * @author Nico
- */
+
 public class MapActivity extends BaseActivity implements RESTRequestListener {
 
 	private MapController mapController;
