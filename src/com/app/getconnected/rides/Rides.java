@@ -24,14 +24,8 @@ public abstract class Rides {
 		this.url = url;
 	}
 
-	protected String getUsername() {
-		//TODO make connection to database, get username
-		return "e";
-	}
-
 	protected boolean isEmpty() {
-		String username = getUsername();
-		return username.equals("") || this.url.equals("") || this.url == null || this.JSONKey.equals("") || this.JSONKey == null;
+		return this.url.equals("") || this.url == null || this.JSONKey.equals("") || this.JSONKey == null;
 	}
 
 	protected ArrayList<JSONObject> parseJSON(String json) {
