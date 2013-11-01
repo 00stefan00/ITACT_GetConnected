@@ -1,22 +1,15 @@
 package com.app.getconnected.activities;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
 import com.app.getconnected.R;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequest.Method;
+import com.app.getconnected.security.Login;
 import com.exception.getconnected.FieldValidationException;
 import com.util.getconnected.FieldValidator;
-import com.util.getconnected.JSONParser;
 
 public class LoginActivity extends BaseActivity {
 	
@@ -65,11 +58,14 @@ public class LoginActivity extends BaseActivity {
 		}
 		if(validInput)
 		{
-			if(attemptApiLogin())
+			if(getFileStreamPath(Login.fileName).isFile()) {
+				loggedIn = true;
+				startIntent();
+			}
+			else if(attemptApiLogin())
 			{
 				loggedIn=true;
-				Intent intent = new Intent(LoginActivity.this, MarketplaceActivity.class);
-				startActivityForResult(intent, 1);
+				startIntent();
 			}
 			else
 			{
@@ -77,37 +73,28 @@ public class LoginActivity extends BaseActivity {
 			}
 		}
 	}
+
+	private void startIntent() {
+		Intent intent = new Intent(LoginActivity.this, MarketplaceActivity.class);
+		startActivityForResult(intent, 1);
+	}
+
 	private boolean attemptApiLogin()
 	{
 		String username=fieldUsername.getText().toString();
-		String password=fieldPassword.getText().toString();		
-		Map<String, String> hashMap = new HashMap<String,String>();
-		hashMap.put("username", username);
-		hashMap.put("password", password);
-		//TODO put api base somewhere central/logical.
-		String apiBase="http://127.0.0.1/OpenRideServer-RS/resources/";
-		//TODO find out the proper login url
-		String url=apiBase+"user/login";
-		RESTRequest request = new RESTRequest(url);
-		request.setMethod(Method.POST);
-		String result="";
+		String password=fieldPassword.getText().toString();
+		Login login = new Login(this, username, password);
+		String response = "";
+		boolean success = false;
 		try {
-			JSONObject jObj=JSONParser.getInstance().parseMapAsObject(hashMap);
-			String jsonString="{\"LoginRequest\":"+jObj.toString()+"}";
-			request.putString("json", jsonString);
-			//TODO implement once API is reachable
-			//result = request.execute().get();
-			if(username.equals("user"))
-				result="200 OK";
-			else
-				result="Unknown";
-		/*} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		} catch (ExecutionException e1) {
-			e1.printStackTrace();*/
-		} catch (JSONException e) {
+			response = login.attemptApiRequest(RESTRequest.API_URL + "/login", Method.GET, "loginRequest");
+			if(response.equals("body")) {
+				login.saveCredentials();
+				success = true;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result.equals("200 OK");
+		return success;
 	}
 }

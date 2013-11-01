@@ -1,5 +1,6 @@
 package com.app.getconnected.rides;
 
+import com.app.getconnected.rest.RESTRequest;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public abstract class Rides {
 
-	private static final String baseURL = "http://localhost:8181/";
+	private static final String baseURL = RESTRequest.API_URL;
 
 	protected String url;
 
