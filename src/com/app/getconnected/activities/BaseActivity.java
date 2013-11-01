@@ -1,5 +1,8 @@
 package com.app.getconnected.activities;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import com.app.getconnected.R;
 import com.app.getconnected.animations.CollapseAnimation;
 import com.app.getconnected.animations.ExpandAnimation;
@@ -9,6 +12,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,7 +32,10 @@ public abstract class BaseActivity extends Activity {
 	private boolean isExpanded = false;
 
 	protected static final String activityPackage = "com.app.getconnected.activities";
-	protected static Boolean loggedIn = false;
+
+	protected static boolean loggedIn = false;
+
+	private static int notificationId = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -139,4 +146,38 @@ public abstract class BaseActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Creates a notification. Use the intent for what happens when the person selects the notification
+	 * @param intent
+	 * @param title
+	 * @param message
+	 */
+	public void createNotification(Intent intent, int title, int message) {
+		PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+		Notification noti = new Notification
+				.Builder(this)
+				.setContentTitle(getString(title))
+				.setContentText(getString(message)).setSmallIcon(R.drawable.gc_icon)
+				.setContentIntent(pIntent)
+				.build();
+		NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		// hide the notification after its selected
+		noti.flags |= Notification.FLAG_AUTO_CANCEL;
+		notificationManager.notify(notificationId ++, noti);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch(item.getItemId()) {
+	    case R.id.action_settings:
+	        Intent intent = new Intent(this, SettingsActivity.class);
+	        this.startActivity(intent);
+	        break;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
+
+	    return true;
+	}
 }

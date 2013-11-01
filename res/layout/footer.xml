@@ -154,7 +154,7 @@
         android:onClick="startIntentByButton"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:tag=""
+        android:tag="CustomerSupportActivity"
         android:text="@string/home_button_support" />
 
     <Button

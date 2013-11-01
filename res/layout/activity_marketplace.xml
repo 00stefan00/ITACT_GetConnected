@@ -27,41 +27,75 @@
 
     <Button
         android:id="@+id/create_ride_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
         android:layout_below="@+id/request_ride_btn"
         android:layout_centerHorizontal="true"
-        android:text="@string/create_ride"
-		android:onClick="startIntentByButton"
-		android:tag="CreateRideActivity" />
+        android:background="@drawable/smooth_top_edges"
+        android:drawableRight="@drawable/arrow_icon_20x20"
+        android:gravity="left|center_vertical|right"
+        android:onClick="startIntentByButton"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:tag="CreateRideActivity"
+        android:text="@string/create_ride" />
 
     <Button
         android:id="@+id/display_requests_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/create_ride_btn"
         android:layout_centerHorizontal="true"
-        android:text="@string/display_requests"
-		android:onClick="startIntentByButton"
-		android:tag="RequestedRidesActivity" />
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/smooth_top_edges"
+        android:drawableRight="@drawable/arrow_icon_20x20"
+        android:gravity="left|center_vertical|right"
+        android:onClick="startIntentByButton"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:tag="RequestedRidesActivity"
+        android:text="@string/display_requests" />
 
     <Button
         android:id="@+id/request_ride_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TextView1"
+        android:layout_marginLeft="40dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
-        android:text="@string/request_ride"
-		android:onClick="startIntentByButton"
-		android:tag="RequestRideActivity" />
-
+        android:background="@drawable/smooth_top_edges"
+        android:gravity="left|center_vertical|right"
+        android:drawableRight="@drawable/arrow_icon_20x20"
+        android:onClick="startIntentByButton"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:tag="RequestRideActivity"
+        android:text="@string/request_ride" />
+    
+    <Button
+        android:id="@+id/display_unrated_rides"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/display_requests_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/smooth_top_edges"
+        android:drawableRight="@drawable/arrow_icon_20x20"
+        android:gravity="left|center_vertical|right"
+        android:onClick="startIntentByButton"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:tag="UnratedRidesActivity"
+        android:text="@string/display_unrated_rides" />
+    
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/display_requests_btn" >
+        android:layout_below="@+id/display_unrated_rides" >
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -96,7 +130,6 @@
                     android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:text="@string/read_more_btn" />
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

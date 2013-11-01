@@ -76,6 +76,9 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 	}
 	
+	/** This variable indicates whether or not an asynchronous task is running. */
+	protected boolean running;
+	
 	/** This variable indicates whether or not the httpRequest was manually aborted using the abort() method. */
 	protected boolean manuallyAborted;
 	
@@ -294,21 +297,39 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	}
 	
 	/**
-	 * Abort the RESTRequest
+	 * Return whether or not an asynchronous task is currently running
 	 */
-	public void abort()
+	public boolean isRunning()
 	{
+		return running;
+	}
+	
+	/**
+	 * Cancel the asynchronous task.
+	 */
+	public boolean cancel()
+	{
+		running = false;
+		
+		// Abort HTTP request
 		if (httpRequest instanceof HttpUriRequest)
 		{
 			manuallyAborted = true;
 			
-			httpRequest.abort();
+			try
+			{
+				httpRequest.abort();
+			}
+			catch (UnsupportedOperationException e) { }
 		}
+		
+		return super.cancel(true);
 	}
 	
 	@Override
 	protected String doInBackground(Void... voids)
 	{
+		running         = true;
 		manuallyAborted = false;
 		
 		DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
@@ -438,6 +459,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	@Override
 	protected void onPostExecute(String result)
 	{
+		running = false;
+		
 		for (RESTRequestListener eventListener : eventListeners)
 		{
 			// Create new RESTRequestEvent to be handled by the event listener
