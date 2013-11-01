@@ -116,6 +116,16 @@ public class TransportActivity2 extends BaseActivity implements
 		if (inputFrom.getText().toString()
 				.equals(getResources().getString(R.string.current_location))) {
 			fromLocation = new GPSLocator(this);
+			
+			if (!fromLocation.isValidLocation()) {
+				Toast.makeText(
+						this,
+						this.getResources().getString(
+								R.string.gps_disabled),
+						Toast.LENGTH_SHORT).show();
+				
+				return;
+			}
 		} else {
 			fromLocation = new GeoLocation(inputFrom.getText().toString());
 
@@ -127,6 +137,15 @@ public class TransportActivity2 extends BaseActivity implements
 		if (inputTo.getText().toString()
 				.equals(getResources().getString(R.string.current_location))) {
 			toLocation = new GPSLocator(this);
+			if (!toLocation.isValidLocation()) {
+				Toast.makeText(
+						this,
+						this.getResources().getString(
+								R.string.gps_disabled),
+						Toast.LENGTH_SHORT).show();
+				
+				return;
+			}			
 		} else {
 			toLocation = new GeoLocation(inputTo.getText().toString());
 
