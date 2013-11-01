@@ -5,9 +5,14 @@
     <string name="app_name">GetConnected</string>
 
     <!-- General -->
+    <string name="loading">Laden...</string>
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
     
+    <!-- Error messages -->
+    <string name="error_connection_failed">Kan geen verbinding maken met de server</string>
+    <string name="error_unknown_exception">Een onbekende uitzondering is opgetreden</string>
+
     <!-- Settings -->
     <string name="title_activity_settings">Instellingen</string>
     <string name="change_language">Wijzig taal</string>
@@ -50,6 +55,18 @@
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
 
+    <!-- Help Activity -->
+    <string name="title_activity_help">Hulp en uitleg</string>
+    <string name="title_activity_help_basic">Basic instructies</string>
+    <string name="title_activity_help_map">Kaart gebruik</string>
+    <string name="title_activity_help_plan">Route plannen</string>
+    <string name="help_intro">Klik op één van de onderwerpen hieronder voor extra uitleg.</string>
+    <string name="help_button_basic">Basis instructies</string>
+    <string name="help_button_map">Uitleg over kaart gebruik</string>
+    <string name="help_button_plan">Uw eigen route plannen</string>
+    <string name="help_button_marketplace">De marktplaats gebruiken</string>
+    <string name="help_button_contact">Contact opnemen</string>
+
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
     <string name="footer_button_back">Terug</string>
@@ -64,6 +81,7 @@
     <string name="busstop_text_trunk">Prullenbak:</string>
     <string name="busstop_text_lights">Verlichting:</string>
     <string name="busstop_text_seating">Zittingen:</string>
+    <string name="busstop_text_bicycle_parking">Fiets parkeerplaats:</string>
     <string name="busstop_text_facilities">Faciliteiten:</string>
 
     <!-- Transportation Result Activity -->
@@ -71,6 +89,8 @@
     <string name="transportation_result_duration_header">Duur</string>
     <string name="transportation_result_arrival_header">Aankomst</string>
     <string name="transportation_result_transfers_header">Overstap</string>
+    <string name="transportation_result_pref">Vorige</string>
+    <string name="transportation_result_next">Volgende</string>
 
     <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Vorige</string>
@@ -79,10 +99,18 @@
     <string name="transport_details_bus_title">Bus</string>
     <string name="transport_details_train_title">Train</string>
 
+    <!-- Taxi List Activity -->
+    <string name="region_taxi_north_groningen">Regio noord Groningen</string>
+    <string name="region_taxi_east_groningen">Regio oost Groningen</string>
+    <string name="region_taxi_southwest_groningen">Regio zuid-west Groningen</string>
+    <string name="region_taxi_north_drenthe">Regio noord Drenthe</string>
+    <string name="region_taxi_southeast_drenthe">Regio zuid-oost Drenthe</string>
+    <string name="region_taxi_southwest_drenthe">Regio zuid-west Drenthe</string>
+    <string name="region_taxi_call">Bell</string>
+
     <!-- Get connected 2 -->
     <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
     <string name="title_activity_map">MapActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="field_username">Gebruikersnaam</string>
     <string name="field_password">Wachtwoord</string>
     <string name="field_first_name">Voornaam</string>
@@ -128,6 +156,15 @@
     <string name="change_date">Change date</string>
     <string name="request_ride">Vraag rit aan</string>
     <string name="create_ride">Maak nieuwe rit aan</string>
+    <string name="title_activity_transport_details">TransportDetailsActivity</string>
+    <string name="display_requests">Display requested rides</string>
+    <string name="empty_string"></string>
+    <string name="read_more_btn">Read more</string>
+    <string name="offered_ride_string">Offered ride by person</string>
+    <string name="ride_description">Ride description ..........................................................................................................................</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_email">This email address is invalid</string>
     <string name="display_unrated_rides">Bekijk \'unrated\' ritten</string>
     <string name="full_name">Volledige naam</string>
     <string name="email">E-Mail adres</string> 

@@ -1,7 +1,6 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RelativeLayout1"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_transport_result_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
@@ -9,63 +8,25 @@
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="0dp" 
-	tools:context=".TransportResultActivity">
+    android:paddingTop="0dp"
+    tools:context=".TransportResultActivity" >
 
-<TableLayout 
-   
-    android:id="@+id/TableLayout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="0dp"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp">
-
-   <include
+    <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         layout="@layout/header" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/bla"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="Groningen"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/bla"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="-"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/bla"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="Drachten"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </RelativeLayout>
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="45dp"
         android:orientation="vertical" >
 
         <TableLayout
             android:id="@+id/transport_result_table"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_marginTop="10dp"
             android:gravity="top" >
 
@@ -78,17 +39,19 @@
                     android:id="@+id/transportation_result_departure_header"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/transportation_result_departure_header"
                     android:layout_weight="0.25"
+                    android:text="@string/transportation_result_departure_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
-
+                
+               
                 <TextView
                     android:id="@+id/transportation_result_duration_header"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/transportation_result_duration_header"
                     android:layout_weight="0.25"
+                    android:text="@string/transportation_result_duration_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                                
 
                 <TextView
                     android:id="@+id/transportation_result_arival_header"
@@ -97,6 +60,7 @@
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_arrival_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                
 
                 <TextView
                     android:id="@+id/transportation_result_transfers_header"
@@ -105,47 +69,60 @@
                     android:layout_weight="0.25"
                     android:text="@string/transportation_result_transfers_header"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
-
+                
+                
+                
             </TableRow>
-
         </TableLayout>
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="72dp"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/transport_results_next"
             style="@style/HeaderTheme"
-            android:onClick="nextPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Volgende" />
+            android:layout_marginRight="25dp"
+            android:background="@drawable/standard_button"
+            android:drawablePadding="5dip"
+            android:drawableRight="@drawable/arrow_right"
+            android:height="35dp"
+            android:onClick="nextPage"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/transportation_result_next"
+            android:width="130dp" />
 
         <Button
             android:id="@+id/transport_results_pref"
             style="@style/HeaderTheme"
-            android:onClick="prefPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Vorige" />
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/standard_button"
+            android:drawableLeft="@drawable/arrow_left"
+            android:drawablePadding="5dip"
+            android:height="35dp"
+            android:onClick="prefPage"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/transportation_result_pref"
+            android:width="130dp" />
+        
     </RelativeLayout>
-    
-    </TableLayout>
 
-   
-    
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         layout="@layout/footer" />
-
-
 
 </RelativeLayout>

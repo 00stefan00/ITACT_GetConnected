@@ -19,6 +19,7 @@ public class GeoLocation {
 				
 		RESTRequest request = new RESTRequest(url);
 		request.putString("address", address);
+		request.putString("region", "nl");
 		request.putString("sensor", "true");
 		try {
 			String result = request.execute().get();

@@ -80,7 +80,8 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
 	    try {
 	        StringBuilder sb = new StringBuilder(PLACES_API_BASE + TYPE_AUTOCOMPLETE + OUT_JSON);
 	        sb.append("?sensor=false&key=" + API_KEY);
-	        //sb.append("&components=country:nl");
+	        sb.append("&language=nl");
+	        sb.append("&components=country:nl");
 	        sb.append("&input=" + URLEncoder.encode(input, "utf8"));
 	        
 	        URL url = new URL(sb.toString());
@@ -112,8 +113,12 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
 	        
 	        // Extract the Place descriptions from the results
 	        resultList = new ArrayList<String>(predsJsonArray.length());
+	        String location;
 	        for (int i = 0; i < predsJsonArray.length(); i++) {
-	            resultList.add(predsJsonArray.getJSONObject(i).getString("description"));
+	        	location = predsJsonArray.getJSONObject(i).getString("description");
+	        	location = location.substring(0, location.lastIndexOf(','));
+	        	
+	            resultList.add(location);
 	        }
 	    } catch (JSONException e) {
 	        Log.e(LOG_TAG, "Cannot process JSON results", e);

@@ -1,32 +1,25 @@
 package com.app.getconnected.activities;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.lang.reflect.InvocationTargetException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.app.getconnected.R;
-import com.app.getconnected.factories.details.Detailfactory;
-
-import android.graphics.Color;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.app.getconnected.R;
+import com.app.getconnected.factories.details.Detailfactory;
 
 public class TransportDetailsActivity extends BaseActivity {
 
 	private int page = 0;
-	private int pageSize = 4;
+	private int pageSize = 3;
 	private JSONArray legs;
 	LinearLayout wrapper;
 
@@ -64,43 +57,28 @@ public class TransportDetailsActivity extends BaseActivity {
 	private void initViews() throws JSONException {
 		for (int i = (page * pageSize); i < legs.length()
 				&& i < (page * pageSize + pageSize); i++) {
-			/*
-			LinearLayout view = (LinearLayout) getLayoutInflater().inflate(
-					R.layout.transport_detail_view, wrapper, false);
-			initView(legs.getJSONObject(i), view);
-			*/
-			wrapper.addView(Detailfactory.getView(legs.getJSONObject(i), TransportDetailsActivity.this));
+			try {
+				wrapper.addView(Detailfactory.getView(legs.getJSONObject(i), TransportDetailsActivity.this));
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-	}
-
-	private String getDate(Long time, String format) {
-		Date date = new Date(time);
-		SimpleDateFormat SDF = new SimpleDateFormat(format);
-		return SDF.format(date);
-	}
-
-	private void initView(JSONObject leg, LinearLayout view)
-			throws JSONException {
-		String mode = leg.getString("mode");
-		String from = leg.getJSONObject("from").getString("name");
-		Long departureTime = leg.getLong("startTime");
-		Long arivalTime = leg.getLong("endTime");
-		String to = leg.getJSONObject("to").getString("name");
-
-		((TextView) view.findViewById(R.id.transport_details_title))
-				.setText(mode);
-		((TextView) view
-				.findViewById(R.id.transport_details_text_departure_time))
-				.setText("" + getDate(departureTime, "H:m"));
-		((TextView) view
-				.findViewById(R.id.transport_details_text_departure_location))
-				.setText(from);
-		((TextView) view.findViewById(R.id.transport_details_text_arival_time))
-				.setText(("" + getDate(arivalTime, "H:m")));
-		((TextView) view
-				.findViewById(R.id.transport_details_text_arival_location))
-				.setText(to);
-
 	}
 
 	private void setVisibilities() {

@@ -5,37 +5,54 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/transport_details_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="Large Text" />
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="10dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="40dp"
+            android:maxWidth="40dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/train_transportation" />
+
+        <TextView
+            android:id="@+id/transport_details_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+    </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="#000000" >
 
         <TableRow
             android:id="@+id/transport_details_departure_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="#FFFFFF" >
 
             <TextView
                 android:id="@+id/transport_details_text_departure_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:ems="10"
-                android:text="Large Text" />
+                android:ems="10" />
 
             <TextView
                 android:id="@+id/transport_details_text_departure_location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:ems="10"
-                android:text="Large Text" />
+                android:ems="10" />
         </TableRow>
 
         <TableRow
@@ -47,17 +64,18 @@
                 android:id="@+id/transport_details_text_arival_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="0.3"
-                android:ems="10"
-                android:text="Large Text" />
+                android:background="#FFFFFF"
+                android:ems="10" />
 
             <TextView
                 android:id="@+id/transport_details_text_arival_location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:ems="10"
-                android:text="Large Text" />
+                android:ems="10" />
         </TableRow>
     </TableLayout>
 

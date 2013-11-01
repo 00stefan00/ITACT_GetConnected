@@ -52,6 +52,33 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 	};
 	
+	/** The enumeration of errors that can be thrown by the RESTRequest. */
+	public enum ExceptionCode
+	{
+		UNKNOWN_METHOD (1), INVALID_URL (2), INVALID_PARAMETERS (3), REQUEST_FAILED (4), REQUEST_ABORTED (5), NO_RESULT (6);
+		
+		private int exceptionCode;
+		
+		/**
+		 * @param exceptionCode
+		 */
+		private ExceptionCode(int exceptionCode)
+		{
+			this.exceptionCode = exceptionCode;
+		}
+
+		/**
+		 * @return exceptionType
+		 */
+		public String toString()
+		{
+			return "RESTRequest error: " + Integer.toString(exceptionCode);
+		}
+	}
+	
+	/** This variable indicates whether or not the httpRequest was manually aborted using the abort() method. */
+	protected boolean manuallyAborted;
+	
 	/** The address an HTTP request will be sent to. */
 	protected String address;
 	
@@ -69,6 +96,9 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	
 	/** The listener classes that need to be notified of a finished request. */
 	protected ArrayList<RESTRequestListener> eventListeners;
+	
+	/** The HttpUriRequest is stored as class variable so it can be cancelled. */
+	protected HttpUriRequest httpRequest;
 	
 	/**
 	 * Overloads the RESTRequest(String address, String ID) constructor.
@@ -116,6 +146,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	 */
 	public RESTRequest(String address, Method method, String headerAcceptedData, String ID)
 	{
+		manuallyAborted = false;
+		
 		this.address            = address;
 		this.method             = method;
 		this.headerAcceptedData = headerAcceptedData;
@@ -124,6 +156,24 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		parameters = new ArrayList<NameValuePair>();
 		
 		eventListeners = new ArrayList<RESTRequestListener>();
+	}
+	
+	/**
+	 * Tests if the passed string matches any of the ExceptionType's values
+	 * 
+	 * @return isExceptionType
+	 */
+	public static boolean isExceptionCode(String string)
+	{
+		for (ExceptionCode exceptionType : ExceptionCode.values())
+		{
+			if (exceptionType.toString().equals(string))
+			{
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	/**
@@ -243,13 +293,26 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		this.eventListeners.add(eventListener);
 	}
 	
+	/**
+	 * Abort the RESTRequest
+	 */
+	public void abort()
+	{
+		if (httpRequest instanceof HttpUriRequest)
+		{
+			manuallyAborted = true;
+			
+			httpRequest.abort();
+		}
+	}
+	
 	@Override
 	protected String doInBackground(Void... voids)
 	{
+		manuallyAborted = false;
+		
 		DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
 
-		HttpUriRequest httpRequest = null; 
-		
 		// Get the correct request method
 		try
 		{
@@ -275,17 +338,17 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 					break;
 					
 				default:
-					return "-1";
+					return ExceptionCode.UNKNOWN_METHOD.toString();
 			}
 		}
 		catch (IllegalArgumentException e)
 		{
 			e.printStackTrace();
-			return "-2";
+			return ExceptionCode.INVALID_URL.toString();
 		}
 		catch (UnsupportedEncodingException e)
 		{
-			return "-3";
+			return ExceptionCode.INVALID_PARAMETERS.toString();
 		}
 		
 		// Indicate what data needs to be received
@@ -321,7 +384,12 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 		}
 		catch (IOException e)
 		{
-			return "-4";
+			if (!manuallyAborted)
+			{
+				return ExceptionCode.REQUEST_FAILED.toString();
+			}
+			
+			return ExceptionCode.REQUEST_ABORTED.toString();
 		}
 		finally // Close opened utilities
 		{
@@ -340,7 +408,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			}
 		}
 		
-		return "-5";
+		return ExceptionCode.NO_RESULT.toString();
 	}
 	
 	@Override
