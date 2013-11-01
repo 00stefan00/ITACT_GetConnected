@@ -2,7 +2,8 @@
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/transport_result_row"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp" >
    
    <LinearLayout
        android:layout_width="fill_parent"
@@ -12,19 +13,36 @@
 		<LinearLayout
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
-		    android:orientation="horizontal" >
+		    android:orientation="horizontal" 
+		    android:gravity="center_vertical|center_horizontal"
+		    android:weightSum="1">
 
 			<TextView
 			    android:id="@+id/transport_result_text_departure"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:drawableRight="@drawable/toarrow"
+			    android:layout_weight="0.4"
+			    android:gravity="left"
 			    android:text="12:10" />
+			
+			   <ImageView
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content"
+			       android:layout_marginLeft="3dp"
+			       android:layout_marginRight="10dp"
+			       android:layout_weight="0.06"
+			       android:adjustViewBounds="true"
+			       android:maxHeight="40dp"
+			       android:maxWidth="40dp"
+			       android:scaleType="fitCenter"
+			       android:src="@drawable/toarrow" />
 
 			<TextView
 			    android:id="@+id/transport_result_text_arival"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
+			    android:layout_weight="0.4"
+			    android:gravity="right"
 			    android:text="13:00" />
 	       
         </LinearLayout> 
@@ -32,6 +50,7 @@
  	  <LinearLayout
  	      android:layout_width="fill_parent"
  	      android:layout_height="wrap_content"
+ 	      android:layout_marginLeft="10dp"
  	      android:orientation="horizontal" >
 	   
  	        <TextView
@@ -42,20 +61,21 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
  	        
  	      <TextView
-	        android:id="@+id/transport_result_text_transfers"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentRight="true"
-	        android:layout_alignParentTop="true"
-	        android:layout_marginRight="39dp"
-	        android:text="0" />
-
+ 	          android:id="@+id/transport_result_text_transfers"
+ 	          android:layout_width="wrap_content"
+ 	          android:layout_height="wrap_content"
+ 	          android:layout_alignParentRight="true"
+ 	          android:layout_alignParentTop="true"
+ 	          android:layout_marginLeft="10dp"
+ 	          android:layout_marginRight="39dp"
+ 	          android:text="0" />
 	   
     	</LinearLayout> 
     	
  	  <LinearLayout
  	      android:layout_width="fill_parent"
  	      android:layout_height="wrap_content"
+ 	      android:layout_marginLeft="10dp"
  	      android:orientation="horizontal" >
 	   
  	     <TextView
@@ -72,7 +92,8 @@
 	        android:layout_alignParentLeft="true"
 	        android:layout_alignParentTop="true"
 	        android:layout_below="@+id/transport_result_text_transfers"
-	        android:text="duration"/>
+	        android:layout_marginLeft="10dp"
+	        android:text="00:50" />
 
     	</LinearLayout> 
     </LinearLayout>
