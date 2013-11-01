@@ -3,14 +3,11 @@ package com.app.getconnected.factories.details;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.app.getconnected.R;
-
-import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.app.getconnected.R;
 
 public class BusDetailGenerator extends BaseDetailGenerator {
 
