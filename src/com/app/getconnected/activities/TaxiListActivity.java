@@ -4,9 +4,12 @@ import com.app.getconnected.R;
 import com.app.getconnected.R.layout;
 import com.app.getconnected.R.menu;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 public class TaxiListActivity extends BaseActivity {
 
@@ -22,6 +25,12 @@ public class TaxiListActivity extends BaseActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.taxi_list, menu);
 		return true;
+	}
+	
+	public void call(View view){
+		 Intent intent = new Intent(Intent.ACTION_DIAL);
+		 intent.setData(Uri.parse("tel:"+(String)view.getTag()));
+		 startActivity(intent);
 	}
 
 }
