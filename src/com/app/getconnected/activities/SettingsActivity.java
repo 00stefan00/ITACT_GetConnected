@@ -36,6 +36,7 @@ public class SettingsActivity extends BaseActivity {
 	}
 
 	private void initLanguagePicker() {
+		languageOptions = (RadioGroup) findViewById(R.id.languagePicker);
 		for(int i = 0; i < languages.length; i++) {
 			RadioButton button;
 		    button = new RadioButton(this);
@@ -80,7 +81,6 @@ public class SettingsActivity extends BaseActivity {
             Locale.setDefault(locale);
 	    Configuration config = new Configuration();
 	    config.locale = locale;
-	    initLanguagePicker();
 	    updateContent(config);
 	}
 	
@@ -97,6 +97,7 @@ public class SettingsActivity extends BaseActivity {
 	    getBaseContext().getResources().getDisplayMetrics());
 	    this.setContentView(R.layout.activity_settings);
 	    updateSpinner();
+	    initLanguagePicker();
 	}
 
 	public void updateSpinner(){
