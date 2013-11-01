@@ -155,10 +155,10 @@ public class TransportActivity2 extends BaseActivity implements
 
 		double fromLatitude = fromLocation.getLatitude();
 		double fromLongitude = fromLocation.getLongitude();
-		System.out.println("Coordinates: " + fromLatitude + "-" + fromLongitude);
+		
 		double toLatitude = toLocation.getLatitude();
 		double toLongitude = toLocation.getLongitude();
-
+		
 		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 		String time = timeFormat.format(calendarTime.getTime());
@@ -296,6 +296,8 @@ public class TransportActivity2 extends BaseActivity implements
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
 		dialog.dismiss();
 
+		System.out.println(event.getResult());
+		
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
 		startActivity(intent);
@@ -343,7 +345,7 @@ public class TransportActivity2 extends BaseActivity implements
 		} else {
 			type = getResources().getString(R.string.transport_text_to);
 		}
-
+		
 		Intent intent = new Intent(TransportActivity2.this,
 				LocationSelectorActivity.class);
 		intent.putExtra("type", type);
