@@ -26,7 +26,7 @@ public class SettingsActivity extends BaseActivity {
 	
 	String[] languages = {"en", "nl"};
 	int[] fontScaleOptions = {R.string.small, R.string.medium, R.string.big};
-	double[] fontScaleValues = {0.7, 1, 1.7};
+	double[] fontScaleValues = {0.7, 1, 1.3};
 	HashMap<Integer, Double> fontScaleMap = new HashMap<Integer, Double>();
 	String[] fontSpinnerArray = new String[3];
 
