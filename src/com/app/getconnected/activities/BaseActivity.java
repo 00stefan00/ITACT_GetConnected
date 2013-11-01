@@ -22,22 +22,21 @@ public abstract class BaseActivity extends Activity {
 	private Button buttonMenu;
 	protected Button buttonOk;
 	protected Button buttonHome;
-		
+
 	private LinearLayout MenuList;
 	private int screenHeight;
 	private boolean isExpanded = false;
 
 	protected static final String activityPackage = "com.app.getconnected.activities";
-	protected static Boolean loggedIn=false;
-	
+	protected static Boolean loggedIn = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.footer);
-		
+
 	}
 
-	
 	protected void initLayout(int resId, boolean homeButton,
 			boolean backButton, boolean menuButton, boolean okButton) {
 
@@ -51,10 +50,9 @@ public abstract class BaseActivity extends Activity {
 		buttonMenu = (Button) findViewById(R.id.footer_button_menu);
 		buttonOk = (Button) findViewById(R.id.footer_button_ok);
 		MenuList = (LinearLayout) findViewById(R.id.linearLayout3);
-		
+
 		MenuList.bringToFront();
-        
-        
+
 		buttonBack.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -62,7 +60,7 @@ public abstract class BaseActivity extends Activity {
 				goBack();
 			}
 		});
-		
+
 		buttonMenu.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -70,7 +68,6 @@ public abstract class BaseActivity extends Activity {
 				handleMenu();
 			}
 		});
-
 
 		buttonHome.setOnClickListener(new OnClickListener() {
 
@@ -95,37 +92,46 @@ public abstract class BaseActivity extends Activity {
 	protected void goBack() {
 		super.onBackPressed();
 	}
-	
+
 	private void handleMenu() {
 		DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        screenHeight = metrics.heightPixels;
-        
-        Drawable arrowUp = getBaseContext().getResources().getDrawable(R.drawable.arrow_up);
-        Drawable arrowDown = getBaseContext().getResources().getDrawable(R.drawable.arrow_down);
-        			
-        			if (isExpanded) {
-            			isExpanded = false;
-            			buttonMenu.setCompoundDrawablesWithIntrinsicBounds( null, null, arrowUp, null );
-            			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,(int)(screenHeight*0.5), 10));
-            		}else {
-                		isExpanded = true;             		
-                		buttonMenu.setCompoundDrawablesWithIntrinsicBounds( null, null, arrowDown, null );
-                		MenuList.startAnimation(new ExpandAnimation(MenuList, 0,(int)(screenHeight*0.5), 10));
-            		}
-        		
+		getWindowManager().getDefaultDisplay().getMetrics(metrics);
+		screenHeight = metrics.heightPixels;
+
+		Drawable arrowUp = getBaseContext().getResources().getDrawable(
+				R.drawable.arrow_up);
+		Drawable arrowDown = getBaseContext().getResources().getDrawable(
+				R.drawable.arrow_down);
+
+		if (isExpanded) {
+			buttonMenu.setText(getResources().getString(R.string.footer_button_menu_open));
+			isExpanded = false;
+			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
+					arrowUp, null);
+			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,
+					(int) (screenHeight * 0.5), 10));
+		} else {
+			buttonMenu.setText(getResources().getString(R.string.footer_button_menu_close));
+			isExpanded = true;
+			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
+					arrowDown, null);
+			MenuList.startAnimation(new ExpandAnimation(MenuList, 0,
+					(int) (screenHeight * 0.5), 10));
+		}
+
 	}
 
-
 	/**
-	 *
+	 * 
 	 * @param view
 	 */
 	public void startIntentByButton(View view) {
 		Button button = (Button) view;
-		if(!button.getTag().equals("")) {
+		if (!button.getTag().equals("")) {
 			try {
-				Intent intent = new Intent(getApplicationContext(), Class.forName(BaseActivity.activityPackage + "." + button.getTag().toString()));
+				Intent intent = new Intent(getApplicationContext(),
+						Class.forName(BaseActivity.activityPackage + "."
+								+ button.getTag().toString()));
 				startActivityForResult(intent, 1);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();

@@ -28,7 +28,7 @@ public class TransportDetailsActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transport_details);
 		initLayout(R.string.title_activity_transport_result, true, true, true,
-				true);
+				false);
 		String json = getIntent().getExtras().getString("json");
 		wrapper = (LinearLayout) this
 				.findViewById(R.id.transport_details_wrapper);

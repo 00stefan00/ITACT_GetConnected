@@ -61,7 +61,7 @@ public class GPSLocator implements com.app.getconnected.gps.Location, LocationLi
 	}
 	
 	public boolean isValidLocation() {
-		return true;
+		return getLatitude() != 0 && getLongitude() != 0;
 	}
 
 	@Override
