@@ -28,7 +28,7 @@
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:layout_marginTop="18dp"
-        android:text="Text"
+        android:text="@string/help_map"
         android:textStyle="bold" />
 
 </RelativeLayout>

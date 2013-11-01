@@ -107,7 +107,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 
 	private void loadBusStops() {
 		if (rR != null)
-			rR.abort();
+			rR.cancel();
 		rR = new RESTRequest(Config.busStopAddress);
 		IGeoPoint point = mapView.getMapCenter();
 		System.out.println("Latitude according to getCenter: "
