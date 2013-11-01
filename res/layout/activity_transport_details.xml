@@ -25,29 +25,46 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="50dp" >
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="72dp"
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/transport_details_pref"
+            style="@style/HeaderTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/standard_button"
+            android:drawableLeft="@drawable/arrow_left"
+            android:drawablePadding="5dip"
+            android:height="35dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:onClick="prefPage"
-            android:text="@string/transport_details_pref" />
+            android:text="@string/transport_details_pref"
+            android:width="130dp" />
 
         <Button
             android:id="@+id/transport_details_next"
+            style="@style/HeaderTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/standard_button"
+            android:drawablePadding="5dip"
+            android:drawableRight="@drawable/arrow_right"
+            android:height="35dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:onClick="nextPage"
-            android:text="@string/transport_details_next" />
+            android:text="@string/transport_details_next"
+            android:width="130dp"  />
     </RelativeLayout>
 
     <include
