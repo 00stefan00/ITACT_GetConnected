@@ -66,7 +66,7 @@ public class TransportActivity2 extends BaseActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transport2);
 		initLayout(R.string.title_activity_transport, true, true, true, true);
-		
+
 		mode = getIntent().getExtras().getString("mode");
 
 		inputFrom = (EditText) findViewById(R.id.transport_input_from);
@@ -99,28 +99,37 @@ public class TransportActivity2 extends BaseActivity implements
 
 	@SuppressLint("SimpleDateFormat")
 	public void planTrip() {
-		
+
 		Location fromLocation;
 		Location toLocation;
-		
-		if (inputFrom.getText().toString().equals(getResources().getString(R.string.current_location))) {
-			fromLocation = new GPSLocator(this);
-		}else {
-			fromLocation = new GeoLocation(inputFrom.getText()
-					.toString());
+
+		if (inputFrom.getText().toString().equals(inputTo.getText().toString())) {
+			Toast.makeText(
+					this,
+					this.getResources().getString(
+							R.string.field_validation_same_input),
+					Toast.LENGTH_SHORT).show();
 			
-			if (!validateLocation(inputFrom.getText().toString(),
-					fromLocation)) {
+			return;
+		}
+
+		if (inputFrom.getText().toString()
+				.equals(getResources().getString(R.string.current_location))) {
+			fromLocation = new GPSLocator(this);
+		} else {
+			fromLocation = new GeoLocation(inputFrom.getText().toString());
+
+			if (!validateLocation(inputFrom.getText().toString(), fromLocation)) {
 				return;
 			}
 		}
-		
-		if (inputTo.getText().toString().equals(getResources().getString(R.string.current_location))) {
+
+		if (inputTo.getText().toString()
+				.equals(getResources().getString(R.string.current_location))) {
 			toLocation = new GPSLocator(this);
-		}else {
-			toLocation = new GeoLocation(inputTo.getText()
-					.toString());
-			
+		} else {
+			toLocation = new GeoLocation(inputTo.getText().toString());
+
 			if (!validateLocation(inputTo.getText().toString(), toLocation)) {
 				return;
 			}
@@ -197,13 +206,13 @@ public class TransportActivity2 extends BaseActivity implements
 			}
 		});
 		inputTime.setOnFocusChangeListener(new OnFocusChangeListener() {
-			
+
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				if (hasFocus) {
 					new TimePickerDialog(TransportActivity2.this, timePicker,
-							calendarTime.get(Calendar.HOUR_OF_DAY), calendarTime
-									.get(Calendar.MINUTE), true).show();
+							calendarTime.get(Calendar.HOUR_OF_DAY),
+							calendarTime.get(Calendar.MINUTE), true).show();
 				}
 			}
 		});
@@ -233,7 +242,7 @@ public class TransportActivity2 extends BaseActivity implements
 			}
 		});
 		inputDate.setOnFocusChangeListener(new OnFocusChangeListener() {
-			
+
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				if (hasFocus) {
@@ -243,7 +252,7 @@ public class TransportActivity2 extends BaseActivity implements
 									.get(Calendar.DAY_OF_MONTH)).show();
 				}
 			}
-		});		
+		});
 	}
 
 	@Override
@@ -268,7 +277,7 @@ public class TransportActivity2 extends BaseActivity implements
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
 		dialog.dismiss();
-		
+
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
 		startActivity(intent);

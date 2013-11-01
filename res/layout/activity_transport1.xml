@@ -29,27 +29,16 @@
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:text="@string/transport_text_possibilities"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
-
-    <CheckBox
-        android:id="@+id/transport_checkbox_train"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TextView05"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:checked="true"
-        android:text="@string/transport_text_possibilities_train"
-        android:textSize="20sp" />
 
     <CheckBox
         android:id="@+id/transport_checkbox_bus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/transport_checkbox_train"
         android:layout_below="@+id/transport_checkbox_train"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:checked="true"
         android:text="@string/transport_text_possibilities_bus"
         android:textSize="20sp" />
@@ -58,11 +47,23 @@
         android:id="@+id/transport_checkbox_taxi_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/transport_checkbox_bus"
         android:layout_below="@+id/transport_checkbox_bus"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="34dp"
         android:checked="true"
         android:text="@string/transport_text_possibilities_taxi_other"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/transport_checkbox_train"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView05"
+        android:layout_below="@+id/TextView05"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="38dp"
+        android:checked="true"
+        android:text="@string/transport_text_possibilities_train"
         android:textSize="20sp" />
 
 </RelativeLayout>

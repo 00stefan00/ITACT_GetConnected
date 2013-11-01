@@ -124,6 +124,7 @@
     <string name="title_activity_loginactivity">Login</string>
     <string name="title_activity_registeractivity">Registreer</string>
     <string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
+    <string name="field_validation_same_input">De velden mogen niet hetzelfde zijn</string>
     <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
     <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
     <string name="field_validation_number">Het veld mag geen letters bevatten</string>

@@ -97,31 +97,6 @@
         android:text="@string/transport_text_time"
         android:textStyle="bold" />
 
-    <RadioGroup
-        android:id="@+id/transport_radio_departure_arrival"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/transport_radio_departure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/transport_text_departure"
-            android:textSize="12sp" />
-
-        <RadioButton
-            android:id="@+id/transport_radio_arrival"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="34dp"
-            android:text="@string/transport_text_arrival"
-            android:textSize="12sp" />
-    </RadioGroup>
-
     <include
         android:id="@+id/include1"
         android:layout_width="wrap_content"
@@ -133,5 +108,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         layout="@layout/footer" />
+
+    <RadioGroup
+        android:id="@+id/transport_radio_departure_arrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="67dp"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/transport_radio_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/transport_text_departure"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/transport_radio_arrival"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:text="@string/transport_text_arrival"
+            android:textSize="18sp" />
+    </RadioGroup>
 
 </RelativeLayout>

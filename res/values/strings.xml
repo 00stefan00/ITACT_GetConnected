@@ -81,6 +81,7 @@
 
     <!-- Field Validation error messages -->
     <string name="field_validation_no_input">The field can not be empty</string>
+    <string name="field_validation_same_input">The fields cannot be the same</string>
     <string name="field_validation_unknown_location">Unknown location(s)</string>
     <string name="field_validation_too_short">The number of characters are too few</string>
     <string name="field_validation_too_long">The number of characters are too many</string>
