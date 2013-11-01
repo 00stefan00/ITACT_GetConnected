@@ -11,13 +11,13 @@ import java.util.Calendar;
 public class ActivityHelper {
 
 	public static class DatePickerFragment extends DialogFragment implements
-			DatePickerDialog.OnDateSetListener {
+		DatePickerDialog.OnDateSetListener {
 		// Use the current date as the default date in the picker
 		final static Calendar c = Calendar.getInstance();
 		
-		static int year = c.get(Calendar.YEAR);
-		static int month = c.get(Calendar.MONTH);
-		static int day = c.get(Calendar.DAY_OF_MONTH);
+		public static int year = c.get(Calendar.YEAR);
+		public static int month = c.get(Calendar.MONTH);
+		public static int day = c.get(Calendar.DAY_OF_MONTH);
 
 
 		@Override

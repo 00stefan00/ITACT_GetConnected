@@ -29,9 +29,18 @@ public class LoginActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		initLayout(R.string.title_activity_loginactivity, true, true, true, false);
-		
 		fieldUsername = (EditText) findViewById(R.id.username);
 		fieldPassword = (EditText) findViewById(R.id.password);
+		if(loggedIn)
+		{
+			Intent intent = new Intent(getApplicationContext(), MarketplaceActivity.class);
+			startActivityForResult(intent, 1);
+		}
+	}
+	public void onPause()
+	{
+		super.onPause();
+		this.finish();
 	}
 	
 	public void register(View view)
@@ -59,7 +68,7 @@ public class LoginActivity extends BaseActivity {
 			if(attemptApiLogin())
 			{
 				loggedIn=true;
-				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+				Intent intent = new Intent(LoginActivity.this, MarketplaceActivity.class);
 				startActivityForResult(intent, 1);
 			}
 			else

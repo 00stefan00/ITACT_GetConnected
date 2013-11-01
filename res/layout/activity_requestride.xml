@@ -14,11 +14,6 @@
         android:layout_height="wrap_content"
         layout="@layout/header" />
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/footer" />
-
     <TextView
         android:id="@+id/busstop_name"
         android:layout_width="wrap_content"
@@ -95,19 +90,6 @@
         android:layout_centerHorizontal="true"
         android:text="@string/locations" />
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/busstop_bicycle_parking"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="@string/location_from"
-        android:inputType="textPostalAddress" >
-
-        <requestFocus />
-    </EditText>
-
     <!--<Button-->
         <!--android:id="@+id/button1"-->
         <!--style="?android:attr/buttonStyleSmall"-->
@@ -116,5 +98,22 @@
         <!--android:layout_alignParentRight="true"-->
         <!--android:layout_below="@+id/EditText02"-->
         <!--android:text="@string/request_ride_button" />-->
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/busstop_bicycle_parking"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/location_from"
+        android:inputType="textPostalAddress" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        layout="@layout/footer" />
 
 </RelativeLayout>

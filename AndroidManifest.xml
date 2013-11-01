@@ -79,6 +79,11 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.app.getconnected.activities.UnratedRidesActivity"
+            android:label="@string/title_activity_unrated_rides"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.app.getconnected.activities.RequestRideActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -86,6 +91,11 @@
         <activity
             android:name="com.app.getconnected.activities.RegisterActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.app.getconnected.activities.SettingsActivity"
+            android:label="@string/title_activity_settings"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -125,6 +135,11 @@
         <activity
             android:name="com.app.getconnected.activities.TaxiListActivity"
             android:label="@string/title_activity_taxi_list" >
+        </activity>
+        <activity
+            android:name="com.app.getconnected.activities.CustomerSupportActivity"
+            android:label="@string/title_activity_customer_support" 
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

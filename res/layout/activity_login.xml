@@ -1,61 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Rel1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/header" />
-    
-    <TextView
-        android:id="@+id/busstop_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_username" />
-
-    <EditText
-        android:id="@+id/username"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" 
-        android:tag="required,alphanumeric"
-        android:inputType="text">
-        <requestFocus />
-    </EditText>
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/busstop_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_password" />
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/header" />
 
-    <EditText
-        android:inputType="textPassword"
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:tag="required,minlength"
-        android:ems="10" />
-    
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:onClick="attemptLogin" />
-    
-    <Button
-        android:id="@+id/button_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:onClick="register" />
+        <TextView
+            android:id="@+id/busstop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/field_username" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:tag="required,alphanumeric" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/busstop_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/field_password" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:tag="required,minlength" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="attemptLogin"
+            android:text="@string/login" />
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="register"
+            android:text="@string/register" />
+    </LinearLayout>
 
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         layout="@layout/footer" />
-    
-</LinearLayout>
+
+</RelativeLayout>

@@ -42,7 +42,7 @@ public class RegisterActivity extends BaseActivity {
 		fieldFirstName=(EditText) findViewById(R.id.first_name);
 		fieldLastName=(EditText) findViewById(R.id.last_name);
 		fieldTelephoneNumber=(EditText) findViewById(R.id.telephone_number);
-		fieldEmail=(EditText) findViewById(R.id.email);
+		fieldEmail=(EditText) findViewById(R.id.emailText);
 		fieldGender=(RadioGroup) findViewById(R.id.gender);
 	}
 	
