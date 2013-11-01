@@ -17,7 +17,9 @@
     <string name="title_activity_settings">Instellingen</string>
     <string name="change_language">Wijzig taal</string>
     <string name="font_scaling">Kies een font schaal</string>
-    <string name="apply">Toepassen</string>
+    <string name="small">Klein</string>
+    <string name="medium">Gemiddeld</string>
+    <string name="big">Groot</string>
     
 
     <!-- Main Menu -->

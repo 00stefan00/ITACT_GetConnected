@@ -17,7 +17,9 @@
     <string name="title_activity_settings">Settings</string>
     <string name="change_language">Change language</string>
     <string name="font_scaling">Choose font scaling</string>
-    <string name="apply">Apply</string>
+    <string name="small">Small</string>
+    <string name="medium">Medium</string>
+    <string name="big">Big</string>
 
     <!-- Main Menu -->
     <string name="main_text">Navigate to one of the following pages by pressing the button.</string>

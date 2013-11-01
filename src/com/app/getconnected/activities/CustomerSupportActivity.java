@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,18 +25,36 @@ public class CustomerSupportActivity extends BaseActivity {
 	RadioButton choiceButton;
 	View companyChoice;
 	String choiceName;
+	String[] companies = new String[] {"Qbuzz", "Arriva", "Connexion"};
 	HashMap<String, String> map = new HashMap<String, String>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_customer_support);
-		initLayout(R.string.title_activity_customer_support, true, true, true, false);
+		initLayout(R.string.title_activity_customer_support, true, true, true, true);
 		
-		//Email address dummies
+		//Dummy data
 		map.put("Arriva", "complaints@arriva.nl");
 		map.put("Connexion", "complaints@connexion.nl");
 		map.put("Qbuzz", "complaints@qbuzz.nl");
+		
+		group = (RadioGroup) findViewById(R.id.company_choice);
+		for(int i = 0; i < companies.length; i++) {
+			RadioButton button;
+		    button = new RadioButton(this);
+		    button.setText(companies[i]);
+		    button.setId(i);
+		    group.addView(button);		    
+		}
+		
+		buttonOk.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				sendMailToTransportCompany(v);
+			}
+		});
 	}
 
 	@Override
