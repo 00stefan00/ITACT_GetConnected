@@ -131,6 +131,7 @@
         android:layout_below="@+id/home_button_help"
         android:layout_marginTop="-6dp"
         android:background="@drawable/smooth_bot_edges"
+        android:drawableLeft="@drawable/gear"
         android:drawablePadding="10dip"
         android:drawableRight="@drawable/arrow_icon_20x20"
         android:gravity="left|center_vertical|right"
