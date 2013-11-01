@@ -17,7 +17,7 @@ public class TaxiListActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_taxi_list);
-		initLayout(R.string.title_activity_transport, true, true, true, true);
+		initLayout(R.string.title_activity_transport, true, true, true, false);
 	}
 
 	@Override
