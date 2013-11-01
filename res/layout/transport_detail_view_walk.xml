@@ -33,7 +33,8 @@
             android:onClick="startIntentByButton"
             android:tag="TaxiListActivity"
             android:gravity="right"
-            android:text="Taxi" />
+            android:drawableLeft="@drawable/taxi_transportation"
+            android:text="@string/transport_detail_taxi" />
 
     </LinearLayout>
 
