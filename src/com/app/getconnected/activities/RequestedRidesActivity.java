@@ -1,7 +1,5 @@
 package com.app.getconnected.activities;
 
-import java.util.concurrent.TimeUnit;
-
 import com.app.getconnected.R;
 
 import android.app.DialogFragment;

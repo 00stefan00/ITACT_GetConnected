@@ -1,12 +1,9 @@
 package com.app.getconnected.activities;
 
 import com.app.getconnected.R;
-import com.app.getconnected.R.layout;
-import com.app.getconnected.R.menu;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
