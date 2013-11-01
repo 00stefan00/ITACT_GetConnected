@@ -1,5 +1,6 @@
 package com.app.getconnected.activities;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 import android.content.res.Configuration;
@@ -17,12 +18,16 @@ import com.app.getconnected.R;
 public class SettingsActivity extends BaseActivity {
 
 	RadioGroup languageOptions;
-	int currentScaleChoice = 0;
-	int currentLanguageChoice = 0;
+	int currentScaleChoice = -1;
+	int currentLanguageChoice = -1;
 	final static int ENGLISH = 0;
 	final static int DUTCH = 1;
+	final static int MEDIUMID = 1;
+	
 	String[] languages = {"en", "nl"};
 	int[] fontScaleOptions = {R.string.small, R.string.medium, R.string.big};
+	double[] fontScaleValues = {0.7, 1, 1.7};
+	HashMap<Integer, Double> fontScaleMap = new HashMap<Integer, Double>();
 	String[] fontSpinnerArray = new String[3];
 
 	@Override
@@ -60,18 +65,9 @@ public class SettingsActivity extends BaseActivity {
 		Spinner s = (Spinner) findViewById(R.id.font_scale);
 		String scale_choice = s.getSelectedItem().toString();
 		int choice = s.getSelectedItemPosition();
-                
-		if (scale_choice.equals(getResources().getString(R.string.small))){
-			changeScale(config, choice, 0.7);
-		}
-		else if(scale_choice.equals(getResources().getString(R.string.medium))){
-			changeScale(config, choice, 1);
-		}
-		else if(scale_choice.equals(getResources().getString(R.string.big))){
-			changeScale(config, choice, 1.3);
-		}
-		else{
-			Log.e("This should not happen error", "Not a valid choice!");
+		
+		if (scale_choice != null){
+			changeScale(config, choice, fontScaleMap.get(choice));
 		}
 		
 		RadioGroup group = (RadioGroup) findViewById(R.id.languagePicker);
@@ -115,13 +111,20 @@ public class SettingsActivity extends BaseActivity {
 	public void updateSpinner(){
 	    for (int i=0; i<fontScaleOptions.length; i++){
 	    	fontSpinnerArray[i] = getResources().getString(fontScaleOptions[i]);
+	    	fontScaleMap.put(i, fontScaleValues[i]);
 	    }
 		
         Spinner s = (Spinner) findViewById(R.id.font_scale);
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this,
         android.R.layout.simple_spinner_item, fontSpinnerArray);
         s.setAdapter(adapter);
-        s.setSelection(currentScaleChoice);
+        
+        if (currentScaleChoice == -1){
+        	s.setSelection(MEDIUMID);
+        }
+        else{
+        	s.setSelection(currentScaleChoice);
+        }
 	}
 		
 }

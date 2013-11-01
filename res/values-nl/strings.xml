@@ -185,6 +185,10 @@
     <string name="email">E-Mail adres</string>
     <string name="transport_company">Selecteer een vervoerder</string>
     <string name="complaint">Klacht of vraag</string>
+    <string name="name_error">Voer uw naam in</string>
+    <string name="email_error">Voer uw e-mail in</string>
+    <string name="complaint_error">Voer uw vraag of klacht in</string>
+    <string name="transport_error">Selecteer een vervoerder</string>
 
     <!-- Fieldvalidator.java -->
     <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>

@@ -185,6 +185,10 @@
     <string name="email">Email address</string>
     <string name="complaint">Complaint or question</string>
     <string name="transport_company">Select a transport company</string>
+    <string name="name_error">Please fill in your name</string>
+    <string name="email_error">Please enter your email</string>
+    <string name="complaint_error">Please enter your complaint or question</string>
+    <string name="transport_error">Please select a transport company</string>
 
     <!-- Fieldvalidator.java -->
     <string name="field_validation_not_numeric">The field can only contain numbers</string>

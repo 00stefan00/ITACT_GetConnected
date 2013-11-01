@@ -25,7 +25,6 @@ public class CustomerSupportActivity extends BaseActivity {
 	RadioButton choiceButton;
 	View companyChoice;
 	String choiceName;
-	String[] companies = new String[] {"Qbuzz", "Arriva", "Connexion"};
 	HashMap<String, String> map = new HashMap<String, String>();
 	
 	@Override
@@ -39,7 +38,9 @@ public class CustomerSupportActivity extends BaseActivity {
 		map.put("Connexion", "complaints@connexion.nl");
 		map.put("Qbuzz", "complaints@qbuzz.nl");
 		
+		String[] companies = new String[] {"Qbuzz", "Arriva", "Connexion"};
 		group = (RadioGroup) findViewById(R.id.company_choice);
+		
 		for(int i = 0; i < companies.length; i++) {
 			RadioButton button;
 		    button = new RadioButton(this);
@@ -79,19 +80,19 @@ public class CustomerSupportActivity extends BaseActivity {
 	
 	public boolean dataIsValid(){
 		if(fieldFullname.getText().toString().equals("")){
-			Toast.makeText(CustomerSupportActivity.this, "Please enter your name.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.name_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(emailAdres.getText().toString().equals("")){
-			Toast.makeText(CustomerSupportActivity.this, "Please enter your email.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.email_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(complaint.getText().toString().equals("")){
-			Toast.makeText(CustomerSupportActivity.this, "Please enter your complaint or question.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.complaint_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(group.getCheckedRadioButtonId() == -1){
-			Toast.makeText(CustomerSupportActivity.this, "Please select a transport company.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.transport_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		return true;
