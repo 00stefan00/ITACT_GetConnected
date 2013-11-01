@@ -9,7 +9,7 @@
     <string name="confirm">Yes</string>
     <string name="deny">No</string>
     <string name="current_location">Current location</string>
-    
+    <string name="gps_disabled">GPS is disabled</string>
 
     <!-- Error messages -->
     <string name="error_connection_failed">Could not connect to the server</string>

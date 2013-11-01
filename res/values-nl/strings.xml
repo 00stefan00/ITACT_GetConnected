@@ -9,6 +9,7 @@
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
     <string name="current_location">Huidige locatie</string>
+    <string name="gps_disabled">GPS is uitgeschakeld</string>
 
     <!-- Error messages -->
     <string name="error_connection_failed">Kan geen verbinding maken met de server</string>
