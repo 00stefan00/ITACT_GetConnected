@@ -25,7 +25,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -116,6 +115,16 @@ public class TransportActivity2 extends BaseActivity implements
 		if (inputFrom.getText().toString()
 				.equals(getResources().getString(R.string.current_location))) {
 			fromLocation = new GPSLocator(this);
+			
+			if (!fromLocation.isValidLocation()) {
+				Toast.makeText(
+						this,
+						this.getResources().getString(
+								R.string.gps_disabled),
+						Toast.LENGTH_SHORT).show();
+				
+				return;
+			}
 		} else {
 			fromLocation = new GeoLocation(inputFrom.getText().toString());
 
@@ -127,6 +136,15 @@ public class TransportActivity2 extends BaseActivity implements
 		if (inputTo.getText().toString()
 				.equals(getResources().getString(R.string.current_location))) {
 			toLocation = new GPSLocator(this);
+			if (!toLocation.isValidLocation()) {
+				Toast.makeText(
+						this,
+						this.getResources().getString(
+								R.string.gps_disabled),
+						Toast.LENGTH_SHORT).show();
+				
+				return;
+			}			
 		} else {
 			toLocation = new GeoLocation(inputTo.getText().toString());
 
@@ -137,7 +155,7 @@ public class TransportActivity2 extends BaseActivity implements
 
 		double fromLatitude = fromLocation.getLatitude();
 		double fromLongitude = fromLocation.getLongitude();
-
+		System.out.println("Coordinates: " + fromLatitude + "-" + fromLongitude);
 		double toLatitude = toLocation.getLatitude();
 		double toLongitude = toLocation.getLongitude();
 
