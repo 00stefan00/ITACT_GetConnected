@@ -7,6 +7,8 @@ import java.util.Locale;
 
 import com.app.getconnected.R;
 import com.app.getconnected.config.Config;
+import com.app.getconnected.gps.GPSLocator;
+import com.app.getconnected.gps.Location;
 import com.app.getconnected.network.GeoLocation;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;
@@ -32,7 +34,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 @SuppressLint("SimpleDateFormat")
-public class TransportActivity extends BaseActivity implements
+public class TransportActivity2 extends BaseActivity implements
 		OnFocusChangeListener, OnClickListener, RESTRequestListener {
 
 	private final Calendar calendarTime = Calendar.getInstance();
@@ -55,17 +57,17 @@ public class TransportActivity extends BaseActivity implements
 	private RadioGroup radioGroup;
 	private RadioButton radioArrival;
 
-	private CheckBox checkBoxBus;
-	private CheckBox checkBoxTrain;
-	private CheckBox checkBoxTaxiOther;
+	private String mode;
 
 	private ProgressDialog dialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_transport);
+		setContentView(R.layout.activity_transport2);
 		initLayout(R.string.title_activity_transport, true, true, true, true);
+		
+		mode = getIntent().getExtras().getString("mode");
 
 		inputFrom = (EditText) findViewById(R.id.transport_input_from);
 		inputFrom.setOnFocusChangeListener(this);
@@ -82,10 +84,6 @@ public class TransportActivity extends BaseActivity implements
 		radioGroup = (RadioGroup) findViewById(R.id.transport_radio_departure_arrival);
 		radioArrival = (RadioButton) findViewById(R.id.transport_radio_arrival);
 
-		checkBoxBus = (CheckBox) findViewById(R.id.transport_checkbox_bus);
-		checkBoxTrain = (CheckBox) findViewById(R.id.transport_checkbox_train);
-		checkBoxTaxiOther = (CheckBox) findViewById(R.id.transport_checkbox_taxi_other);
-
 		buttonOk.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -101,19 +99,31 @@ public class TransportActivity extends BaseActivity implements
 
 	@SuppressLint("SimpleDateFormat")
 	public void planTrip() {
-
-		GeoLocation fromLocation = new GeoLocation(inputFrom.getText()
-				.toString());
-		GeoLocation toLocation = new GeoLocation(inputTo.getText()
-				.toString());
-
-		if (!validateLocation(inputFrom.getText().toString(),
-				fromLocation)) {
-			return;
+		
+		Location fromLocation;
+		Location toLocation;
+		
+		if (inputFrom.getText().toString().equals(getResources().getString(R.string.current_location))) {
+			fromLocation = new GPSLocator(this);
+		}else {
+			fromLocation = new GeoLocation(inputFrom.getText()
+					.toString());
+			
+			if (!validateLocation(inputFrom.getText().toString(),
+					fromLocation)) {
+				return;
+			}
 		}
-
-		if (!validateLocation(inputTo.getText().toString(), toLocation)) {
-			return;
+		
+		if (inputTo.getText().toString().equals(getResources().getString(R.string.current_location))) {
+			toLocation = new GPSLocator(this);
+		}else {
+			toLocation = new GeoLocation(inputTo.getText()
+					.toString());
+			
+			if (!validateLocation(inputTo.getText().toString(), toLocation)) {
+				return;
+			}
 		}
 
 		double fromLatitude = fromLocation.getLatitude();
@@ -129,9 +139,6 @@ public class TransportActivity extends BaseActivity implements
 
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival
 				.getId() ? true : false;
-
-		String mode = getTransportMode(checkBoxBus.isChecked(),
-				checkBoxTrain.isChecked(), checkBoxTaxiOther.isChecked());
 
 		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
 		request.addEventListener(this);
@@ -150,20 +157,7 @@ public class TransportActivity extends BaseActivity implements
 
 	}
 
-	private String getTransportMode(boolean bus, boolean train,
-			boolean taxiOther) {
-		String mode;
-
-		if (!bus && !train && taxiOther) {
-			mode = "WALK";
-		} else {
-			mode = "TRANSIT,WALK";
-		}
-
-		return mode;
-	}
-
-	public boolean validateLocation(String address, GeoLocation location) {
+	public boolean validateLocation(String address, Location location) {
 		if (address.equals("")) {
 			Toast.makeText(
 					this,
@@ -197,7 +191,7 @@ public class TransportActivity extends BaseActivity implements
 		inputTime.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new TimePickerDialog(TransportActivity.this, timePicker,
+				new TimePickerDialog(TransportActivity2.this, timePicker,
 						calendarTime.get(Calendar.HOUR_OF_DAY), calendarTime
 								.get(Calendar.MINUTE), true).show();
 			}
@@ -207,7 +201,7 @@ public class TransportActivity extends BaseActivity implements
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				if (hasFocus) {
-					new TimePickerDialog(TransportActivity.this, timePicker,
+					new TimePickerDialog(TransportActivity2.this, timePicker,
 							calendarTime.get(Calendar.HOUR_OF_DAY), calendarTime
 									.get(Calendar.MINUTE), true).show();
 				}
@@ -232,7 +226,7 @@ public class TransportActivity extends BaseActivity implements
 		inputDate.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new DatePickerDialog(TransportActivity.this, datePicker,
+				new DatePickerDialog(TransportActivity2.this, datePicker,
 						calendarDate.get(Calendar.YEAR), calendarDate
 								.get(Calendar.MONTH), calendarDate
 								.get(Calendar.DAY_OF_MONTH)).show();
@@ -243,7 +237,7 @@ public class TransportActivity extends BaseActivity implements
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				if (hasFocus) {
-					new DatePickerDialog(TransportActivity.this, datePicker,
+					new DatePickerDialog(TransportActivity2.this, datePicker,
 							calendarDate.get(Calendar.YEAR), calendarDate
 									.get(Calendar.MONTH), calendarDate
 									.get(Calendar.DAY_OF_MONTH)).show();
@@ -286,7 +280,6 @@ public class TransportActivity extends BaseActivity implements
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case (2): {
-			System.out.println("onActivityResult");
 			if (resultCode == Activity.RESULT_OK) {
 				String location = data.getStringExtra("location");
 				String type = data.getStringExtra("type");
@@ -323,8 +316,8 @@ public class TransportActivity extends BaseActivity implements
 		} else {
 			type = getResources().getString(R.string.transport_text_to);
 		}
-		System.out.println("openLocationSelector");
-		Intent intent = new Intent(TransportActivity.this,
+
+		Intent intent = new Intent(TransportActivity2.this,
 				LocationSelectorActivity.class);
 		intent.putExtra("type", type);
 		startActivityForResult(intent, 2);

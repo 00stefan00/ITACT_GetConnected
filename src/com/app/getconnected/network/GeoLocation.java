@@ -7,9 +7,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.app.getconnected.gps.Location;
 import com.app.getconnected.rest.RESTRequest;
 
-public class GeoLocation {
+public class GeoLocation implements Location {
 
 	private HashMap<String, Double> location = new HashMap<String, Double>();
 	private String url; 

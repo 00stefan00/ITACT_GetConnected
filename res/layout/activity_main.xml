@@ -43,7 +43,7 @@
 	    android:onClick="startIntentByButton"
 	    android:paddingLeft="15dp"
 	    android:paddingRight="15dp"
-	    android:tag="TransportActivity"
+	    android:tag="TransportActivity1"
 	    android:text="@string/home_button_transport" />
 
     <Button

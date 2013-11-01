@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context=".TransportActivity1" >
+
+    <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/footer" />
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/transport_text_possibilities"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/transport_checkbox_train"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextView05"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:checked="true"
+        android:text="@string/transport_text_possibilities_train"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/transport_checkbox_bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transport_checkbox_train"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:checked="true"
+        android:text="@string/transport_text_possibilities_bus"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/transport_checkbox_taxi_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transport_checkbox_bus"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:checked="true"
+        android:text="@string/transport_text_possibilities_taxi_other"
+        android:textSize="20sp" />
+
+</RelativeLayout>

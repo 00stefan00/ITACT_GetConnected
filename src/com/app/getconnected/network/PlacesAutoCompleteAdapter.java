@@ -12,6 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.app.getconnected.R;
+
 import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -28,9 +30,13 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
 	private static final String OUT_JSON = "/json";
 
 	private static final String API_KEY = "AIzaSyCZx7jYOMfUUSXF4thRbVUWnkvVOa_Pjio";
+	
+	private Context context;
     
     public PlacesAutoCompleteAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
+        
+        this.context = context;
     }
     
     @Override
@@ -113,6 +119,7 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
 	        
 	        // Extract the Place descriptions from the results
 	        resultList = new ArrayList<String>(predsJsonArray.length());
+	        resultList.add(context.getResources().getString(R.string.current_location));
 	        String location;
 	        for (int i = 0; i < predsJsonArray.length(); i++) {
 	        	location = predsJsonArray.getJSONObject(i).getString("description");

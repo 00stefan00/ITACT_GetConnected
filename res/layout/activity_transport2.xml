@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context=".TransportActivity"
-    android:focusable="true" 
-    android:focusableInTouchMode="true" >
+    tools:context=".TransportActivity2" >
 
     <TextView
         android:id="@+id/TextView01"
@@ -18,8 +18,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/transport_input_from"
         android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:text="@string/transport_text_to" />
+        android:text="@string/transport_text_to"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/transport_input_to"
@@ -31,69 +31,31 @@
         android:ems="10"
         android:hint="@string/transport_input_to"
         android:inputType="textPostalAddress"
+        android:text="@string/current_location"
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/TextView05"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:text="@string/transport_text_possibilities" />
-
-    <CheckBox
-        android:id="@+id/transport_checkbox_bus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView05"
-        android:layout_below="@+id/TextView05"
-        android:layout_marginTop="22dp"
-        android:checked="true"
-        android:text="@string/transport_text_possibilities_bus" />
-
-    <CheckBox
-        android:id="@+id/transport_checkbox_train"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/transport_checkbox_bus"
-        android:layout_below="@+id/transport_checkbox_bus"
-        android:checked="true"
-        android:text="@string/transport_text_possibilities_train" />
-
-    <CheckBox
-        android:id="@+id/transport_checkbox_taxi_other"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/transport_checkbox_train"
-        android:layout_below="@+id/transport_checkbox_train"
-        android:checked="true"
-        android:text="@string/transport_text_possibilities_taxi_other" />
-
-    <TextView
         android:id="@+id/map_text_location"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView05"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/include1"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="21dp"
-        android:text="@string/transport_text_from" />
+        android:text="@string/transport_text_from"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/transport_input_from"
         android:layout_width="160dp"
         android:layout_height="30dp"
         android:layout_alignTop="@+id/map_text_location"
-        android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/transport_input_from"
         android:inputType="textPostalAddress"
+        android:text="@string/current_location"
         android:textSize="12sp" >
     </EditText>
 
@@ -101,17 +63,17 @@
         android:id="@+id/TextView04"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:layout_alignBottom="@+id/transport_input_date"
         android:layout_alignLeft="@+id/TextView01"
-        android:text="@string/transport_text_date" />
+        android:text="@string/transport_text_date"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/transport_input_date"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@+id/transport_input_to"
-        android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:text="@string/transport_input_date"
         android:textSize="12sp" />
@@ -121,28 +83,26 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@+id/transport_input_date"
-        android:layout_toRightOf="@+id/transport_checkbox_taxi_other"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:text="@string/transport_input_time"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/TextView02"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/transport_input_time"
         android:layout_alignLeft="@+id/TextView04"
-        android:text="@string/transport_text_time" />
-    
-   
+        android:text="@string/transport_text_time"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/transport_radio_departure_arrival"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView05"
-        android:layout_alignLeft="@+id/TextView05"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:orientation="horizontal" >
 
         <RadioButton
@@ -161,8 +121,8 @@
             android:text="@string/transport_text_arrival"
             android:textSize="12sp" />
     </RadioGroup>
-    
-     <include
+
+    <include
         android:id="@+id/include1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

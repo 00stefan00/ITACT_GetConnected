@@ -8,6 +8,7 @@
     <string name="loading">Laden...</string>
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
+    <string name="current_location">Huidige locatie</string>
 
     <!-- Error messages -->
     <string name="error_connection_failed">Kan geen verbinding maken met de server</string>
@@ -25,6 +26,7 @@
 
     <!-- Transport Activity -->
     <string name="title_activity_transport">Vervoer</string>
+    <string name="title_activity_transport1">Vervoer</string>
     <string name="transport_text_from">Van</string>
     <string name="transport_text_to">Naar</string>
     <string name="transport_text_departure">Vertrek</string>
@@ -46,6 +48,7 @@
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
+    
 
     <!-- Help Activity -->
     <string name="title_activity_help">Hulp en uitleg</string>

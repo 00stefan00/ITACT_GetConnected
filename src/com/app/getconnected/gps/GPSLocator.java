@@ -10,7 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 
-public class GPSLocator implements LocationListener {
+public class GPSLocator implements com.app.getconnected.gps.Location, LocationListener {
 	
 	private double latitude = 0;
 	private double longitude = 0;
@@ -58,6 +58,10 @@ public class GPSLocator implements LocationListener {
 	
 	public double getLongitude() {
 		return longitude;
+	}
+	
+	public boolean isValidLocation() {
+		return true;
 	}
 
 	@Override

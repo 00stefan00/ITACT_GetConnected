@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.app.getconnected.activities.TransportActivity"
+            android:name="com.app.getconnected.activities.TransportActivity2"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
@@ -120,11 +120,15 @@
         </activity>
         <activity
             android:name="com.app.getconnected.activities.TaxiList"
-            android:label="@string/title_activity_taxi_list" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.app.getconnected.activities.TaxiListActivity"
-            android:label="@string/title_activity_taxi_list" >
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.app.getconnected.activities.TransportActivity1"
+            android:label="@string/app_name" >
         </activity>
     </application>
 
