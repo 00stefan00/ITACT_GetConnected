@@ -28,7 +28,7 @@ public class TransportResultActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);	
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transport_result);
 		initLayout(R.string.title_activity_transport_result, true, true, true,
 				false);
@@ -38,11 +38,10 @@ public class TransportResultActivity extends BaseActivity {
 			jObject = (new JSONObject(json)).getJSONObject("plan");
 			itineraries = jObject.getJSONArray("itineraries");
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
-					.show();
-			return;
+			itineraries = new JSONArray();
 		}
 		table = (TableLayout) findViewById(R.id.transport_result_table);
+
 		initTable();
 		this.setVisibilities();
 
@@ -51,6 +50,13 @@ public class TransportResultActivity extends BaseActivity {
 	private void initTable() {
 		JSONObject itinerariy = null;
 		try {
+			if (itineraries.length() <= 0) {
+				TableRow row = (TableRow) getLayoutInflater().inflate(
+						R.layout.transport_no_result_row, table, false);;
+				table.addView(row);
+				return;
+			}
+
 			for (int i = (page * pageSize); i < itineraries.length()
 					&& i < (page * pageSize + pageSize); i++) {
 				itinerariy = itineraries.getJSONObject(i);
@@ -80,17 +86,20 @@ public class TransportResultActivity extends BaseActivity {
 		TextView transfers = (TextView) row
 				.findViewById(R.id.transport_result_text_transfers);
 
-		duration.setText("" + minutesToHourString(itinerariy.getInt("duration") / 1000 / 60) + " ");
-		departure.setText("" + getDate(itinerariy.getLong("startTime"), "HH:mm")
+		duration.setText(""
+				+ minutesToHourString(itinerariy.getInt("duration") / 1000 / 60)
 				+ " ");
-		arival.setText("" + getDate(itinerariy.getLong("endTime"), "HH:mm") + " ");
+		departure.setText(""
+				+ getDate(itinerariy.getLong("startTime"), "HH:mm") + " ");
+		arival.setText("" + getDate(itinerariy.getLong("endTime"), "HH:mm")
+				+ " ");
 		transfers.setText("" + itinerariy.getInt("transfers"));
 	}
-	
-	private String minutesToHourString(int t){
-		int hours = t / 60; //since both are ints, you get an int
+
+	private String minutesToHourString(int t) {
+		int hours = t / 60; // since both are ints, you get an int
 		int minutes = t % 60;
-		return String.format("%d:%02d" , hours, minutes);
+		return String.format("%d:%02d", hours, minutes);
 	}
 
 	private void setClickEvents(TableRow row) {

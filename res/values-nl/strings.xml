@@ -20,7 +20,6 @@
     <string name="change_language">Wijzig taal</string>
     <string name="font_scaling">Kies een font schaal</string>
     <string name="apply">Toepassen</string>
-    
 
     <!-- Main Menu -->
     <string name="action_settings">Settings</string>
@@ -57,7 +56,6 @@
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
-    
 
     <!-- Help Activity -->
     <string name="title_activity_help">Hulp en uitleg</string>
@@ -84,6 +82,11 @@
 		Als u één van de bushaltes aantikt, zult u naar een andere pagina gestuurd worden. 
 		Op deze pagina ziet u meer informatie over de halte. 
 		Als u vervolgens terug wilt naar de kaart kunt u op de knop “Terug” drukken.</string>
+    <string name="help_basic_home_button_title">Home knop</string>
+    <string name="help_basic_home_button_text">De Home knop is gesitueerd aan de rechter boven kant van uw scherm. Als u op deze knop drukt toont de applicatie het beginscherm waarop het menu te zien is.</string>
+    <string name="help_basic_quick_menu_title">Snel menu</string>
+    <string name="help_basic_quick_menu_text_1">Het snel menu is gesitueerd aan de onderkant van het scherm.Dit menu is overal beschikbaar behalve op de memu pagina wat u te zien krijgt als u de applicatie opent.</string>
+    <string name="help_basic_quick_menu_text_2">Als u op de knop open menu drukt verschijnt er een menu met verschillende knoppen. Deze knoppen kunt u gebruiken om snel door de applicatie te navigeren.</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -110,6 +113,7 @@
     <string name="transportation_result_transfers_header">Overstap</string>
     <string name="transportation_result_pref">Vorige</string>
     <string name="transportation_result_next">Volgende</string>
+    <string name="transportation_result_no_result">Geen resultaten gevonden</string>
 
     <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Vorige</string>
@@ -188,11 +192,13 @@
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="display_unrated_rides">Bekijk \'unrated\' ritten</string>
     <string name="full_name">Volledige naam</string>
-    <string name="email">E-Mail adres</string> 
-    <string name="transport_company">Selecteer een vervoerder</string> 
-    <string name="complaint">Klacht of vraag</string> 
-    <string name="send">Verstuur</string> 
-    
+    <string name="email">E-Mail adres</string>
+    <string name="transport_company">Selecteer een vervoerder</string>
+    <string name="complaint">Klacht of vraag</string>
+    <string name="send">Verstuur</string>
+    <string name="title_activity_location_selector">Select location</string>
+    <string name="title_activity_taxi_list">TaxiList</string>
+    <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
     <string name="marketplace_unrated_ride_person_name">Bijnaam</string>
     <string name="marketplace_unrated_ride_person_gender">Geslacht</string>
     <string name="marketplace_unrated_ride_person_role">Rol</string>

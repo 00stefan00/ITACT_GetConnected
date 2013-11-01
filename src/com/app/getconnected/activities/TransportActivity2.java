@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -155,7 +156,7 @@ public class TransportActivity2 extends BaseActivity implements
 
 		double fromLatitude = fromLocation.getLatitude();
 		double fromLongitude = fromLocation.getLongitude();
-		System.out.println("Coordinates: " + fromLatitude + "-" + fromLongitude);
+
 		double toLatitude = toLocation.getLatitude();
 		double toLongitude = toLocation.getLongitude();
 
