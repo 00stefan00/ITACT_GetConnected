@@ -41,7 +41,7 @@ public class JSONParser {
 	 * @return {"identifier" : ["value", "value2"]}
 	 * @throws JSONException
 	 */
-	public JSONObject parseList(List list, String identifier)
+	public JSONObject parseList(List<?> list, String identifier)
 			throws JSONException {
 		String json = "{\"" + identifier + "\": [";
 		for (int i = 0; i < list.size(); i++) {

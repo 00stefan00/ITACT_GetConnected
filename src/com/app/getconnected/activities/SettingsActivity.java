@@ -2,10 +2,8 @@ package com.app.getconnected.activities;
 
 import java.util.Locale;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
