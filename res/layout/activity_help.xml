@@ -37,7 +37,8 @@
         android:background="@drawable/standard_button"
         android:onClick="startIntentByButton"
         android:tag="help.HelpPlanActivity"
-        android:text="@string/help_button_plan" />
+        android:text="@string/help_button_plan"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/Button01"
@@ -50,7 +51,8 @@
         android:background="@drawable/standard_button"
         android:onClick="startIntentByButton"
         android:tag="help.HelpMapActivity"
-        android:text="@string/help_button_map" />
+        android:text="@string/help_button_map"
+          android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/Button03"
@@ -61,7 +63,8 @@
         android:layout_below="@+id/Button02"
         android:layout_marginTop="3dp"
         android:background="@drawable/standard_button"
-        android:text="@string/help_button_marketplace" />
+        android:text="@string/help_button_marketplace"
+          android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/button1"
@@ -74,7 +77,8 @@
         android:text="@string/help_button_basic"
         android:tag="help.HelpBasicActivity"
         android:onClick="startIntentByButton"
-         android:background="@drawable/standard_button" />
+         android:background="@drawable/standard_button"
+           android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/Button04"
@@ -85,7 +89,8 @@
         android:layout_below="@+id/Button03"
         android:layout_marginTop="3dp"
         android:background="@drawable/standard_button"
-        android:text="@string/help_button_contact" />
+        android:text="@string/help_button_contact"
+          android:textColor="#FFFFFF" />
     
     <include
         android:layout_width="wrap_content"
