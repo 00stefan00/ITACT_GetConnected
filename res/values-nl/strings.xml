@@ -62,6 +62,20 @@
     <string name="help_button_plan">Uw eigen route plannen</string>
     <string name="help_button_marketplace">De marktplaats gebruiken</string>
     <string name="help_button_contact">Contact opnemen</string>
+    <string name="help_map">Als u de kaart wilt bekijken drukt u op de 
+        “Kaart” knop in het hoofdmenu of het snel menu. 
+        Er zal vervolgens een stratenkaart verschijnen met 
+        in het midden een geel icoontje in de vorm van een mannetje. 
+        Dit icoontje geeft aan waar u op dat moment bent.\n\n
+        
+		Ook zullen er groene icoontjes verschijnen. 
+		Deze geven aan waar er bij u in de buurt bushaltes te vinden zijn. 
+		Als deze icoontjes niet meteen te zien zijn, wacht even een aantal seconden. 
+		Ze zullen vanzelf verschijnen. \n\n
+
+		Als u één van de bushaltes aantikt, zult u naar een andere pagina gestuurd worden. 
+		Op deze pagina ziet u meer informatie over de halte. 
+		Als u vervolgens terug wilt naar de kaart kunt u op de knop “Terug” drukken.</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>

@@ -61,6 +61,20 @@
     <string name="help_button_plan">Plan your ride</string>
     <string name="help_button_marketplace">Use the marketplace</string>
     <string name="help_button_contact">Contact</string>
+    <string name="help_map">If you would like to use the map, press the 
+        “Map” button in de main menu or the quick menu. 
+        A street map will appear with a small yellow icon 
+        that looks like a little man. This icon represents 
+        your current location.\n\n
+        
+		A number of green icons will also appear on the map. 
+		These icons show where the bus stops are found in the area. 
+		If the green icons don’t appear immediately, wait for a couple of seconds. 
+		They will appear eventually.\n\n
+ 
+		If you tap on one of the bus stops, you will be directed to another page. 
+		This page shows more details about the bus stop. 
+		If you would like to return to the map, just press the “Back” button.</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
