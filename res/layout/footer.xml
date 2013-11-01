@@ -173,7 +173,7 @@
         android:onClick="startIntentByButton"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:tag=""
+        android:tag="help.HelpActivity"
         android:text="@string/home_button_help" />
 
     </LinearLayout>
