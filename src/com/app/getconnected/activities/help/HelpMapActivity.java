@@ -1,13 +1,10 @@
 package com.app.getconnected.activities.help;
 
-import com.app.getconnected.R;
-import com.app.getconnected.R.layout;
-import com.app.getconnected.R.menu;
-import com.app.getconnected.activities.BaseActivity;
-
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
+
+import com.app.getconnected.R;
+import com.app.getconnected.activities.BaseActivity;
 
 public class HelpMapActivity extends BaseActivity {
 

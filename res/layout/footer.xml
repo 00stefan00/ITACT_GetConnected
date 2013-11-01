@@ -58,7 +58,7 @@
             android:drawablePadding="5dip"
             android:drawableRight="@drawable/arrow_up"           
             android:paddingRight="5dp"
-            android:text="@string/footer_button_menu"
+            android:text="@string/footer_button_menu_open"
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
 
@@ -100,7 +100,7 @@
             android:onClick="startIntentByButton"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:tag="TransportActivity"
+            android:tag="TransportActivity1"
             android:text="@string/home_button_transport" />
 
         <Button
@@ -154,7 +154,7 @@
         android:onClick="startIntentByButton"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:tag=""
+        android:tag="CustomerSupportActivity"
         android:text="@string/home_button_support" />
 
     <Button
@@ -173,7 +173,7 @@
         android:onClick="startIntentByButton"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:tag=""
+        android:tag="help.HelpActivity"
         android:text="@string/home_button_help" />
 
     </LinearLayout>

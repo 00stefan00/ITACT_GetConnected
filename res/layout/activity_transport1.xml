@@ -8,17 +8,8 @@
     android:paddingTop="0dp"
     tools:context=".TransportActivity1" >
 
-    <include
-        android:id="@+id/include1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/header" />
-
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        layout="@layout/footer" />
+  
+   
 
     <TextView
         android:id="@+id/TextView05"
@@ -65,5 +56,23 @@
         android:checked="true"
         android:text="@string/transport_text_possibilities_train"
         android:textSize="20sp" />
+    
+      <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+     <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/footer" />
 
 </RelativeLayout>
