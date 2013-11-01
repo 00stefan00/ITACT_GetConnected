@@ -23,6 +23,12 @@ public class Login extends Api {
 
 	public static final String LOGIN_SEED = "loginCredentials";
 
+	/**
+	 * Constructor
+	 * @param context
+	 * @param username
+	 * @param password
+	 */
 	public Login(Context context, String username, String password) {
 		this.context = context;
 		this.username = username;
@@ -30,6 +36,10 @@ public class Login extends Api {
 		fillMap();
 	}
 
+	/**
+	 * Saves the credentials to a file within the mobile environment
+	 * @throws Exception
+	 */
 	public void saveCredentials() throws Exception {
 		File file = new File(context.getFilesDir(), fileName);
 		new FileOutputStream(file, false).close();

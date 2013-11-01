@@ -8,16 +8,22 @@ import android.view.View;
 
 public class WalkDetailGenerator extends BaseDetailGenerator{
 
+	/**
+	 * Constructor
+	 * @param view
+	 * @param context
+	 * @param data
+	 * @throws JSONException
+	 */
 	public WalkDetailGenerator(View view, Context context, JSONObject data)
 			throws JSONException {
 		super(view, context, data);
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	public View getView() {
 		return this.view;
 	}
-	
-	
 	
 }

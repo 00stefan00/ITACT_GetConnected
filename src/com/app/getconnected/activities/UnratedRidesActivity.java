@@ -1,16 +1,15 @@
 package com.app.getconnected.activities;
 
+import android.os.Bundle;
+import android.widget.TableLayout;
+import android.widget.TableLayout.LayoutParams;
+import android.widget.TableRow;
+import android.widget.TextView;
+import com.app.getconnected.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
-import android.os.Bundle;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.TableLayout.LayoutParams;
-
-import com.app.getconnected.R;
 
 public class UnratedRidesActivity extends BaseActivity
 {
@@ -25,7 +24,10 @@ public class UnratedRidesActivity extends BaseActivity
 		tableinit();
 		addTableRow("1371546903022", "r", "template_user", "m");
 	}
-	
+
+	/**
+	 * Initializes the table
+	 */
 	private void tableinit() {
 		/* 	Incoming data example
 			{"list":[{"OpenRatingResponse":{"riderRouteId":14002,"custId":6151,
@@ -53,7 +55,14 @@ public class UnratedRidesActivity extends BaseActivity
         tl.addView(rowHeader, new TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         tl.setStretchAllColumns(true);		
 	}
-	
+
+	/**
+	 * Adds a table row
+	 * @param endTimev
+	 * @param rolev
+	 * @param namev
+	 * @param genderv
+	 */
 	private void addTableRow(String endTimev, String rolev, String namev, String genderv){
 		long endTimeLong = Long.valueOf(endTimev);
 		Date endTimeDate = new java.util.Date(endTimeLong);

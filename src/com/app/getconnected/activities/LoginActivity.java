@@ -30,18 +30,28 @@ public class LoginActivity extends BaseActivity {
 			startActivityForResult(intent, 1);
 		}
 	}
+
+	@Override
 	public void onPause()
 	{
 		super.onPause();
 		this.finish();
 	}
-	
+
+	/**
+	 * Starts the register intent
+	 * @param view
+	 */
 	public void register(View view)
 	{
 		Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
 		startActivityForResult(intent, 1);
 	}
-	
+
+	/**
+	 * Attempts to login with data collected from the view
+	 * @param view
+	 */
 	public void attemptLogin(View view)
 	{
 		Boolean validInput=true;
@@ -74,11 +84,18 @@ public class LoginActivity extends BaseActivity {
 		}
 	}
 
+	/**
+	 * Starts the marketplace intent
+	 */
 	private void startIntent() {
 		Intent intent = new Intent(LoginActivity.this, MarketplaceActivity.class);
 		startActivityForResult(intent, 1);
 	}
 
+	/**
+	 * Connects to the api with the given username and password.
+	 * @return
+	 */
 	private boolean attemptApiLogin()
 	{
 		String username=fieldUsername.getText().toString();

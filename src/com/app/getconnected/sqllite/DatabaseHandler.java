@@ -1,17 +1,17 @@
 package com.app.getconnected.sqllite;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
  
 public class DatabaseHandler extends SQLiteOpenHelper {
  
@@ -24,7 +24,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
     // Contacts table name
     private static final String TABLE_BUSSTOPS = "busstops";
- 
+
+	/**
+	 * Constructor
+	 * @param context
+	 */
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -79,7 +83,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Create tables again
         onCreate(db);
     }
-    
+
+	/**
+	 * Adds bus stops to the database
+	 */
     public void addBusstops() {
     	String fileName = Environment.getExternalStorageDirectory() + "/bushaltes_csv.csv";
     	FileReader file = null;
@@ -120,9 +127,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
     /**
      * All CRUD(Create, Read, Update, Delete) Operations
+	 * // Getting single contact
      */
- 
-    // Getting single contact
     public HashMap<String, String> getBusStop(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
  
@@ -138,7 +144,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return contact
         return busStops;
     }
-    
+
+	/**
+	 * Deletes all data within the table BUSSTOPS
+	 */
     public void deleteAll() {
     	SQLiteDatabase db = this.getWritableDatabase();
     	db.delete(TABLE_BUSSTOPS, null,

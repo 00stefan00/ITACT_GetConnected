@@ -1,8 +1,16 @@
 package com.app.getconnected.activities;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.Toast;
+import com.app.getconnected.R;
+import com.app.getconnected.config.Config;
+import com.app.getconnected.gps.GPSLocator;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.osmdroid.api.IGeoPoint;
@@ -18,18 +26,8 @@ import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.Toast;
-
-import com.app.getconnected.R;
-import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.config.Config;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Nico
@@ -80,6 +78,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		return true;
 	}
 
+	/**
+	 * Creates the map
+	 */
 	private void createMap() {
 		mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setTileSource(TileSourceFactory.MAPNIK);
@@ -92,12 +93,16 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		mapController.setCenter(point2);
 	}
 
+	/**
+	 * Adds an overlay to a location
+	 */
 	private void addLocationOverlay() {
 		myLocationoverlay = new MyLocationOverlay(this, mapView);
 		myLocationoverlay.disableCompass();
 		myLocationoverlay.disableFollowLocation();
 		myLocationoverlay.setDrawAccuracyEnabled(true);
 		myLocationoverlay.runOnFirstFix(new Runnable() {
+			@Override
 			public void run() {
 				mapController.animateTo(myLocationoverlay.getMyLocation());
 			}
@@ -107,6 +112,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		mapView.getOverlays().add(myLocationoverlay);
 	}
 
+	/**
+	 * Loads the bus stops
+	 */
 	private void loadBusStops() {
 		if (rR != null)
 			rR.abort();
@@ -125,6 +133,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		rR.execute();
 	}
 
+	/**
+	 * TODO description
+	 */
 	public class MyOwnItemizedOverlay extends ItemizedIconOverlay<OverlayItem> {
 		protected Context mContext;
 

@@ -1,8 +1,5 @@
 package com.app.getconnected.activities;
 
-import java.util.HashMap;
-import java.util.Locale;
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,8 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-
 import com.app.getconnected.R;
+
+import java.util.HashMap;
+import java.util.Locale;
 
 public class SettingsActivity extends BaseActivity {
 
@@ -48,6 +47,9 @@ public class SettingsActivity extends BaseActivity {
 		initLanguagePicker();
 	}
 
+	/**
+	 * Initializes the language picker
+	 */
 	private void initLanguagePicker() {
 		languageOptions = (RadioGroup) findViewById(R.id.languagePicker);
 		for(int i = 0; i < languages.length; i++) {
@@ -60,6 +62,10 @@ public class SettingsActivity extends BaseActivity {
 		
 	}
 
+	/**
+	 * Applies the given settings
+	 * @param view
+	 */
 	public void applySettings(View view){
 		Configuration config = new Configuration();
 		Spinner s = (Spinner) findViewById(R.id.font_scale);
@@ -79,19 +85,34 @@ public class SettingsActivity extends BaseActivity {
 		updateContent(config);
 	}
 
+	/**
+	 * Changes the language
+	 * @param config
+	 * @param language
+	 */
 	public void changeLanguage(Configuration config, String language) {
 	    String languageToLoad = language;
 	    Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
 	    config.locale = locale;
 	}
-	
+
+	/**
+	 * Changes the font size
+	 * @param config
+	 * @param choice
+	 * @param scale
+	 */
 	public void changeScale(Configuration config, int choice, double scale) {
 	    Log.d("Default font scale", ""+config.fontScale);
 	    config.fontScale = (float) scale;
 	    currentScaleChoice = choice;
 	}
-	
+
+	/**
+	 * Updates the content
+	 * @param config
+	 */
 	public void updateContent(Configuration config){
 	    getBaseContext().getResources().updateConfiguration(config, 
 	    getBaseContext().getResources().getDisplayMetrics());
@@ -108,6 +129,9 @@ public class SettingsActivity extends BaseActivity {
 	    initLanguagePicker();
 	}
 
+	/**
+	 * Updates the spinner
+	 */
 	public void updateSpinner(){
 	    for (int i=0; i<fontScaleOptions.length; i++){
 	    	fontSpinnerArray[i] = getResources().getString(fontScaleOptions[i]);

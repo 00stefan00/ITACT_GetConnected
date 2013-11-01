@@ -1,17 +1,5 @@
 package com.app.getconnected.activities;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
-import com.app.getconnected.R;
-import com.app.getconnected.config.Config;
-import com.app.getconnected.network.GeoLocation;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -23,13 +11,18 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
-import android.widget.CheckBox;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TimePicker;
-import android.widget.Toast;
+import android.widget.*;
+import com.app.getconnected.R;
+import com.app.getconnected.config.Config;
+import com.app.getconnected.network.GeoLocation;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 @SuppressLint("SimpleDateFormat")
 public class TransportActivity extends BaseActivity implements
@@ -150,6 +143,13 @@ public class TransportActivity extends BaseActivity implements
 
 	}
 
+	/**
+	 * Gets the transport mode
+	 * @param bus
+	 * @param train
+	 * @param taxiOther
+	 * @return
+	 */
 	private String getTransportMode(boolean bus, boolean train,
 			boolean taxiOther) {
 		String mode;
@@ -163,6 +163,12 @@ public class TransportActivity extends BaseActivity implements
 		return mode;
 	}
 
+	/**
+	 * Validates the given location
+	 * @param address
+	 * @param location
+	 * @return
+	 */
 	public boolean validateLocation(String address, GeoLocation location) {
 		if (address.equals("")) {
 			Toast.makeText(
@@ -182,6 +188,9 @@ public class TransportActivity extends BaseActivity implements
 		return true;
 	}
 
+	/**
+	 * Sets the time picker
+	 */
 	private void setTimePicker() {
 		final TimePickerDialog.OnTimeSetListener timePicker = new TimePickerDialog.OnTimeSetListener() {
 			@Override
@@ -216,6 +225,9 @@ public class TransportActivity extends BaseActivity implements
 
 	}
 
+	/**
+	 * Sets the date picker
+	 */
 	private void setDatePicker() {
 		final DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
 
@@ -315,6 +327,10 @@ public class TransportActivity extends BaseActivity implements
 		openLocationSelector(v);
 	}
 
+	/**
+	 * Opens the location selector
+	 * @param v
+	 */
 	private void openLocationSelector(View v) {
 		String type;
 

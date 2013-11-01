@@ -18,6 +18,14 @@ public abstract class Api {
 
 	protected static final String API_URL = RESTRequest.API_URL;
 
+	/**
+	 * Attempts an api request
+	 * @param url
+	 * @param method
+	 * @param key
+	 * @return
+	 * @throws Exception
+	 */
 	public String attemptApiRequest(String url, RESTRequest.Method method, String key) throws Exception {
 		if(map.isEmpty()) throw new Exception("The map is empty");
 		RESTRequest restRequest = new RESTRequest(API_URL + url);
@@ -32,17 +40,32 @@ public abstract class Api {
 		return "body";
 	}
 
+	/**
+	 * Adds a value to the hashmap
+	 * @param key
+	 * @param value
+	 */
 	protected void addToMap(String key, String value) {
 		map.put(key, value);
 	}
 
+	/**
+	 * Empties the hashmap
+	 */
 	protected void emptyMap() {
 		map.clear();
 	}
 
+	/**
+	 * Gets the hashmap
+	 * @return
+	 */
 	public HashMap<String, String> getMap() {
 		return map;
 	}
 
+	/**
+	 * Fills the hashmap
+	 */
 	public abstract void fillMap();
 }

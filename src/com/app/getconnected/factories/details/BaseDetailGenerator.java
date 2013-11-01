@@ -1,13 +1,14 @@
 package com.app.getconnected.factories.details;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import org.json.JSONException;
-import org.json.JSONObject;
-import com.app.getconnected.R;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+import com.app.getconnected.R;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public abstract class BaseDetailGenerator {
 
@@ -54,6 +55,10 @@ public abstract class BaseDetailGenerator {
 		this.setTextViews();
 	}
 
+	/**
+	 * Gets the view
+	 * @return
+	 */
 	abstract public View getView();
 
 	/**

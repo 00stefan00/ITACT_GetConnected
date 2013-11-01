@@ -1,10 +1,5 @@
 package com.app.getconnected.activities;
 
-import java.sql.Timestamp;
-import java.util.HashMap;
-
-import com.app.getconnected.R;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +10,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import com.app.getconnected.R;
+
+import java.sql.Timestamp;
+import java.util.HashMap;
 
 public class CustomerSupportActivity extends BaseActivity {
 	
@@ -64,7 +63,10 @@ public class CustomerSupportActivity extends BaseActivity {
 		getMenuInflater().inflate(R.menu.customer_support, menu);
 		return true;
 	}
-	
+
+	/**
+	 * Get the buttons and input fields
+	 */
 	public void getFields(){
 		fieldFullname = (EditText) findViewById(R.id.fullnameText);
 		emailAdres = (EditText) findViewById(R.id.emailText);
@@ -77,7 +79,11 @@ public class CustomerSupportActivity extends BaseActivity {
 		int radioId = group.indexOfChild(radioButton);
 		choiceButton = (RadioButton) group.getChildAt(radioId);
 	}
-	
+
+	/**
+	 * Checks whether the data is valid or not
+	 * @return
+	 */
 	public boolean dataIsValid(){
 		if(fieldFullname.getText().toString().equals("")){
 			Toast.makeText(CustomerSupportActivity.this, R.string.name_error, Toast.LENGTH_SHORT).show();
@@ -97,7 +103,12 @@ public class CustomerSupportActivity extends BaseActivity {
 		}
 		return true;
 	}
-	
+
+	/**
+	 * Sends an email
+	 * @param view
+	 * @return
+	 */
 	public boolean sendMailToTransportCompany(View view){
 		getFields();
 		

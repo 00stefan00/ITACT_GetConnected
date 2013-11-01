@@ -9,6 +9,13 @@ import android.util.Base64;
  * Time: 	1:37 PM
  */
 public class Cryptor {
+
+	/**
+	 * Encodes the cleartext
+	 * @param cleartext
+	 * @return
+	 * @throws Exception
+	 */
 	public static String encrypt(String cleartext) throws Exception {
 		byte[] data = null;
 		try {
@@ -19,6 +26,12 @@ public class Cryptor {
 		return Base64.encodeToString(data, Base64.DEFAULT);
 	}
 
+	/**
+	 * Decodes the encrypted text
+	 * @param encrypted
+	 * @return
+	 * @throws Exception
+	 */
 	public static String decrypt(String encrypted) throws Exception {
 		byte[] data = Base64.decode(encrypted, Base64.DEFAULT);
 		String text = null;

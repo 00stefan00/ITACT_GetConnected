@@ -12,9 +12,14 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 	private static int ANIMATION_DURATION;
 	private int LastHeight;
 	private int ToHeight;
-	
-	
-	
+
+	/**
+	 * Constructor
+	 * @param v
+	 * @param FromHeight
+	 * @param ToHeight
+	 * @param Duration
+	 */
 	public ExpandAnimation(View v, int FromHeight, int ToHeight, int Duration) {
 		
 		this.view = v;

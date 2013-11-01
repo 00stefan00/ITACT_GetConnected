@@ -1,19 +1,22 @@
 package com.app.getconnected.network;
 
-import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
-
+import com.app.getconnected.rest.RESTRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.app.getconnected.rest.RESTRequest;
+import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 public class GeoLocation {
 
 	private HashMap<String, Double> location = new HashMap<String, Double>();
-	private String url; 
-	
+	private String url;
+
+	/**
+	 * Constructor
+	 * @param address
+	 */
 	public GeoLocation(String address) {
 		this.url = "https://maps.googleapis.com/maps/api/geocode/json";
 				
@@ -33,7 +36,12 @@ public class GeoLocation {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Sets the location from the JSONObject
+	 * @param json
+	 * @throws JSONException
+	 */
 	private void setLocation(JSONObject json) throws JSONException {
 		JSONArray results = json.getJSONArray("results");
 		JSONObject resultsObject = results.getJSONObject(0);
@@ -43,15 +51,27 @@ public class GeoLocation {
 		this.location.put("lat", location.getDouble("lat"));
 		this.location.put("lng", location.getDouble("lng"));
 	}
-	
+
+	/**
+	 * Checks whether the location is valid
+	 * @return
+	 */
 	public boolean isValidLocation() {
 		return location.get("lat") != null && location.get("lng") != null;
 	}
-	
+
+	/**
+	 * Gets the latitude
+	 * @return
+	 */
 	public double getLatitude() {
 		return location.get("lat");
 	}
-	
+
+	/**
+	 * Gets the longitude
+	 * @return
+	 */
 	public double getLongitude() {
 		return location.get("lng");
 	}	

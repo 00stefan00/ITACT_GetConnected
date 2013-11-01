@@ -46,7 +46,14 @@ public abstract class BaseActivity extends Activity {
 		
 	}
 
-	
+	/**
+	 * Creates the menu
+	 * @param resId
+	 * @param homeButton
+	 * @param backButton
+	 * @param menuButton
+	 * @param okButton
+	 */
 	protected void initLayout(int resId, boolean homeButton,
 			boolean backButton, boolean menuButton, boolean okButton) {
 
@@ -101,10 +108,16 @@ public abstract class BaseActivity extends Activity {
 		this.buttonOk.setVisibility(okButton ? View.VISIBLE : View.INVISIBLE);
 	}
 
+	/**
+	 * Simulates the go back method on a phone
+	 */
 	protected void goBack() {
 		super.onBackPressed();
 	}
-	
+
+	/**
+	 * TODO description
+	 */
 	private void handleMenu() {
 		DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -127,7 +140,7 @@ public abstract class BaseActivity extends Activity {
 
 
 	/**
-	 *
+	 * Starts an intent depending on the tag which holds the button
 	 * @param view
 	 */
 	public void startIntentByButton(View view) {
@@ -177,6 +190,10 @@ public abstract class BaseActivity extends Activity {
 	    return true;
 	}
 
+	/**
+	 * If user is logged in, gives the username.
+	 * @return
+	 */
 	public String getUsername() {
 		File file = new File(getFilesDir(), Login.fileName);
 		String username = "";
