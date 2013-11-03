@@ -16,6 +16,10 @@ public class GPSLocator implements LocationListener {
 	private double longitude = 0;
 	private Context context;
 
+	/**
+	 * Constructor
+	 * @param context
+	 */
 	public GPSLocator(Context context) {
 		this.context = context;
 		
@@ -35,7 +39,10 @@ public class GPSLocator implements LocationListener {
 	    }
 	    
 	}
-	
+
+	/**
+	 * Enables the GPS
+	 */
 	public void enableGPS() {
 		String provider = Settings.Secure.getString(context.getContentResolver(), 
 	    Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
@@ -50,12 +57,20 @@ public class GPSLocator implements LocationListener {
 	    intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
 	    intent.setData(Uri.parse("3"));
 	    context.sendBroadcast(intent);
-}
-	
+	}
+
+	/**
+	 * Gets the latitude
+	 * @return
+	 */
 	public double getLatitude() {
 		return latitude;
 	}
-	
+
+	/**
+	 * Gets the longitude
+	 * @return
+	 */
 	public double getLongitude() {
 		return longitude;
 	}

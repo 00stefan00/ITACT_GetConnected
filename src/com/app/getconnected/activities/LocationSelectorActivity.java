@@ -64,6 +64,11 @@ public class LocationSelectorActivity extends BaseActivity implements
 		});		
 	}
 
+	/**
+	 * Selects the given location
+	 * @param v
+	 * @param location
+	 */
 	protected void selectLocation(View v, String location) {
 		Intent resultIntent = new Intent();
 		resultIntent.putExtra("location", location);

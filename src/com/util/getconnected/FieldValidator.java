@@ -21,6 +21,11 @@ public class FieldValidator {
 	private static final String EMAIL = "email";
 	private static final int MIN_CHARACTER_COUNT = 6;
 
+	/**
+	 * Validates a text field
+	 * @param editText
+	 * @throws FieldValidationException
+	 */
 	public static void validateTextField(EditText editText) throws FieldValidationException
 	{
 		String tag=(String) editText.getTag();

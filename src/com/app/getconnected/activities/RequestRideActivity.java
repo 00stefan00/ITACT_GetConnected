@@ -5,7 +5,6 @@ import com.app.getconnected.R;
 import android.os.Bundle;
 
 public class RequestRideActivity extends BaseActivity {
-
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -1,16 +1,12 @@
 package com.app.getconnected.activities;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import com.app.getconnected.R;
-import com.app.getconnected.animations.CollapseAnimation;
-import com.app.getconnected.animations.ExpandAnimation;
-
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +14,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.app.getconnected.R;
+import com.app.getconnected.animations.CollapseAnimation;
+import com.app.getconnected.animations.ExpandAnimation;
+import com.app.getconnected.security.Cryptor;
+import com.app.getconnected.security.Login;
+
+import java.io.*;
 
 public abstract class BaseActivity extends Activity {
 
@@ -43,7 +46,14 @@ public abstract class BaseActivity extends Activity {
 		
 	}
 
-	
+	/**
+	 * Creates the menu
+	 * @param resId
+	 * @param homeButton
+	 * @param backButton
+	 * @param menuButton
+	 * @param okButton
+	 */
 	protected void initLayout(int resId, boolean homeButton,
 			boolean backButton, boolean menuButton, boolean okButton) {
 
@@ -98,10 +108,16 @@ public abstract class BaseActivity extends Activity {
 		this.buttonOk.setVisibility(okButton ? View.VISIBLE : View.INVISIBLE);
 	}
 
+	/**
+	 * Simulates the go back method on a phone
+	 */
 	protected void goBack() {
 		super.onBackPressed();
 	}
-	
+
+	/**
+	 * TODO description
+	 */
 	private void handleMenu() {
 		DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -124,7 +140,7 @@ public abstract class BaseActivity extends Activity {
 
 
 	/**
-	 *
+	 * Starts an intent depending on the tag which holds the button
 	 * @param view
 	 */
 	public void startIntentByButton(View view) {
@@ -172,5 +188,32 @@ public abstract class BaseActivity extends Activity {
 	    }
 
 	    return true;
+	}
+
+	/**
+	 * If user is logged in, gives the username.
+	 * @return
+	 */
+	public String getUsername() {
+		File file = new File(getFilesDir(), Login.fileName);
+		String username = "";
+		if(file.exists()) {
+			try {
+				InputStream inputStream = new FileInputStream(file);
+				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+				String receiveString;
+				StringBuilder stringBuilder = new StringBuilder();
+				while ((receiveString = bufferedReader.readLine()) != null) {
+					stringBuilder.append(receiveString);
+				}
+				String decoded = Cryptor.decrypt(stringBuilder.toString());
+				username = decoded.split(";")[0];
+				bufferedReader.close();
+				inputStream.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return username;
 	}
 }

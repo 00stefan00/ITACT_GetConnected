@@ -1,33 +1,58 @@
 package com.util.getconnected;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
- * Created with IntelliJ IDEA. User: johan_000 Date: 10/15/13 Time: 2:08 PM To
- * change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA.
+ * User: johan
+ * Date: 10/15/13
+ * Time: 2:08 PM
  */
 public class JSONParser {
 
 	private static JSONParser instance;
 
+	/**
+	 * Private constructor
+	 */
 	private JSONParser() {
 	}
 
+	/**
+	 * Gets a JSONObject from the keyword
+	 * @param jsonObject
+	 * @param keyword
+	 * @return
+	 * @throws JSONException
+	 */
 	public JSONObject getObjectFromJSON(JSONObject jsonObject, String keyword)
 			throws JSONException {
 		return jsonObject.getJSONObject(keyword);
 	}
 
+	/**
+	 * Converts string to JSON
+	 * @param json
+	 * @return
+	 * @throws JSONException
+	 */
 	public JSONObject getObjectFromRequest(String json) throws JSONException {
 		return new JSONObject(json);
 	}
 
+	/**
+	 * Creates an arraylist of JSONObjects
+	 * @param json
+	 * @param keyword
+	 * @return
+	 * @throws JSONException
+	 */
 	public ArrayList<JSONObject> getArrayFromRequest(String json, String keyword)
 			throws JSONException {
 		JSONObject jsonObject = this.getObjectFromRequest(json);
@@ -35,13 +60,13 @@ public class JSONParser {
 	}
 
 	/**
-	 * 
+	 * Parses a list to JSON
 	 * @param list
 	 * @param identifier
 	 * @return {"identifier" : ["value", "value2"]}
 	 * @throws JSONException
 	 */
-	public JSONObject parseList(List list, String identifier)
+	public JSONObject parseList(List<?> list, String identifier)
 			throws JSONException {
 		String json = "{\"" + identifier + "\": [";
 		for (int i = 0; i < list.size(); i++) {
@@ -52,7 +77,7 @@ public class JSONParser {
 	}
 
 	/**
-	 * 
+	 * Parses a map as JSON array
 	 * @param map
 	 * @param identifier
 	 * @return {"identifier" : [{"key" : "value"},{"key1" : "value1"}]}
@@ -72,7 +97,7 @@ public class JSONParser {
 	}
 
 	/**
-	 * 
+	 * Parses a map as JSON object
 	 * @param map
 	 * @return String, example: {key : value, key1 : value1}
 	 * @throws JSONException
@@ -89,6 +114,12 @@ public class JSONParser {
 		return this.getObjectFromRequest(json + "}");
 	}
 
+	/**
+	 * Converts JSONArray to an arraylist of JSONObjects
+	 * @param array
+	 * @return
+	 * @throws JSONException
+	 */
 	private ArrayList<JSONObject> JSONArrayToArrayList(JSONArray array)
 			throws JSONException {
 		ArrayList<JSONObject> list = new ArrayList<JSONObject>();
@@ -99,6 +130,7 @@ public class JSONParser {
 	}
 
 	/**
+	 * Gets the instance of the JSONParser
 	 * @return JSONParser
 	 */
 	public static JSONParser getInstance() {

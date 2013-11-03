@@ -1,7 +1,5 @@
 package com.app.getconnected.activities;
 
-import java.util.concurrent.TimeUnit;
-
 import com.app.getconnected.R;
 
 import android.app.DialogFragment;
@@ -27,6 +25,9 @@ public class RequestedRidesActivity extends BaseActivity {
 		addTableRow("08:30", "12:00", "Groningen", "Berlijn");
 	}
 
+	/**
+	 * Initializes the table
+	 */
 	private void tableinit() {
 		tl = (TableLayout) findViewById(R.id.tableLayoutRequestedRides);
 		
@@ -50,7 +51,14 @@ public class RequestedRidesActivity extends BaseActivity {
         addTableRow("", "", "", "");
         tl.setStretchAllColumns(true);		
 	}
-	
+
+	/**
+	 * Adds a table row to a given table
+	 * @param departurev
+	 * @param arrivalv
+	 * @param fromv
+	 * @param destinationv
+	 */
 	private void addTableRow(String departurev, String arrivalv, String fromv, String destinationv){
 		TextView departure_time = new TextView(this);
 		departure_time.setText(departurev);
@@ -72,8 +80,11 @@ public class RequestedRidesActivity extends BaseActivity {
 		
         tl.setStretchAllColumns(true);		
 	}
-	
 
+	/**
+	 * Shows the date picker
+	 * @param v
+	 */
 	public void showDatePickerDialog(View v) {
 		DialogFragment newFragment = new DatePickerFragment();
 		newFragment.show(getFragmentManager(), "datePicker");
@@ -90,8 +101,4 @@ public class RequestedRidesActivity extends BaseActivity {
 		tl.invalidate();
 	    tl.refreshDrawableState();	
 	}
-	
-	
-	    
-
 }

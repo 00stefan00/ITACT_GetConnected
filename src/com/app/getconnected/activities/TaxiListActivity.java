@@ -1,12 +1,9 @@
 package com.app.getconnected.activities;
 
 import com.app.getconnected.R;
-import com.app.getconnected.R.layout;
-import com.app.getconnected.R.menu;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -26,7 +23,11 @@ public class TaxiListActivity extends BaseActivity {
 		getMenuInflater().inflate(R.menu.taxi_list, menu);
 		return true;
 	}
-	
+
+	/**
+	 * Calls an intent
+	 * @param view
+	 */
 	public void call(View view){
 		 Intent intent = new Intent(Intent.ACTION_DIAL);
 		 intent.setData(Uri.parse("tel:"+(String)view.getTag()));

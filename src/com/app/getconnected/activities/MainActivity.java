@@ -25,9 +25,11 @@ public class MainActivity extends BaseActivity {
 		return true;
 	}
 
+	@Override
 	protected void onResume(){
 	//	Need to write a fancy check here (if language changed)
 		super.onResume();
 		this.setContentView(R.layout.activity_main);
+		initLayout(R.string.title_activity_main, false, false, false, false);
 	}
 }
