@@ -92,6 +92,9 @@
     <string name="field_validation_too_long">The number of characters are too many</string>
     <string name="field_validation_number">The field can not contain letters</string>
     <string name="field_validation_string">The field can not contain numbers</string>
+    <string name="field_validation_not_numeric">The field can only contain numbers</string>
+    <string name="field_validation_not_alphanumeric">The field can only contain letters and numbers</string>
+    <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
 
     <!-- Transportation Result Activity -->
     <string name="transportation_result_departure_header">Departure</string>
@@ -126,11 +129,19 @@
 
     <!-- Unrated Rides Activity -->
     <string name="title_activity_unrated_rides">Unrated rides</string>
-    <string name="marketplace_unrated_ride_person_name">Nickname</string>
-    <string name="marketplace_unrated_ride_person_gender">Gender</string>
-    <string name="marketplace_unrated_ride_person_role">Role</string>
-    <string name="marketplace_unrated_ride_time_realized">End time</string>
-    <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
+    <string name="unrated_ride_person_name">Nickname</string>
+    <string name="unrated_ride_person_gender">Gender</string>
+    <string name="unrated_ride_person_role">Role</string>
+    <string name="unrated_ride_time_realized">End time</string>
+    <string name="unrated_ride_button_rate">Rate</string>
+    
+    <!--  Rate Ride Activity -->
+    <string name="title_activity_rate_ride">Rate ride</string>
+    <string name="rate_ride_rating">Rating</string>
+    <string name="rate_ride_good">Good</string>
+    <string name="rate_ride_bad">Bad</string>
+    <string name="rate_ride_button_ok">OK</string>
+    <string name="rate_ride_button_cancel">Cancel</string>
     
     <!-- Map Activity -->
     <string name="title_activity_map">MapActivity</string>
@@ -189,10 +200,5 @@
     <string name="email_error">Please enter your email</string>
     <string name="complaint_error">Please enter your complaint or question</string>
     <string name="transport_error">Please select a transport company</string>
-
-    <!-- Fieldvalidator.java -->
-    <string name="field_validation_not_numeric">The field can only contain numbers</string>
-    <string name="field_validation_not_alphanumeric">The field can only contain letters and numbers</string>
-    <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
 
 </resources>

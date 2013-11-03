@@ -5,7 +5,7 @@
     <string name="app_name">GetConnected</string>
 
     <!-- General -->
-    <string name="loading">Laden...</string>
+    <string name="loading">Laden…</string>
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
 
@@ -92,6 +92,9 @@
     <string name="field_validation_number">Het veld mag geen letters bevatten</string>
     <string name="field_validation_string">Het veld mag geen getallen bevatten</string>
     <string name="field_validation_unknown_location">Onbekende locatie(s)</string>
+    <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
+    <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
+    <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
 
     <!-- Transportation Result Activity -->
     <string name="transportation_result_departure_header">Vertrek</string>
@@ -124,14 +127,6 @@
     <!-- Location Activity -->
     <string name="title_activity_location_selector">Kies locatie</string>
     
-    <!-- Unrated Rides Activity -->
-    <string name="title_activity_unrated_rides">Unrated rides</string>
-    <string name="marketplace_unrated_ride_person_name">Bijnaam</string>
-    <string name="marketplace_unrated_ride_person_gender">Geslacht</string>
-    <string name="marketplace_unrated_ride_person_role">Rol</string>
-    <string name="marketplace_unrated_ride_time_realized">Eindtijd</string>
-    <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
-
     <!-- Map Activity -->
     <string name="title_activity_map">MapActivity</string>
 
@@ -145,7 +140,7 @@
     <string name="display_requests">Display requested rides</string>
     <string name="display_unrated_rides">Bekijk \'unrated\' ritten</string>
 
-        <!-- Create / Offered Ride Activity -->
+    <!-- Create / Offered Ride Activity -->
     <string name="title_activity_createride">Maak rit aan</string>
     <string name="title_activity_requestride">Vraag rit aan</string>
     <string name="location_from">Van</string>
@@ -178,6 +173,22 @@
     <string name="field_gender_female">Vrouw</string>
     <string name="login">Log in</string>
     <string name="registration_failed">Het registreren is mislukt</string>
+    
+    <!-- Unrated Rides Activity -->
+    <string name="title_activity_unrated_rides">Unrated rides</string>
+    <string name="unrated_ride_person_name">Bijnaam</string>
+    <string name="unrated_ride_person_gender">Geslacht</string>
+    <string name="unrated_ride_person_role">Rol</string>
+    <string name="unrated_ride_time_realized">Eindtijd</string>
+    <string name="unrated_ride_button_rate">\'Rate\'</string>
+    
+    <!--  Rate Ride Activity -->
+    <string name="title_activity_rate_ride">Waardeer rit</string>
+    <string name="rate_ride_rating">Waardering</string>
+    <string name="rate_ride_good">Goed</string>
+    <string name="rate_ride_bad">Slecht</string>
+    <string name="rate_ride_button_ok">OK</string>
+    <string name="rate_ride_button_cancel">Annuleren</string>
 
     <!-- Customer Support Activity -->
     <string name="title_activity_customer_support">Klantenservice</string>
@@ -189,10 +200,5 @@
     <string name="email_error">Voer uw e-mail in</string>
     <string name="complaint_error">Voer uw vraag of klacht in</string>
     <string name="transport_error">Selecteer een vervoerder</string>
-
-    <!-- Fieldvalidator.java -->
-    <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
-    <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
-    <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
 
 </resources>

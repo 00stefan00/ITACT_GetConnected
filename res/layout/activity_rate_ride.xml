@@ -8,38 +8,43 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".RateRideActivity" >
 
-    <RadioGroup
-        android:id="@+id/radioGroup1"
+    <TextView
+        android:id="@+id/ride_rating_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:text="@string/rate_ride_rating" />
+    
+    <RadioGroup
+        android:id="@+id/ride_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ride_rating_label" >
 
         <RadioButton
-            android:id="@+id/radio0"
+            android:id="@+id/good"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="+1" />
+            android:text="@string/rate_ride_good"
+            android:tag="1" />
 
         <RadioButton
-            android:id="@+id/radio1"
+            android:id="@+id/bad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-1" />
+            android:text="@string/rate_ride_bad" 
+            android:tag="-1" />
     </RadioGroup>
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/ride_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/radioGroup1"
-        android:layout_below="@+id/radioGroup1"
+        android:layout_alignLeft="@+id/ride_rating"
+        android:layout_below="@+id/ride_rating"
         android:layout_marginTop="18dp"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Worst person ever!">
-
+        android:inputType="textMultiLine">
         <requestFocus />
     </EditText>
 
@@ -47,10 +52,11 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignLeft="@+id/ride_comment"
+        android:layout_below="@+id/ride_comment"
         android:layout_marginTop="31dp"
-        android:text="OK" />
+        android:text="@string/rate_ride_button_ok"
+        android:onClick="sendRating" />
 
     <Button
         android:id="@+id/button2"
@@ -58,7 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
-        android:layout_alignRight="@+id/editText1"
-        android:text="CANCEL" />
+        android:layout_alignRight="@+id/ride_comment"
+        android:text="@string/rate_ride_button_cancel"
+        android:onClick="cancelRating" />
 
 </RelativeLayout>
