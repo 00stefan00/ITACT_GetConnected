@@ -1,5 +1,6 @@
 package com.app.getconnected.rides;
 
+import com.app.getconnected.config.Config;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
 

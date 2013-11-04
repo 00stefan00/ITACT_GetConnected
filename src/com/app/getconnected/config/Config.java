@@ -6,9 +6,9 @@ public class Config
 	
 	public static String tripPlannerAddress = "http://145.37.86.94:8081/opentripplanner-api-webapp/ws/plan";
 
-	public static final String OPEN_RIDE_API = "";
+	public static final String OPEN_RIDE_API = "http://127.0.0.1:8081/OpenRideServer-RS/resources/";
 
-	public static final String LOGIN_INTERNAL_FILE_NAME = "";
+	public static final String LOGIN_INTERNAL_FILE_NAME = "loginCredentials.csf";
 	
 	public static final boolean DEBUG = true;
 }

@@ -1,5 +1,6 @@
 package com.app.getconnected.security;
 
+import com.app.getconnected.config.Config;
 import com.app.getconnected.rest.RESTRequest;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
@@ -16,7 +17,7 @@ public abstract class Api {
 
 	private HashMap<String, String> map = new HashMap<String, String>();
 
-	protected static final String API_URL = RESTRequest.API_URL;
+	protected static final String API_URL = Config.OPEN_RIDE_API;
 
 	/**
 	 * Attempts an api request
