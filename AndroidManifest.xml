@@ -142,8 +142,12 @@
         </activity>
         <activity
             android:name="com.app.getconnected.activities.CustomerSupportActivity"
-            android:label="@string/title_activity_customer_support" 
+            android:label="@string/title_activity_customer_support"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.app.getconnected.activities.RateRideActivity"
+            android:label="@string/title_activity_rate_ride" >
         </activity>
     </application>
 

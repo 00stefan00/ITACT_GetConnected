@@ -1,8 +1,15 @@
 package com.app.getconnected.activities;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.app.getconnected.R;
+import com.app.getconnected.config.Config;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -13,17 +20,8 @@ import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
 import org.osmdroid.views.overlay.OverlayItem;
 
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.app.getconnected.R;
-import com.app.getconnected.config.Config;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BusStopDetailsActivity extends BaseActivity implements
 		RESTRequestListener {
@@ -80,6 +78,9 @@ public class BusStopDetailsActivity extends BaseActivity implements
 
 	}
 
+	/**
+	 * Sets the information of the bus stops
+	 */
 	private void setInformation() {
 		numberView.setText(number + "");
 		nameView.setText(name);
@@ -95,6 +96,10 @@ public class BusStopDetailsActivity extends BaseActivity implements
 				R.string.confirm) : getResources().getString(R.string.deny));
 	}
 
+	/**
+	 * Gets the details of a bus stop
+	 * @param id
+	 */
 	private void getBusStopDetails(int id) {
 		String url = Config.busStopAddress + id;
 		RESTRequest request = new RESTRequest(url);
@@ -102,6 +107,10 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		request.execute();
 	}
 
+	/**
+	 * Sets the bus stop details
+	 * @param result
+	 */
 	private void setBusStopDetails(String result) {
 		try {
 			JSONObject json = new JSONObject(result).getJSONObject("busstop");
@@ -129,6 +138,9 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		}
 	}
 
+	/**
+	 * Adds an item
+	 */
 	private void addItem() {
 		OverlayItem olItem = new OverlayItem("Haltenaam", "Adres",
 				new GeoPoint(latitude, longitude));
@@ -153,6 +165,9 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		mapView.getOverlays().add(iio);
 	}
 
+	/**
+	 * Creates the map
+	 */
 	private void createMap() {
 		mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setTileSource(TileSourceFactory.MAPNIK);

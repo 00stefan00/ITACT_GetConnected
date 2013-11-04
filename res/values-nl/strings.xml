@@ -5,7 +5,7 @@
     <string name="app_name">GetConnected</string>
 
     <!-- General -->
-    <string name="loading">Laden...</string>
+    <string name="loading">Laden…</string>
     <string name="confirm">Ja</string>
     <string name="deny">Nee</string>
     <string name="current_location">Huidige locatie</string>
@@ -19,12 +19,13 @@
     <string name="title_activity_settings">Instellingen</string>
     <string name="change_language">Wijzig taal</string>
     <string name="font_scaling">Kies een font schaal</string>
-    <string name="apply">Toepassen</string>
-    
+    <string name="small">Klein</string>
+    <string name="medium">Gemiddeld</string>
+    <string name="big">Groot</string>
 
     <!-- Main Menu -->
-    <string name="action_settings">Settings</string>
     <string name="main_text">Navigeer hieronder naar één van de pagina\'s door erop te drukken.</string>
+    <string name="action_settings">Settings</string>
     <string name="title_activity_main">Home</string>
     <string name="home_button_transport">Vervoer</string>
     <string name="home_button_map">Kaart</string>
@@ -89,6 +90,17 @@
     <string name="busstop_text_bicycle_parking">Fiets parkeerplaats:</string>
     <string name="busstop_text_facilities">Faciliteiten:</string>
 
+    <!-- Field Validation error messages -->
+    <string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
+    <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
+    <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
+    <string name="field_validation_number">Het veld mag geen letters bevatten</string>
+    <string name="field_validation_string">Het veld mag geen getallen bevatten</string>
+    <string name="field_validation_unknown_location">Onbekende locatie(s)</string>
+    <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
+    <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
+    <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
+
     <!-- Transportation Result Activity -->
     <string name="transportation_result_departure_header">Vertrek</string>
     <string name="transportation_result_duration_header">Duur</string>
@@ -98,6 +110,7 @@
     <string name="transportation_result_next">Volgende</string>
 
     <!-- Transportation Details Activity -->
+    <string name="title_activity_transport_details">TransportDetailsActivity</string>
     <string name="transport_details_pref">Vorige</string>
     <string name="transport_details_next">Volgende</string>
     <string name="transport_details_walk_title">Walk</string>
@@ -114,9 +127,54 @@
     <string name="region_taxi_southwest_drenthe">Regio zuid-west Drenthe</string>
     <string name="region_taxi_call">Bell</string>
 
-    <!-- Get connected 2 -->
-    <!-- Doe eens mooi maken, dan mogen jullie weer naar boven. -->
+    <!-- Footer -->
+    <color name="blue">#25383C</color>
+
+    <!-- Location Activity -->
+    <string name="title_activity_location_selector">Kies locatie</string>
+    
+    <!-- Unrated Rides Activity -->
+    <string name="title_activity_unrated_rides">Unrated rides</string>
+    <string name="marketplace_unrated_ride_person_name">Bijnaam</string>
+    <string name="marketplace_unrated_ride_person_gender">Geslacht</string>
+    <string name="marketplace_unrated_ride_person_role">Rol</string>
+    <string name="marketplace_unrated_ride_time_realized">Eindtijd</string>
+    <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
+
+    <!-- Map Activity -->
     <string name="title_activity_map">MapActivity</string>
+
+    <!-- Taxi List -->
+    <string name="title_activity_taxi_list">TaxiList</string>
+
+    <!-- Marketplace Activity -->
+    <string name="title_activity_marketplace">marktplaats</string>
+    <string name="request_ride">Vraag rit aan</string>
+    <string name="create_ride">Maak nieuwe rit aan</string>
+    <string name="display_requests">Laat aangevraagde ritten zien</string>
+    <string name="display_unrated_rides">Bekijk \'unrated\' ritten</string>
+
+    <!-- Create / Offered Ride Activity -->
+    <string name="title_activity_createride">Maak rit aan</string>
+    <string name="title_activity_requestride">Vraag rit aan</string>
+    <string name="location_from">Van</string>
+    <string name="location_destination">Naar</string>
+    <string name="time">Tijd</string>
+    <string name="request_ride_button">Vraag deze rit aan</string>
+    <string name="create_ride_button">Maak deze rit aan</string>
+    <string name="departure_time">Vertrektijd</string>
+    <string name="arrival_time">Aankomsttijd</string>
+    <string name="locations">Locaties</string>
+
+    <!-- Requested Rides Activity -->
+    <string name="title_activity_requestrides">Aangeboden ritten</string>
+    <string name="date">Datum</string>
+    <string name="change_date">Change date</string>
+
+     <!-- Login / Register activity -->
+    <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
+    <string name="title_activity_loginactivity">Login</string>
+    <string name="title_activity_registeractivity">Registreer</string>
     <string name="field_username">Gebruikersnaam</string>
     <string name="field_password">Wachtwoord</string>
     <string name="field_first_name">Voornaam</string>
@@ -128,60 +186,33 @@
     <string name="field_gender_male">Man</string>
     <string name="field_gender_female">Vrouw</string>
     <string name="login">Log in</string>
-    <string name="title_activity_marketplace">Marktplaats</string>
-    <string name="title_activity_createride">Maak rit aan</string>
-    <string name="title_activity_requestride">Vraag rit aan</string>
-    <string name="title_activity_requestrides">Aangeboden ritten</string>
-    <string name="title_activity_unrated_rides">\'Unrated\' ritten</string>
-    <string name="title_activity_loginactivity">Login</string>
-    <string name="title_activity_registeractivity">Registreer</string>
-    <string name="title_activity_customer_support">Klantenservice</string>
-    <string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
     <string name="field_validation_same_input">De velden mogen niet hetzelfde zijn</string>
-    <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
-    <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
-    <string name="field_validation_number">Het veld mag geen letters bevatten</string>
-    <string name="field_validation_string">Het veld mag geen getallen bevatten</string>
-    <string name="field_validation_not_numeric">Het veld mag alleen cijfers bevatten</string>
-    <string name="field_validation_not_alphanumeric">Het veld mag alleen cijfers en letters bevatten</string>
-    <string name="field_validation_not_an_email">Het veld moet een geldig e-mailadres bevatten</string>
-    <string name="field_validation_unknown_location">Onbekende locatie(s)</string>
-    <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
     <string name="registration_failed">Het registreren is mislukt</string>
-    <string name="title_activity_map_tets">MapTets</string>
-    <string name="orderride_expl">Uitleg tekst (.......................)</string>
-    <string name="location_from">Van</string>
-    <string name="location_destination">Naar</string>
-    <string name="date">Datum</string>
-    <string name="time">Tijd</string>
-    <string name="departure_time">Vertrektijd</string>
-    <string name="arrival_time">Aankomsttijd</string>
-    <string name="locations">Locaties</string>
-    <string name="TextSpacer">"        "</string>
-    <string name="request_ride_button">Vraag deze rit aan</string>
-    <string name="create_ride_button">Maak deze rit aan</string>
-    <string name="change_date">Change date</string>
-    <string name="request_ride">Vraag rit aan</string>
-    <string name="create_ride">Maak nieuwe rit aan</string>
-    <string name="title_activity_transport_details">TransportDetailsActivity</string>
-    <string name="display_requests">Display requested rides</string>
-    <string name="empty_string"></string>
-    <string name="read_more_btn">Read more</string>
-    <string name="offered_ride_string">Offered ride by person</string>
-    <string name="ride_description">Ride description ..........................................................................................................................</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="display_unrated_rides">Bekijk \'unrated\' ritten</string>
-    <string name="full_name">Volledige naam</string>
-    <string name="email">E-Mail adres</string> 
-    <string name="transport_company">Selecteer een vervoerder</string> 
-    <string name="complaint">Klacht of vraag</string> 
-    <string name="send">Verstuur</string> 
     
-    <string name="marketplace_unrated_ride_person_name">Bijnaam</string>
-    <string name="marketplace_unrated_ride_person_gender">Geslacht</string>
-    <string name="marketplace_unrated_ride_person_role">Rol</string>
-    <string name="marketplace_unrated_ride_time_realized">Eindtijd</string>
+    <!-- Unrated Rides Activity -->
+    <string name="unrated_ride_person_name">Bijnaam</string>
+    <string name="unrated_ride_person_gender">Geslacht</string>
+    <string name="unrated_ride_person_role">Rol</string>
+    <string name="unrated_ride_time_realized">Eindtijd</string>
+    <string name="unrated_ride_button_rate">\'Rate\'</string>
+    
+    <!--  Rate Ride Activity -->
+    <string name="title_activity_rate_ride">Waardeer rit</string>
+    <string name="rate_ride_rating">Waardering</string>
+    <string name="rate_ride_good">Goed</string>
+    <string name="rate_ride_bad">Slecht</string>
+    <string name="rate_ride_button_ok">OK</string>
+    <string name="rate_ride_button_cancel">Annuleren</string>
+
+    <!-- Customer Support Activity -->
+    <string name="title_activity_customer_support">Klantenservice</string>
+    <string name="full_name">Volledige naam</string>
+    <string name="email">E-Mail adres</string>
+    <string name="transport_company">Selecteer een vervoerder</string>
+    <string name="complaint">Klacht of vraag</string>
+    <string name="name_error">Voer uw naam in</string>
+    <string name="email_error">Voer uw e-mail in</string>
+    <string name="complaint_error">Voer uw vraag of klacht in</string>
+    <string name="transport_error">Selecteer een vervoerder</string>
 
 </resources>

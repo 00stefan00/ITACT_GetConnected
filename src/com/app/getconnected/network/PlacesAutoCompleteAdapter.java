@@ -1,5 +1,14 @@
 package com.app.getconnected.network;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -8,17 +17,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.app.getconnected.R;
-
-import android.content.Context;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Filter;
-import android.widget.Filterable;
 
 public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements Filterable {
     private ArrayList<String> resultList;
@@ -30,9 +29,14 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
 	private static final String OUT_JSON = "/json";
 
 	private static final String API_KEY = "AIzaSyCZx7jYOMfUUSXF4thRbVUWnkvVOa_Pjio";
-	
+    
 	private Context context;
     
+	/**
+	 * Constructor
+	 * @param context
+	 * @param textViewResourceId
+	 */
     public PlacesAutoCompleteAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
         
@@ -77,7 +81,12 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
             }};
         return filter;
     }
-    
+
+	/**
+	 * Auto completes a location
+	 * @param input
+	 * @return
+	 */
     private ArrayList<String> autocomplete(String input) {
 	    ArrayList<String> resultList = null;
 	    
