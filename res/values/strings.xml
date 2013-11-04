@@ -134,16 +134,8 @@
     <string name="marketplace_unrated_ride_person_role">Role</string>
     <string name="marketplace_unrated_ride_time_realized">End time</string>
     <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
-    
-    <!--  Rate Ride Activity -->
-    <string name="title_activity_rate_ride">Rate ride</string>
-    <string name="rate_ride_rating">Rating</string>
-    <string name="rate_ride_good">Good</string>
-    <string name="rate_ride_bad">Bad</string>
-    <string name="rate_ride_button_ok">OK</string>
-    <string name="rate_ride_button_cancel">Cancel</string>
-    
-    <!-- Map Activity -->
+
+        <!-- Map Activity -->
     <string name="title_activity_map">MapActivity</string>
 
     <!-- Taxi List -->
@@ -191,6 +183,21 @@
     <string name="field_gender_female">Female</string>
     <string name="login">Log in</string>
     <string name="registration_failed">The registration failed</string>
+
+    <!-- Unrated Rides Activity -->
+    <string name="unrated_ride_person_name">Bijnaam</string>
+    <string name="unrated_ride_person_gender">Geslacht</string>
+    <string name="unrated_ride_person_role">Rol</string>
+    <string name="unrated_ride_time_realized">Eindtijd</string>
+    <string name="unrated_ride_button_rate">\'Rate\'</string>
+
+    <!--  Rate Ride Activity -->
+    <string name="title_activity_rate_ride">Rate ride</string>
+    <string name="rate_ride_rating">Rating</string>
+    <string name="rate_ride_good">Good</string>
+    <string name="rate_ride_bad">Bad</string>
+    <string name="rate_ride_button_ok">OK</string>
+    <string name="rate_ride_button_cancel">Cancel</string>
 
     <!-- Customer Support Activity -->
     <string name="title_activity_customer_support">Customer Support</string>
