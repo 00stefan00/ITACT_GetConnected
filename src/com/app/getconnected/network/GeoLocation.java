@@ -21,6 +21,7 @@ public class GeoLocation implements Location {
 		RESTRequest request = new RESTRequest(url);
 		request.putString("address", address);
 		request.putString("region", "nl");
+		request.putString("components", "country:nl");
 		request.putString("sensor", "true");
 		try {
 			String result = request.execute().get();
