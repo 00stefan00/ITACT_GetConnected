@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public abstract class Rides {
 
-	private static final String baseURL = "http://localhost:8181/";
+	private static final String baseURL = Config.OPEN_RIDE_API;
 
 	protected String url;
 

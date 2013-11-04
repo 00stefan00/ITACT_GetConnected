@@ -2,6 +2,7 @@ package com.app.getconnected.security;
 
 import android.content.Context;
 import android.util.Log;
+import com.app.getconnected.config.Config;
 
 import java.io.*;
 
@@ -19,9 +20,7 @@ public class Login extends Api {
 
 	private String password;
 
-	public static final String fileName = "credentials.csf";
-
-	public static final String LOGIN_SEED = "loginCredentials";
+	public static final String fileName = Config.LOGIN_INTERNAL_FILE_NAME;
 
 	/**
 	 * Constructor

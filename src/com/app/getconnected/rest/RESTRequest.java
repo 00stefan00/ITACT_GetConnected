@@ -51,9 +51,6 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 			return headerAcceptedData;
 		}
 	};
-
-	/** The base url that is the same for all request. Uses com.app.getconnected.rides.rides, .security.api */
-	public static final String API_URL = "http://127.0.0.1/OpenRideServer-RS/resources/";
 	
 	/** The enumeration of errors that can be thrown by the RESTRequest. */
 	public enum ExceptionCode
