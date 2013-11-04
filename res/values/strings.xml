@@ -49,7 +49,7 @@
     <string name="transport_input_to">Location..</string>
     <string name="transport_input_time">Choose Time</string>
     <string name="transport_input_date">Choose Date</string>
-    <string name="transport_button_ok">OK</string>
+    <string name="transport_button_ok">Ok</string>
     <string name="title_activity_transport_result">Travel Information</string>
     <string name="transport_result_text_departure">Departure</string>
     <string name="transport_result_text_traveltime">Travel Time</string>
@@ -62,7 +62,7 @@
     <string name="title_activity_help_basic">Basic instructions</string>
     <string name="title_activity_help_map">Use of map</string>
     <string name="title_activity_help_plan">Plan your ride</string>
-    <string name="help_intro">Click on on of the subjects below for additional explanation.</string>
+    <string name="help_intro">Click on one of the subjects below for additional explanation.</string>
     <string name="help_button_basic">Basic instructions</string>
     <string name="help_button_map">Explanation of map use</string>
     <string name="help_button_plan">Plan your ride</string>
@@ -93,7 +93,7 @@
     <string name="footer_button_back">Back</string>
     <string name="footer_button_menu_open">Open Menu</string>
     <string name="footer_button_menu_close">Close Menu</string>
-    <string name="footer_button_ok">OK</string>
+    <string name="footer_button_ok">Ok</string>
 
     <!-- Field Bus Stop Details -->
     <string name="title_activity_bus_stop_details">Bussstop</string>
