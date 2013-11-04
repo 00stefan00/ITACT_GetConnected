@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.app.getconnected.R;
-import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.config.Config;
 import com.app.getconnected.rest.RESTRequest.Method;
 import com.app.getconnected.security.Register;
 import com.exception.getconnected.FieldValidationException;
@@ -86,7 +86,7 @@ public class RegisterActivity extends BaseActivity {
 		Register register = new Register(username, password, firstName, lastName, telephoneNumber, email, gender);
 		Boolean success = false;
 		try {
-			String body = register.attemptApiRequest(RESTRequest.API_URL + "register", Method.POST, "RegisterRequest");
+			String body = register.attemptApiRequest(Config.OPEN_RIDE_API + "register", Method.POST, "RegisterRequest");
 			if(body.equals("body")) {
 				success = true;
 			}

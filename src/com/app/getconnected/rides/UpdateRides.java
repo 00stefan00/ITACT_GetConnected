@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created with IntelliJ IDEA.
+ * Created with Microsoft Notepad.
  * User: johan
  * Date: 10/30/13
  * Time: 12:08 PM
@@ -22,7 +22,7 @@ public class UpdateRides extends Rides implements Argumentable {
 		if(isEmpty()) throw new Exception("Not all params have been filled");
 		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.PUT, "1");
 		String json = restRequest.execute().get();
-		return parseJSON(json);
+		return parseJSONAsArray(json);
 	}
 
 	@Override
@@ -35,7 +35,6 @@ public class UpdateRides extends Rides implements Argumentable {
 		this.argument = argument;
 	}
 
-	@Override
 	public boolean isEmpty() {
 		return super.isEmpty() || key.isEmpty() || argument.isEmpty();
 	}
