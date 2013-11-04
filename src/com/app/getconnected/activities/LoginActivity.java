@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import com.app.getconnected.R;
-import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.config.Config;
 import com.app.getconnected.rest.RESTRequest.Method;
 import com.app.getconnected.security.Login;
 import com.exception.getconnected.FieldValidationException;
@@ -104,7 +104,7 @@ public class LoginActivity extends BaseActivity {
 		String response = "";
 		boolean success = false;
 		try {
-			response = login.attemptApiRequest(RESTRequest.API_URL + "/login", Method.GET, "loginRequest");
+			response = login.attemptApiRequest(Config.OPEN_RIDE_API + "login", Method.GET, "loginRequest");
 			if(response.equals("body")) {
 				login.saveCredentials();
 				success = true;

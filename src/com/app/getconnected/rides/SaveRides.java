@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created with IntelliJ IDEA.
+ * Created with Microsoft Notepad.
  * User: johan
  * Date: 10/28/13
  * Time: 1:56 PM
@@ -23,20 +23,25 @@ public class SaveRides extends Rides implements Argumentable {
 		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.POST, "1");
 		restRequest.putString(key, argument);
 		String json = restRequest.execute().get();
-		return parseJSON(json);
+		return parseJSONAsArray(json);
+	}
+	
+	public JSONObject createRequestJsonObject() throws Exception {
+		if(isEmpty()) throw new Exception("Not all arguments have been filled");
+		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.POST, "1");
+		restRequest.putString(key, argument);
+		String json = restRequest.execute().get();
+		return parseJSONAsObject(json);
 	}
 
-	@Override
 	public void setArgument(String argument) {
 		this.argument = argument;
 	}
 
-	@Override
 	public void setKey(String key) {
 		this.key = key;
 	}
 
-	@Override
 	public boolean isEmpty() {
 		return super.isEmpty() || argument.isEmpty() || key.isEmpty();
 	}

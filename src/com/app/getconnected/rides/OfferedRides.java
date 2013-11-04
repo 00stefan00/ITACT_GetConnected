@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created with IntelliJ IDEA.
+ * Created with Microsoft Notepad.
  * User: EnquiringStone
  * Date: 18-10-13
  * Time: 14:00
@@ -14,11 +14,10 @@ import java.util.ArrayList;
  */
 public class OfferedRides extends Rides{
 
-	@Override
 	public ArrayList<JSONObject> createRequest() throws Exception {
 		if(isEmpty()) throw new Exception("Not all arguments have been filled");
 		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.GET, "1");
 		String json = restRequest.execute().get();
-		return parseJSON(json);
+		return parseJSONAsArray(json);
 	}
 }
