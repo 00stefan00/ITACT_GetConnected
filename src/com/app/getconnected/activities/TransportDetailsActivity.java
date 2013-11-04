@@ -35,7 +35,8 @@ public class TransportDetailsActivity extends BaseActivity {
 		try {
 			JSONObject jObject;
 			jObject = new JSONObject(json);
-			legs = jObject.getJSONArray("legs");
+			legs = jObject.getJSONArray("legs");			
+			
 			initViews();
 		} catch (Exception e) {
 			

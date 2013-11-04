@@ -49,7 +49,7 @@
     <string name="transport_input_to">Location..</string>
     <string name="transport_input_time">Choose Time</string>
     <string name="transport_input_date">Choose Date</string>
-    <string name="transport_button_ok">OK</string>
+    <string name="transport_button_ok">Ok</string>
     <string name="title_activity_transport_result">Travel Information</string>
     <string name="transport_result_text_departure">Departure</string>
     <string name="transport_result_text_traveltime">Travel Time</string>
@@ -62,7 +62,7 @@
     <string name="title_activity_help_basic">Basic instructions</string>
     <string name="title_activity_help_map">Use of map</string>
     <string name="title_activity_help_plan">Plan your ride</string>
-    <string name="help_intro">Click on on of the subjects below for additional explanation.</string>
+    <string name="help_intro">Click on one of the subjects below for additional explanation.</string>
     <string name="help_button_basic">Basic instructions</string>
     <string name="help_button_map">Explanation of map use</string>
     <string name="help_button_plan">Plan your ride</string>
@@ -82,13 +82,18 @@
 		If you tap on one of the bus stops, you will be directed to another page. 
 		This page shows more details about the bus stop. 
 		If you would like to return to the map, just press the “Back” button.</string>
+    <string name="help_basic_home_button_title">Home button</string>
+    <string name="help_basic_home_button_text">The Home button is situated in the upper right corner of the screen. If this button is pressed the application will rederect you to the starting screen of the application.</string>
+    <string name="help_basic_quick_menu_title">Quick menu</string>
+    <string name="help_basic_quick_menu_text_1">The quick menu is situated in the lower center of the screen. This menu is globaly available in the application accept on the starting screen of the application.</string>
+    <string name="help_basic_quick_menu_text_2">If this button is pressed a menu appears with a set of buttons. These buttons can be used to navigate quickly through the application.</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
     <string name="footer_button_back">Back</string>
     <string name="footer_button_menu_open">Open Menu</string>
     <string name="footer_button_menu_close">Close Menu</string>
-    <string name="footer_button_ok">OK</string>
+    <string name="footer_button_ok">Ok</string>
 
     <!-- Field Bus Stop Details -->
     <string name="title_activity_bus_stop_details">Bussstop</string>
@@ -117,6 +122,7 @@
     <string name="transportation_result_transfers_header">Transfers</string>
     <string name="transportation_result_pref">Previous</string>
     <string name="transportation_result_next">Next</string>
+    <string name="transportation_result_no_result">No results found</string>
 
     <!-- Transportation Details Activity -->
     <string name="transport_details_pref">Previous</string>
@@ -125,7 +131,7 @@
     <string name="transport_details_bus_title">Bus</string>
     <string name="transport_details_train_title">Train</string>
     <string name="transport_detail_taxi">Taxi</string>
-    
+
     <!-- Taxi List Activity -->
     <string name="region_taxi_north_groningen">Region North Groningen</string>
     <string name="region_taxi_east_groningen">Region East Groningen</string>
@@ -190,16 +196,14 @@
     <string name="field_validation_not_an_email">The field must contain a valid e-mail address</string>
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
     <string name="registration_failed">The registration failed</string>
-    <string name="title_activity_location_selector">Select location</string>
-    <string name="title_activity_taxi_list">TaxiList</string>
     <string name="full_name">Full Name</string>
     <string name="email">Email address</string>
     <string name="transport_company">Select a transport company</string>
     <string name="complaint">Complaint or question</string>
     <string name="send">Send</string>
+    <string name="title_activity_location_selector">Select location</string>
+    <string name="title_activity_taxi_list">TaxiList</string>
     <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
-    <string name="hello_world">Hello world!</string>
-    
     <string name="marketplace_unrated_ride_person_name">Nickname</string>
     <string name="marketplace_unrated_ride_person_gender">Gender</string>
     <string name="marketplace_unrated_ride_person_role">Role</string>
