@@ -151,6 +151,8 @@
     <string name="departure_time">Vertrektijd</string>
     <string name="arrival_time">Aankomsttijd</string>
     <string name="locations">Locaties</string>
+    <string name="field_validation_input_required">Vul aub alle verplichte velden in.</string>
+    <string name="create_ride_succes">Uw rit is aangemaakt</string>
 
     <!-- Requested Rides Activity -->
     <string name="title_activity_requestrides">Aangeboden ritten</string>

@@ -1,47 +1,43 @@
 package com.app.getconnected.rides;
 
-import com.app.getconnected.rest.RESTRequest;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 /**
- * Created with IntelliJ IDEA.
+ * Created with Microsoft Notepad.
  * User: johan
  * Date: 10/30/13
  * Time: 10:26 AM
  */
 public abstract class Rides {
 
-	private static final String baseURL = RESTRequest.API_URL;
+	private static final String baseURL = "http://localhost:8181/";
 
 	protected String url;
 
 	protected String JSONKey;
 
-	/**
-	 * Sets part of the url
-	 * @param url
-	 */
-	protected void setURL(String url) {
+	public void setURL(String url) {
 		this.url = url;
 	}
 
-	/**
-	 * Checks whether essential data is not empty
-	 * @return
-	 */
-	protected boolean isEmpty() {
-		return this.url.equals("") || this.url == null || this.JSONKey.equals("") || this.JSONKey == null;
+	public String getUsername() {
+		//TODO make connection to database, get username
+		return "e";
 	}
 
-	/**
-	 * Parses JSON to an arraylist of JSONObjects
-	 * @param json
-	 * @return
-	 */
-	protected ArrayList<JSONObject> parseJSON(String json) {
+	protected boolean isEmpty() {
+		String username = getUsername();
+		return username.equals("") || 
+				this.url.equals("") || 
+				this.url == null || 
+				this.JSONKey.equals("") || 
+				this.JSONKey == null;
+	}
+
+	protected ArrayList<JSONObject> parseJSONAsArray(String json) {
 		ArrayList<JSONObject> jsonObjects = null;
 		try {
 			JSONParser jsonParser = JSONParser.getInstance();
@@ -51,19 +47,26 @@ public abstract class Rides {
 		}
 		return jsonObjects;
 	}
+	
+	protected JSONObject parseJSONAsObject(String json) {
+		JSONObject jsonObject = null;
+		try {
+			JSONParser jsonParser = JSONParser.getInstance();
+			jsonObject = jsonParser.getObjectFromRequest(json);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return jsonObject;
+	}
 
-	/**
-	 * Gets the whole url
-	 * @return
-	 */
 	protected String getUrl() {
 		return baseURL + url;
 	}
+	
+	public void setJsonKey(String jsonKey)
+	{
+		this.JSONKey=jsonKey;
+	}
 
-	/**
-	 * Creates the request
-	 * @return
-	 * @throws Exception
-	 */
 	public abstract ArrayList<JSONObject> createRequest() throws Exception;
 }

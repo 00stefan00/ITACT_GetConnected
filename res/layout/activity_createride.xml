@@ -36,16 +36,8 @@
         android:layout_below="@+id/busstop_name"
         android:ems="10"
         android:hint="@string/date"
-        android:inputType="date" />
-
-    <TextView
-        android:id="@+id/busstop_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:text="@string/arrival_time" />
+        android:inputType="date"
+        android:tag="required" />
 
     <EditText
         android:id="@+id/editText2"
@@ -55,7 +47,8 @@
         android:layout_below="@+id/editText1"
         android:ems="10"
         android:hint="@string/location_destination"
-        android:inputType="textPostalAddress" />
+        android:inputType="textPostalAddress"
+        android:tag="required" />
 
     <EditText
         android:id="@+id/editText4"
@@ -65,27 +58,8 @@
         android:layout_below="@+id/editText3"
         android:ems="10"
         android:hint="@string/time"
-        android:inputType="time" />
-
-    <EditText
-        android:id="@+id/EditText01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_below="@+id/busstop_number"
-        android:ems="10"
-        android:hint="@string/date"
-        android:inputType="date" />
-
-    <EditText
-        android:id="@+id/EditText02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/EditText01"
-        android:layout_below="@+id/EditText01"
-        android:ems="10"
-        android:hint="@string/time"
-        android:inputType="time" />
+        android:inputType="time"
+        android:tag="required" />
 
     <TextView
         android:id="@+id/busstop_bicycle_parking"
@@ -103,18 +77,10 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/location_from"
-        android:inputType="textPostalAddress" >
+        android:inputType="textPostalAddress"
+        android:tag="required" >
 
         <requestFocus />
     </EditText>
-
-    <!--<Button-->
-        <!--android:id="@+id/button1"-->
-        <!--style="?android:attr/buttonStyleSmall"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_below="@+id/EditText02"-->
-        <!--android:text="@string/create_ride_button" />-->
 
 </RelativeLayout>

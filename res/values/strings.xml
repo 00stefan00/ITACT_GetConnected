@@ -167,6 +167,8 @@
     <string name="departure_time">Departure Time</string>
     <string name="arrival_time">Arrival Time</string>
     <string name="locations">Locations</string>
+    <string name="field_validation_input_required">Please fill in all required fields.</string>
+<string name="create_ride_succes">Your ride has been created</string>
 
     <!-- Requested Rides Activity -->
     <string name="title_activity_requestrides">Offered rides</string>
