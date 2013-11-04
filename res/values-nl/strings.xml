@@ -126,14 +126,6 @@
 
     <!-- Location Activity -->
     <string name="title_activity_location_selector">Kies locatie</string>
-    
-    <!-- Unrated Rides Activity -->
-    <string name="title_activity_unrated_rides">Unrated rides</string>
-    <string name="marketplace_unrated_ride_person_name">Bijnaam</string>
-    <string name="marketplace_unrated_ride_person_gender">Geslacht</string>
-    <string name="marketplace_unrated_ride_person_role">Rol</string>
-    <string name="marketplace_unrated_ride_time_realized">Eindtijd</string>
-    <string name="title_activity_unrated_rides_activty">UnratedRidesActivty</string>
 
     <!-- Map Activity -->
     <string name="title_activity_map">MapActivity</string>
@@ -185,6 +177,7 @@
     <string name="registration_failed">Het registreren is mislukt</string>
     
     <!-- Unrated Rides Activity -->
+    <string name="title_activity_unrated_rides">Unrated rides</string>
     <string name="unrated_ride_person_name">Bijnaam</string>
     <string name="unrated_ride_person_gender">Geslacht</string>
     <string name="unrated_ride_person_role">Rol</string>
