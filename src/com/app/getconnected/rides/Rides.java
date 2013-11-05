@@ -1,5 +1,6 @@
 package com.app.getconnected.rides;
 
+import com.app.getconnected.config.Config;
 import com.util.getconnected.JSONParser;
 import org.json.JSONObject;
 
@@ -13,26 +14,33 @@ import java.util.ArrayList;
  */
 public abstract class Rides {
 
-	private static final String baseURL = "http://localhost:8181/";
+	private static final String baseURL = Config.OPEN_RIDE_API;
 
 	protected String url;
 
 	protected String JSONKey;
 
+	/**
+	 * Sets part of the url
+	 * @param url
+	 */
 	protected void setURL(String url) {
 		this.url = url;
 	}
 
-	protected String getUsername() {
-		//TODO make connection to database, get username
-		return "e";
-	}
-
+	/**
+	 * Checks whether essential data is not empty
+	 * @return
+	 */
 	protected boolean isEmpty() {
-		String username = getUsername();
-		return username.equals("") || this.url.equals("") || this.url == null || this.JSONKey.equals("") || this.JSONKey == null;
+		return this.url.equals("") || this.url == null || this.JSONKey.equals("") || this.JSONKey == null;
 	}
 
+	/**
+	 * Parses JSON to an arraylist of JSONObjects
+	 * @param json
+	 * @return
+	 */
 	protected ArrayList<JSONObject> parseJSON(String json) {
 		ArrayList<JSONObject> jsonObjects = null;
 		try {
@@ -44,9 +52,18 @@ public abstract class Rides {
 		return jsonObjects;
 	}
 
+	/**
+	 * Gets the whole url
+	 * @return
+	 */
 	protected String getUrl() {
 		return baseURL + url;
 	}
 
+	/**
+	 * Creates the request
+	 * @return
+	 * @throws Exception
+	 */
 	public abstract ArrayList<JSONObject> createRequest() throws Exception;
 }

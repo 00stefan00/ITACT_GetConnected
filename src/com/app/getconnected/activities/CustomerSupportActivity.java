@@ -1,19 +1,19 @@
 package com.app.getconnected.activities;
 
-import java.sql.Timestamp;
-import java.util.HashMap;
-
-import com.app.getconnected.R;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import com.app.getconnected.R;
+
+import java.sql.Timestamp;
+import java.util.HashMap;
 
 public class CustomerSupportActivity extends BaseActivity {
 	
@@ -30,12 +30,31 @@ public class CustomerSupportActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_customer_support);
-		initLayout(R.string.title_activity_customer_support, true, true, true, false);
+		initLayout(R.string.title_activity_customer_support, true, true, true, true);
 		
-		//Email address dummies
+		//Dummy data
 		map.put("Arriva", "complaints@arriva.nl");
 		map.put("Connexion", "complaints@connexion.nl");
 		map.put("Qbuzz", "complaints@qbuzz.nl");
+		
+		String[] companies = new String[] {"Qbuzz", "Arriva", "Connexion"};
+		group = (RadioGroup) findViewById(R.id.company_choice);
+		
+		for(int i = 0; i < companies.length; i++) {
+			RadioButton button;
+		    button = new RadioButton(this);
+		    button.setText(companies[i]);
+		    button.setId(i);
+		    group.addView(button);		    
+		}
+		
+		buttonOk.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				sendMailToTransportCompany(v);
+			}
+		});
 	}
 
 	@Override
@@ -44,7 +63,10 @@ public class CustomerSupportActivity extends BaseActivity {
 		getMenuInflater().inflate(R.menu.customer_support, menu);
 		return true;
 	}
-	
+
+	/**
+	 * Get the buttons and input fields
+	 */
 	public void getFields(){
 		fieldFullname = (EditText) findViewById(R.id.fullnameText);
 		emailAdres = (EditText) findViewById(R.id.emailText);
@@ -57,27 +79,36 @@ public class CustomerSupportActivity extends BaseActivity {
 		int radioId = group.indexOfChild(radioButton);
 		choiceButton = (RadioButton) group.getChildAt(radioId);
 	}
-	
+
+	/**
+	 * Checks whether the data is valid or not
+	 * @return
+	 */
 	public boolean dataIsValid(){
 		if(fieldFullname.getText().toString().equals("")){
-			Toast.makeText(CustomerSupportActivity.this, "Please enter your name.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.name_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(emailAdres.getText().toString().equals("")){
-			Toast.makeText(CustomerSupportActivity.this, "Please enter your email.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.email_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(complaint.getText().toString().equals("")){
-			Toast.makeText(CustomerSupportActivity.this, "Please enter your complaint or question.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.complaint_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(group.getCheckedRadioButtonId() == -1){
-			Toast.makeText(CustomerSupportActivity.this, "Please select a transport company.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(CustomerSupportActivity.this, R.string.transport_error, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		return true;
 	}
-	
+
+	/**
+	 * Sends an email
+	 * @param view
+	 * @return
+	 */
 	public boolean sendMailToTransportCompany(View view){
 		getFields();
 		

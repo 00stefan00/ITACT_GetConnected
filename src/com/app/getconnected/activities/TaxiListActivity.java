@@ -23,7 +23,11 @@ public class TaxiListActivity extends BaseActivity {
 		getMenuInflater().inflate(R.menu.taxi_list, menu);
 		return true;
 	}
-	
+
+	/**
+	 * Calls an intent
+	 * @param view
+	 */
 	public void call(View view){
 		 Intent intent = new Intent(Intent.ACTION_DIAL);
 		 intent.setData(Uri.parse("tel:"+(String)view.getTag()));

@@ -11,7 +11,14 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 	private static int ANIMATION_DURATION;
 	private int ToHeight;
 	private int LastHeight;
-	
+
+	/**
+	 * Constructor
+	 * @param v
+	 * @param FromHeighth
+	 * @param ToHeight
+	 * @param Duration
+	 */
 	public CollapseAnimation(View v, int FromHeighth, int ToHeight, int Duration) {
 		
 		this.view = v;

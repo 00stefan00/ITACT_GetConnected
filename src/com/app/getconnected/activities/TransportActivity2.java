@@ -5,15 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import com.app.getconnected.R;
-import com.app.getconnected.config.Config;
-import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.gps.Location;
-import com.app.getconnected.network.GeoLocation;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -37,6 +28,15 @@ import android.widget.Toast;
  * @version 1.0			
  * @since	2013-10-07
  */
+import com.app.getconnected.R;
+import com.app.getconnected.config.Config;
+import com.app.getconnected.gps.GPSLocator;
+import com.app.getconnected.gps.Location;
+import com.app.getconnected.network.GeoLocation;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
+
 @SuppressLint("SimpleDateFormat")
 public class TransportActivity2 extends BaseActivity implements
 		OnFocusChangeListener, OnClickListener, RESTRequestListener {
@@ -240,7 +240,11 @@ public class TransportActivity2 extends BaseActivity implements
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Set the DatePickerDialog, along with its listeners.
+=======
+	 * Sets the date picker
+>>>>>>> fa18f863af61519153b60a9364867cd8c61f8730
 	 */
 	private void setDatePicker() {
 		final DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
@@ -352,9 +356,14 @@ public class TransportActivity2 extends BaseActivity implements
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Opens the LocationSelector. This method is called when the user
 	 * clicks or focuses on one of the location fields.
 	 * @param v		The selected text field
+=======
+	 * Opens the location selector
+	 * @param v
+>>>>>>> fa18f863af61519153b60a9364867cd8c61f8730
 	 */
 	private void openLocationSelector(View v) {
 		String type;

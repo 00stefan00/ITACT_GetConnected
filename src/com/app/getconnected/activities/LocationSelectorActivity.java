@@ -67,7 +67,6 @@ public class LocationSelectorActivity extends BaseActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.location_selector, menu);
 		return true;
 	}

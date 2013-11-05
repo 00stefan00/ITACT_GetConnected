@@ -35,6 +35,7 @@ public class UpdateRides extends Rides implements Argumentable {
 		this.argument = argument;
 	}
 
+	@Override
 	public boolean isEmpty() {
 		return super.isEmpty() || key.isEmpty() || argument.isEmpty();
 	}

@@ -1,14 +1,13 @@
 package com.app.getconnected.network;
 
-import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
-
+import com.app.getconnected.rest.RESTRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.app.getconnected.gps.Location;
-import com.app.getconnected.rest.RESTRequest;
+import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author 	Jorian Plat <jorianplat@hotmail.com>

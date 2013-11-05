@@ -1,8 +1,15 @@
 package com.app.getconnected.activities;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.app.getconnected.R;
+import com.app.getconnected.config.Config;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -13,17 +20,8 @@ import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.ItemizedIconOverlay.OnItemGestureListener;
 import org.osmdroid.views.overlay.OverlayItem;
 
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.app.getconnected.R;
-import com.app.getconnected.config.Config;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 	Jorian Plat <jorianplat@hotmail.com>
@@ -84,7 +82,11 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Method to push the bus stop information to the views.
+=======
+	 * Sets the information of the bus stops
+>>>>>>> fa18f863af61519153b60a9364867cd8c61f8730
 	 */
 	private void setInformation() {
 		numberView.setText(number + "");
@@ -102,8 +104,13 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Method to receive the bus stop details from the server.
 	 * @param id The id of the busStop
+=======
+	 * Gets the details of a bus stop
+	 * @param id
+>>>>>>> fa18f863af61519153b60a9364867cd8c61f8730
 	 */
 	private void getBusStopDetails(int id) {
 		String url = Config.busStopAddress + id;
@@ -113,9 +120,13 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Method to initialize all the variables. 
 	 * After this the information will be pushed to the views and 
 	 * the mini-map will be created.
+=======
+	 * Sets the bus stop details
+>>>>>>> fa18f863af61519153b60a9364867cd8c61f8730
 	 * @param result
 	 */
 	private void setBusStopDetails(String result) {
@@ -145,7 +156,11 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Method to add the marker of the busstop to the mini-map.
+=======
+	 * Adds an item
+>>>>>>> fa18f863af61519153b60a9364867cd8c61f8730
 	 */
 	private void addItem() {
 		OverlayItem olItem = new OverlayItem("Haltenaam", "Adres",
@@ -170,7 +185,11 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Method to create the mini-map.
+=======
+	 * Creates the map
+>>>>>>> fa18f863af61519153b60a9364867cd8c61f8730
 	 */
 	private void createMap() {
 		mapView = (MapView) findViewById(R.id.mapview);

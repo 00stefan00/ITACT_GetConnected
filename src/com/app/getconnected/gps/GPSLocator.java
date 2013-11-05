@@ -22,6 +22,10 @@ public class GPSLocator implements com.app.getconnected.gps.Location, LocationLi
 	
 	private Context context;
 
+	/**
+	 * Constructor
+	 * @param context
+	 */
 	public GPSLocator(Context context) {
 		this.context = context;
 		
@@ -64,6 +68,7 @@ public class GPSLocator implements com.app.getconnected.gps.Location, LocationLi
 	public double getLatitude() {
 		return latitude;
 	}
+
 	
 	/**
 	 * Get the longitude
@@ -88,19 +93,16 @@ public class GPSLocator implements com.app.getconnected.gps.Location, LocationLi
 
 	@Override
 	public void onProviderDisabled(String arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onProviderEnabled(String arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-		// TODO Auto-generated method stub
 		
 	}
 	
