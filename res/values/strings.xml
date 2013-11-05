@@ -164,6 +164,7 @@
     <string name="title_activity_requestrides">Offered rides</string>
     <string name="date">Date</string>
     <string name="change_date">Change date</string>
+    <string name="join_ride">Join</string>
 
     <!-- Login / Register activity -->
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
