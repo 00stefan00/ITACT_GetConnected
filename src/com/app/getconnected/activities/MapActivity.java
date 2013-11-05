@@ -78,6 +78,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		return true;
 	}
 
+	/**
+	 * Creates the street map and shows it on screen.
+	 */
 	private void createMap() {
 		mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setTileSource(TileSourceFactory.MAPNIK);
@@ -90,6 +93,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		mapController.setCenter(point2);
 	}
 
+	/**
+	 * Adds an overlay to the map that shows user's current location.
+	 */
 	private void addLocationOverlay() {
 		myLocationoverlay = new MyLocationOverlay(this, mapView);
 		myLocationoverlay.disableCompass();
@@ -105,6 +111,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		mapView.getOverlays().add(myLocationoverlay);
 	}
 
+	/**
+	 * Creates and executes query to get the correct bus stop information.
+	 */
 	private void loadBusStops() {
 		if (rR != null)
 			rR.cancel();
@@ -123,6 +132,9 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		rR.execute();
 	}
 
+	/**
+	 * Class that forms the overlay to display the bus stops.
+	 */
 	public class MyOwnItemizedOverlay extends ItemizedIconOverlay<OverlayItem> {
 		protected Context mContext;
 
