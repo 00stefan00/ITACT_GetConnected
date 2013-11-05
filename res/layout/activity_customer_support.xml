@@ -94,7 +94,6 @@
             android:id="@+id/button1"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
-            android:onClick="sendMailToTransportCompany"
             android:text="@string/send" />
     </LinearLayout>
 

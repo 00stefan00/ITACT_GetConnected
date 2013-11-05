@@ -25,6 +25,8 @@ public class TransportResultActivity extends BaseActivity {
 	private int pageSize = 10;
 	private JSONArray itineraries;
 	private TableLayout table;
+	private String departureLocation;
+	private String arivalLocation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class TransportResultActivity extends BaseActivity {
 		try {
 			JSONObject jObject;
 			jObject = (new JSONObject(json)).getJSONObject("plan");
+			setLocations(jObject);
 			itineraries = jObject.getJSONArray("itineraries");
 		} catch (Exception e) {
 			itineraries = new JSONArray();
@@ -45,6 +48,11 @@ public class TransportResultActivity extends BaseActivity {
 		initTable();
 		this.setVisibilities();
 
+	}
+	
+	private void setLocations(JSONObject jObject) throws JSONException{
+		departureLocation = jObject.getJSONObject("from").getString("name");
+		arivalLocation = jObject.getJSONObject("to").getString("name");
 	}
 
 	private void initTable() {
@@ -85,6 +93,8 @@ public class TransportResultActivity extends BaseActivity {
 				.findViewById(R.id.transport_result_text_arival);
 		TextView transfers = (TextView) row
 				.findViewById(R.id.transport_result_text_transfers);
+		TextView arivalLocation = (TextView) findViewById(R.id.transportation_result_arival_header);
+		TextView departureLocation = (TextView) findViewById(R.id.transportation_result_departure_header);
 
 		duration.setText(""
 				+ minutesToHourString(itinerariy.getInt("duration") / 1000 / 60)
@@ -94,6 +104,8 @@ public class TransportResultActivity extends BaseActivity {
 		arival.setText("" + getDate(itinerariy.getLong("endTime"), "HH:mm")
 				+ " ");
 		transfers.setText("" + itinerariy.getInt("transfers"));
+		arivalLocation.setText(this.arivalLocation);
+		departureLocation.setText(this.departureLocation);
 	}
 
 	private String minutesToHourString(int t) {
