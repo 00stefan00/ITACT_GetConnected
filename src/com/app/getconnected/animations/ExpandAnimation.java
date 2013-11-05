@@ -5,6 +5,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 
+/**
+ * @author 	Daniël Zijlstra 
+ * @version 1.0			
+ * @since	2013-10-20
+ */
 
 public class ExpandAnimation extends Animation implements Animation.AnimationListener {
 	
@@ -13,7 +18,13 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 	private int LastHeight;
 	private int ToHeight;
 	
-	
+	/**
+	 * Constructor
+	 * @param v
+	 * @param FromHeighth
+	 * @param ToHeight
+	 * @param Duration
+	 */
 	
 	public ExpandAnimation(View v, int FromHeight, int ToHeight, int Duration) {
 		
@@ -32,6 +43,10 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 		// TODO Auto-generated method stub	
 	}
 
+	/**
+	 * Increase layout height on each step
+	 */
+	
 	@Override
 	public void onAnimationRepeat(Animation animation) {
 	
@@ -41,6 +56,11 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 		view.requestFocus();
 	}
 
+	/**
+	 * Set the height values to 0 on animation start 
+	 * and bring view to the front
+	 */
+	
 	@Override
 	public void onAnimationStart(Animation animation) {
 		view.refreshDrawableState();

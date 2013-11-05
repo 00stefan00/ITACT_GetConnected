@@ -5,12 +5,17 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 
+/**
+ * @author 	Daniël Zijlstra 
+ * @version 1.0			
+ * @since	2013-10-20
+ */
+
 public class CollapseAnimation extends Animation implements Animation.AnimationListener {
 
 	private View view;
 	private static int ANIMATION_DURATION;
 	private int ToHeight;
-	//private int LastHeight;
 
 	/**
 	 * Constructor
@@ -38,6 +43,10 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 		// TODO Auto-generated method stub		
 	}
 
+	/**
+	 * Decrease layout height on each step
+	 */
+	
 	@Override
 	public void onAnimationRepeat(Animation animation) {
 		
@@ -46,6 +55,10 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 		view.setLayoutParams(lyp);
 	}
 
+	/**
+	 * Bring view to the front.
+	 */
+	
 	@Override
 	public void onAnimationStart(Animation animation) {
 		view.refreshDrawableState();
