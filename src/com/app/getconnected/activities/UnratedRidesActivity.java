@@ -1,7 +1,9 @@
 package com.app.getconnected.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -16,6 +18,7 @@ import java.util.Locale;
 
 public class UnratedRidesActivity extends BaseActivity {
 	TableLayout tl;
+	boolean isGray = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,8 @@ public class UnratedRidesActivity extends BaseActivity {
 				false);
 		tableinit();
 		addTableRow("1371546903022", "r", "template_user", "m", "14002");
+		addTableRow("1371446993022", "d", "template_user", "m", "14003");
+		addTableRow("1371246703022", "r", "template_user_2", "f", "14004");
 	}
 
 	/**
@@ -94,18 +99,34 @@ public class UnratedRidesActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
+		int color=getColor();
 
 		TableRow datarow = new TableRow(this);
-
+		datarow.setBackgroundColor(color);
 		datarow.addView(endTime);
 		datarow.addView(role);
 		datarow.addView(name);
 		datarow.addView(gender);
-		datarow.addView(buttonRate);
-
+		datarow.setGravity(Gravity.CENTER_HORIZONTAL);
 		tl.addView(datarow, new TableLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
+		datarow = new TableRow(this);
+		datarow.setBackgroundColor(color);
+		datarow.addView(buttonRate);
+		datarow.setGravity(Gravity.CENTER_HORIZONTAL);
+		tl.addView(datarow, new TableLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+
 		tl.setStretchAllColumns(true);
+	}
+
+	private int getColor()
+	{
+		isGray=!isGray;
+		if(isGray) {
+			return Color.LTGRAY;
+		}
+		return Color.WHITE;
 	}
 }
