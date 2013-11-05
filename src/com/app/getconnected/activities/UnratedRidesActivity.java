@@ -30,7 +30,7 @@ public class UnratedRidesActivity extends BaseActivity {
 	/**
 	 * Initializes the table
 	 */
-	 
+
 	private void tableinit() {
 		tl = (TableLayout) findViewById(R.id.tableLayoutUnratedRides);
 
@@ -61,17 +61,19 @@ public class UnratedRidesActivity extends BaseActivity {
 
 	/**
 	 * Adds a table row
+	 * 
 	 * @param endTimev
 	 * @param rolev
 	 * @param namev
 	 * @param genderv
 	 */
-	 
+
 	private void addTableRow(String endTimev, String rolev, String namev,
 			String genderv, String rideIdv) {
 		long endTimeLong = Long.valueOf(endTimev);
 		Date endTimeDate = new java.util.Date(endTimeLong);
-		String endTimeString = new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.ENGLISH).format(endTimeDate);
+		String endTimeString = new SimpleDateFormat("yyyy-MM-dd hh:mm",
+				Locale.ENGLISH).format(endTimeDate);
 		TextView endTime = new TextView(this);
 		endTime.setText(endTimeString);
 		TextView role = new TextView(this);
@@ -92,7 +94,7 @@ public class UnratedRidesActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
-        
+
 		TableRow datarow = new TableRow(this);
 
 		datarow.addView(endTime);
