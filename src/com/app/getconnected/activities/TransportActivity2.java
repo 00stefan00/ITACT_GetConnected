@@ -32,19 +32,24 @@ import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+/**
+ * @author 	Jorian Plat <jorianplat@hotmail.com>
+ * @version 1.0			
+ * @since	2013-10-07
+ */
 @SuppressLint("SimpleDateFormat")
 public class TransportActivity2 extends BaseActivity implements
 		OnFocusChangeListener, OnClickListener, RESTRequestListener {
 
+	/**
+	 * Date/time-variables
+	 */
 	private final Calendar calendarTime = Calendar.getInstance();
 	private final Calendar calendarDate = Calendar.getInstance();
-
 	private Date time;
 	private Date date;
-
 	private EditText inputTime;
 	private EditText inputDate;
-
 	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm",
 			Locale.getDefault());
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",
@@ -66,8 +71,10 @@ public class TransportActivity2 extends BaseActivity implements
 		setContentView(R.layout.activity_transport2);
 		initLayout(R.string.title_activity_transport, true, true, true, true);
 
+		//get the transportMode from the previous Activity (TransportActivity1)
 		mode = getIntent().getExtras().getString("mode");
 
+		//initialize the location-fields
 		inputFrom = (EditText) findViewById(R.id.transport_input_from);
 		inputFrom.setOnFocusChangeListener(this);
 		inputFrom.setOnClickListener(this);
@@ -75,11 +82,13 @@ public class TransportActivity2 extends BaseActivity implements
 		inputTo.setOnFocusChangeListener(this);
 		inputTo.setOnClickListener(this);
 
+		//initialize the date/time-fields
 		inputTime = (EditText) findViewById(R.id.transport_input_time);
 		inputTime.setText(timeFormat.format(new Date()));
 		inputDate = (EditText) findViewById(R.id.transport_input_date);
 		inputDate.setText(dateFormat.format(new Date()));
 
+		//initialize the radio-buttons
 		radioGroup = (RadioGroup) findViewById(R.id.transport_radio_departure_arrival);
 		radioArrival = (RadioButton) findViewById(R.id.transport_radio_arrival);
 
@@ -96,53 +105,43 @@ public class TransportActivity2 extends BaseActivity implements
 
 	}
 
+	/**
+	 * Validate the input and send the trip to the server.
+	 */
 	@SuppressLint("SimpleDateFormat")
 	public void planTrip() {
 
 		Location fromLocation;
 		Location toLocation;
 
+		//check whether the location fields are equal; if so, show error message
 		if (inputFrom.getText().toString().equals(inputTo.getText().toString())) {
-			Toast.makeText(
-					this,
-					this.getResources().getString(
-							R.string.field_validation_same_input),
-					Toast.LENGTH_SHORT).show();
-			
+			Toast.makeText(this, this.getResources().getString(R.string.field_validation_same_input), Toast.LENGTH_SHORT).show();
 			return;
 		}
 
-		if (inputFrom.getText().toString()
-				.equals(getResources().getString(R.string.current_location))) {
+		//check whether the location equals the "current-location"-string; 
+		//if so, get the current location; 
+		//else, try to get the coordinates of the location
+		if (inputFrom.getText().toString().equals(getResources().getString(R.string.current_location))) {
 			fromLocation = new GPSLocator(this);
 			
 			if (!fromLocation.isValidLocation()) {
-				Toast.makeText(
-						this,
-						this.getResources().getString(
-								R.string.gps_disabled),
-						Toast.LENGTH_SHORT).show();
-				
+				Toast.makeText(this, this.getResources().getString(R.string.gps_disabled), Toast.LENGTH_SHORT).show();
 				return;
 			}
 		} else {
 			fromLocation = new GeoLocation(inputFrom.getText().toString());
-
 			if (!validateLocation(inputFrom.getText().toString(), fromLocation)) {
 				return;
 			}
 		}
 
-		if (inputTo.getText().toString()
-				.equals(getResources().getString(R.string.current_location))) {
+		//same check for to to-location
+		if (inputTo.getText().toString().equals(getResources().getString(R.string.current_location))) {
 			toLocation = new GPSLocator(this);
 			if (!toLocation.isValidLocation()) {
-				Toast.makeText(
-						this,
-						this.getResources().getString(
-								R.string.gps_disabled),
-						Toast.LENGTH_SHORT).show();
-				
+				Toast.makeText(this, this.getResources().getString(R.string.gps_disabled), Toast.LENGTH_SHORT).show();
 				return;
 			}			
 		} else {
@@ -152,12 +151,6 @@ public class TransportActivity2 extends BaseActivity implements
 				return;
 			}
 		}
-
-		double fromLatitude = fromLocation.getLatitude();
-		double fromLongitude = fromLocation.getLongitude();
-
-		double toLatitude = toLocation.getLatitude();
-		double toLongitude = toLocation.getLongitude();
 		
 		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
@@ -167,6 +160,7 @@ public class TransportActivity2 extends BaseActivity implements
 		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival
 				.getId() ? true : false;
 
+		//send the information to the server
 		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
 		request.addEventListener(this);
 		request.putString("_dc", "1382083769026");
@@ -178,12 +172,17 @@ public class TransportActivity2 extends BaseActivity implements
 		request.putString("optimize", "QUICK");
 		request.putString("maxWalkDistance", "1609");
 		request.putString("walkSpeed", "1.341");
-		request.putString("toPlace", toLatitude + "," + toLongitude);
-		request.putString("fromPlace", fromLatitude + "," + fromLongitude);
+		request.putString("toPlace", toLocation.getLatitude() + "," + toLocation.getLongitude());
+		request.putString("fromPlace", fromLocation.getLatitude() + "," + fromLocation.getLongitude());
 		request.execute();
-
 	}
 
+	/**
+	 * Validate the location.
+	 * @param address	The address string from the input field
+	 * @param location	The GeoLocation created with the address string
+	 * @return			True when location is valid; False when location is not valid
+	 */
 	public boolean validateLocation(String address, Location location) {
 		if (address.equals("")) {
 			Toast.makeText(
@@ -203,6 +202,9 @@ public class TransportActivity2 extends BaseActivity implements
 		return true;
 	}
 
+	/**
+	 * Set the TimePickerDialog, along with its listeners.
+	 */
 	private void setTimePicker() {
 		final TimePickerDialog.OnTimeSetListener timePicker = new TimePickerDialog.OnTimeSetListener() {
 			@Override
@@ -237,6 +239,9 @@ public class TransportActivity2 extends BaseActivity implements
 
 	}
 
+	/**
+	 * Set the DatePickerDialog, along with its listeners.
+	 */
 	private void setDatePicker() {
 		final DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
 
@@ -292,6 +297,10 @@ public class TransportActivity2 extends BaseActivity implements
 
 	}
 
+	/**
+	 * Receive the JSON data from the server, and send it to the 
+	 * next activity. (TransportResultActivity) 
+	 */
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
 		dialog.dismiss();
@@ -304,24 +313,29 @@ public class TransportActivity2 extends BaseActivity implements
 
 	}
 
+	/**
+	 * Receive the location from the LocationSelector, and place the 
+	 * output in a text-field. 
+	 */
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		
 		switch (requestCode) {
-		case (2): {
-			if (resultCode == Activity.RESULT_OK) {
-				String location = data.getStringExtra("location");
-				String type = data.getStringExtra("type");
-
-				if (type.equals(getResources().getString(
-						R.string.transport_text_from))) {
-					inputFrom.setText(location);
-				} else {
-					inputTo.setText(location);
+			case (2): {
+				if (resultCode == Activity.RESULT_OK) {
+					String location = data.getStringExtra("location");
+					String type = data.getStringExtra("type");
+	
+					if (type.equals(getResources().getString(
+							R.string.transport_text_from))) {
+						inputFrom.setText(location);
+					} else {
+						inputTo.setText(location);
+					}
 				}
+				break;
 			}
-			break;
-		}
 		}
 	}
 
@@ -337,6 +351,11 @@ public class TransportActivity2 extends BaseActivity implements
 		openLocationSelector(v);
 	}
 
+	/**
+	 * Opens the LocationSelector. This method is called when the user
+	 * clicks or focuses on one of the location fields.
+	 * @param v		The selected text field
+	 */
 	private void openLocationSelector(View v) {
 		String type;
 
