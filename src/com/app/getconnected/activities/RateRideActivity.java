@@ -20,8 +20,8 @@ public class RateRideActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rate_ride);
 		// TODO find out why initLayout crashes
-		// initLayout(R.string.title_activity_rate_ride, true, false, false,
-		// false);
+		initLayout(R.string.title_activity_rate_ride, true, true, true,
+				false);
 		rideId = getIntent().getStringExtra("rideId");
 		rideRatingField = (RadioGroup) findViewById(R.id.ride_rating);
 		rideRatingField.check(R.id.good);

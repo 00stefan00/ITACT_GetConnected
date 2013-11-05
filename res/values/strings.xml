@@ -116,6 +116,7 @@
     <string name="transport_details_walk_title">Walk</string>
     <string name="transport_details_bus_title">Bus</string>
     <string name="transport_details_train_title">Train</string>
+    <string name="transport_detail_taxi">Taxi</string>
     
     <!-- Taxi List Activity -->
     <string name="region_taxi_north_groningen">Region North Groningen</string>
@@ -157,7 +158,7 @@
     <string name="arrival_time">Arrival Time</string>
     <string name="locations">Locations</string>
     <string name="field_validation_input_required">Please fill in all required fields.</string>
-<string name="create_ride_succes">Your ride has been created</string>
+    <string name="create_ride_succes">Your ride has been created</string>
 
     <!-- Requested Rides Activity -->
     <string name="title_activity_requestrides">Offered rides</string>
@@ -194,6 +195,7 @@
     <string name="rate_ride_rating">Rating</string>
     <string name="rate_ride_good">Good</string>
     <string name="rate_ride_bad">Bad</string>
+    <string name="rate_ride_comment">Comment</string>
     <string name="rate_ride_button_ok">OK</string>
     <string name="rate_ride_button_cancel">Cancel</string>
 
