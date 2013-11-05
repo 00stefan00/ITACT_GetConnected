@@ -10,7 +10,7 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 	private View view;
 	private static int ANIMATION_DURATION;
 	private int ToHeight;
-	private int LastHeight;
+	//private int LastHeight;
 	
 	public CollapseAnimation(View v, int FromHeighth, int ToHeight, int Duration) {
 		
@@ -27,13 +27,12 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 
 	@Override
 	public void onAnimationEnd(Animation animation) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 	@Override
 	public void onAnimationRepeat(Animation animation) {
-		// TODO Auto-generated method stub
+		
 		LayoutParams lyp =  view.getLayoutParams();
 		lyp.height = lyp.height - ToHeight/20;
 		view.setLayoutParams(lyp);
@@ -41,9 +40,7 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 
 	@Override
 	public void onAnimationStart(Animation animation) {
-		// TODO Auto-generated method stub
-		LayoutParams lyp =  view.getLayoutParams();
-		LastHeight = lyp.height;
+		view.refreshDrawableState();
 	}
 
 }

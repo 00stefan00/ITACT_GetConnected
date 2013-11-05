@@ -29,13 +29,12 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 
 	@Override
 	public void onAnimationEnd(Animation animation) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
 	public void onAnimationRepeat(Animation animation) {
-		// TODO Auto-generated method stub
+	
 		LayoutParams lyp =  view.getLayoutParams();
 		lyp.height = LastHeight += ToHeight/20;
 		view.setLayoutParams(lyp);
@@ -44,7 +43,7 @@ public class ExpandAnimation extends Animation implements Animation.AnimationLis
 
 	@Override
 	public void onAnimationStart(Animation animation) {
-		// TODO Auto-generated method stub
+		view.refreshDrawableState();
 		LayoutParams lyp =  view.getLayoutParams();
 		lyp.height = 0;
 		view.setLayoutParams(lyp);
