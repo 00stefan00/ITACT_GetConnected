@@ -164,6 +164,7 @@
     <string name="title_activity_requestrides">Aangeboden ritten</string>
     <string name="date">Datum</string>
     <string name="change_date">Change date</string>
+    <string name="join_ride">Kies</string>
 
      <!-- Login / Register activity -->
     <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
