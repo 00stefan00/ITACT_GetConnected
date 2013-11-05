@@ -19,6 +19,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+@SuppressLint("DefaultLocale")
 public class TransportResultActivity extends BaseActivity {
 
 	private int page = 0;
@@ -50,11 +51,18 @@ public class TransportResultActivity extends BaseActivity {
 
 	}
 	
+	/**
+	 * @param jObject
+	 * @throws JSONException
+	 */
 	private void setLocations(JSONObject jObject) throws JSONException{
 		departureLocation = jObject.getJSONObject("from").getString("name");
 		arivalLocation = jObject.getJSONObject("to").getString("name");
 	}
 
+	/**
+	 * instatiate the table view.
+	 */
 	private void initTable() {
 		JSONObject itinerariy = null;
 		try {
@@ -83,6 +91,13 @@ public class TransportResultActivity extends BaseActivity {
 		}
 	}
 
+	/**
+	 * @param row
+	 * @param itinerariy
+	 * @throws Exception
+	 * 
+	 * Sets the text views in the table
+	 */
 	private void setTextViews(TableRow row, JSONObject itinerariy)
 			throws Exception {
 		TextView departure = (TextView) row
@@ -108,12 +123,20 @@ public class TransportResultActivity extends BaseActivity {
 		departureLocation.setText(this.departureLocation);
 	}
 
+	/**
+	 * @param t
+	 * @return
+	 */
+	@SuppressLint("DefaultLocale")
 	private String minutesToHourString(int t) {
 		int hours = t / 60; // since both are ints, you get an int
 		int minutes = t % 60;
 		return String.format("%d:%02d", hours, minutes);
 	}
 
+	/**
+	 * @param row
+	 */
 	private void setClickEvents(TableRow row) {
 		row.setOnClickListener(new OnClickListener() {
 
@@ -137,6 +160,11 @@ public class TransportResultActivity extends BaseActivity {
 
 	}
 
+	/**
+	 * @param time
+	 * @param format
+	 * @return
+	 */
 	@SuppressLint("SimpleDateFormat")
 	private String getDate(Long time, String format) {
 		Date date = new Date(time);
@@ -151,14 +179,16 @@ public class TransportResultActivity extends BaseActivity {
 		return true;
 	}
 
-	// removes all views except the header.
+	/**
+	 * Removes all views in the table.
+	 */
 	private void removeTableRows() {
-		// for (int i = 1; 1 < table.getChildCount(); i++) {
-		// table.removeViewAt(i);
-		// }
 		table.removeAllViews();
 	}
 
+	/**
+	 * Sets the visiblities of the pager buttons.
+	 */
 	private void setVisibilities() {
 		Button prefButton = (Button) findViewById(R.id.transport_results_pref);
 		Button nextButton = (Button) findViewById(R.id.transport_results_next);
@@ -175,6 +205,10 @@ public class TransportResultActivity extends BaseActivity {
 		}
 	}
 
+	/**
+	 * @param v
+	 * Show the next page.
+	 */
 	public void nextPage(View v) {
 		page++;
 		this.removeTableRows();
@@ -182,7 +216,10 @@ public class TransportResultActivity extends BaseActivity {
 		this.setVisibilities();
 
 	}
-
+	/**
+	 * @param v
+	 * Show the previous page.
+	 */
 	public void prefPage(View v) {
 		page--;
 		this.removeTableRows();
