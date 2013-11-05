@@ -26,14 +26,17 @@ public class SaveRides extends Rides implements Argumentable {
 		return parseJSON(json);
 	}
 
+	@Override
 	public void setArgument(String argument) {
 		this.argument = argument;
 	}
 
+	@Override
 	public void setKey(String key) {
 		this.key = key;
 	}
 
+	@Override
 	public boolean isEmpty() {
 		return super.isEmpty() || argument.isEmpty() || key.isEmpty();
 	}

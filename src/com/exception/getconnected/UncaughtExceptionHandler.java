@@ -10,6 +10,7 @@ public class UncaughtExceptionHandler
 	protected UncaughtExceptionHandler(){ }
 	
 	/**
+	 * Catches all exception. Ensuring the application doesn't crash
 	 * @return uncaughtExceptionHandler
 	 */
 	public static java.lang.Thread.UncaughtExceptionHandler getUncaughtExceptionHandler(final Activity activity, final String message)
