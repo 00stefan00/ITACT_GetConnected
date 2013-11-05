@@ -1,25 +1,18 @@
 package com.app.getconnected.activities;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.app.getconnected.R;
-import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.config.Config;
 import com.app.getconnected.rest.RESTRequest.Method;
+import com.app.getconnected.security.Register;
 import com.exception.getconnected.FieldValidationException;
 import com.util.getconnected.FieldValidator;
-import com.util.getconnected.JSONParser;
 
 public class RegisterActivity extends BaseActivity {
 	
@@ -44,6 +37,7 @@ public class RegisterActivity extends BaseActivity {
 		fieldTelephoneNumber=(EditText) findViewById(R.id.telephone_number);
 		fieldEmail=(EditText) findViewById(R.id.emailText);
 		fieldGender=(RadioGroup) findViewById(R.id.gender);
+		fieldGender.check(R.id.gender_male);
 	}
 	
 	public void register(View view)
@@ -89,38 +83,17 @@ public class RegisterActivity extends BaseActivity {
 		String telephoneNumber=fieldTelephoneNumber.getText().toString();
 		String email=fieldEmail.getText().toString();
 		String gender=((RadioButton)findViewById(fieldGender.getCheckedRadioButtonId())).getTag().toString();
-		
-		Map<String, String> hashMap = new HashMap<String,String>();
-		hashMap.put("username", username);
-		hashMap.put("randomPass", password);
-		hashMap.put("firstname", firstName);
-		hashMap.put("lastname", lastName);
-		hashMap.put("telephonenumber", telephoneNumber);
-		hashMap.put("email", email);
-		hashMap.put("gender", gender);
-		
-		//TODO put api base somewhere central/logical.
-		String apiBase="http://127.0.0.1/OpenRideServer-RS/resources/";
-		String url=apiBase+"register";
-		RESTRequest request = new RESTRequest(url);
-		request.setMethod(Method.POST);
-		String result="";
-		//{"RegisterRequest":{"username":"pdevos","randomPass":"randomPass","firstname":"Peter","lastname":"de Vos","gender":"M","email":"example@itract-project.eu","mobilePhoneNumber":"0612345678"}}
+
+		Register register = new Register(username, password, firstName, lastName, telephoneNumber, email, gender);
+		Boolean success = false;
 		try {
-			JSONObject jObj=JSONParser.getInstance().parseMapAsObject(hashMap);
-			String jsonString="{\"RegisterRequest\":"+jObj.toString()+"}";
-			Log.d("DEBUG", jsonString);
-			request.putString("json", jsonString);
-			//TODO implement once API is reachable
-			//result = request.execute().get();
-			result="201 Created";
-		/*} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		} catch (ExecutionException e1) {
-			e1.printStackTrace();*/
-		} catch (JSONException e) {
+			String body = register.attemptApiRequest(Config.OPEN_RIDE_API + "register", Method.POST, "RegisterRequest");
+			if(body.equals("body")) {
+				success = true;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result.equals("201 Created");
+		return success;
 	}
 }

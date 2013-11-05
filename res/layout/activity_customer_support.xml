@@ -54,27 +54,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/connexionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Connexion" />
-
-            <RadioButton
-                android:id="@+id/arrivaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/qbuzzButton"
-                android:layout_gravity="left"
-                android:layout_toRightOf="@+id/connexionButton"
-                android:text="Arriva" />
-
-            <RadioButton
-                android:id="@+id/qbuzzButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Qbuzz" />
         </RadioGroup>
 
         <TextView
@@ -95,6 +74,7 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:text="@string/send" />
+
     </LinearLayout>
 
     <include

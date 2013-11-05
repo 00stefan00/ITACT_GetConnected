@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class OfferedRides extends Rides{
 
+	@Override
 	public ArrayList<JSONObject> createRequest() throws Exception {
 		if(isEmpty()) throw new Exception("Not all arguments have been filled");
 		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.GET, "1");

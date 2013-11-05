@@ -1,8 +1,7 @@
 package com.app.getconnected.activities.help;
 
-import com.app.getconnected.R;
 import com.app.getconnected.activities.BaseActivity;
-
+import com.app.getconnected.R;
 import android.os.Bundle;
 import android.view.Menu;
 

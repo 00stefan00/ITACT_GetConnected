@@ -8,8 +8,13 @@ import android.view.View;
 
 public class TrainDetailGenerator extends BaseDetailGenerator {
 
-	
-	
+	/**
+	 * Constructor
+	 * @param view
+	 * @param context
+	 * @param data
+	 * @throws JSONException
+	 */
 	public TrainDetailGenerator(View view, Context context, JSONObject data)
 			throws JSONException {
 		super(view, context, data);

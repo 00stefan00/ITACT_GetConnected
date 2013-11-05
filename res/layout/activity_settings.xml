@@ -21,21 +21,13 @@
         android:layout_alignParentTop="true"
         layout="@layout/footer" />
 
-    <Button
-        android:id="@+id/apply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:onClick="applySettings"
-        android:text="@string/apply" />
-
     <Spinner
         android:id="@+id/font_scale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/apply"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_centerVertical="true" />
 
     <TextView
         android:id="@+id/textView1"
@@ -50,8 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/include1"
-        android:layout_marginTop="22dp" >
+        android:layout_below="@+id/include1" >
     </RadioGroup>
 
 </RelativeLayout>

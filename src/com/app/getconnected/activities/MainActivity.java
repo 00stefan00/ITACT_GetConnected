@@ -25,6 +25,7 @@ public class MainActivity extends BaseActivity {
 		return true;
 	}
 
+	@Override
 	protected void onResume(){
 	//	Need to write a fancy check here (if language changed)
 		super.onResume();

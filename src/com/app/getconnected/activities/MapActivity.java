@@ -1,8 +1,16 @@
 package com.app.getconnected.activities;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.Toast;
+import com.app.getconnected.R;
+import com.app.getconnected.config.Config;
+import com.app.getconnected.gps.GPSLocator;
+import com.app.getconnected.rest.RESTRequest;
+import com.app.getconnected.rest.RESTRequestEvent;
+import com.app.getconnected.rest.RESTRequestListener;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.osmdroid.api.IGeoPoint;
@@ -18,18 +26,8 @@ import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.Toast;
-
-import com.app.getconnected.R;
-import com.app.getconnected.gps.GPSLocator;
-import com.app.getconnected.config.Config;
-import com.app.getconnected.rest.RESTRequest;
-import com.app.getconnected.rest.RESTRequestEvent;
-import com.app.getconnected.rest.RESTRequestListener;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MapActivity extends BaseActivity implements RESTRequestListener {
@@ -102,6 +100,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 		myLocationoverlay.disableFollowLocation();
 		myLocationoverlay.setDrawAccuracyEnabled(true);
 		myLocationoverlay.runOnFirstFix(new Runnable() {
+			@Override
 			public void run() {
 				mapController.animateTo(myLocationoverlay.getMyLocation());
 			}

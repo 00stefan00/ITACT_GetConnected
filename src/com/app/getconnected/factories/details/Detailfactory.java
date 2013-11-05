@@ -1,20 +1,34 @@
 package com.app.getconnected.factories.details;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import org.json.JSONException;
-import org.json.JSONObject;
-import com.app.getconnected.R;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.app.getconnected.R;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class Detailfactory {
 	
 	private static final String MODE_TAG = "mode";
 
+	/**
+	 * Gets the view
+	 * @param leg
+	 * @param context
+	 * @return
+	 * @throws JSONException
+	 * @throws ClassNotFoundException
+	 * @throws NoSuchMethodException
+	 * @throws IllegalArgumentException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 * @throws InvocationTargetException
+	 */
 	public static View getView(JSONObject leg, Context context) throws JSONException, ClassNotFoundException, NoSuchMethodException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException {
 		// Get the mode string in lower case, i.e. BUS -> bus
 		String mode = leg.getString(MODE_TAG).toLowerCase();		
@@ -40,6 +54,12 @@ public class Detailfactory {
 		return ((BaseDetailGenerator)detailGeneratorInstance).getView();
 	}
 
+	/**
+	 * Inflates the view
+	 * @param resource
+	 * @param context
+	 * @return
+	 */
 	private static View inflateView(int resource, Context context) {
 		ViewGroup wrapper = (ViewGroup) ((Activity) context)
 				.findViewById(R.id.transport_details_wrapper);

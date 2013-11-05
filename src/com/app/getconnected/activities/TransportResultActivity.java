@@ -1,23 +1,19 @@
 package com.app.getconnected.activities;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import com.app.getconnected.R;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
+import com.app.getconnected.R;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TransportResultActivity extends BaseActivity {
 
@@ -55,6 +51,9 @@ public class TransportResultActivity extends BaseActivity {
 		arivalLocation = jObject.getJSONObject("to").getString("name");
 	}
 
+	/**
+	 * Initializes the table
+	 */
 	private void initTable() {
 		JSONObject itinerariy = null;
 		try {
@@ -83,6 +82,12 @@ public class TransportResultActivity extends BaseActivity {
 		}
 	}
 
+	/**
+	 * Sets the text views
+	 * @param row
+	 * @param itinerariy
+	 * @throws Exception
+	 */
 	private void setTextViews(TableRow row, JSONObject itinerariy)
 			throws Exception {
 		TextView departure = (TextView) row
@@ -108,12 +113,21 @@ public class TransportResultActivity extends BaseActivity {
 		departureLocation.setText(this.departureLocation);
 	}
 
-	private String minutesToHourString(int t) {
-		int hours = t / 60; // since both are ints, you get an int
+	/**
+	 * Converts minutes to hours
+	 * @param t
+	 * @return
+	 */
+	private String minutesToHourString(int t){
+		int hours = t / 60; //since both are ints, you get an int
 		int minutes = t % 60;
 		return String.format("%d:%02d", hours, minutes);
 	}
 
+	/**
+	 * Sets the events for clicks
+	 * @param row
+	 */
 	private void setClickEvents(TableRow row) {
 		row.setOnClickListener(new OnClickListener() {
 
@@ -151,7 +165,9 @@ public class TransportResultActivity extends BaseActivity {
 		return true;
 	}
 
-	// removes all views except the header.
+	/**
+	 * removes all views except the header
+	 */
 	private void removeTableRows() {
 		// for (int i = 1; 1 < table.getChildCount(); i++) {
 		// table.removeViewAt(i);
@@ -159,6 +175,9 @@ public class TransportResultActivity extends BaseActivity {
 		table.removeAllViews();
 	}
 
+	/**
+	 * Sets the visibility
+	 */
 	private void setVisibilities() {
 		Button prefButton = (Button) findViewById(R.id.transport_results_pref);
 		Button nextButton = (Button) findViewById(R.id.transport_results_next);
@@ -175,6 +194,10 @@ public class TransportResultActivity extends BaseActivity {
 		}
 	}
 
+	/**
+	 * Changes the page
+	 * @param v
+	 */
 	public void nextPage(View v) {
 		page++;
 		this.removeTableRows();
@@ -183,6 +206,10 @@ public class TransportResultActivity extends BaseActivity {
 
 	}
 
+	/**
+	 * Changes the page
+	 * @param v
+	 */
 	public void prefPage(View v) {
 		page--;
 		this.removeTableRows();
@@ -190,5 +217,4 @@ public class TransportResultActivity extends BaseActivity {
 		this.setVisibilities();
 
 	}
-
 }

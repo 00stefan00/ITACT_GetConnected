@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".RateRideActivity" >
+
+    <TextView
+        android:id="@+id/ride_rating_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_ride_rating" />
+    
+    <RadioGroup
+        android:id="@+id/ride_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ride_rating_label" >
+
+        <RadioButton
+            android:id="@+id/good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/rate_ride_good"
+            android:tag="1" />
+
+        <RadioButton
+            android:id="@+id/bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rate_ride_bad" 
+            android:tag="-1" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/ride_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ride_rating"
+        android:layout_below="@+id/ride_rating"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textMultiLine">
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ride_comment"
+        android:layout_below="@+id/ride_comment"
+        android:layout_marginTop="31dp"
+        android:text="@string/rate_ride_button_ok"
+        android:onClick="sendRating" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignRight="@+id/ride_comment"
+        android:text="@string/rate_ride_button_cancel"
+        android:onClick="cancelRating" />
+
+</RelativeLayout>
