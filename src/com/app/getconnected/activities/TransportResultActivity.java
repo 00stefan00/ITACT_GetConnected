@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressLint("DefaultLocale")
 public class TransportResultActivity extends BaseActivity {
 
 	private int page = 0;
@@ -46,13 +47,21 @@ public class TransportResultActivity extends BaseActivity {
 
 	}
 	
+	/**
+	 * @param jObject
+	 * @throws JSONException
+	 */
 	private void setLocations(JSONObject jObject) throws JSONException{
 		departureLocation = jObject.getJSONObject("from").getString("name");
 		arivalLocation = jObject.getJSONObject("to").getString("name");
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Initializes the table
+=======
+	 * instatiate the table view.
+>>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	private void initTable() {
 		JSONObject itinerariy = null;
@@ -83,10 +92,18 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Sets the text views
 	 * @param row
 	 * @param itinerariy
 	 * @throws Exception
+=======
+	 * @param row
+	 * @param itinerariy
+	 * @throws Exception
+	 * 
+	 * Sets the text views in the table
+>>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	private void setTextViews(TableRow row, JSONObject itinerariy)
 			throws Exception {
@@ -118,8 +135,9 @@ public class TransportResultActivity extends BaseActivity {
 	 * @param t
 	 * @return
 	 */
-	private String minutesToHourString(int t){
-		int hours = t / 60; //since both are ints, you get an int
+	@SuppressLint("DefaultLocale")
+	private String minutesToHourString(int t) {
+		int hours = t / 60; // since both are ints, you get an int
 		int minutes = t % 60;
 		return String.format("%d:%02d", hours, minutes);
 	}
@@ -151,6 +169,11 @@ public class TransportResultActivity extends BaseActivity {
 
 	}
 
+	/**
+	 * @param time
+	 * @param format
+	 * @return
+	 */
 	@SuppressLint("SimpleDateFormat")
 	private String getDate(Long time, String format) {
 		Date date = new Date(time);
@@ -169,14 +192,11 @@ public class TransportResultActivity extends BaseActivity {
 	 * removes all views except the header
 	 */
 	private void removeTableRows() {
-		// for (int i = 1; 1 < table.getChildCount(); i++) {
-		// table.removeViewAt(i);
-		// }
 		table.removeAllViews();
 	}
 
 	/**
-	 * Sets the visibility
+	 * Sets the visibilities of the pager buttons.
 	 */
 	private void setVisibilities() {
 		Button prefButton = (Button) findViewById(R.id.transport_results_pref);
@@ -195,7 +215,7 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	/**
-	 * Changes the page
+	 * Show the next page.
 	 * @param v
 	 */
 	public void nextPage(View v) {
@@ -207,7 +227,7 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	/**
-	 * Changes the page
+	 * Show the previous page.
 	 * @param v
 	 */
 	public void prefPage(View v) {

@@ -133,10 +133,6 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.app.getconnected.activities.TransportActivity1"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.app.getconnected.activities.CustomerSupportActivity"
             android:label="@string/title_activity_customer_support"
             android:screenOrientation="portrait" >

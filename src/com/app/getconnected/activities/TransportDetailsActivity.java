@@ -18,7 +18,13 @@ public class TransportDetailsActivity extends BaseActivity {
 
 	private int page = 0;
 	private int pageSize = 3;
+	/**
+	 * The data we are using
+	 */
 	private JSONArray legs;
+	/**
+	 * The layout we are using
+	 */
 	LinearLayout wrapper;
 
 	@Override
@@ -54,8 +60,13 @@ public class TransportDetailsActivity extends BaseActivity {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Initializes the views
 	 * @throws JSONException
+=======
+	 * @throws JSONException
+	 * Calls the factory and sets the views
+>>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	private void initViews() throws JSONException {
 		for (int i = (page * pageSize); i < legs.length()
@@ -85,7 +96,11 @@ public class TransportDetailsActivity extends BaseActivity {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Sets the visibilities
+=======
+	 * Sets the visibilities for the pager buttons
+>>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	private void setVisibilities() {
 		Button prefButton = (Button) findViewById(R.id.transport_details_pref);
@@ -103,15 +118,24 @@ public class TransportDetailsActivity extends BaseActivity {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * removes the table rows
+=======
+	 * removes all views form our wrapper
+>>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	private void removeTableRows() {
 		wrapper.removeAllViews();
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Changes the page to the next one
 	 * @param v
+=======
+	 * @param v
+	 * Go to the next page
+>>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	public void nextPage(View v) {
 		page++;
@@ -128,8 +152,13 @@ public class TransportDetailsActivity extends BaseActivity {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Changes the page to the previous one
 	 * @param v
+=======
+	 * @param v
+	 * Go to the previous page
+>>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	public void prefPage(View v) {
 		page--;
