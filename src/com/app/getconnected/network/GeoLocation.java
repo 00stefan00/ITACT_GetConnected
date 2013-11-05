@@ -7,7 +7,6 @@ import org.json.JSONObject;
 
 import com.app.getconnected.gps.Location;
 import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author 	Jorian Plat <jorianplat@hotmail.com>
