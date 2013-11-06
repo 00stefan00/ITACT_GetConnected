@@ -305,9 +305,6 @@ public class TransportActivity2 extends BaseActivity implements
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
 		dialog.dismiss();
-
-		System.out.println(event.getResult());
-		
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
 		startActivity(intent);

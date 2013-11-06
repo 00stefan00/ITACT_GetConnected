@@ -44,7 +44,6 @@ public class TransportResultActivity extends BaseActivity {
 
 		initTable();
 		this.setVisibilities();
-
 	}
 	
 	/**
@@ -57,18 +56,15 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Initializes the table
-=======
 	 * instatiate the table view.
->>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	private void initTable() {
 		JSONObject itinerariy = null;
 		try {
 			if (itineraries.length() <= 0) {
 				TableRow row = (TableRow) getLayoutInflater().inflate(
-						R.layout.transport_no_result_row, table, false);;
+						R.layout.transport_no_result_row, table, false);
 				table.addView(row);
 				return;
 			}
@@ -92,18 +88,15 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Sets the text views
 	 * @param row
 	 * @param itinerariy
 	 * @throws Exception
-=======
 	 * @param row
 	 * @param itinerariy
 	 * @throws Exception
 	 * 
 	 * Sets the text views in the table
->>>>>>> d3ba0745c3178f63bfaa221a6245b5a9adaca2c4
 	 */
 	private void setTextViews(TableRow row, JSONObject itinerariy)
 			throws Exception {
