@@ -18,7 +18,7 @@ import com.util.getconnected.ActivityHelper.DatePickerFragment;
 
 public class RequestedRidesActivity extends BaseActivity {
 	TableLayout tl;
-	ArrayList<ArrayList> tableArray = new ArrayList<ArrayList>();
+	ArrayList<ArrayList<View>> tableArray = new ArrayList<ArrayList<View>>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +114,7 @@ public class RequestedRidesActivity extends BaseActivity {
 
 	protected void join_ride(View v) {
 		String text = (((TextView) tableArray.get(v.getId()).get(0)).getText()).toString();
-		Toast toast = Toast.makeText(this, text, 1);
+		Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
 		toast.show();		
 	}
 

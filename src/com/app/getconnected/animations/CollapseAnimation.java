@@ -10,6 +10,8 @@ public class CollapseAnimation extends Animation implements Animation.AnimationL
 	private View view;
 	private static int ANIMATION_DURATION;
 	private int ToHeight;
+	@SuppressWarnings("unused")
+	// TODO The value of the field LastHeight is unused
 	private int LastHeight;
 
 	/**
