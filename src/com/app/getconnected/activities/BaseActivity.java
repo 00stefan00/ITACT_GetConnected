@@ -116,7 +116,9 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	/**
-	 * TODO description
+	 * Handles the quick menu.
+	 * Here the extend and collapse animation classes are used to animate the menu.
+	 * 
 	 */
 	private void handleMenu() {
 		DisplayMetrics metrics = new DisplayMetrics();
