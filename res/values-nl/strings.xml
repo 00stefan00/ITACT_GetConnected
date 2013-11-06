@@ -163,7 +163,7 @@
     <!-- Requested Rides Activity -->
     <string name="title_activity_requestrides">Aangeboden ritten</string>
     <string name="date">Datum</string>
-    <string name="change_date">Change date</string>
+    <string name="change_date">Wijzig data</string>
     <string name="join_ride">Kies</string>
 
      <!-- Login / Register activity -->
@@ -180,7 +180,7 @@
     <string name="register">Registreer</string>
     <string name="field_gender_male">Man</string>
     <string name="field_gender_female">Vrouw</string>
-    <string name="login">Log in</string>
+    <string name="login">Inloggen</string>
     <string name="registration_failed">Het registreren is mislukt</string>
     
     <!-- Unrated Rides Activity -->
