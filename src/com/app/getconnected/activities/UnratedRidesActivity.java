@@ -1,7 +1,9 @@
 package com.app.getconnected.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -16,6 +18,7 @@ import java.util.Locale;
 
 public class UnratedRidesActivity extends BaseActivity {
 	TableLayout tl;
+	boolean isGray = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +28,14 @@ public class UnratedRidesActivity extends BaseActivity {
 				false);
 		tableinit();
 		addTableRow("1371546903022", "r", "template_user", "m", "14002");
+		addTableRow("1371446993022", "d", "template_user", "m", "14003");
+		addTableRow("1371246703022", "r", "template_user_2", "f", "14004");
 	}
 
 	/**
 	 * Initializes the table
 	 */
-	 
+
 	private void tableinit() {
 		tl = (TableLayout) findViewById(R.id.tableLayoutUnratedRides);
 
@@ -61,17 +66,19 @@ public class UnratedRidesActivity extends BaseActivity {
 
 	/**
 	 * Adds a table row
+	 * 
 	 * @param endTimev
 	 * @param rolev
 	 * @param namev
 	 * @param genderv
 	 */
-	 
+
 	private void addTableRow(String endTimev, String rolev, String namev,
 			String genderv, String rideIdv) {
 		long endTimeLong = Long.valueOf(endTimev);
 		Date endTimeDate = new java.util.Date(endTimeLong);
-		String endTimeString = new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.ENGLISH).format(endTimeDate);
+		String endTimeString = new SimpleDateFormat("yyyy-MM-dd hh:mm",
+				Locale.ENGLISH).format(endTimeDate);
 		TextView endTime = new TextView(this);
 		endTime.setText(endTimeString);
 		TextView role = new TextView(this);
@@ -92,18 +99,34 @@ public class UnratedRidesActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
-        
-		TableRow datarow = new TableRow(this);
+		int color=getColor();
 
+		TableRow datarow = new TableRow(this);
+		datarow.setBackgroundColor(color);
 		datarow.addView(endTime);
 		datarow.addView(role);
 		datarow.addView(name);
 		datarow.addView(gender);
-		datarow.addView(buttonRate);
-
+		datarow.setGravity(Gravity.CENTER_HORIZONTAL);
 		tl.addView(datarow, new TableLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
+		datarow = new TableRow(this);
+		datarow.setBackgroundColor(color);
+		datarow.addView(buttonRate);
+		datarow.setGravity(Gravity.CENTER_HORIZONTAL);
+		tl.addView(datarow, new TableLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+
 		tl.setStretchAllColumns(true);
+	}
+
+	private int getColor()
+	{
+		isGray=!isGray;
+		if(isGray) {
+			return Color.LTGRAY;
+		}
+		return Color.WHITE;
 	}
 }

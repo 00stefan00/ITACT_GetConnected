@@ -19,12 +19,13 @@ public class RateRideActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rate_ride);
-		//TODO find out why initLayout crashes
-		//initLayout(R.string.title_activity_rate_ride, true, false, false, false);
+		// TODO find out why initLayout crashes
+		initLayout(R.string.title_activity_rate_ride, true, true, true,
+				false);
 		rideId = getIntent().getStringExtra("rideId");
-		rideRatingField=(RadioGroup) findViewById(R.id.ride_rating);
+		rideRatingField = (RadioGroup) findViewById(R.id.ride_rating);
 		rideRatingField.check(R.id.good);
-		rideCommentField=(EditText) findViewById(R.id.ride_comment);
+		rideCommentField = (EditText) findViewById(R.id.ride_comment);
 	}
 
 	@Override
@@ -32,15 +33,27 @@ public class RateRideActivity extends BaseActivity {
 		getMenuInflater().inflate(R.menu.rate_ride, menu);
 		return true;
 	}
-	
-	public void cancelRating(View v) {
+
+	/**
+	 * Finishes this activity without sending any rating
+	 * 
+	 * @param view
+	 */
+	public void cancelRating(View view) {
 		finish();
 	}
-	
-	public void sendRating(View v) {
-		String rating=((RadioButton)findViewById(rideRatingField.getCheckedRadioButtonId())).getTag().toString();
-		String comment=rideCommentField.getText().toString();
-		Log.d("DEBUG", "ride ID:"+rideId+", Rating: "+rating+", Comment: "+comment);
+
+	/**
+	 * Sends the rating to the API and finishes this activity
+	 * 
+	 * @param view
+	 */
+	public void sendRating(View view) {
+		String rating = ((RadioButton) findViewById(rideRatingField
+				.getCheckedRadioButtonId())).getTag().toString();
+		String comment = rideCommentField.getText().toString();
+		Log.d("DEBUG", "ride ID:" + rideId + ", Rating: " + rating
+				+ ", Comment: " + comment);
 		finish();
 	}
 

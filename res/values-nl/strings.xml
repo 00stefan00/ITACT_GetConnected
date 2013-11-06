@@ -58,7 +58,6 @@
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
-    
 
     <!-- Help Activity -->
     <string name="title_activity_help">Hulp en uitleg</string>
@@ -92,6 +91,7 @@
 
     <!-- Field Validation error messages -->
     <string name="field_validation_no_input">Het veld mag niet leeg zijn</string>
+    <string name="field_validation_same_input">De velden mogen niet hetzelfde zijn</string>
     <string name="field_validation_too_short">Er zijn te weinig letters of getallen ingevuld</string>
     <string name="field_validation_too_long">Er zijn te veel letters of getallen ingevuld</string>
     <string name="field_validation_number">Het veld mag geen letters bevatten</string>
@@ -164,6 +164,7 @@
     <string name="title_activity_requestrides">Aangeboden ritten</string>
     <string name="date">Datum</string>
     <string name="change_date">Wijzig data</string>
+    <string name="join_ride">Kies</string>
 
      <!-- Login / Register activity -->
     <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
@@ -180,7 +181,6 @@
     <string name="field_gender_male">Man</string>
     <string name="field_gender_female">Vrouw</string>
     <string name="login">Inloggen</string>
-    <string name="field_validation_same_input">De velden mogen niet hetzelfde zijn</string>
     <string name="registration_failed">Het registreren is mislukt</string>
     
     <!-- Unrated Rides Activity -->
@@ -196,6 +196,7 @@
     <string name="rate_ride_rating">Waardering</string>
     <string name="rate_ride_good">Goed</string>
     <string name="rate_ride_bad">Slecht</string>
+    <string name="rate_ride_comment">Commentaar</string>
     <string name="rate_ride_button_ok">OK</string>
     <string name="rate_ride_button_cancel">Annuleren</string>
 

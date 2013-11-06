@@ -136,7 +136,7 @@
         android:onClick="startIntentByButton"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:tag="MarketplaceActivity"
+        android:tag="LoginActivity"
         android:text="@string/home_button_marktetplace" />
     
     <Button
