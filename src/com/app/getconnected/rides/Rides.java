@@ -1,10 +1,11 @@
 package com.app.getconnected.rides;
 
-import com.app.getconnected.config.Config;
-import com.util.getconnected.JSONParser;
+import java.util.ArrayList;
+
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import com.app.getconnected.config.Config;
+import com.util.getconnected.JSONParser;
 
 /**
  * Created with Microsoft Notepad.
