@@ -71,8 +71,8 @@
         android:onClick="startIntentByButton"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:tag="RequestedRidesActivity"
-        android:text="@string/display_requests" />
+        android:tag="OfferedRidesActivity"
+        android:text="@string/display_offered_rides" />
     
     <Button
         android:id="@+id/display_unrated_rides"

@@ -140,11 +140,11 @@
     <string name="title_activity_taxi_list">TaxiList</string>
 
     <!-- Marketplace Activity -->
-    <string name="title_activity_marketplace">marktplaats</string>
+    <string name="title_activity_marketplace">Marktplaats</string>
     <string name="request_ride">Vraag rit aan</string>
     <string name="create_ride">Maak nieuwe rit aan</string>
-    <string name="display_requests">Laat aangevraagde ritten zien</string>
-    <string name="display_unrated_rides">Bekijk \'unrated\' ritten</string>
+    <string name="display_offered_rides">Laat aangeboden ritten zien</string>
+    <string name="display_unrated_rides">Bekijk onbeoordeelde ritten</string>
 
     <!-- Create / Offered Ride Activity -->
     <string name="title_activity_createride">Maak rit aan</string>
@@ -160,40 +160,40 @@
     <string name="field_validation_input_required">Vul aub alle verplichte velden in.</string>
     <string name="create_ride_succes">Uw rit is aangemaakt</string>
 
-    <!-- Requested Rides Activity -->
+    <!-- Offered Rides Activity -->
     <string name="title_activity_requestrides">Aangeboden ritten</string>
     <string name="date">Datum</string>
-    <string name="change_date">Wijzig data</string>
-    <string name="join_ride">Kies</string>
+    <string name="change_date">Wijzig datum</string>
+    <string name="offered_rides_more_info">Meer</string>
 
      <!-- Login / Register activity -->
     <string name="login_incorrect_credentials">Gebruikersnaam of wachtwoord is incorrect</string>
     <string name="title_activity_loginactivity">Login</string>
-    <string name="title_activity_registeractivity">Registreer</string>
+    <string name="title_activity_registeractivity">Registreren</string>
     <string name="field_username">Gebruikersnaam</string>
     <string name="field_password">Wachtwoord</string>
     <string name="field_first_name">Voornaam</string>
     <string name="field_last_name">Achternaam</string>
-    <string name="field_gender">geslacht</string>
+    <string name="field_gender">Geslacht</string>
     <string name="field_telephone_number">Telefoonnummer</string>
     <string name="field_email">E-mail</string>
-    <string name="register">Registreer</string>
+    <string name="register">Registreren</string>
     <string name="field_gender_male">Man</string>
     <string name="field_gender_female">Vrouw</string>
     <string name="login">Inloggen</string>
     <string name="registration_failed">Het registreren is mislukt</string>
     
     <!-- Unrated Rides Activity -->
-    <string name="title_activity_unrated_rides">Unrated rides</string>
+    <string name="title_activity_unrated_rides">Onbeoordeelde ritten</string>
     <string name="unrated_ride_person_name">Bijnaam</string>
     <string name="unrated_ride_person_gender">Geslacht</string>
     <string name="unrated_ride_person_role">Rol</string>
     <string name="unrated_ride_time_realized">Eindtijd</string>
-    <string name="unrated_ride_button_rate">\'Rate\'</string>
+    <string name="unrated_ride_button_rate">Beoordeel</string>
     
     <!--  Rate Ride Activity -->
-    <string name="title_activity_rate_ride">Waardeer rit</string>
-    <string name="rate_ride_rating">Waardering</string>
+    <string name="title_activity_rate_ride">Beoordeel rit</string>
+    <string name="rate_ride_rating">Beoordeling</string>
     <string name="rate_ride_good">Goed</string>
     <string name="rate_ride_bad">Slecht</string>
     <string name="rate_ride_comment">Commentaar</string>
@@ -211,4 +211,11 @@
     <string name="complaint_error">Voer uw vraag of klacht in</string>
     <string name="transport_error">Selecteer een vervoerder</string>
 
+    <!-- Join Ride Activity -->
+    <string name="title_activity_join_ride">Meerijden</string>
+    <string name="driver_gender">Geslacht</string>
+    <string name="driver_name">Naam</string>
+    <string name="join_ride_button_join">Verzoek om mee te rijden</string>
+    <string name="join_ride_requested">Uw verzoek om mee te rijden is aangemaakt</string>
+    
 </resources>

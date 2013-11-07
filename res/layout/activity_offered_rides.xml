@@ -38,7 +38,7 @@
     </RelativeLayout>
 
     <TableLayout
-        android:id="@+id/tableLayoutRequestedRides"
+        android:id="@+id/tableLayoutOfferedRides"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="top" >

@@ -143,7 +143,7 @@
     <string name="title_activity_marketplace">Marketplace</string>
     <string name="request_ride">Request a ride</string>
     <string name="create_ride">Create new ride</string>
-    <string name="display_requests">Display requested rides</string>
+    <string name="display_offered_rides">Display offered rides</string>
     <string name="display_unrated_rides">Display unrated rides</string>
     
     <!-- Create / Offered Ride Activity -->
@@ -160,11 +160,11 @@
     <string name="field_validation_input_required">Please fill in all required fields.</string>
     <string name="create_ride_succes">Your ride has been created</string>
 
-    <!-- Requested Rides Activity -->
-    <string name="title_activity_requestrides">Offered rides</string>
+    <!-- Offered Rides Activity -->
+    <string name="title_activity_offered_rides">Offered rides</string>
     <string name="date">Date</string>
     <string name="change_date">Change date</string>
-    <string name="join_ride">Join</string>
+    <string name="offered_rides_more_info">More</string>
 
     <!-- Login / Register activity -->
     <string name="login_incorrect_credentials">Username or password is incorrect</string>
@@ -211,4 +211,11 @@
     <string name="complaint_error">Please enter your complaint or question</string>
     <string name="transport_error">Please select a transport company</string>
 
+    <!-- Join Ride Activity -->
+    <string name="title_activity_join_ride">Join ride</string>
+    <string name="driver_gender">Gender</string>
+    <string name="driver_name">Name</string>
+    <string name="join_ride_button_join">Request to join</string>
+    <string name="join_ride_requested">Your join request has been made</string>
+    
     </resources>

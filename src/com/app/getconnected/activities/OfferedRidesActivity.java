@@ -20,15 +20,15 @@ import android.widget.Toast;
 
 import com.util.getconnected.ActivityHelper.DatePickerFragment;
 
-public class RequestedRidesActivity extends BaseActivity {
+public class OfferedRidesActivity extends BaseActivity {
 	TableLayout tl;
 	ArrayList<ArrayList<View>> tableArray = new ArrayList<ArrayList<View>>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_requestedrides);
-		initLayout(R.string.title_activity_requestrides, true, true, true,
+		setContentView(R.layout.activity_offered_rides);
+		initLayout(R.string.title_activity_offered_rides, true, true, true,
 				false);
 
 		tableinit();
@@ -40,7 +40,7 @@ public class RequestedRidesActivity extends BaseActivity {
 	 * Initializes the table
 	 */
 	private void tableinit() {
-		tl = (TableLayout) findViewById(R.id.tableLayoutRequestedRides);
+		tl = (TableLayout) findViewById(R.id.tableLayoutOfferedRides);
 
 		TextView departure_time = new TextView(this);
 		departure_time.setText(getResources()
@@ -114,7 +114,7 @@ public class RequestedRidesActivity extends BaseActivity {
 			tableArray.add(dataArray);
 			Button button = new Button(this);
 			button.setId(tableArray.size()-1);
-			button.setText(getResources().getString(R.string.join_ride));
+			button.setText(getResources().getString(R.string.offered_rides_more_info));
 			button.setOnClickListener(new View.OnClickListener() {
 			    public void onClick(View v) {
 			    	getMoreInformation(obj);
@@ -130,7 +130,7 @@ public class RequestedRidesActivity extends BaseActivity {
 	}
 
 	protected void getMoreInformation(JSONObject obj) {
-		  Intent i = new Intent(RequestedRidesActivity.this, JoinRideActivity.class);
+		  Intent i = new Intent(OfferedRidesActivity.this, JoinRideActivity.class);
 		  i.putExtra("json", obj.toString());
 		  startActivity(i);
 		}
