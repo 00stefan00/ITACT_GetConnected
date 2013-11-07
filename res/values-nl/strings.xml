@@ -245,5 +245,6 @@
     <string name="email_error">Voer uw e-mail in</string>
     <string name="complaint_error">Voer uw vraag of klacht in</string>
     <string name="transport_error">Selecteer een vervoerder</string>
+    <string name="arrowdes">Arrow</string>
 
 </resources>
