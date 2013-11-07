@@ -308,7 +308,6 @@ public class TransportActivity2 extends BaseActivity implements
 		Intent intent = new Intent(this, TransportResultActivity.class);
 		intent.putExtra("json", event.getResult());
 		startActivity(intent);
-
 	}
 
 	/**

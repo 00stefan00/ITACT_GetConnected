@@ -52,7 +52,7 @@
     <string name="transport_input_to">Plaatsnaam..</string>
     <string name="transport_input_time">Kies tijd</string>
     <string name="transport_input_date">Kies datum</string>
-    <string name="transport_button_ok">Ok</string>
+    <string name="transport_button_ok">OK</string>
     <string name="title_activity_transport_result">Reisinformatie</string>
     <string name="transport_result_text_departure">Vertrek</string>
     <string name="transport_result_text_traveltime">Reistijd</string>
@@ -96,7 +96,7 @@
     <string name="footer_button_back">Terug</string>
     <string name="footer_button_menu_open">Open Menu</string>
     <string name="footer_button_menu_close">Sluit Menu</string>
-    <string name="footer_button_ok">Ok</string>
+    <string name="footer_button_ok">OK</string>
 
     <!-- Field Bus Stop Details -->
     <string name="title_activity_bus_stop_details">Bushalte</string>
@@ -245,5 +245,6 @@
     <string name="email_error">Voer uw e-mail in</string>
     <string name="complaint_error">Voer uw vraag of klacht in</string>
     <string name="transport_error">Selecteer een vervoerder</string>
+    <string name="wrongMessage">Er is een fout opgetreden</string>
 
 </resources>

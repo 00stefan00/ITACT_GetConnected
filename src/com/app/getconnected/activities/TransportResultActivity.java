@@ -23,7 +23,7 @@ public class TransportResultActivity extends BaseActivity {
 	private JSONArray itineraries;
 	private TableLayout table;
 	private String departureLocation;
-	private String arivalLocation;
+	private String arrivalLocation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class TransportResultActivity extends BaseActivity {
 
 		initTable();
 		this.setVisibilities();
+
 	}
 	
 	/**
@@ -52,7 +53,7 @@ public class TransportResultActivity extends BaseActivity {
 	 */
 	private void setLocations(JSONObject jObject) throws JSONException{
 		departureLocation = jObject.getJSONObject("from").getString("name");
-		arivalLocation = jObject.getJSONObject("to").getString("name");
+		arrivalLocation = jObject.getJSONObject("to").getString("name");
 	}
 
 	/**
@@ -61,11 +62,14 @@ public class TransportResultActivity extends BaseActivity {
 	 */
 	private void initTable() {
 		JSONObject itinerariy = null;
+		ImageView arrow = (ImageView)findViewById(R.id.arrow);
 		try {
 			if (itineraries.length() <= 0) {
+				arrow.setVisibility(View.GONE);
 				TableRow row = (TableRow) getLayoutInflater().inflate(
 						R.layout.transport_no_result_row, table, false);
 				table.addView(row);
+				
 				return;
 			}
 
@@ -81,7 +85,7 @@ public class TransportResultActivity extends BaseActivity {
 				row.setBackgroundResource(R.drawable.table_style);
 			}
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -119,7 +123,7 @@ public class TransportResultActivity extends BaseActivity {
 		arival.setText("" + getDate(itinerariy.getLong("endTime"), "HH:mm")
 				+ " ");
 		transfers.setText("" + itinerariy.getInt("transfers"));
-		arivalLocation.setText(this.arivalLocation);
+		arivalLocation.setText(this.arrivalLocation);
 		departureLocation.setText(this.departureLocation);
 	}
 
@@ -152,7 +156,7 @@ public class TransportResultActivity extends BaseActivity {
 							.toString());
 				} catch (JSONException e) {
 					Toast.makeText(TransportResultActivity.this,
-							"Something went wrong =(", Toast.LENGTH_LONG)
+							R.string.wrongMessage, Toast.LENGTH_LONG)
 							.show();
 					return;
 				}

@@ -43,7 +43,7 @@ public class TransportDetailsActivity extends BaseActivity {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -104,7 +104,7 @@ public class TransportDetailsActivity extends BaseActivity {
 		try {
 			this.initViews();
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -122,7 +122,7 @@ public class TransportDetailsActivity extends BaseActivity {
 		try {
 			this.initViews();
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
