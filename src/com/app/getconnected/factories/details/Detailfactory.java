@@ -89,8 +89,6 @@ public class Detailfactory {
 		}catch(Exception e){
 			return new DefaultDetailGenerator(view, context,leg);
 		}
-			
-		
 	}
 
 }
