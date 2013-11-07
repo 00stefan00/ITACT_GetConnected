@@ -58,6 +58,7 @@
     <string name="transport_result_text_switch">Switch</string>
     <string name="transport_result_text_arrival">Arrival</string>
     <string name="transport_text_empty">Some field are empty..</string>
+     <string name="noTransportSelected">You have not selected a method of transportation</string>
 
     <!-- Help Activity -->
     <string name="title_activity_help">Help</string>

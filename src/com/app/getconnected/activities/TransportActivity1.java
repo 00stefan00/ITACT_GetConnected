@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.app.getconnected.R;
 
@@ -38,7 +39,13 @@ public class TransportActivity1 extends BaseActivity {
 		buttonOk.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				nextPage();
+				if(checkBoxBus.isChecked() == false && checkBoxTrain.isChecked() == false && checkBoxTaxiOther.isChecked() == false){
+					Toast.makeText(TransportActivity1.this, R.string.noTransportSelected, Toast.LENGTH_LONG)
+					.show();
+				}
+				else{
+					nextPage();
+				}		
 			}
 		});
 
@@ -52,7 +59,6 @@ public class TransportActivity1 extends BaseActivity {
 
 		String mode = getTransportMode(checkBoxBus.isChecked(),
 				checkBoxTrain.isChecked(), checkBoxTaxiOther.isChecked());
-		
 		Intent intent = new Intent(TransportActivity1.this, TransportActivity2.class);
 		intent.putExtra("mode", mode);
 		startActivityForResult(intent, 1);

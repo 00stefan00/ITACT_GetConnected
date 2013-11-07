@@ -59,6 +59,7 @@
     <string name="transport_result_text_switch">Overstap</string>
     <string name="transport_result_text_arrival">Aankomst</string>
     <string name="transport_text_empty">Vul alles in..</string>
+     <string name="noTransportSelected">U heeft niets geselecteerd</string>
 
     <!-- Help Activity -->
     <string name="title_activity_help">Hulp en uitleg</string>
