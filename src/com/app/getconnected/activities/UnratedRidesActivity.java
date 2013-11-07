@@ -11,7 +11,6 @@ import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
 import com.app.getconnected.R;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;

@@ -4,26 +4,26 @@ import java.util.ArrayList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.app.getconnected.R;
-
 import android.content.Intent;
+import android.graphics.Color;
 import android.app.DialogFragment;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.util.getconnected.ActivityHelper.DatePickerFragment;
 
 public class OfferedRidesActivity extends BaseActivity {
 	TableLayout tl;
 	ArrayList<ArrayList<View>> tableArray = new ArrayList<ArrayList<View>>();
-
+	boolean isGray = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -84,6 +84,7 @@ public class OfferedRidesActivity extends BaseActivity {
 		TextView destination = new TextView(this);
 		destination.setText(destinationv);
 
+		int color=getColor();
 		TableRow datarow = new TableRow(this);
 		
 		ArrayList<View> dataArray = new ArrayList<View>();
@@ -110,7 +111,8 @@ public class OfferedRidesActivity extends BaseActivity {
 	      e.printStackTrace();
 	    }
 		
-		if (includeButton) {
+		//if (includeButton) {
+			
 			tableArray.add(dataArray);
 			Button button = new Button(this);
 			button.setId(tableArray.size()-1);
@@ -120,11 +122,19 @@ public class OfferedRidesActivity extends BaseActivity {
 			    	getMoreInformation(obj);
 			      }
 			    });
-			datarow.addView(button);
-		}
+			//datarow.addView(button);
+		//}
 
+		datarow.setBackgroundColor(color);
 		tl.addView(datarow, new TableLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		
+		TableRow buttonRow = new TableRow(this);
+		buttonRow.setBackgroundColor(color);
+		buttonRow.addView(button);
+		buttonRow.setGravity(Gravity.CENTER_HORIZONTAL);
+		tl.addView(buttonRow, new TableLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 
 		tl.setStretchAllColumns(true);
 	}
@@ -154,5 +164,14 @@ public class OfferedRidesActivity extends BaseActivity {
 		}
 		tl.invalidate();
 		tl.refreshDrawableState();
+	}
+	
+	private int getColor()
+	{
+		isGray=!isGray;
+		if(isGray) {
+			return Color.LTGRAY;
+		}
+		return Color.WHITE;
 	}
 }

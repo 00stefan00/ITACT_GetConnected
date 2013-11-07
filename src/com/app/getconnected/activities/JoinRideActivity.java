@@ -2,12 +2,8 @@ package com.app.getconnected.activities;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.app.getconnected.R;
 import com.app.getconnected.activities.BaseActivity;
-
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
