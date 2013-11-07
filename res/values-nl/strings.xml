@@ -166,6 +166,7 @@
 
     <!-- Taxi List -->
     <string name="title_activity_taxi_list">TaxiList</string>
+     <string name="walkGuy">Een poppetje om het lopen aan te geven</string>
 
     <!-- Marketplace Activity -->
     <string name="title_activity_marketplace">marktplaats</string>

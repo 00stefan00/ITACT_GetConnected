@@ -123,8 +123,6 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	private void setBusStopDetails(String result) {
 		try {
 			JSONObject json = new JSONObject(result).getJSONObject("busstop");
-
-			System.out.println(result);
 			number = json.getInt("halteNummer_overig");
 			name = json.getString("naam");
 			city = json.getString("city");

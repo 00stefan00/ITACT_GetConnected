@@ -166,6 +166,7 @@
 
     <!-- Taxi List -->
     <string name="title_activity_taxi_list">TaxiList</string>
+     <string name="walkGuy">A stickpage guy to indicate walking</string>
     
     <!-- Marketplace Activity -->
     <string name="title_activity_marketplace">Marketplace</string>
@@ -236,5 +237,6 @@
     <string name="transport_error">Please select a transport company</string>
     <string name="arrowdes">Arrow</string>
     <string name="wrongMessage">An error occurred</string>
+   
 
     </resources>
