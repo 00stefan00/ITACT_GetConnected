@@ -150,6 +150,11 @@
             android:label="@string/title_activity_rate_ride"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.app.getconnected.activities.JoinRideActivity"
+            android:label="@string/title_activity_rate_ride"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

@@ -2,8 +2,12 @@ package com.app.getconnected.activities;
 
 import java.util.ArrayList;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.app.getconnected.R;
 
+import android.content.Intent;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +32,8 @@ public class RequestedRidesActivity extends BaseActivity {
 				false);
 
 		tableinit();
-		addTableRow("08:30", "12:00", "Groningen", "Berlijn", true);
+		addTableRow("08:30", "12:00", "Groningen", "Berlijn", true, 2, "sjors", "m");
+		addTableRow("08:30", "12:00", "Groningen", "Berlijn", true, 3, "abaj", "f");
 	}
 
 	/**
@@ -57,7 +62,6 @@ public class RequestedRidesActivity extends BaseActivity {
 
 		tl.addView(rowHeader, new TableLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		addTableRow("", "", "", "", false);
 		tl.setStretchAllColumns(true);
 	}
 
@@ -70,7 +74,7 @@ public class RequestedRidesActivity extends BaseActivity {
 	 * @param destinationv
 	 */
 	private void addTableRow(String departurev, String arrivalv, String fromv,
-			String destinationv, Boolean includeButton) {
+			String destinationv, Boolean includeButton, int id, String driverName, String driverGender) {
 		TextView departure_time = new TextView(this);
 		departure_time.setText(departurev);
 		TextView arrival_time = new TextView(this);
@@ -93,6 +97,19 @@ public class RequestedRidesActivity extends BaseActivity {
 			datarow.addView(dataArray.get(i));
 		}	
 		
+		final JSONObject obj = new JSONObject();
+	    try {
+	      obj.put("departureTime", departurev);
+	      obj.put("arrivalTime", arrivalv);
+	      obj.put("departurePlace", fromv);
+	      obj.put("arrivalPlace", destinationv);
+	      obj.put("rideID", id);
+	      obj.put("driverName", driverName);
+	      obj.put("driverGender", driverGender);
+	    } catch (JSONException e) {
+	      e.printStackTrace();
+	    }
+		
 		if (includeButton) {
 			tableArray.add(dataArray);
 			Button button = new Button(this);
@@ -100,7 +117,7 @@ public class RequestedRidesActivity extends BaseActivity {
 			button.setText(getResources().getString(R.string.join_ride));
 			button.setOnClickListener(new View.OnClickListener() {
 			    public void onClick(View v) {
-			        join_ride(v);
+			    	getMoreInformation(obj);
 			      }
 			    });
 			datarow.addView(button);
@@ -112,11 +129,11 @@ public class RequestedRidesActivity extends BaseActivity {
 		tl.setStretchAllColumns(true);
 	}
 
-	protected void join_ride(View v) {
-		String text = (((TextView) tableArray.get(v.getId()).get(0)).getText()).toString();
-		Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-		toast.show();		
-	}
+	protected void getMoreInformation(JSONObject obj) {
+		  Intent i = new Intent(RequestedRidesActivity.this, JoinRideActivity.class);
+		  i.putExtra("json", obj.toString());
+		  startActivity(i);
+		}
 
 	/**
 	 * Shows the date picker
