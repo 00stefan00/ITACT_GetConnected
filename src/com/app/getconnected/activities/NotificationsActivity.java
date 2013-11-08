@@ -1,16 +1,13 @@
 package com.app.getconnected.activities;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.app.getconnected.R;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 
 public class NotificationsActivity extends BaseActivity {
-	private JSONObject obj;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

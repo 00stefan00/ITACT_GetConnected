@@ -6,15 +6,12 @@ import java.util.List;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.util.Log;
 
 import com.app.getconnected.R;
 import com.app.getconnected.activities.BaseActivity;
-import com.app.getconnected.activities.JoinRideActivity;
 import com.app.getconnected.activities.JoinRideNotificationsActivity;
 import com.app.getconnected.activities.LoginActivity;
 import com.app.getconnected.activities.MarketplaceActivity;
-import com.app.getconnected.activities.RequestRideActivity;
 import com.app.getconnected.sqllite.MarketplaceDatabaseHandler;
 
 public class CheckNotifications{
@@ -23,8 +20,7 @@ public class CheckNotifications{
 	private Handler mHandler = new Handler();
 	private MarketplaceDatabaseHandler helper;
 	private Timestamp lastCheck = new Timestamp(System.currentTimeMillis());
-	//private final static int INTERVAL = 1000 * 60 * 1; //1 minutes
-	private final static int INTERVAL = 1000 * 5;
+	private final static int INTERVAL = 1000 * 60 * 1; //1 minutes
 	
 	//Repeatable Runnable for checking notifications 
 	Runnable mHandlerTask = new Runnable()
@@ -81,14 +77,6 @@ public class CheckNotifications{
 	private void startRepeatingTask()
 	{
 	    mHandlerTask.run(); 
-	}
-
-	/**
-	 * Stop notifications check
-	 */
-	private void stopRepeatingTask()
-	{
-	    mHandler.removeCallbacks(mHandlerTask);
 	}
 
 }
