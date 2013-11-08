@@ -44,7 +44,6 @@ public abstract class BaseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.footer);
-
 	}
 
 	
@@ -116,7 +115,9 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	/**
-	 * TODO description
+	 * Handles the quick menu.
+	 * Here the extend and collapse animation classes are used to animate the menu.
+	 * 
 	 */
 	private void handleMenu() {
 		DisplayMetrics metrics = new DisplayMetrics();
@@ -134,14 +135,14 @@ public abstract class BaseActivity extends Activity {
 			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
 					arrowUp, null);
 			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,
-					(int) (screenHeight * 0.5), 10));
+					(int) (screenHeight * 0.6), 10));
 		} else {
 			buttonMenu.setText(getResources().getString(R.string.footer_button_menu_close));
 			isExpanded = true;
 			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
 					arrowDown, null);
 			MenuList.startAnimation(new ExpandAnimation(MenuList, 0,
-					(int) (screenHeight * 0.5), 10));
+					(int) (screenHeight * 0.6), 10));
 		}
 
 	}

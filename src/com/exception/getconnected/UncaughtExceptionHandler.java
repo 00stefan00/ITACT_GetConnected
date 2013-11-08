@@ -31,7 +31,12 @@ public class UncaughtExceptionHandler
 					System.err.println("---------------------------------------------");
 				}
 				
-				Toast.makeText(activity.getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+				// Show a toast on the UI thread
+				activity.runOnUiThread(new Runnable() {
+				    public void run() {
+				        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
+				    }
+				});
 			}
 		};
 	}

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
 import com.app.getconnected.R;
 import com.app.getconnected.config.Config;
 import com.app.getconnected.rest.RESTRequest.Method;

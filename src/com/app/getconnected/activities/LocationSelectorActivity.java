@@ -15,10 +15,19 @@ import android.widget.AutoCompleteTextView;
 import com.app.getconnected.R;
 import com.app.getconnected.network.PlacesAutoCompleteAdapter;
 
+/**
+ * @author 	Jorian Plat <jorianplat@hotmail.com>
+ * @version 1.0			
+ * @since	2013-10-31
+ */
 public class LocationSelectorActivity extends BaseActivity implements
-		OnItemClickListener {
+		OnItemClickListener, OnKeyListener, OnClickListener {
 
-	private AutoCompleteTextView autoCompView;
+	private AutoCompleteTextView locationView;
+	
+	/**
+	 * The location type. Possible values: from/to
+	 */
 	private String type;
 
 	@Override
@@ -30,43 +39,25 @@ public class LocationSelectorActivity extends BaseActivity implements
 
 		type = getIntent().getExtras().getString("type");
 
-		autoCompView = (AutoCompleteTextView) findViewById(R.id.location_selector_input);
-		autoCompView.setHint(type);
-
-		autoCompView.setAdapter(new PlacesAutoCompleteAdapter(this,
+		//initialize the AutoCompleteTextView
+		locationView = (AutoCompleteTextView) findViewById(R.id.location_selector_input);
+		locationView.setHint(type);
+		locationView.setAdapter(new PlacesAutoCompleteAdapter(this,
 				R.layout.places_list_item));
-		autoCompView.setOnItemClickListener(this);
+		locationView.setOnItemClickListener(this);
+		locationView.setOnKeyListener(this);
+		locationView.requestFocus();
 		
-		autoCompView.setOnKeyListener(new OnKeyListener() {
-			@Override
-			public boolean onKey(View view, int keyCode, KeyEvent event) {
-		        if (event.getAction()!=KeyEvent.ACTION_DOWN)
-		            return false;
-		        if(keyCode == KeyEvent.KEYCODE_ENTER ){
-		            selectLocation(view, autoCompView.getText().toString());
-		            return true;
-		        }
-		        return false;
-			}
-		});
-		
-		buttonOk.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				selectLocation(v, autoCompView.getText().toString());
-			}
-		});
-		
-		autoCompView.requestFocus();
+		buttonOk.setOnClickListener(this);
 	}
 
 	/**
-	 * Selects the given location
-	 * @param v
-	 * @param location
+	 * Method will be called when the location has been selected.
+	 * The location along with the location type (from/to) is returned
+	 * to the previous activity (TransportActivity2).			
+	 * @param location	The selected location
 	 */
-	protected void selectLocation(View v, String location) {
+	protected void selectLocation(String location) {
 		Intent resultIntent = new Intent();
 		resultIntent.putExtra("location", location);
 		resultIntent.putExtra("type", type);
@@ -76,7 +67,6 @@ public class LocationSelectorActivity extends BaseActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.location_selector, menu);
 		return true;
 	}
@@ -86,7 +76,23 @@ public class LocationSelectorActivity extends BaseActivity implements
 			int position, long id) {
 		String location = (String) adapterView.getItemAtPosition(position);
 		
-		selectLocation(view, location);
+		selectLocation(location);
+	}
+
+	@Override
+	public void onClick(View view) {
+		selectLocation(locationView.getText().toString());
+	}
+
+	@Override
+	public boolean onKey(View view, int keyCode, KeyEvent event) {
+		if (event.getAction()!=KeyEvent.ACTION_DOWN)
+            return false;
+        if(keyCode == KeyEvent.KEYCODE_ENTER ){
+            selectLocation(locationView.getText().toString());
+            return true;
+        }
+        return false;
 	}
 
 }

@@ -24,7 +24,7 @@
         android:layout_marginRight="18dp"
         android:layout_marginTop="18dp"
         android:text="@string/help_intro"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/Button02"
@@ -37,7 +37,12 @@
         android:background="@drawable/standard_button"
         android:onClick="startIntentByButton"
         android:tag="help.HelpPlanActivity"
-        android:text="@string/help_button_plan" />
+        android:text="@string/help_button_plan"
+        android:textColor="#FFFFFF"
+        android:drawableRight="@drawable/arrow_right"
+         android:gravity="left|center_vertical|right"
+           android:paddingLeft="15dp"
+	    android:paddingRight="15dp" />
 
     <Button
         android:id="@+id/Button01"
@@ -50,7 +55,12 @@
         android:background="@drawable/standard_button"
         android:onClick="startIntentByButton"
         android:tag="help.HelpMapActivity"
-        android:text="@string/help_button_map" />
+        android:text="@string/help_button_map"
+          android:textColor="#FFFFFF"
+          android:drawableRight="@drawable/arrow_right"
+           android:gravity="left|center_vertical|right"
+             android:paddingLeft="15dp"
+	    android:paddingRight="15dp" />
 
     <Button
         android:id="@+id/Button03"
@@ -61,7 +71,12 @@
         android:layout_below="@+id/Button02"
         android:layout_marginTop="3dp"
         android:background="@drawable/standard_button"
-        android:text="@string/help_button_marketplace" />
+        android:text="@string/help_button_marketplace"
+          android:textColor="#FFFFFF"
+          android:drawableRight="@drawable/arrow_right" 
+           android:gravity="left|center_vertical|right"
+             android:paddingLeft="15dp"
+	    android:paddingRight="15dp"/>
 
     <Button
         android:id="@+id/button1"
@@ -74,7 +89,12 @@
         android:text="@string/help_button_basic"
         android:tag="help.HelpBasicActivity"
         android:onClick="startIntentByButton"
-         android:background="@drawable/standard_button" />
+         android:background="@drawable/standard_button"
+           android:textColor="#FFFFFF"
+           android:drawableRight="@drawable/arrow_right"
+            android:gravity="left|center_vertical|right"
+              android:paddingLeft="15dp"
+	    android:paddingRight="15dp" />
 
     <Button
         android:id="@+id/Button04"
@@ -85,7 +105,12 @@
         android:layout_below="@+id/Button03"
         android:layout_marginTop="3dp"
         android:background="@drawable/standard_button"
-        android:text="@string/help_button_contact" />
+        android:text="@string/help_button_contact"
+          android:textColor="#FFFFFF"
+          android:drawableRight="@drawable/arrow_right" 
+           android:gravity="left|center_vertical|right"
+             android:paddingLeft="15dp"
+	    android:paddingRight="15dp"/>
     
     <include
         android:layout_width="wrap_content"

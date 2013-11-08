@@ -1,5 +1,6 @@
 package com.app.getconnected.factories.details;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
@@ -32,16 +33,16 @@ public abstract class BaseDetailGenerator {
 	private final String ARIVAL_LOCATION_TAG = "name";
 	private final String ARIVAL_TIME_TAG = "endTime";
 
-
 	/**
 	 * @param view
 	 * @param context
 	 * @param data
 	 * @throws JSONException
 	 */
-	public BaseDetailGenerator(View view, Context context,JSONObject data) throws JSONException{
+	public BaseDetailGenerator(View view, Context context, JSONObject data)
+			throws JSONException {
 		this.view = view;
-		this.context =context;
+		this.context = context;
 		this.data = data;
 		title = (TextView) view.findViewById(R.id.transport_details_title);
 		departureLocation = (TextView) view
@@ -57,6 +58,7 @@ public abstract class BaseDetailGenerator {
 
 	/**
 	 * Gets the view
+	 * 
 	 * @return
 	 */
 	abstract public View getView();
@@ -73,19 +75,21 @@ public abstract class BaseDetailGenerator {
 	 * @param title
 	 * @return
 	 */
-	private String translateTitle(String title){
+	@SuppressLint("DefaultLocale")
+	private String translateTitle(String title) {
 		title = "transport_details_" + title.toLowerCase() + "_title";
-	    String packageName = context.getPackageName();
-	    int resId = context.getResources().getIdentifier(title, "string", packageName);
-	    return context.getString(resId);
+		String packageName = context.getPackageName();
+		int resId = context.getResources().getIdentifier(title, "string",
+				packageName);
+		return context.getString(resId);
 	}
 
 	/**
 	 * @throws JSONException
 	 */
 	private void setDepartureLocation() throws JSONException {
-		String departureLocationStr = data.getJSONObject(DEPARTURE_TAG).getString(
-				DEPARTURE_LOCATION_TAG);
+		String departureLocationStr = data.getJSONObject(DEPARTURE_TAG)
+				.getString(DEPARTURE_LOCATION_TAG);
 		this.departureLocation.setText(departureLocationStr);
 	}
 
@@ -101,7 +105,8 @@ public abstract class BaseDetailGenerator {
 	 * @throws JSONException
 	 */
 	private void setArivalLocation() throws JSONException {
-		String arivalLocationStr = data.getJSONObject(ARIVAL_TAG).getString(ARIVAL_LOCATION_TAG);
+		String arivalLocationStr = data.getJSONObject(ARIVAL_TAG).getString(
+				ARIVAL_LOCATION_TAG);
 		this.arivalLocation.setText(arivalLocationStr);
 	}
 
@@ -129,7 +134,8 @@ public abstract class BaseDetailGenerator {
 	 * @param format
 	 * @return
 	 */
-	protected String getDate(Long time, String format) { // todo to the current											// device format.
+	protected String getDate(Long time, String format) { // todo to the current
+															// // device format.
 		Date date = new Date(time);
 		SimpleDateFormat SDF = new SimpleDateFormat(format);
 		return SDF.format(date);

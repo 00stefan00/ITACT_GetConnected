@@ -13,8 +13,8 @@ import com.app.getconnected.network.GeoLocation;
 import com.app.getconnected.rest.RESTRequest;
 import com.app.getconnected.rest.RESTRequestEvent;
 import com.app.getconnected.rest.RESTRequestListener;
-
 import android.annotation.SuppressLint;
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -31,324 +31,343 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
+/**
+ * @author 	Jorian Plat <jorianplat@hotmail.com>
+ * @version 1.0			
+ * @since	2013-10-07
+ */
 
 @SuppressLint("SimpleDateFormat")
 public class TransportActivity2 extends BaseActivity implements
-                OnFocusChangeListener, OnClickListener, RESTRequestListener {
+		OnFocusChangeListener, OnClickListener, RESTRequestListener {
 
-        private final Calendar calendarTime = Calendar.getInstance();
-        private final Calendar calendarDate = Calendar.getInstance();
+	/**
+	 * Date/time-variables
+	 */
+	private final Calendar calendarTime = Calendar.getInstance();
+	private final Calendar calendarDate = Calendar.getInstance();
+	private Date time;
+	private Date date;
+	private EditText inputTime;
+	private EditText inputDate;
+	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm",
+			Locale.getDefault());
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",
+			Locale.getDefault());
 
-        private Date time;
-        private Date date;
+	private EditText inputFrom;
+	private EditText inputTo;
 
-        private EditText inputTime;
-        private EditText inputDate;
+	private RadioGroup radioGroup;
+	private RadioButton radioArrival;
 
-        private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm",
-                        Locale.getDefault());
-        private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",
-                        Locale.getDefault());
+	private String mode;
 
-        private EditText inputFrom;
-        private EditText inputTo;
+	private ProgressDialog dialog;
 
-        private RadioGroup radioGroup;
-        private RadioButton radioArrival;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_transport2);
+		initLayout(R.string.title_activity_transport, true, true, true, true);
 
-        private String mode;
+		//get the transportMode from the previous Activity (TransportActivity1)
+		mode = getIntent().getExtras().getString("mode");
 
-        private ProgressDialog dialog;
+		//initialize the location-fields
+		inputFrom = (EditText) findViewById(R.id.transport_input_from);
+		inputFrom.setOnFocusChangeListener(this);
+		inputFrom.setOnClickListener(this);
+		inputTo = (EditText) findViewById(R.id.transport_input_to);
+		inputTo.setOnFocusChangeListener(this);
+		inputTo.setOnClickListener(this);
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_transport2);
-                initLayout(R.string.title_activity_transport, true, true, true, true);
+		//initialize the date/time-fields
+		inputTime = (EditText) findViewById(R.id.transport_input_time);
+		inputTime.setText(timeFormat.format(new Date()));
+		inputDate = (EditText) findViewById(R.id.transport_input_date);
+		inputDate.setText(dateFormat.format(new Date()));
 
-                mode = getIntent().getExtras().getString("mode");
+		//initialize the radio-buttons
+		radioGroup = (RadioGroup) findViewById(R.id.transport_radio_departure_arrival);
+		radioArrival = (RadioButton) findViewById(R.id.transport_radio_arrival);
 
-                inputFrom = (EditText) findViewById(R.id.transport_input_from);
-                inputFrom.setOnFocusChangeListener(this);
-                inputFrom.setOnClickListener(this);
-                inputTo = (EditText) findViewById(R.id.transport_input_to);
-                inputTo.setOnFocusChangeListener(this);
-                inputTo.setOnClickListener(this);
+		buttonOk.setOnClickListener(new OnClickListener() {
 
-                inputTime = (EditText) findViewById(R.id.transport_input_time);
-                inputTime.setText(timeFormat.format(new Date()));
-                inputDate = (EditText) findViewById(R.id.transport_input_date);
-                inputDate.setText(dateFormat.format(new Date()));
+			@Override
+			public void onClick(View v) {
+				planTrip();
+			}
+		});
 
-                radioGroup = (RadioGroup) findViewById(R.id.transport_radio_departure_arrival);
-                radioArrival = (RadioButton) findViewById(R.id.transport_radio_arrival);
+		setTimePicker();
+		setDatePicker();
 
-                buttonOk.setOnClickListener(new OnClickListener() {
+	}
 
-                        @Override
-                        public void onClick(View v) {
-                                planTrip();
-                        }
-                });
+	/**
+	 * Validate the input and send the trip to the server.
+	 */
+	@SuppressLint("SimpleDateFormat")
+	public void planTrip() {
 
-                setTimePicker();
-                setDatePicker();
+		Location fromLocation;
+		Location toLocation;
 
-        }
+		//check whether the location fields are equal; if so, show error message
+		if (inputFrom.getText().toString().equals(inputTo.getText().toString())) {
+			Toast.makeText(this, this.getResources().getString(R.string.field_validation_same_input), Toast.LENGTH_SHORT).show();
+			return;
+		}
 
-        @SuppressLint("SimpleDateFormat")
-        public void planTrip() {
+		//check whether the location equals the "current-location"-string; 
+		//if so, get the current location; 
+		//else, try to get the coordinates of the location
+		if (inputFrom.getText().toString().equals(getResources().getString(R.string.current_location))) {
+			fromLocation = new GPSLocator(this);
+			
+			if (!fromLocation.isValidLocation()) {
+				Toast.makeText(this, this.getResources().getString(R.string.gps_disabled), Toast.LENGTH_SHORT).show();
+				return;
+			}
+		} else {
+			fromLocation = new GeoLocation(inputFrom.getText().toString());
+			if (!validateLocation(inputFrom.getText().toString(), fromLocation)) {
+				return;
+			}
+		}
 
-                Location fromLocation;
-                Location toLocation;
+		//same check for to to-location
+		if (inputTo.getText().toString().equals(getResources().getString(R.string.current_location))) {
+			toLocation = new GPSLocator(this);
+			if (!toLocation.isValidLocation()) {
+				Toast.makeText(this, this.getResources().getString(R.string.gps_disabled), Toast.LENGTH_SHORT).show();
+				return;
+			}			
+		} else {
+			toLocation = new GeoLocation(inputTo.getText().toString());
 
-                if (inputFrom.getText().toString().equals(inputTo.getText().toString())) {
-                        Toast.makeText(
-                                        this,
-                                        this.getResources().getString(
-                                                        R.string.field_validation_same_input),
-                                        Toast.LENGTH_SHORT).show();
-                        
-                        return;
-                }
+			if (!validateLocation(inputTo.getText().toString(), toLocation)) {
+				return;
+			}
+		}
+		
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+		String time = timeFormat.format(calendarTime.getTime());
+		String date = dateFormat.format(calendarDate.getTime());
 
-                if (inputFrom.getText().toString()
-                                .equals(getResources().getString(R.string.current_location))) {
-                        fromLocation = new GPSLocator(this);
-                        
-                        if (!fromLocation.isValidLocation()) {
-                                Toast.makeText(
-                                                this,
-                                                this.getResources().getString(
-                                                                R.string.gps_disabled),
-                                                Toast.LENGTH_SHORT).show();
-                                
-                                return;
-                        }
-                } else {
-                        fromLocation = new GeoLocation(inputFrom.getText().toString());
+		boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival
+				.getId() ? true : false;
 
-                        if (!validateLocation(inputFrom.getText().toString(), fromLocation)) {
-                                return;
-                        }
-                }
+		//send the information to the server
+		RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
+		request.addEventListener(this);
+		request.putString("_dc", "1382083769026");
+		request.putString("arriveBy", "" + arriveBy);
+		request.putString("time", time);
+		request.putString("ui_date", date);
+		request.putString("date", date);
+		request.putString("mode", mode);
+		request.putString("optimize", "QUICK");
+		request.putString("maxWalkDistance", "1609");
+		request.putString("walkSpeed", "1.341");
+		request.putString("toPlace", toLocation.getLatitude() + "," + toLocation.getLongitude());
+		request.putString("fromPlace", fromLocation.getLatitude() + "," + fromLocation.getLongitude());
+		request.execute();
+	}
 
-                if (inputTo.getText().toString()
-                                .equals(getResources().getString(R.string.current_location))) {
-                        toLocation = new GPSLocator(this);
-                        if (!toLocation.isValidLocation()) {
-                                Toast.makeText(
-                                                this,
-                                                this.getResources().getString(
-                                                                R.string.gps_disabled),
-                                                Toast.LENGTH_SHORT).show();
-                                
-                                return;
-                        }                        
-                } else {
-                        toLocation = new GeoLocation(inputTo.getText().toString());
+	/**
+	 * Validate the location.
+	 * @param address	The address string from the input field
+	 * @param location	The GeoLocation created with the address string
+	 * @return			True when location is valid; False when location is not valid
+	 */
+	public boolean validateLocation(String address, Location location) {
+		if (address.equals("")) {
+			Toast.makeText(
+					this,
+					this.getResources().getString(
+							R.string.field_validation_no_input),
+					Toast.LENGTH_SHORT).show();
+			return false;
+		} else if (!location.isValidLocation()) {
+			Toast.makeText(
+					this,
+					this.getResources().getString(
+							R.string.field_validation_unknown_location),
+					Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		return true;
+	}
 
-                        if (!validateLocation(inputTo.getText().toString(), toLocation)) {
-                                return;
-                        }
-                }
+	/**
+	 * Set the TimePickerDialog, along with its listeners.
+	 */
+	private void setTimePicker() {
+		final TimePickerDialog.OnTimeSetListener timePicker = new TimePickerDialog.OnTimeSetListener() {
+			@Override
+			public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
-                double fromLatitude = fromLocation.getLatitude();
-                double fromLongitude = fromLocation.getLongitude();
-                double toLatitude = toLocation.getLatitude();
-                double toLongitude = toLocation.getLongitude();
-                
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
-                SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-                String time = timeFormat.format(calendarTime.getTime());
-                String date = dateFormat.format(calendarDate.getTime());
+				calendarTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+				calendarTime.set(Calendar.MINUTE, minute);
+				time = calendarTime.getTime();
 
-                boolean arriveBy = radioGroup.getCheckedRadioButtonId() == radioArrival
-                                .getId() ? true : false;
+				inputTime.setText(timeFormat.format(time));
+			}
+		};
+		inputTime.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new TimePickerDialog(TransportActivity2.this, timePicker,
+						calendarTime.get(Calendar.HOUR_OF_DAY), calendarTime
+								.get(Calendar.MINUTE), true).show();
+			}
+		});
+		inputTime.setOnFocusChangeListener(new OnFocusChangeListener() {
 
-                RESTRequest request = new RESTRequest(Config.tripPlannerAddress);
-                request.addEventListener(this);
-                request.putString("_dc", "1382083769026");
-                request.putString("arriveBy", "" + arriveBy);
-                request.putString("time", time);
-                request.putString("ui_date", date);
-                request.putString("date", date);
-                request.putString("mode", mode);
-                request.putString("optimize", "QUICK");
-                request.putString("maxWalkDistance", "1609");
-                request.putString("walkSpeed", "1.341");
-                request.putString("toPlace", toLatitude + "," + toLongitude);
-                request.putString("fromPlace", fromLatitude + "," + fromLongitude);
-                request.execute();
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus) {
+					new TimePickerDialog(TransportActivity2.this, timePicker,
+							calendarTime.get(Calendar.HOUR_OF_DAY),
+							calendarTime.get(Calendar.MINUTE), true).show();
+				}
+			}
+		});
 
-        }
+	}
 
-        public boolean validateLocation(String address, Location location) {
-                if (address.equals("")) {
-                        Toast.makeText(
-                                        this,
-                                        this.getResources().getString(
-                                                        R.string.field_validation_no_input),
-                                        Toast.LENGTH_SHORT).show();
-                        return false;
-                } else if (!location.isValidLocation()) {
-                        Toast.makeText(
-                                        this,
-                                        this.getResources().getString(
-                                                        R.string.field_validation_unknown_location),
-                                        Toast.LENGTH_SHORT).show();
-                        return false;
-                }
-                return true;
-        }
+	/**
+	 * Set the DatePickerDialog, along with its listeners.
+	 * Sets the date picker
+	 */
+	private void setDatePicker() {
+		final DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
 
-        private void setTimePicker() {
-                final TimePickerDialog.OnTimeSetListener timePicker = new TimePickerDialog.OnTimeSetListener() {
-                        @Override
-                        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			@Override
+			public void onDateSet(DatePicker view, int year, int monthOfYear,
+					int dayOfMonth) {
+				calendarDate.set(Calendar.YEAR, year);
+				calendarDate.set(Calendar.MONTH, monthOfYear);
+				calendarDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+				date = calendarDate.getTime();
+				inputDate.setText(dateFormat.format(date));
+			}
+		};
+		inputDate.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new DatePickerDialog(TransportActivity2.this, datePicker,
+						calendarDate.get(Calendar.YEAR), calendarDate
+								.get(Calendar.MONTH), calendarDate
+								.get(Calendar.DAY_OF_MONTH)).show();
+			}
+		});
+		inputDate.setOnFocusChangeListener(new OnFocusChangeListener() {
 
-                                calendarTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                                calendarTime.set(Calendar.MINUTE, minute);
-                                time = calendarTime.getTime();
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus) {
+					new DatePickerDialog(TransportActivity2.this, datePicker,
+							calendarDate.get(Calendar.YEAR), calendarDate
+									.get(Calendar.MONTH), calendarDate
+									.get(Calendar.DAY_OF_MONTH)).show();
+				}
+			}
+		});
+	}
 
-                                inputTime.setText(timeFormat.format(time));
-                        }
-                };
-                inputTime.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                                new TimePickerDialog(TransportActivity2.this, timePicker,
-                                                calendarTime.get(Calendar.HOUR_OF_DAY), calendarTime
-                                                                .get(Calendar.MINUTE), true).show();
-                        }
-                });
-                inputTime.setOnFocusChangeListener(new OnFocusChangeListener() {
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.transport, menu);
+		return true;
+	}
 
-                        @Override
-                        public void onFocusChange(View v, boolean hasFocus) {
-                                if (hasFocus) {
-                                        new TimePickerDialog(TransportActivity2.this, timePicker,
-                                                        calendarTime.get(Calendar.HOUR_OF_DAY),
-                                                        calendarTime.get(Calendar.MINUTE), true).show();
-                                }
-                        }
-                });
+	@Override
+	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
+		dialog = new ProgressDialog(this);
+		dialog.setTitle(getResources().getString(R.string.loading));
+		dialog.show();
+	}
 
-        }
+	@Override
+	public void RESTRequestOnProgressUpdate(RESTRequestEvent event) {
 
-        private void setDatePicker() {
-                final DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
+	}
 
-                        @Override
-                        public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                        int dayOfMonth) {
-                                calendarDate.set(Calendar.YEAR, year);
-                                calendarDate.set(Calendar.MONTH, monthOfYear);
-                                calendarDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                                date = calendarDate.getTime();
-                                inputDate.setText(dateFormat.format(date));
-                        }
-                };
-                inputDate.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                                new DatePickerDialog(TransportActivity2.this, datePicker,
-                                                calendarDate.get(Calendar.YEAR), calendarDate
-                                                                .get(Calendar.MONTH), calendarDate
-                                                                .get(Calendar.DAY_OF_MONTH)).show();
-                        }
-                });
-                inputDate.setOnFocusChangeListener(new OnFocusChangeListener() {
+	/**
+	 * Receive the JSON data from the server, and send it to the 
+	 * next activity. (TransportResultActivity) 
+	 */
+	@Override
+	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
+		dialog.dismiss();
+		Intent intent = new Intent(this, TransportResultActivity.class);
+		intent.putExtra("json", event.getResult());
+		startActivity(intent);
+	}
 
-                        @Override
-                        public void onFocusChange(View v, boolean hasFocus) {
-                                if (hasFocus) {
-                                        new DatePickerDialog(TransportActivity2.this, datePicker,
-                                                        calendarDate.get(Calendar.YEAR), calendarDate
-                                                                        .get(Calendar.MONTH), calendarDate
-                                                                        .get(Calendar.DAY_OF_MONTH)).show();
-                                }
-                        }
-                });
-        }
+	/**
+	 * Receive the location from the LocationSelector, and place the 
+	 * output in a text-field. 
+	 */
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		switch (requestCode) {
+			case (2): {
+				if (resultCode == Activity.RESULT_OK) {
+					String location = data.getStringExtra("location");
+					String type = data.getStringExtra("type");
+	
+					if (type.equals(getResources().getString(
+							R.string.transport_text_from))) {
+						inputFrom.setText(location);
+					} else {
+						inputTo.setText(location);
+					}
+				}
+				break;
+			}
+		}
+	}
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-                // Inflate the menu; this adds items to the action bar if it is present.
-                getMenuInflater().inflate(R.menu.transport, menu);
-                return true;
-        }
+	@Override
+	public void onFocusChange(View v, boolean hasFocus) {
+		if (hasFocus) {
+			openLocationSelector(v);
+		}
+	}
 
-        @Override
-        public void RESTRequestOnPreExecute(RESTRequestEvent event) {
-                dialog = new ProgressDialog(this);
-                dialog.setTitle(getResources().getString(R.string.loading));
-                dialog.show();
-        }
+	@Override
+	public void onClick(View v) {
+		openLocationSelector(v);
+	}
 
-        @Override
-        public void RESTRequestOnProgressUpdate(RESTRequestEvent event) {
+	/**
+	 * Opens the LocationSelector. This method is called when the user
+	 * clicks or focuses on one of the location fields.
+	 * @param v		The selected text field
+	 * Opens the location selector
+	 * @param v
+	 */
+	private void openLocationSelector(View v) {
+		String type;
 
-        }
-
-        @Override
-        public void RESTRequestOnPostExecute(RESTRequestEvent event) {
-                dialog.dismiss();
-
-                System.out.println(event.getResult());
-                
-                Intent intent = new Intent(this, TransportResultActivity.class);
-                intent.putExtra("json", event.getResult());
-                startActivity(intent);
-
-        }
-
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, Intent data) {
-                super.onActivityResult(requestCode, resultCode, data);
-                switch (requestCode) {
-                case (2): {
-                        if (resultCode == Activity.RESULT_OK) {
-                                String location = data.getStringExtra("location");
-                                String type = data.getStringExtra("type");
-
-                                if (type.equals(getResources().getString(
-                                                R.string.transport_text_from))) {
-                                        inputFrom.setText(location);
-                                } else {
-                                        inputTo.setText(location);
-                                }
-                        }
-                        break;
-                }
-                }
-        }
-
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                        openLocationSelector(v);
-                }
-        }
-
-        @Override
-        public void onClick(View v) {
-                openLocationSelector(v);
-        }
-
-        private void openLocationSelector(View v) {
-                String type;
-
-                if (v == (View) inputFrom) {
-                        type = getResources().getString(R.string.transport_text_from);
-                } else {
-                        type = getResources().getString(R.string.transport_text_to);
-                }
-                
-                Intent intent = new Intent(TransportActivity2.this,
-                                LocationSelectorActivity.class);
-                intent.putExtra("type", type);
-                startActivityForResult(intent, 2);
-        }
+		if (v == (View) inputFrom) {
+			type = getResources().getString(R.string.transport_text_from);
+		} else {
+			type = getResources().getString(R.string.transport_text_to);
+		}
+		
+		Intent intent = new Intent(TransportActivity2.this,
+				LocationSelectorActivity.class);
+		intent.putExtra("type", type);
+		startActivityForResult(intent, 2);
+	}
 
 }

@@ -15,16 +15,19 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressLint("DefaultLocale")
 public class TransportResultActivity extends BaseActivity {
 
 	private int page = 0;
 	private int pageSize = 10;
 	private JSONArray itineraries;
 	private TableLayout table;
+	private String departureLocation;
+	private String arrivalLocation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);	
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transport_result);
 		initLayout(R.string.title_activity_transport_result, true, true, true,
 				false);
@@ -32,24 +35,44 @@ public class TransportResultActivity extends BaseActivity {
 		try {
 			JSONObject jObject;
 			jObject = (new JSONObject(json)).getJSONObject("plan");
+			setLocations(jObject);
 			itineraries = jObject.getJSONArray("itineraries");
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
-					.show();
-			return;
+			itineraries = new JSONArray();
 		}
 		table = (TableLayout) findViewById(R.id.transport_result_table);
+
 		initTable();
 		this.setVisibilities();
 
 	}
+	
+	/**
+	 * @param jObject
+	 * @throws JSONException
+	 */
+	private void setLocations(JSONObject jObject) throws JSONException{
+		departureLocation = jObject.getJSONObject("from").getString("name");
+		arrivalLocation = jObject.getJSONObject("to").getString("name");
+	}
 
 	/**
 	 * Initializes the table
+	 * instatiate the table view.
 	 */
 	private void initTable() {
 		JSONObject itinerariy = null;
+		ImageView arrow = (ImageView)findViewById(R.id.arrow);
 		try {
+			if (itineraries.length() <= 0) {
+				arrow.setVisibility(View.GONE);
+				TableRow row = (TableRow) getLayoutInflater().inflate(
+						R.layout.transport_no_result_row, table, false);
+				table.addView(row);
+				
+				return;
+			}
+
 			for (int i = (page * pageSize); i < itineraries.length()
 					&& i < (page * pageSize + pageSize); i++) {
 				itinerariy = itineraries.getJSONObject(i);
@@ -62,7 +85,7 @@ public class TransportResultActivity extends BaseActivity {
 				row.setBackgroundResource(R.drawable.table_style);
 			}
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -73,6 +96,11 @@ public class TransportResultActivity extends BaseActivity {
 	 * @param row
 	 * @param itinerariy
 	 * @throws Exception
+	 * @param row
+	 * @param itinerariy
+	 * @throws Exception
+	 * 
+	 * Sets the text views in the table
 	 */
 	private void setTextViews(TableRow row, JSONObject itinerariy)
 			throws Exception {
@@ -84,12 +112,19 @@ public class TransportResultActivity extends BaseActivity {
 				.findViewById(R.id.transport_result_text_arival);
 		TextView transfers = (TextView) row
 				.findViewById(R.id.transport_result_text_transfers);
+		TextView arivalLocation = (TextView) findViewById(R.id.transportation_result_arival_header);
+		TextView departureLocation = (TextView) findViewById(R.id.transportation_result_departure_header);
 
-		duration.setText("" + minutesToHourString(itinerariy.getInt("duration") / 1000 / 60) + " ");
-		departure.setText("" + getDate(itinerariy.getLong("startTime"), "HH:mm")
+		duration.setText(""
+				+ minutesToHourString(itinerariy.getInt("duration") / 1000 / 60)
 				+ " ");
-		arival.setText("" + getDate(itinerariy.getLong("endTime"), "HH:mm") + " ");
+		departure.setText(""
+				+ getDate(itinerariy.getLong("startTime"), "HH:mm") + " ");
+		arival.setText("" + getDate(itinerariy.getLong("endTime"), "HH:mm")
+				+ " ");
 		transfers.setText("" + itinerariy.getInt("transfers"));
+		arivalLocation.setText(this.arrivalLocation);
+		departureLocation.setText(this.departureLocation);
 	}
 
 	/**
@@ -97,10 +132,11 @@ public class TransportResultActivity extends BaseActivity {
 	 * @param t
 	 * @return
 	 */
-	private String minutesToHourString(int t){
-		int hours = t / 60; //since both are ints, you get an int
+	@SuppressLint("DefaultLocale")
+	private String minutesToHourString(int t) {
+		int hours = t / 60; // since both are ints, you get an int
 		int minutes = t % 60;
-		return String.format("%d:%02d" , hours, minutes);
+		return String.format("%d:%02d", hours, minutes);
 	}
 
 	/**
@@ -120,7 +156,7 @@ public class TransportResultActivity extends BaseActivity {
 							.toString());
 				} catch (JSONException e) {
 					Toast.makeText(TransportResultActivity.this,
-							"Something went wrong =(", Toast.LENGTH_LONG)
+							R.string.wrongMessage, Toast.LENGTH_LONG)
 							.show();
 					return;
 				}
@@ -130,6 +166,11 @@ public class TransportResultActivity extends BaseActivity {
 
 	}
 
+	/**
+	 * @param time
+	 * @param format
+	 * @return
+	 */
 	@SuppressLint("SimpleDateFormat")
 	private String getDate(Long time, String format) {
 		Date date = new Date(time);
@@ -148,14 +189,11 @@ public class TransportResultActivity extends BaseActivity {
 	 * removes all views except the header
 	 */
 	private void removeTableRows() {
-		// for (int i = 1; 1 < table.getChildCount(); i++) {
-		// table.removeViewAt(i);
-		// }
 		table.removeAllViews();
 	}
 
 	/**
-	 * Sets the visibility
+	 * Sets the visibilities of the pager buttons.
 	 */
 	private void setVisibilities() {
 		Button prefButton = (Button) findViewById(R.id.transport_results_pref);
@@ -174,7 +212,7 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	/**
-	 * Changes the page
+	 * Show the next page.
 	 * @param v
 	 */
 	public void nextPage(View v) {
@@ -186,7 +224,7 @@ public class TransportResultActivity extends BaseActivity {
 	}
 
 	/**
-	 * Changes the page
+	 * Show the previous page.
 	 * @param v
 	 */
 	public void prefPage(View v) {

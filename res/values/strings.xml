@@ -58,18 +58,38 @@
     <string name="transport_result_text_switch">Switch</string>
     <string name="transport_result_text_arrival">Arrival</string>
     <string name="transport_text_empty">Some field are empty..</string>
+     <string name="noTransportSelected">You have not selected a method of transportation</string>
 
     <!-- Help Activity -->
     <string name="title_activity_help">Help</string>
     <string name="title_activity_help_basic">Basic instructions</string>
     <string name="title_activity_help_map">Use of map</string>
     <string name="title_activity_help_plan">Plan your ride</string>
-    <string name="help_intro">Click on on of the subjects below for additional explanation.</string>
+    <string name="help_intro">Click on one of the subjects below for additional explanation.</string>
     <string name="help_button_basic">Basic instructions</string>
     <string name="help_button_map">Explanation of map use</string>
     <string name="help_button_plan">Plan your ride</string>
     <string name="help_button_marketplace">Use the marketplace</string>
     <string name="help_button_contact">Contact</string>
+    <string name="help_map">If you would like to use the map, press the 
+        “Map” button in de main menu or the quick menu. 
+        A street map will appear with a small yellow icon 
+        that looks like a little man. This icon represents 
+        your current location.\n\n
+        
+		A number of green icons will also appear on the map. 
+		These icons show where the bus stops are found in the area. 
+		If the green icons don’t appear immediately, wait for a couple of seconds. 
+		They will appear eventually.\n\n
+ 
+		If you tap on one of the bus stops, you will be directed to another page. 
+		This page shows more details about the bus stop. 
+		If you would like to return to the map, just press the “Back” button.</string>
+    <string name="help_basic_home_button_title">Home button</string>
+    <string name="help_basic_home_button_text">The Home button is situated in the upper right corner of the screen. If this button is pressed the application will rederect you to the starting screen of the application.</string>
+    <string name="help_basic_quick_menu_title">Quick menu</string>
+    <string name="help_basic_quick_menu_text_1">The quick menu is situated in the lower center of the screen. This menu is globaly available in the application accept on the starting screen of the application.</string>
+    <string name="help_basic_quick_menu_text_2">If this button is pressed a menu appears with a set of buttons. These buttons can be used to navigate quickly through the application.</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -108,6 +128,7 @@
     <string name="transportation_result_transfers_header">Transfers</string>
     <string name="transportation_result_pref">Previous</string>
     <string name="transportation_result_next">Next</string>
+    <string name="transportation_result_no_result">No results found</string>
 
     <!-- Transportation Details Activity -->
     <string name="title_activity_transport_details">TransportDetailsActivity</string>
@@ -117,7 +138,7 @@
     <string name="transport_details_bus_title">Bus</string>
     <string name="transport_details_train_title">Train</string>
     <string name="transport_detail_taxi">Taxi</string>
-    
+
     <!-- Taxi List Activity -->
     <string name="region_taxi_north_groningen">Region North Groningen</string>
     <string name="region_taxi_east_groningen">Region East Groningen</string>
@@ -138,6 +159,7 @@
 
     <!-- Taxi List -->
     <string name="title_activity_taxi_list">TaxiList</string>
+     <string name="walkGuy">A stickpage guy to indicate walking</string>
     
     <!-- Marketplace Activity -->
     <string name="title_activity_marketplace">Marketplace</string>
@@ -207,11 +229,14 @@
     <string name="full_name">Full Name</string>
     <string name="email">Email address</string>
     <string name="complaint">Complaint or question</string>
+    <string name="send">Send</string>
     <string name="transport_company">Select a transport company</string>
     <string name="name_error">Please fill in your name</string>
     <string name="email_error">Please enter your email</string>
     <string name="complaint_error">Please enter your complaint or question</string>
     <string name="transport_error">Please select a transport company</string>
+    <string name="arrowdes">Arrow</string>
+    <string name="wrongMessage">An error occurred</string>
 
     <!-- Join Ride Activity -->
     <string name="title_activity_join_ride">Join ride</string>
@@ -230,5 +255,5 @@
     <string name="title_activity_notifications">Notifications</string>
     <string name="title_activity_join_ride_notifications">Join rides</string>
    	<string name="join_response_message">Congratulations! The driver has accepted your request. Below are the details of your ride. Try to be on time.</string>
-    
+
     </resources>

@@ -12,13 +12,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class TransportDetailsActivity extends BaseActivity {
 
 	private int page = 0;
 	private int pageSize = 3;
+	/**
+	 * The data we are using
+	 */
 	private JSONArray legs;
+	/**
+	 * The layout we are using
+	 */
 	LinearLayout wrapper;
 
 	@Override
@@ -33,12 +37,13 @@ public class TransportDetailsActivity extends BaseActivity {
 		try {
 			JSONObject jObject;
 			jObject = new JSONObject(json);
-			legs = jObject.getJSONArray("legs");
+			legs = jObject.getJSONArray("legs");			
+			
 			initViews();
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -53,38 +58,19 @@ public class TransportDetailsActivity extends BaseActivity {
 	}
 
 	/**
-	 * Initializes the views
 	 * @throws JSONException
+	 * Calls the factory and sets the views
+	 * Initializes the views
 	 */
 	private void initViews() throws JSONException {
 		for (int i = (page * pageSize); i < legs.length()
 				&& i < (page * pageSize + pageSize); i++) {
-			try {
 				wrapper.addView(Detailfactory.getView(legs.getJSONObject(i), TransportDetailsActivity.this));
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 	}
 
 	/**
-	 * Sets the visibilities
+	 * Sets the visibilities for the pager buttons
 	 */
 	private void setVisibilities() {
 		Button prefButton = (Button) findViewById(R.id.transport_details_pref);
@@ -102,9 +88,9 @@ public class TransportDetailsActivity extends BaseActivity {
 	}
 
 	/**
-	 * removes the table rows
+	 * removes all views form our wrapper
 	 */
-	private void removeTableRows() {
+	private void removeWrapperViews() {
 		wrapper.removeAllViews();
 	}
 
@@ -114,11 +100,11 @@ public class TransportDetailsActivity extends BaseActivity {
 	 */
 	public void nextPage(View v) {
 		page++;
-		this.removeTableRows();
+		this.removeWrapperViews();
 		try {
 			this.initViews();
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -132,11 +118,11 @@ public class TransportDetailsActivity extends BaseActivity {
 	 */
 	public void prefPage(View v) {
 		page--;
-		this.removeTableRows();
+		this.removeWrapperViews();
 		try {
 			this.initViews();
 		} catch (Exception e) {
-			Toast.makeText(this, "Something went wrong =(", Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.wrongMessage, Toast.LENGTH_LONG)
 					.show();
 			return;
 		}

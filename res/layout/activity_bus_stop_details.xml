@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/busstop_name"
             android:layout_below="@+id/busstop_name"
-            android:text="City"
             android:textSize = "20sp" />
 
         <TextView
@@ -29,7 +28,6 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/busstop_number"
             android:layout_marginLeft="20dp"
-            android:text="Haltenaam"
             android:lines="2"
             android:maxLines="2" 
             android:textSize = "20sp"/>
@@ -58,7 +56,6 @@
         android:layout_below="@+id/include1"
         android:layout_marginRight="22dp"
         android:layout_marginTop="22dp"
-        android:layout_weight="6"
         android:clickable="true" >
     </org.osmdroid.views.MapView>
 
@@ -100,15 +97,14 @@
         android:text="@string/busstop_text_trunk"
         android:textSize = "20sp" />
     
-    
     <TextView
         android:id="@+id/busstop_trunk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/busstop_bicycle_parking"
         android:layout_alignLeft="@+id/mapview"
-        android:text="Yes"
-        android:textSize = "20sp" />
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/busstop_bicycle_parking"
@@ -117,7 +113,6 @@
         android:layout_alignBaseline="@+id/TextView0"
         android:layout_alignBottom="@+id/TextView0"
         android:layout_alignLeft="@+id/busstop_trunk"
-        android:text="Yes" 
         android:textSize = "20sp"/>
 
     <TextView
@@ -126,7 +121,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/busstop_trunk"
         android:layout_alignLeft="@+id/busstop_trunk"
-        android:text="Yes"
         android:textSize = "20sp" />
 
     <TextView
@@ -135,7 +129,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/busstop_seatings"
         android:layout_alignLeft="@+id/busstop_seatings"
-        android:text="Yes" 
         android:textSize = "20sp"/>
 
  

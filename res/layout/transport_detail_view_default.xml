@@ -11,7 +11,6 @@
         android:orientation="horizontal" >
 
         <ImageView
-            android:contentDescription="@string/walkGuy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
@@ -20,22 +19,13 @@
             android:maxHeight="40dp"
             android:maxWidth="40dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/walk_transportation" />
+            android:src="@drawable/information_transportation" />
 
         <TextView
             android:id="@+id/transport_details_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startIntentByButton"
-            android:tag="TaxiListActivity"
-            android:gravity="right"
-            android:drawableLeft="@drawable/taxi_transportation"
-            android:text="@string/transport_detail_taxi" />
 
     </LinearLayout>
 

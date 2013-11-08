@@ -23,18 +23,25 @@ import org.osmdroid.views.overlay.OverlayItem;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author 	Jorian Plat <jorianplat@hotmail.com>
+ * @version 1.0			
+ * @since	2013-10-28
+ */
 public class BusStopDetailsActivity extends BaseActivity implements
 		RESTRequestListener {
 
+	//OpenStreetMap
 	private MapView mapView;
 	private MapController mapController;
-	private double latitude;
-	private double longitude;
 
+	// BusStop information
 	private int id;
 	private int number;
 	private String name;
 	private String city;
+	private double latitude;
+	private double longitude;
 
 	// Facilities (Yes/No)
 	private boolean shelter;
@@ -42,7 +49,7 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	private boolean seatings;
 	private boolean bicycleParking;
 
-	// Info views
+	// Information views
 	private TextView numberView;
 	private TextView nameView;
 	private TextView cityView;
@@ -54,9 +61,6 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	private TextView bicycleParkingView;
 	private ProgressDialog dialog;
 
-	// private String confirmYes = getResources().getString(R.string.confirm);
-	// private String confirmNo = getResources().getString(R.string.deny);
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,6 +68,7 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		initLayout(R.string.title_activity_bus_stop_details, true, true, true,
 				false);
 
+		//initialize views
 		id = getIntent().getExtras().getInt("id");
 		numberView = (TextView) findViewById(R.id.busstop_number);
 		nameView = (TextView) findViewById(R.id.busstop_name);
@@ -74,11 +79,10 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		bicycleParkingView = (TextView) findViewById(R.id.busstop_bicycle_parking);
 
 		getBusStopDetails(id);
-		
-
 	}
 
 	/**
+	 * Method to push the bus stop information to the views.
 	 * Sets the information of the bus stops
 	 */
 	private void setInformation() {
@@ -97,6 +101,8 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+	 * Method to receive the bus stop details from the server.
+	 * @param id The id of the busStop
 	 * Gets the details of a bus stop
 	 * @param id
 	 */
@@ -108,14 +114,15 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+	 * Method to initialize all the variables. 
+	 * After this the information will be pushed to the views and 
+	 * the mini-map will be created.
 	 * Sets the bus stop details
 	 * @param result
 	 */
 	private void setBusStopDetails(String result) {
 		try {
 			JSONObject json = new JSONObject(result).getJSONObject("busstop");
-
-			System.out.println(result);
 			number = json.getInt("halteNummer_overig");
 			name = json.getString("naam");
 			city = json.getString("city");
@@ -129,7 +136,6 @@ public class BusStopDetailsActivity extends BaseActivity implements
 			
 			setInformation();
 			createMap();
-			addItem();
 			
 		} catch (JSONException e) {
 			Toast.makeText(getApplicationContext(),
@@ -139,6 +145,7 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+	 * Method to add the marker of the busstop to the mini-map.
 	 * Adds an item
 	 */
 	private void addItem() {
@@ -151,13 +158,11 @@ public class BusStopDetailsActivity extends BaseActivity implements
 
 					@Override
 					public boolean onItemLongPress(int arg0, OverlayItem arg1) {
-						// TODO Auto-generated method stub
 						return false;
 					}
 
 					@Override
 					public boolean onItemSingleTapUp(int arg0, OverlayItem arg1) {
-						// TODO Auto-generated method stub
 						return false;
 					}
 
@@ -166,6 +171,7 @@ public class BusStopDetailsActivity extends BaseActivity implements
 	}
 
 	/**
+	 * Method to create the mini-map.
 	 * Creates the map
 	 */
 	private void createMap() {
@@ -176,6 +182,8 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		mapController.setZoom(17);
 		GeoPoint point2 = new GeoPoint(latitude, longitude);
 		mapController.setCenter(point2);
+		
+		addItem();
 	}
 
 	@Override
@@ -185,6 +193,9 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.app.getconnected.rest.RESTRequestListener#RESTRequestOnPreExecute(com.app.getconnected.rest.RESTRequestEvent)
+	 */
 	@Override
 	public void RESTRequestOnPreExecute(RESTRequestEvent event) {
 		dialog = new ProgressDialog(this);
@@ -192,11 +203,17 @@ public class BusStopDetailsActivity extends BaseActivity implements
 		dialog.show();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.app.getconnected.rest.RESTRequestListener#RESTRequestOnProgressUpdate(com.app.getconnected.rest.RESTRequestEvent)
+	 */
 	@Override
 	public void RESTRequestOnProgressUpdate(RESTRequestEvent event) {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see com.app.getconnected.rest.RESTRequestListener#RESTRequestOnPostExecute(com.app.getconnected.rest.RESTRequestEvent)
+	 */
 	@Override
 	public void RESTRequestOnPostExecute(RESTRequestEvent event) {
 		dialog.dismiss();

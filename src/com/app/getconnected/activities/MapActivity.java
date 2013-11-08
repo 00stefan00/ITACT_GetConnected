@@ -77,7 +77,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 	}
 
 	/**
-	 * Creates the map
+	 * Creates the street map and shows it on screen.
 	 */
 	private void createMap() {
 		mapView = (MapView) findViewById(R.id.mapview);
@@ -92,7 +92,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 	}
 
 	/**
-	 * Adds an overlay to a location
+	 * Adds an overlay to the map that shows user's current location.
 	 */
 	private void addLocationOverlay() {
 		myLocationoverlay = new MyLocationOverlay(this, mapView);
@@ -111,19 +111,13 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 	}
 
 	/**
-	 * Loads the bus stops
+	 * Creates and executes query to get the correct bus stop information.
 	 */
 	private void loadBusStops() {
 		if (rR != null)
 			rR.cancel();
 		rR = new RESTRequest(Config.busStopAddress);
 		IGeoPoint point = mapView.getMapCenter();
-		System.out.println("Latitude according to getCenter: "
-				+ (double) point.getLatitudeE6() / 1000000);
-		System.out.println("Actual latitude: " + locator.getLatitude());
-		System.out.println("Longitude according to getCenter: "
-				+ (double) point.getLongitudeE6() / 1000000);
-		System.out.println("Actual Longitude: " + locator.getLongitude());
 		rR.putDouble("gps_longitude", (double) point.getLongitudeE6() / 1000000);
 		rR.putDouble("gps_latitude", (double) point.getLatitudeE6() / 1000000);
 		rR.putDouble("range", 1000);
@@ -132,7 +126,7 @@ public class MapActivity extends BaseActivity implements RESTRequestListener {
 	}
 
 	/**
-	 * TODO description
+	 * Class that forms the overlay to display the bus stops.
 	 */
 	public class MyOwnItemizedOverlay extends ItemizedIconOverlay<OverlayItem> {
 		protected Context mContext;
