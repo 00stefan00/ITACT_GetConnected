@@ -218,4 +218,14 @@
     <string name="join_ride_button_join">Verzoek om mee te rijden</string>
     <string name="join_ride_requested">Uw verzoek om mee te rijden is aangemaakt</string>
     
+    <string name="new_ride_available">Er is een nieuwe rit beschikbaar!</string>
+    <string name="new_ride_description">Klik hier om deze rit te accepteren of te weigeren</string>
+    <string name="join_notification">Iemand wil met u meerijden!</string>
+    <string name="join_description">Klik hier om te accepteren of te weigeren</string>
+    <string name="join_accepted">De bestuurder heeft uw verzoek geaccepteerd!</string>
+    <string name="join_accepted_description">Klik hier voor de details over uw rit</string>
+    <string name="title_activity_notifications">Notificaties</string>
+    <string name="title_activity_join_ride_notifications">Meerijden</string>
+   	<string name="join_response_message">Gefeliciteerd! De bestuurder heeft uw verzoek geaccepteerd. Hier beneden vind u de details van uw rit. Probeer op tijd aanwezig te zijn.</string>
+    
 </resources>

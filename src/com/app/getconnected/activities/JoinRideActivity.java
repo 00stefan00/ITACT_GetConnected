@@ -1,9 +1,13 @@
 package com.app.getconnected.activities;
 
+import java.sql.Timestamp;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.app.getconnected.R;
 import com.app.getconnected.activities.BaseActivity;
+import com.app.getconnected.sqllite.MarketplaceDatabaseHandler;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +22,7 @@ public class JoinRideActivity extends BaseActivity {
 	
   TableLayout tl;
   JSONObject obj;
+  MarketplaceDatabaseHandler helper = new MarketplaceDatabaseHandler(this);
   
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +110,11 @@ public class JoinRideActivity extends BaseActivity {
 		@Override
 		public void onClick(View v) {
 			Log.d("DEBUG", obj.toString());
+			
+			//Create timestamp and insert into sqlite
+		    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		    helper.executeQuery("INSERT INTO joins VALUES ('" + timestamp + "','" + obj.toString() + "')");
+		    
 			Toast toast = Toast.makeText(JoinRideActivity.this, getString(
 			        R.string.join_ride_requested), Toast.LENGTH_LONG);
 			toast.show();

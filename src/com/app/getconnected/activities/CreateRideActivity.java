@@ -1,5 +1,6 @@
 package com.app.getconnected.activities;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 
 import org.json.JSONException;
@@ -8,6 +9,7 @@ import org.json.JSONObject;
 import com.app.getconnected.R;
 import com.app.getconnected.network.GeoLocation;
 import com.app.getconnected.rides.SaveRides;
+import com.app.getconnected.sqllite.MarketplaceDatabaseHandler;
 import com.exception.getconnected.FieldValidationException;
 import com.util.getconnected.FieldValidator;
 
@@ -15,7 +17,6 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-//import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import android.widget.EditText;
 public class CreateRideActivity extends BaseActivity{
 	
   JSONObject output = null;
+  MarketplaceDatabaseHandler helper = new MarketplaceDatabaseHandler(this);
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +83,15 @@ public class CreateRideActivity extends BaseActivity{
 	  saveRides.setURL("/users/"+saveRides.getUsername()+"/rides/offers");
 	  
 	  try {
-      saveRides.createRequest();
-      new AlertDialog.Builder(this)
-      .setMessage(getString(R.string.create_ride_succes))
-      .show();
+		  //Create timestamp and insert into sqlite
+	      Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+	      helper.executeQuery("INSERT INTO rides VALUES ('" + timestamp + "','" + input + "')");
+	      
+	      saveRides.createRequest();
+	      
+	      new AlertDialog.Builder(this)
+	      .setMessage(getString(R.string.create_ride_succes))
+	      .show();
     } catch (Exception e) {
       
       e.printStackTrace();

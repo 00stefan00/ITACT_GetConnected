@@ -218,4 +218,15 @@
     <string name="join_ride_button_join">Request to join</string>
     <string name="join_ride_requested">Your join request has been made</string>
     
+    <!-- Notifications -->
+    <string name="new_ride_available">New ride is available!</string>
+    <string name="new_ride_description">Click here to join or refuse this ride</string>
+    <string name="join_notification">Someone requests to join one of your active rides!</string>
+    <string name="join_description">Click here to accept or refuse</string>
+    <string name="join_accepted">The driver accepted your request</string>
+    <string name="join_accepted_description">Click here to view details of this ride</string>
+    <string name="title_activity_notifications">Notifications</string>
+    <string name="title_activity_join_ride_notifications">Join rides</string>
+   	<string name="join_response_message">Congratulations! The driver has accepted your request. Below are the details of your ride. Try to be on time.</string>
+    
     </resources>

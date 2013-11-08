@@ -1,0 +1,43 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/joinRideNotificationMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context=".JoinRideNotificationsActivity" >
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/join_response_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/join_response_message"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </RelativeLayout>
+    		
+    <TableLayout
+        android:id="@+id/layoutNotificationJoinRide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top" >
+    </TableLayout>
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        layout="@layout/footer" />
+
+</TableLayout>
