@@ -1,139 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/header" />
+	<include
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			layout="@layout/header"
+			android:id="@+id/header" />
 
-    <TextView
-        android:id="@+id/busstop_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_username" />
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:layout_below="@+id/header">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:tag="required,alphanumeric"
-        android:inputType="text">
-        <requestFocus />
-    </EditText>
+		<TextView
+			android:id="@+id/busstop_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/field_username" />
 
-    <TextView
-        android:id="@+id/busstop_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_password" />
+		<EditText
+			android:id="@+id/username"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:ems="10"
+			android:tag="required,alphanumeric"
+			android:inputType="text">
+			<requestFocus />
+		</EditText>
 
-    <EditText
-        android:id="@+id/password"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:tag="required,minlength"/>
+		<TextView
+			android:id="@+id/busstop_number"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/field_password" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_first_name" />
+		<EditText
+			android:id="@+id/password"
+			android:inputType="textPassword"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:ems="10"
+			android:tag="required,minlength"/>
 
-    <EditText
-        android:id="@+id/first_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:tag="required"
-        android:inputType="text"/>
+		<TextView
+			android:id="@+id/textView7"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/field_email" />
+		<EditText
+			android:id="@+id/emailText"
+			android:inputType="textEmailAddress"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:ems="10"
+			android:tag="required,email"/>
+		<TextView
+			android:id="@+id/textView6"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/field_telephone_number" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_last_name" />
+		<EditText
+			android:id="@+id/telephone_number"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:ems="10"
+			android:tag="required,numeric"
+			android:inputType="number"
+			/>
 
-    <EditText
-        android:id="@+id/last_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:tag="required"
-        android:inputType="text"/>
-    
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_gender" />
+	</LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/gender"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+	<include
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			layout="@layout/footer" />
 
-        <RadioButton
-            android:id="@+id/gender_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/field_gender_male"
-            android:tag="M" />
-
-        <RadioButton
-            android:id="@+id/gender_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/field_gender_female"
-            android:tag="F" />
-      
-    </RadioGroup>
-    
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_telephone_number" />
-
-    <EditText
-        android:id="@+id/telephone_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:tag="required,numeric"
-        android:inputType="number"
-        />
-    
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/field_email" />
-
-    <EditText
-        android:id="@+id/emailText"
-        android:inputType="textEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:tag="required,email"/>
-
-    <Button
-        android:id="@+id/button_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:onClick="register" />
-
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/footer" />
-
-</LinearLayout>
+</RelativeLayout>

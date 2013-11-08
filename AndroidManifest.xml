@@ -89,11 +89,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.app.getconnected.activities.RequestRideActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="com.app.getconnected.activities.RegisterActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -163,6 +158,12 @@
             android:name="com.app.getconnected.activities.JoinRideNotificationsActivity"
             android:label="@string/title_activity_join_ride_notifications" >
         </activity>
-    </application>
+		<activity
+				android:name="com.app.getconnected.activities.RegisterAdditionalActivity"
+				android:label="@string/title_activity_register_additional"
+				android:screenOrientation="portrait" >
+		</activity>
+		<activity android:name=".activities.RegisterAdditionalActivity"/>
+	</application>
 
 </manifest>

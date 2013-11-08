@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+	<include
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			layout="@layout/header"
+			android:id="@+id/header" />
+
+	<LinearLayout
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:orientation="vertical"
+			  android:layout_below="@+id/header">
+
+
+		<TextView
+				android:id="@+id/textView3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/field_first_name" />
+
+		<EditText
+				android:id="@+id/first_name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:tag="required"
+				android:inputType="text"/>
+
+		<TextView
+				android:id="@+id/textView4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/field_last_name" />
+
+		<EditText
+				android:id="@+id/last_name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:tag="required"
+				android:inputType="text"/>
+
+		<TextView
+				android:id="@+id/textView5"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/field_gender" />
+
+		<RadioGroup
+				android:id="@+id/gender"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+			<RadioButton
+					android:id="@+id/gender_male"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/field_gender_male"
+					android:tag="M" />
+
+			<RadioButton
+					android:id="@+id/gender_female"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/field_gender_female"
+					android:tag="F" />
+
+		</RadioGroup>
+
+	</LinearLayout>
+
+	<include
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			layout="@layout/footer" />
+
+</RelativeLayout>

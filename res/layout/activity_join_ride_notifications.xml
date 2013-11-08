@@ -1,4 +1,4 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/joinRideNotificationMain"
     android:layout_width="match_parent"
@@ -12,32 +12,35 @@
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        layout="@layout/header" />
+        layout="@layout/header"
+		android:id="@+id/header" />
     
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:layout_below="@+id/header"
+			android:paddingLeft="5dp" >
 
         <TextView
             android:id="@+id/join_response_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="@string/join_response_message"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+			android:text="@string/join_response_message"
+            android:textAppearance="?android:attr/textAppearanceLarge" android:layout_alignParentLeft="true"
+			android:layout_alignParentTop="true"/>
+
+		<TableLayout
+				android:id="@+id/layoutNotificationJoinRide"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/join_response_message" >
+		</TableLayout>
     </RelativeLayout>
-    		
-    <TableLayout
-        android:id="@+id/layoutNotificationJoinRide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="top" >
-    </TableLayout>
 
     <include
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         layout="@layout/footer" />
 
-</TableLayout>
+</RelativeLayout>

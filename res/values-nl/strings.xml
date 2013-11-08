@@ -159,6 +159,7 @@
     <string name="locations">Locaties</string>
     <string name="field_validation_input_required">Vul aub alle verplichte velden in.</string>
     <string name="create_ride_succes">Uw rit is aangemaakt</string>
+	<string name="create_ride_fail">Er is iets fout gegaan. Probeer het later nog een keer</string>
 
     <!-- Offered Rides Activity -->
     <string name="title_activity_requestrides">Aangeboden ritten</string>
@@ -182,7 +183,8 @@
     <string name="field_gender_female">Vrouw</string>
     <string name="login">Inloggen</string>
     <string name="registration_failed">Het registreren is mislukt</string>
-    
+    <string name="title_activity_register_additional">Extra informatie</string>
+
     <!-- Unrated Rides Activity -->
     <string name="title_activity_unrated_rides">Onbeoordeelde ritten</string>
     <string name="unrated_ride_person_name">Bijnaam</string>

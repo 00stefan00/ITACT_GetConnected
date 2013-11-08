@@ -22,34 +22,16 @@
         android:paddingTop="10dp"
         android:text="@string/main_text"
         android:textStyle="bold" />
-
-    <include layout="@layout/footer" />
-
-    <Button
-        android:id="@+id/request_ride_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TextView1"
-        android:layout_marginLeft="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:background="@drawable/smooth_top_edges"
-        android:gravity="left|center_vertical|right"
-        android:drawableRight="@drawable/arrow_icon_20x20"
-        android:onClick="startIntentByButton"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:tag="RequestRideActivity"
-        android:text="@string/request_ride" />
     
     <Button
         android:id="@+id/create_ride_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+		android:layout_marginTop="17dp"
         android:layout_marginLeft="40dp"
-        android:layout_below="@+id/request_ride_btn"
+        android:layout_below="@+id/TextView1"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/smooth_button"
+        android:background="@drawable/smooth_top_edges"
         android:drawableRight="@drawable/arrow_icon_20x20"
         android:gravity="left|center_vertical|right"
         android:onClick="startIntentByButton"
@@ -106,5 +88,7 @@
             android:orientation="vertical" >
         </LinearLayout>
     </ScrollView>
+
+	<include layout="@layout/footer" />
 
 </RelativeLayout>

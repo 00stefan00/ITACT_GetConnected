@@ -27,26 +27,17 @@
             android:onClick="showDatePickerDialog"
             android:text="@string/change_date" />
 
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="@string/date"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+		<TableLayout
+				android:id="@+id/tableLayoutOfferedRides"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/button1" >
+		</TableLayout>
+
+		<include
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				layout="@layout/footer" />
+
     </RelativeLayout>
-
-    <TableLayout
-        android:id="@+id/tableLayoutOfferedRides"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="top" >
-    </TableLayout>
-
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        layout="@layout/footer" />
-
 </TableLayout>

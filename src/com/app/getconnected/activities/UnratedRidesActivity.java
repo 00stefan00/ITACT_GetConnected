@@ -87,7 +87,6 @@ public class UnratedRidesActivity extends BaseActivity {
 		TextView gender = new TextView(this);
 		gender.setText(genderv);
 		Button buttonRate = new Button(this);
-		// TODO use strings.xml
 		buttonRate.setText(getString(R.string.unrated_ride_button_rate));
 		buttonRate.setTag(rideIdv);
 		buttonRate.setOnClickListener(new View.OnClickListener() {

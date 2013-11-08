@@ -159,6 +159,7 @@
     <string name="locations">Locations</string>
     <string name="field_validation_input_required">Please fill in all required fields.</string>
     <string name="create_ride_succes">Your ride has been created</string>
+	<string name="create_ride_fail">The ride couldn\'t be created, try again later</string>
 
     <!-- Offered Rides Activity -->
     <string name="title_activity_offered_rides">Offered rides</string>
@@ -182,14 +183,15 @@
     <string name="field_gender_female">Female</string>
     <string name="login">Log in</string>
     <string name="registration_failed">The registration failed</string>
+	<string name="title_activity_register_additional">Additional info</string>
 
-    <!-- Unrated Rides Activity -->
+	<!-- Unrated Rides Activity -->
     <string name="title_activity_unrated_rides">Unrated rides</string>
-    <string name="unrated_ride_person_name">Bijnaam</string>
-    <string name="unrated_ride_person_gender">Geslacht</string>
-    <string name="unrated_ride_person_role">Rol</string>
-    <string name="unrated_ride_time_realized">Eindtijd</string>
-    <string name="unrated_ride_button_rate">\'Rate\'</string>
+    <string name="unrated_ride_person_name">Username</string>
+    <string name="unrated_ride_person_gender">Gender</string>
+    <string name="unrated_ride_person_role">Role</string>
+    <string name="unrated_ride_time_realized">End time</string>
+    <string name="unrated_ride_button_rate">Rate</string>
 
     <!--  Rate Ride Activity -->
     <string name="title_activity_rate_ride">Rate ride</string>
