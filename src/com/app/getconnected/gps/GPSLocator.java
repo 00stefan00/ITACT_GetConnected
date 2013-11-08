@@ -17,8 +17,9 @@ import android.provider.Settings;
  */
 public class GPSLocator implements com.app.getconnected.gps.Location, LocationListener {
 	
-	private double latitude = 0;
-	private double longitude = 0;
+	/** Unrealistic latitude and longitude to be able to test whether or not a valid location was retrieved. */
+	private double latitude = 999;
+	private double longitude = 999;
 	
 	private Context context;
 
@@ -60,7 +61,7 @@ public class GPSLocator implements com.app.getconnected.gps.Location, LocationLi
 	    intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
 	    intent.setData(Uri.parse("3"));
 	    context.sendBroadcast(intent);
-}
+	}
 	
 	/**
 	 * Get the latitude
@@ -82,7 +83,7 @@ public class GPSLocator implements com.app.getconnected.gps.Location, LocationLi
 	 * @return boolean 	True when valid location; false when invalid location
 	 */
 	public boolean isValidLocation() {
-		return getLatitude() != 0 && getLongitude() != 0;
+		return (latitude >= -90 || latitude <= 90) && (longitude >= -180 || longitude <= 180);
 	}
 
 	@Override
