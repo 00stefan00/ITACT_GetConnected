@@ -22,6 +22,7 @@
     <string name="small">Small</string>
     <string name="medium">Medium</string>
     <string name="big">Big</string>
+    <string name="language_picker">Choose language</string>
 
     <!-- Main Menu -->
     <string name="main_text">Navigate to one of the following pages by pressing the button.</string>

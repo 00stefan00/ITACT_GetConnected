@@ -23,6 +23,7 @@
     <string name="small">Klein</string>
     <string name="medium">Gemiddeld</string>
     <string name="big">Groot</string>
+    <string name="language_picker">Kies uw taal</string>
 
     <!-- Main Menu -->
     <string name="main_text">Navigeer hieronder naar één van de pagina\'s door erop te drukken.</string>
