@@ -1,17 +1,17 @@
 package com.app.getconnected.security;
 
 /**
- * Created with IntelliJ IDEA.
- * User: johan
- * Date: 11/1/13
- * Time: 11:48 AM
+ * @author getConnected 2
  */
-public class Register  extends Api {
 
-	private String username, password, firstName, lastName, telephoneNumber, email, gender;
+public class Register extends Api {
+
+	private String username, password, firstName, lastName, telephoneNumber,
+			email, gender;
 
 	/**
 	 * Constructor
+	 * 
 	 * @param username
 	 * @param password
 	 * @param firstName
@@ -20,7 +20,8 @@ public class Register  extends Api {
 	 * @param email
 	 * @param gender
 	 */
-	public Register(String username, String password, String firstName, String lastName, String telephoneNumber, String email, String gender) {
+	public Register(String username, String password, String firstName,
+			String lastName, String telephoneNumber, String email, String gender) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;

@@ -15,6 +15,10 @@ import com.app.getconnected.R;
 import java.sql.Timestamp;
 import java.util.HashMap;
 
+/**
+ * @author getConnected 2
+ */
+
 public class CustomerSupportActivity extends BaseActivity {
 	
 	EditText fieldFullname;

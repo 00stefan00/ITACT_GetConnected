@@ -14,6 +14,10 @@ import com.app.getconnected.R;
 import java.util.HashMap;
 import java.util.Locale;
 
+/**
+ * @author getConnected 2
+ */
+
 public class SettingsActivity extends BaseActivity {
 
 	RadioGroup languageOptions;

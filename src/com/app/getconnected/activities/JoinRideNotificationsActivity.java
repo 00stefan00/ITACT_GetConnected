@@ -12,6 +12,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+/**
+ * @author getConnected 2
+ */
+
 public class JoinRideNotificationsActivity extends NotificationsActivity {
 	
 	TableLayout tl;

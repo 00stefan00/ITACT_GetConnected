@@ -14,6 +14,10 @@ import com.app.getconnected.security.Register;
 import com.exception.getconnected.FieldValidationException;
 import com.util.getconnected.FieldValidator;
 
+/**
+ * @author getConnected 2
+ */
+
 public class RegisterAdditionalActivity extends BaseActivity {
 
 	EditText fieldFirstName;

@@ -18,6 +18,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @author getConnected 2
+ */
+
 public class JoinRideActivity extends BaseActivity {
 	
   TableLayout tl;

@@ -8,6 +8,10 @@ import com.app.getconnected.R;
 import com.exception.getconnected.FieldValidationException;
 import com.util.getconnected.FieldValidator;
 
+/**
+ * @author getConnected 2
+ */
+
 public class RegisterActivity extends BaseActivity {
 	
 	EditText fieldUsername;

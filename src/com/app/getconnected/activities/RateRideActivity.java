@@ -10,6 +10,10 @@ import android.widget.RadioGroup;
 
 import com.app.getconnected.R;
 
+/**
+ * @author getConnected 2
+ */
+
 public class RateRideActivity extends BaseActivity {
 	String rideId;
 	RadioGroup rideRatingField;

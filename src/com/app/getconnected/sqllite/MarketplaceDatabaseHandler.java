@@ -12,114 +12,131 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class MarketplaceDatabaseHandler extends SQLiteOpenHelper{
-	
+/**
+ * @author getConnected 2
+ */
+
+public class MarketplaceDatabaseHandler extends SQLiteOpenHelper {
+
 	final static int DB_VERSION = 1;
 	final static String DB_NAME = "marketplace.s3db";
-	
+
 	private Context context;
-	     
+
 	public MarketplaceDatabaseHandler(Context context) {
 		super(context, DB_NAME, null, DB_VERSION);
-	    this.context = context;
+		this.context = context;
 	}
-	
+
 	/**
 	 * Creates, if not already exists, tables rides and joins
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		try{
+		try {
 			database.execSQL("CREATE TABLE rides (timestamp TIMESTAMP PRIMARY KEY NOT NULL, "
-							+ "json VARCHAR NOT NULL)");
-			
+					+ "json VARCHAR NOT NULL)");
+
 			database.execSQL("CREATE TABLE joins (timestamp TIMESTAMP PRIMARY KEY NOT NULL, "
-							+ "json VARCHAR NOT NULL)");
-		}
-		catch (SQLException e){
+					+ "json VARCHAR NOT NULL)");
+		} catch (SQLException e) {
 			Log.e("Database", "Cannot create database: " + e);
 		}
-		
+
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
-		return;	
+	public void onUpgrade(SQLiteDatabase database, int oldVersion,
+			int newVersion) {
+		return;
 	}
-	
+
 	/**
-	 * Executes a SQL query without returning a result (For Inserts, Deletes and Updates)
+	 * Executes a SQL query without returning a result (For Inserts, Deletes and
+	 * Updates)
 	 * 
-	 * @param query, SQL query to be executed
+	 * @param query
+	 *            , SQL query to be executed
 	 */
-	public void executeQuery(String query){
-		try{
+	public void executeQuery(String query) {
+		try {
 			SQLiteDatabase database = this.getReadableDatabase();
 			database.execSQL(query);
 		}
-		
-		catch(SQLException e){
+
+		catch (SQLException e) {
 			Log.e("Database", "Query was not succesful: " + e);
 		}
 	}
-	
+
 	/**
 	 * Checks if database file is created
 	 * 
 	 * @return boolean, dbFileExists
 	 */
 	public boolean databaseExists() {
-		 File dbFile = context.getDatabasePath(DB_NAME);
-		 return dbFile.exists();
+		File dbFile = context.getDatabasePath(DB_NAME);
+		return dbFile.exists();
 	}
-	
+
 	/**
-	 * Send a query to the database which returns a List with results from the database or null when no results are found
-	 * When a parameter is not needed, use null instead
+	 * Send a query to the database which returns a List with results from the
+	 * database or null when no results are found When a parameter is not
+	 * needed, use null instead
 	 * 
-	 * @param table, table where query is executed
-	 * @param colomNames, String array with used coloms
-	 * @param where, where clause
-	 * @param selection, selection clause, joins etc
-	 * @param groupBy, group by clause
-	 * @param having, having clause
-	 * @param orderBy, order by colom
-	 * @param limit, limit results
+	 * @param table
+	 *            , table where query is executed
+	 * @param colomNames
+	 *            , String array with used coloms
+	 * @param where
+	 *            , where clause
+	 * @param selection
+	 *            , selection clause, joins etc
+	 * @param groupBy
+	 *            , group by clause
+	 * @param having
+	 *            , having clause
+	 * @param orderBy
+	 *            , order by colom
+	 * @param limit
+	 *            , limit results
 	 * 
-	 * @return List<HashMap<String colomName, String colomValue>>, null if no results were found
+	 * @return List<HashMap<String colomName, String colomValue>>, null if no
+	 *         results were found
 	 */
-	public List<HashMap<String, String>> sendQuery(String table, String[] colomNames, String where, String[] selection, String groupBy, String having, String orderBy, String limit){
+	public List<HashMap<String, String>> sendQuery(String table,
+			String[] colomNames, String where, String[] selection,
+			String groupBy, String having, String orderBy, String limit) {
 		List<HashMap<String, String>> resultArray = new ArrayList<HashMap<String, String>>();
-		
-		try{
+
+		try {
 			SQLiteDatabase database = this.getReadableDatabase();
-			Cursor recordSet = database.query(table, colomNames, where, selection, groupBy, having, orderBy, limit);
-			
-			
-			
-			while (recordSet.moveToNext()){
+			Cursor recordSet = database.query(table, colomNames, where,
+					selection, groupBy, having, orderBy, limit);
+
+			while (recordSet.moveToNext()) {
 				HashMap<String, String> rowMap = new HashMap<String, String>();
-				
-				for (int i=0; i < recordSet.getColumnCount(); i++){
-					rowMap.put(recordSet.getColumnName(i), recordSet.getString(i));
+
+				for (int i = 0; i < recordSet.getColumnCount(); i++) {
+					rowMap.put(recordSet.getColumnName(i),
+							recordSet.getString(i));
 				}
-				
+
 				resultArray.add(rowMap);
 			}
 		}
-		
-		catch(SQLException e){
+
+		catch (SQLException e) {
 			Log.e("Database", "Query was not succesful: " + e);
 		}
-		
-		if (resultArray.isEmpty()){
+
+		if (resultArray.isEmpty()) {
 			return null;
-			
-		} 
-		else{
+
+		} else {
 			return resultArray;
 		}
-		
+
 	}
 
 }

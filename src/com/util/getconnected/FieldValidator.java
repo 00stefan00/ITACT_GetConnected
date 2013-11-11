@@ -5,9 +5,9 @@ import com.app.getconnected.R;
 import com.exception.getconnected.FieldValidationException;
 
 /**
- * Created with IntelliJ IDEA. User: EnquiringStone Date: 17-10-13 Time: 14:02
- * To change this template use File | Settings | File Templates.
+ * @author getConnected 2
  */
+
 public class FieldValidator {
 
 	// TODO ENUM types would be more elegant than strings

@@ -5,6 +5,10 @@ import com.app.getconnected.notifications.CheckNotifications;
 
 import android.os.Bundle;
 
+/**
+ * @author getConnected 2
+ */
+
 public class MarketplaceActivity extends BaseActivity{
 	CheckNotifications checkNoti;
 

@@ -9,11 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created with IntelliJ IDEA.
- * User: johan
- * Date: 10/15/13
- * Time: 2:08 PM
+ * @author getConnected 2
  */
+
 public class JSONParser {
 
 	private static JSONParser instance;
@@ -26,6 +24,7 @@ public class JSONParser {
 
 	/**
 	 * Gets a JSONObject from the keyword
+	 * 
 	 * @param jsonObject
 	 * @param keyword
 	 * @return
@@ -38,6 +37,7 @@ public class JSONParser {
 
 	/**
 	 * Converts string to JSON
+	 * 
 	 * @param json
 	 * @return
 	 * @throws JSONException
@@ -48,6 +48,7 @@ public class JSONParser {
 
 	/**
 	 * Creates an arraylist of JSONObjects
+	 * 
 	 * @param json
 	 * @param keyword
 	 * @return
@@ -61,6 +62,7 @@ public class JSONParser {
 
 	/**
 	 * Parses a list to JSON
+	 * 
 	 * @param list
 	 * @param identifier
 	 * @return {"identifier" : ["value", "value2"]}
@@ -78,6 +80,7 @@ public class JSONParser {
 
 	/**
 	 * Parses a map as JSON array
+	 * 
 	 * @param map
 	 * @param identifier
 	 * @return {"identifier" : [{"key" : "value"},{"key1" : "value1"}]}
@@ -98,6 +101,7 @@ public class JSONParser {
 
 	/**
 	 * Parses a map as JSON object
+	 * 
 	 * @param map
 	 * @return String, example: {key : value, key1 : value1}
 	 * @throws JSONException
@@ -116,6 +120,7 @@ public class JSONParser {
 
 	/**
 	 * Converts JSONArray to an arraylist of JSONObjects
+	 * 
 	 * @param array
 	 * @return
 	 * @throws JSONException
@@ -131,6 +136,7 @@ public class JSONParser {
 
 	/**
 	 * Gets the instance of the JSONParser
+	 * 
 	 * @return JSONParser
 	 */
 	public static JSONParser getInstance() {

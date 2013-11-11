@@ -15,6 +15,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * @author getConnected 2
+ */
+
 public class UnratedRidesActivity extends BaseActivity {
 	TableLayout tl;
 	boolean isGray = false;

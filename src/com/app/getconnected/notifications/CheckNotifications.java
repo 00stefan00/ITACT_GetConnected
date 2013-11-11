@@ -14,6 +14,10 @@ import com.app.getconnected.activities.LoginActivity;
 import com.app.getconnected.activities.MarketplaceActivity;
 import com.app.getconnected.sqllite.MarketplaceDatabaseHandler;
 
+/**
+ * @author getConnected 2
+ */
+
 public class CheckNotifications{
 	
 	private BaseActivity mpActivity;

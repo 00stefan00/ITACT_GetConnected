@@ -9,11 +9,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 /**
- * Created with IntelliJ IDEA.
- * User: johan
- * Date: 11/1/13
- * Time: 11:48 AM
+ * @author getConnected 2
  */
+
 public abstract class Api {
 
 	private HashMap<String, String> map = new HashMap<String, String>();
@@ -22,28 +20,32 @@ public abstract class Api {
 
 	/**
 	 * Attempts an api request
+	 * 
 	 * @param url
 	 * @param method
 	 * @param key
 	 * @return
 	 * @throws Exception
 	 */
-	public String attemptApiRequest(String url, RESTRequest.Method method, String key) throws Exception {
-		if(map.isEmpty()) throw new Exception("The map is empty");
+	public String attemptApiRequest(String url, RESTRequest.Method method,
+			String key) throws Exception {
+		if (map.isEmpty())
+			throw new Exception("The map is empty");
 		RESTRequest restRequest = new RESTRequest(API_URL + url);
 		restRequest.setMethod(method);
 		JSONObject jsonObject = JSONParser.getInstance().parseMapAsObject(map);
-		String jsonString="{\""+ key +"\":" + jsonObject.toString()+"}";
+		String jsonString = "{\"" + key + "\":" + jsonObject.toString() + "}";
 		restRequest.putString("json", jsonString);
 
-		//TODO implement once API is reachable
-		//String result = request.execute().get();
-		//return result;
+		// TODO implement once API is reachable
+		// String result = request.execute().get();
+		// return result;
 		return "body";
 	}
 
 	/**
 	 * Adds a value to the hashmap
+	 * 
 	 * @param key
 	 * @param value
 	 */
@@ -60,6 +62,7 @@ public abstract class Api {
 
 	/**
 	 * Gets the hashmap
+	 * 
 	 * @return
 	 */
 	public HashMap<String, String> getMap() {

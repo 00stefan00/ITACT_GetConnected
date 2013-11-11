@@ -7,6 +7,10 @@ import com.app.getconnected.R;
 import android.os.Bundle;
 import android.view.Menu;
 
+/**
+ * @author getConnected 2
+ */
+
 public class NotificationsActivity extends BaseActivity {
 
 	@Override

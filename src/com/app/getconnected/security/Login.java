@@ -7,11 +7,9 @@ import com.app.getconnected.config.Config;
 import java.io.*;
 
 /**
- * Created with IntelliJ IDEA.
- * User: johan
- * Date: 11/1/13
- * Time: 11:47 AM
+ * @author getConnected 2
  */
+
 public class Login extends Api {
 
 	private Context context;
@@ -24,6 +22,7 @@ public class Login extends Api {
 
 	/**
 	 * Constructor
+	 * 
 	 * @param context
 	 * @param username
 	 * @param password
@@ -37,6 +36,7 @@ public class Login extends Api {
 
 	/**
 	 * Saves the credentials to a file within the mobile environment
+	 * 
 	 * @throws Exception
 	 */
 	public void saveCredentials() throws Exception {
@@ -44,7 +44,8 @@ public class Login extends Api {
 		new FileOutputStream(file, false).close();
 		String write = Cryptor.encrypt(username + ";" + password);
 		Log.d("write", write);
-		FileOutputStream outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+		FileOutputStream outputStream = context.openFileOutput(fileName,
+				Context.MODE_PRIVATE);
 		outputStream.write(write.getBytes());
 		outputStream.close();
 	}

@@ -19,6 +19,10 @@ import android.widget.TextView;
 
 import com.util.getconnected.ActivityHelper.DatePickerFragment;
 
+/**
+ * @author getConnected 2
+ */
+
 public class OfferedRidesActivity extends BaseActivity {
 	TableLayout tl;
 	ArrayList<ArrayList<View>> tableArray = new ArrayList<ArrayList<View>>();

@@ -8,11 +8,9 @@ import com.app.getconnected.config.Config;
 import com.util.getconnected.JSONParser;
 
 /**
- * Created with Microsoft Notepad.
- * User: johan
- * Date: 10/30/13
- * Time: 10:26 AM
+ * @author getConnected 2
  */
+
 public abstract class Rides {
 
 	private static final String baseURL = Config.OPEN_RIDE_API;
@@ -26,17 +24,14 @@ public abstract class Rides {
 	}
 
 	public String getUsername() {
-		//TODO make connection to database, get username
+		// TODO make connection to database, get username
 		return "e";
 	}
 
 	protected boolean isEmpty() {
 		String username = getUsername();
-		return username.equals("") || 
-				this.url.equals("") || 
-				this.url == null || 
-				this.JSONKey.equals("") || 
-				this.JSONKey == null;
+		return username.equals("") || this.url.equals("") || this.url == null
+				|| this.JSONKey.equals("") || this.JSONKey == null;
 	}
 
 	protected ArrayList<JSONObject> parseJSONAsArray(String json) {
@@ -49,7 +44,7 @@ public abstract class Rides {
 		}
 		return jsonObjects;
 	}
-	
+
 	protected JSONObject parseJSONAsObject(String json) {
 		JSONObject jsonObject = null;
 		try {
@@ -64,10 +59,9 @@ public abstract class Rides {
 	protected String getUrl() {
 		return baseURL + url;
 	}
-	
-	public void setJsonKey(String jsonKey)
-	{
-		this.JSONKey=jsonKey;
+
+	public void setJsonKey(String jsonKey) {
+		this.JSONKey = jsonKey;
 	}
 
 	public abstract ArrayList<JSONObject> createRequest() throws Exception;

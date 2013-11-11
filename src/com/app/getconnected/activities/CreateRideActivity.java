@@ -31,7 +31,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-//import android.util.Log;
+/**
+ * @author getConnected 2
+ */
 
 public class CreateRideActivity extends BaseActivity implements
 		View.OnFocusChangeListener, OnClickListener {

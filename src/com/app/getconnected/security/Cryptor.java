@@ -3,15 +3,14 @@ package com.app.getconnected.security;
 import android.util.Base64;
 
 /**
- * Created with IntelliJ IDEA.
- * User: 	johan
- * Date: 	11/1/13
- * Time: 	1:37 PM
+ * @author getConnected 2
  */
+
 public class Cryptor {
 
 	/**
 	 * Encodes the cleartext
+	 * 
 	 * @param cleartext
 	 * @return
 	 * @throws Exception
@@ -28,6 +27,7 @@ public class Cryptor {
 
 	/**
 	 * Decodes the encrypted text
+	 * 
 	 * @param encrypted
 	 * @return
 	 * @throws Exception

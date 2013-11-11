@@ -6,11 +6,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created with Microsoft Notepad.
- * User: johan
- * Date: 10/28/13
- * Time: 1:56 PM
+ * @author getConnected 2
  */
+
 public class SaveRides extends Rides implements Argumentable {
 
 	private String argument;
@@ -19,16 +17,20 @@ public class SaveRides extends Rides implements Argumentable {
 
 	@Override
 	public ArrayList<JSONObject> createRequest() throws Exception {
-		if(isEmpty()) throw new Exception("Not all arguments have been filled");
-		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.POST, "1");
+		if (isEmpty())
+			throw new Exception("Not all arguments have been filled");
+		RESTRequest restRequest = new RESTRequest(getUrl(),
+				RESTRequest.Method.POST, "1");
 		restRequest.putString(key, argument);
 		String json = restRequest.execute().get();
 		return parseJSONAsArray(json);
 	}
-	
+
 	public JSONObject createRequestJsonObject() throws Exception {
-		if(isEmpty()) throw new Exception("Not all arguments have been filled");
-		RESTRequest restRequest = new RESTRequest(getUrl(), RESTRequest.Method.POST, "1");
+		if (isEmpty())
+			throw new Exception("Not all arguments have been filled");
+		RESTRequest restRequest = new RESTRequest(getUrl(),
+				RESTRequest.Method.POST, "1");
 		restRequest.putString(key, argument);
 		String json = restRequest.execute().get();
 		return parseJSONAsObject(json);
