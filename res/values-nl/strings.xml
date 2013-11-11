@@ -87,6 +87,16 @@
 		Als u één van de bushaltes aantikt, zult u naar een andere pagina gestuurd worden. 
 		Op deze pagina ziet u meer informatie over de halte. 
 		Als u vervolgens terug wilt naar de kaart kunt u op de knop “Terug” drukken.</string>
+	<string name="help_plan">Om een reis te plannen drukt u op de "Transport" knop in het hoofdmenu of het snelmenu.
+	    Dit brengt u naar de pagina waar u kunt kiezen welke reismogelijkheden u wilt gebruiken voor de reis. 
+	    Als u tevreden bent met uw keuze kunt u op de "Volgende" knop drukken.\n\n
+	    
+	    Op de pagina die vervolgens verschijnt, kunt u de locatie selecteren vanwaaruit u uw reis wilt beginnen, de locatie waar u naartoe wilt reizen en de datum en tijd waarop u wil reizen.
+	    De tijd die u invult kan ofwel de tijd zijn dat u wilt vertrekken of wanneer u wilt aankomen.
+	    Als u alles heeft gezet zoals u wilt, kunt u op de "OK" knop drukken.\n\n
+	    
+	    Er zal een lijst met mogelijke reisopties verschijnen. 
+	    Druk op de reisoptie die u het meest bevalt om meer details over die reis te zien.</string>
     <string name="help_basic_home_button_title">Home knop</string>
     <string name="help_basic_home_button_text">De Home knop is gesitueerd aan de rechter boven kant van uw scherm. Als u op deze knop drukt toont de applicatie het beginscherm waarop het menu te zien is.</string>
     <string name="help_basic_quick_menu_title">Snel menu</string>
