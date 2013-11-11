@@ -86,6 +86,18 @@
 		If you tap on one of the bus stops, you will be directed to another page. 
 		This page shows more details about the bus stop. 
 		If you would like to return to the map, just press the “Back” button.</string>
+	<string name="help_plan">
+	    In order to plan a trip, press the “Transport” button either in the main menu, or in the quick menu.
+	    This will bring up the page that allows you to select the means of transportation. When you’re
+	    satisfied with your choice, press the “Next” button.\n\n
+	    
+	    On the page that appears, you will be able to select the location you’d like to travel from, the
+	    location you’d like to travel to, the date on which you’d like to travel, and the time you either want
+	    to leave or arrive. When everything is set to your likings, press the “Ok” button.\n\n
+	    
+	    A list of suggested travel routes is presented on the page that follows. Press on the travel route that
+	    fits your needs most, to see more information about this travel route.
+	</string>
     <string name="help_basic_home_button_title">Home button</string>
     <string name="help_basic_home_button_text">The Home button is situated in the upper right corner of the screen. If this button is pressed the application will rederect you to the starting screen of the application.</string>
     <string name="help_basic_quick_menu_title">Quick menu</string>

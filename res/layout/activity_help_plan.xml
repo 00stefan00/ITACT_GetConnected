@@ -7,6 +7,17 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context=".HelpPlanActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/include1"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/help_plan"
+        android:textStyle="bold" />
     
     <include
         android:id="@+id/include1"
@@ -19,16 +30,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         layout="@layout/footer" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/include1"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="18dp"
-        android:text="Text"
-        android:textStyle="bold" />
 
 </RelativeLayout>
