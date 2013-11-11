@@ -1,28 +1,30 @@
 package com.app.getconnected.activities;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.app.getconnected.R;
 import android.content.Intent;
 import android.graphics.Color;
-import android.app.DialogFragment;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TableLayout;
 import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.util.getconnected.ActivityHelper.DatePickerFragment;
-
 public class OfferedRidesActivity extends BaseActivity {
 	TableLayout tl;
 	ArrayList<ArrayList<View>> tableArray = new ArrayList<ArrayList<View>>();
 	boolean isGray = false;
+	DatePickerDialog dd;
+	private final Calendar calendarDate = Calendar.getInstance();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,9 @@ public class OfferedRidesActivity extends BaseActivity {
 		setContentView(R.layout.activity_offered_rides);
 		initLayout(R.string.title_activity_offered_rides, true, true, true,
 				false);
-
 		tableinit();
 		addTableRow("08:30", "12:00", "Groningen", "Berlijn", true, 2, "sjors", "m");
-		addTableRow("08:30", "12:00", "Groningen", "Berlijn", true, 3, "abaj", "f");
+		addTableRow("08:30", "12:00", "Groningen", "Berlijn", true, 3, "denko", "f");
 	}
 
 	/**
@@ -151,19 +152,10 @@ public class OfferedRidesActivity extends BaseActivity {
 	 * @param v
 	 */
 	public void showDatePickerDialog(View v) {
-		DialogFragment newFragment = new DatePickerFragment();
-		newFragment.show(getFragmentManager(), "datePicker");
-
-		if (DatePickerFragment.year == 2014) {
-			tl.removeAllViewsInLayout();
-			tableinit();
-		}
-		if (DatePickerFragment.year == 2013) {
-			tl.removeAllViewsInLayout();
-			tableinit();
-		}
-		tl.invalidate();
-		tl.refreshDrawableState();
+		new DatePickerDialog(OfferedRidesActivity.this, datePicker,
+				calendarDate.get(Calendar.YEAR), calendarDate
+				.get(Calendar.MONTH), calendarDate
+				.get(Calendar.DAY_OF_MONTH)).show();
 	}
 	
 	private int getColor()
@@ -174,4 +166,26 @@ public class OfferedRidesActivity extends BaseActivity {
 		}
 		return Color.WHITE;
 	}
+	
+		final DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
+
+			@Override
+			public void onDateSet(DatePicker view, int year, int monthOfYear,
+								  int dayOfMonth) {
+				if(year==2013)
+				{
+					tl.removeAllViewsInLayout();
+					tableinit();
+					addTableRow("08:30", "12:00", "Groningen", "Berlijn", true, 2, "sjors", "m");
+					addTableRow("08:30", "12:00", "Groningen", "Berlijn", true, 3, "denko", "f");
+				}
+				else
+				{
+					tl.removeAllViewsInLayout();
+					tableinit();
+				}
+				tl.invalidate();
+				tl.refreshDrawableState();
+			}
+		};
 }
