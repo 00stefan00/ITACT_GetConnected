@@ -5,6 +5,9 @@ import com.app.getconnected.R;
 import android.os.Bundle;
 import android.view.Menu;
 
+/**
+ * @author getConnected 1
+ */
 public class HelpActivity extends BaseActivity {
 
 	@Override

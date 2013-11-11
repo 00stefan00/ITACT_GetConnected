@@ -21,6 +21,8 @@ import org.apache.http.message.BasicNameValuePair;
 import android.os.AsyncTask;
 
 /**
+ * @author Stefan Boonstra - getConnected 1
+ * 
  * The RESTRequest class simplifies the process of making RESTful requests to the web address of choice.
  */
 public class RESTRequest extends AsyncTask<Void, Void, String>

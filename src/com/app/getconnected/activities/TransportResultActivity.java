@@ -15,6 +15,9 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author getConnected 1
+ */
 @SuppressLint("DefaultLocale")
 public class TransportResultActivity extends BaseActivity {
 

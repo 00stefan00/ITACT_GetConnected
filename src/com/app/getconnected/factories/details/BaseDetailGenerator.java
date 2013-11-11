@@ -11,6 +11,9 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author getConnected 1
+ */
 public abstract class BaseDetailGenerator {
 
 	protected View view;

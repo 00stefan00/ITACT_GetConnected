@@ -31,8 +31,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 /**
- * @author 	Jorian Plat <jorianplat@hotmail.com>
+ * @author 	Jorian Plat <jorianplat@hotmail.com> - getConnected 1
  * @version 1.0			
  * @since	2013-10-07
  */

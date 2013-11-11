@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.app.getconnected.R;
 
+/**
+ * @author getConnected 1
+ */
 public class BusDetailGenerator extends BaseDetailGenerator {
 
 	protected TextView busLine;

@@ -6,6 +6,9 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.view.View;
 
+/**
+ * @author getConnected 1
+ */
 public class TrainDetailGenerator extends BaseDetailGenerator {
 
 	/**

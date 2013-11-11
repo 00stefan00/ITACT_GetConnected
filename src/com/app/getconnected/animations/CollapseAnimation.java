@@ -6,11 +6,10 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 
 /**
- * @author 	Daniï¿½l Zijlstra 
+ * @author 	Daniël Zijlstra - getConnected 1 
  * @version 1.0			
  * @since	2013-10-20
  */
-
 public class CollapseAnimation extends Animation implements Animation.AnimationListener {
 
 	private View view;

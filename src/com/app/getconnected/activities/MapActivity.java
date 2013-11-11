@@ -29,7 +29,9 @@ import org.osmdroid.views.overlay.OverlayItem;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author getConnected 1
+ */
 public class MapActivity extends BaseActivity implements RESTRequestListener {
 
 	private MapController mapController;

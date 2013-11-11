@@ -6,7 +6,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 
 /**
- * @author 	Daniel Zijlstra
+ * @author 	Daniel Zijlstra - getConnected 1
  * @version 1.0			
  * @since	2013-10-20
  */

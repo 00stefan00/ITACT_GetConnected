@@ -2,6 +2,9 @@ package com.app.getconnected.rest;
 
 import java.util.EventObject;
 
+/**
+ * @author getConnected 1
+ */
 public class RESTRequestEvent extends EventObject
 {
 	/** Serial */

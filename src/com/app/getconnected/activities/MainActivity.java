@@ -5,6 +5,9 @@ import com.exception.getconnected.UncaughtExceptionHandler;
 import android.os.Bundle;
 import android.view.Menu;
 
+/**
+ * @author getConnected 1
+ */
 public class MainActivity extends BaseActivity {
 
 	@Override

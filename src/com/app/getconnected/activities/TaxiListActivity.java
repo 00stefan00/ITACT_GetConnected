@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
+/**
+ * @author getConnected 1
+ */
 public class TaxiListActivity extends BaseActivity {
 
 	@Override

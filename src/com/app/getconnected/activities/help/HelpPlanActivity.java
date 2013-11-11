@@ -6,6 +6,9 @@ import android.view.Menu;
 import com.app.getconnected.R;
 import com.app.getconnected.activities.BaseActivity;
 
+/**
+ * @author getConnected 1
+ */
 public class HelpPlanActivity extends BaseActivity {
 
 	@Override

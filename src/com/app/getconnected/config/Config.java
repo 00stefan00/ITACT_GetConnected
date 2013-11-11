@@ -1,5 +1,8 @@
 package com.app.getconnected.config;
 
+/**
+ * @author getConnected 1
+ */
 public class Config
 {
 	public static String busStopAddress = "http://145.37.92.97/BusStops/api/busstop/";

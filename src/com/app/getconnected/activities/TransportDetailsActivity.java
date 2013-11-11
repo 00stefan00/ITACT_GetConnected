@@ -12,6 +12,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * @author getConnected 1
+ */
 public class TransportDetailsActivity extends BaseActivity {
 
 	private int page = 0;

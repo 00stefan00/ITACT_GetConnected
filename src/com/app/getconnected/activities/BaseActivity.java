@@ -22,6 +22,9 @@ import com.app.getconnected.security.Login;
 
 import java.io.*;
 
+/**
+ * @author getConnected 1
+ */
 public abstract class BaseActivity extends Activity {
 
 	protected TextView txtHeading;

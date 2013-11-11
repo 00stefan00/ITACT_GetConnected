@@ -13,6 +13,9 @@ import org.json.JSONObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+/**
+ * @author getConnected 1
+ */
 @SuppressLint("DefaultLocale")
 public class Detailfactory {
 

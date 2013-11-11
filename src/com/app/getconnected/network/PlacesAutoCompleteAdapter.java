@@ -19,6 +19,9 @@ import java.util.ArrayList;
 
 import com.app.getconnected.R;
 
+/**
+ * @author getConnected 1
+ */
 public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements Filterable {
     private ArrayList<String> resultList;
     

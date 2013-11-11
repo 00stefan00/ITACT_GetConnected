@@ -5,6 +5,9 @@ import android.widget.Toast;
 
 import com.app.getconnected.config.Config;
 
+/**
+ * @author getConnected 1
+ */
 public class UncaughtExceptionHandler
 {
 	protected UncaughtExceptionHandler(){ }
